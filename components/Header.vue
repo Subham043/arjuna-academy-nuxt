@@ -20,17 +20,6 @@
                     </div>
                     <div class="col-lg-3 col-md-4">
                         <div class="header-right">
-                            <div class="header-language dropdown language-option">
-                                <button class="dropdown-toggle" type="button" id="language1" data-bs-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    <span class="lang-name"></span>
-                                </button>
-                                <div class="dropdown-menu language-dropdown-menu" aria-labelledby="language1">
-                                    <a class="dropdown-item" href="#"> English </a>
-                                    <a class="dropdown-item" href="#"> 简体中文 </a>
-                                    <a class="dropdown-item" href="#"> العربيّة </a>
-                                </div>
-                            </div>
                             <ul class="social-list">
                                 <li>
                                     <a href="https://www.facebook.com/" target="_blank">

@@ -17,6 +17,8 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     '~/static/css/bootstrap.min.css',
+    '~/static/fonts/remixicon.css',
+    '~/static/fonts/flaticon.css',
     '~/static/css/style.css',
     '~/static/css/responsive.css',
   ],
@@ -48,7 +50,7 @@ export default {
     ["vue-toastification/nuxt", {
       timeout: 8000,
       position: "bottom-center"
-    }]
+    }],
   ],
 
   publicRuntimeConfig: {

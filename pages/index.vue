@@ -306,7 +306,6 @@ import TestimonialCard from '~/components/TestimonialCard.vue';
 import WhatWeDoCard from '~/components/WhatWeDoCard.vue';
 import WhoWeAreCard from '~/components/WhoWeAreCard.vue';
 
-
 export default {
     name: "IndexPage",
     layout: "MainPageLayout",

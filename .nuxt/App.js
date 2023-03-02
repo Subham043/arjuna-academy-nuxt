@@ -10,6 +10,10 @@ import '../node_modules/element-ui/lib/theme-chalk/index.css'
 
 import '../static/css/bootstrap.min.css'
 
+import '../static/fonts/remixicon.css'
+
+import '../static/fonts/flaticon.css'
+
 import '../static/css/style.css'
 
 import '../static/css/responsive.css'
