@@ -1,18 +1,6 @@
 <template>
     <div>
-        <div class="inner-banner inner-banner-bg12">
-            <div class="container">
-                <div class="inner-title text-center">
-                    <h3>Leadership Team</h3>
-                    <ul>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>Leadership Team</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <Breadcrumb title="Leadership Team" />
 
         <div class="instructors-details-area pt-100 pb-70">
             <div class="container">
@@ -429,6 +417,8 @@ Patent Holder of US Patent No: US9977454B1</i>
 </template>
 
 <script>
+import Breadcrumb from '~/components/Breadcrumb.vue';
+
 
 
 export default {
@@ -443,5 +433,6 @@ export default {
             this.$scrollTo("#__nuxt", 0, { force: true });
         }
     },
+    components: { Breadcrumb }
 }
 </script>

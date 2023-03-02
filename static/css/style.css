@@ -5158,7 +5158,8 @@ Enrolled Area
 }
 
 .enrolled-img-three img {
-  max-width: 600px;
+  max-width: 100%;
+  width: 100%;
   border-radius: 10px;
 }
 

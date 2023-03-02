@@ -8,14 +8,12 @@
                             <ul>
                                 <li>
                                     <i class="ri-phone-fill"></i>
-                                    <a href="%2b1(135)19842020.html">+1(135) 1984 2020</a>
+                                    <a href="tel:+917676642258">76766 42258</a>
                                 </li>
                                 <li>
                                     <i class="ri-mail-fill"></i>
                                     <a
-                                        href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#0c65626a634c60696879226f6361"><span
-                                            class="__cf_email__"
-                                            data-cfemail="1c75727a735c70797869327f7371">[email&#160;protected]</span></a>
+                                        href="mailto:info@aaaedu.in"><span>info@aaaedu.in</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -61,10 +59,10 @@
                 <div class="container">
                     <div class="mobile-responsive-menu">
                         <div class="logo">
-                            <a href="index.html">
+                            <NuxtLink to="/">
                                 <img src="/images/logos/new-logo.png" class="logo-one" alt="logo" />
                                 <img src="/images/logos/new-logo.png" class="logo-two" alt="logo" />
-                            </a>
+                            </NuxtLink>
                         </div>
                     </div>
                 </div>
@@ -73,200 +71,92 @@
             <div class="desktop-nav nav-area">
                 <div class="container-fluid">
                     <nav class="navbar navbar-expand-md navbar-light">
-                        <a class="navbar-brand" href="index.html">
+                        <NuxtLink to="/" class="navbar-brand">
                             <img src="/images/logos/new-logo.png" class="logo-one" alt="Logo" />
                             <img src="/images/logos/new-logo.png" class="logo-two" alt="Logo" />
-                        </a>
+                        </NuxtLink>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link dropdown-toggle active"> Home </a>
+                                    <NuxtLink to="/" class="nav-link active"> Home </NuxtLink>
+                                </li>
+                                <li class="nav-item">
+                                    <NuxtLink to="/about-us" class="nav-link dropdown-toggle"> About Us </NuxtLink>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a href="index.html" class="nav-link"> Home Demo - 1 </a>
+                                            <NuxtLink to="/mission-vision" class="nav-link"> Mission & Vision </NuxtLink>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="index-2.html" class="nav-link">
-                                                Home Demo - 2
-                                            </a>
+                                            <NuxtLink to="/leadership-team" class="nav-link"> Leadership Team & Faculty </NuxtLink>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="index-3.html" class="nav-link active">
-                                                Home Demo - 3
-                                            </a>
+                                            <NuxtLink to="/testimonial" class="nav-link"> Testimonial </NuxtLink>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link dropdown-toggle"> Pages </a>
+                                    <NuxtLink to="#" class="nav-link dropdown-toggle"> Courses </NuxtLink>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a href="about.html" class="nav-link"> About Us </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="testimonials.html" class="nav-link">
-                                                Testimonials
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="faq.html" class="nav-link"> FAQ </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="cart.html" class="nav-link"> Cart </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="checkout.html" class="nav-link"> Checkout </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link dropdown-toggle">
-                                                Instructors
-                                            </a>
+                                            <NuxtLink to="/courses" class="nav-link dropdown-toggle"> School (Std VIII to X) </NuxtLink>
                                             <ul class="dropdown-menu">
                                                 <li class="nav-item">
-                                                    <a href="instructors.html" class="nav-link">
-                                                        Instructors
-                                                    </a>
+                                                    <NuxtLink to="/courses/detail" class="nav-link"> Class 8 Foundation Course </NuxtLink>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a href="instructors-details.html" class="nav-link">
-                                                        Instructors Details
-                                                    </a>
+                                                    <NuxtLink to="/courses/detail" class="nav-link"> Class 9 Foundation Course </NuxtLink>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="pricing.html" class="nav-link"> Pricing Plan </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link dropdown-toggle"> User </a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
-                                                    <a href="signin.html" class="nav-link"> Sign in </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="signup.html" class="nav-link"> Sign Up </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="forgot-password.html" class="nav-link">
-                                                        Forgot Password
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="terms-condition.html" class="nav-link">
-                                                Terms & Conditions
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="privacy-policy.html" class="nav-link">
-                                                Privacy Policy
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="404.html" class="nav-link"> 404 Page </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="coming-soon.html" class="nav-link">
-                                                Coming Soon
-                                            </a>
+                                            <NuxtLink to="/courses/detail" class="nav-link"> Digital Live Classes </NuxtLink>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link dropdown-toggle"> Courses </a>
+                                    <NuxtLink to="#" class="nav-link dropdown-toggle"> Achievers </NuxtLink>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a href="courses.html" class="nav-link"> Courses </a>
+                                            <NuxtLink to="/achievers" class="nav-link"> JEE </NuxtLink>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="courses-list.html" class="nav-link">
-                                                Courses List
-                                            </a>
+                                            <NuxtLink to="/achievers" class="nav-link"> NEET </NuxtLink>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="courses-sidebar.html" class="nav-link">
-                                                Courses Sidebar
-                                            </a>
+                                            <NuxtLink to="/achievers" class="nav-link"> K-CET </NuxtLink>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="courses-details.html" class="nav-link">
-                                                Courses Details
-                                            </a>
+                                            <NuxtLink to="/achievers" class="nav-link"> NSTSE </NuxtLink>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link dropdown-toggle"> Event </a>
+                                    <NuxtLink to="#" class="nav-link dropdown-toggle"> Knowledge Desk </NuxtLink>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a href="event.html" class="nav-link">Event</a>
+                                            <NuxtLink to="/knowledge-desk" class="nav-link"> Blogs </NuxtLink>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="event-details.html" class="nav-link">Event Details</a>
+                                            <NuxtLink to="/expert-tips" class="nav-link"> Expert Tips </NuxtLink>
+                                        </li>
+                                        <li class="nav-item">
+                                            <NuxtLink to="/faq" class="nav-link"> FAQ </NuxtLink>
+                                        </li>
+                                        <li class="nav-item">
+                                            <NuxtLink to="#" class="nav-link"> Vriddhi </NuxtLink>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link dropdown-toggle"> Blog </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="blog.html" class="nav-link"> Blog Grid </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="blog-2.html" class="nav-link">
-                                                Blog Left Sidebar
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="blog-3.html" class="nav-link">
-                                                Blog Right Sidebar
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="author.html" class="nav-link"> Author </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="categories.html" class="nav-link">
-                                                Categories
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="tags.html" class="nav-link"> Tags </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link dropdown-toggle">
-                                                Single Blog
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
-                                                    <a href="single-blog-1.html" class="nav-link">
-                                                        Default
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="single-blog-2.html" class="nav-link">
-                                                        With Video
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="single-blog-3.html" class="nav-link">
-                                                        With Images Slider
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                    <NuxtLink to="/events" class="nav-link"> Upcoming Events </NuxtLink>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="contact.html" class="nav-link"> Contact Us </a>
+                                    <NuxtLink to="/contact-us" class="nav-link"> Contact Us </NuxtLink>
+                                </li>
+                                <li class="nav-item">
+                                    <NuxtLink to="/auth/sign-in" class="nav-link"> Sign In </NuxtLink>
                                 </li>
                             </ul>
-                            <div class="others-options d-flex align-items-center">
-                                <div class="optional-item">
-                                    <a href="signup.html" class="default-btn two border-radius-50">Sign Up</a>
-                                </div>
-                            </div>
                         </div>
                     </nav>
                 </div>
@@ -278,23 +168,6 @@
                             <div class="circle circle-one"></div>
                             <div class="circle circle-two"></div>
                             <div class="circle circle-three"></div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="side-nav-inner">
-                            <div class="side-nav justify-content-center align-items-center">
-                                <div class="side-item">
-                                    <form class="search-form">
-                                        <input type="search" class="form-control" placeholder="Search courses" />
-                                        <button type="submit">
-                                            <i class="ri-search-line"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                                <div class="side-item">
-                                    <a href="signup.html" class="default-btn two">Sign Up</a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

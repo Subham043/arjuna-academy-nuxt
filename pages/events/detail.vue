@@ -1,18 +1,6 @@
 <template>
     <div>
-        <div class="inner-banner inner-banner-bg3">
-            <div class="container">
-                <div class="inner-title text-center">
-                    <h3>Single Event</h3>
-                    <ul>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>Single Event</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <Breadcrumb title="Event Detail" />
 
         <div class="event-details-area pt-100 pb-70">
             <div class="container">
@@ -53,10 +41,6 @@
                                 ducimus. Vel et vitae nam aperiam nostrum It is a long
                                 established fact that a reader will be distracted
                             </p>
-                            <div class="contact-map event-details-mt-30">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.972641599872!2d-122.40869708532713!3d37.790680919018435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808bfb7cb35b%3A0x9b649f6a7d9c50e8!2s560%20Bush%20St%20%235%2C%20San%20Francisco%2C%20CA%2094108%2C%20USA!5e0!3m2!1sen!2sbd!4v1641381557316!5m2!1sen!2sbd"></iframe>
-                            </div>
                             <h3 class="event-details-mt-30">Our speakers</h3>
                             <div class="row justify-content-center event-details-mt-30">
                                 <div class="col-lg-3 col-md-6">
@@ -269,6 +253,8 @@
 </template>
 
 <script>
+import Breadcrumb from '~/components/Breadcrumb.vue';
+
 
 export default {
     name: "EventDetailPage",
@@ -283,37 +269,38 @@ export default {
         return {
             blog_data: [
                 {
-                    title: 'All that is wrong with codding in the field of apprentices',
-                    description: 'Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.',
-                    image: '/images/blog/blog-img4.jpg'
+                    title: "All that is wrong with codding in the field of apprentices",
+                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                    image: "/images/blog/blog-img4.jpg"
                 },
                 {
-                    title: 'How to use technology to adapt your talent to the world',
-                    description: 'Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.',
-                    image: '/images/blog/blog-img2.jpg'
+                    title: "How to use technology to adapt your talent to the world",
+                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                    image: "/images/blog/blog-img2.jpg"
                 },
                 {
-                    title: 'Here are the things to look for when selecting an online course',
-                    description: 'Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.',
-                    image: '/images/blog/blog-img5.jpg'
+                    title: "Here are the things to look for when selecting an online course",
+                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                    image: "/images/blog/blog-img5.jpg"
                 },
                 {
-                    title: 'All that is wrong with codding in the field of apprentices',
-                    description: 'Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.',
-                    image: '/images/blog/blog-img4.jpg'
+                    title: "All that is wrong with codding in the field of apprentices",
+                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                    image: "/images/blog/blog-img4.jpg"
                 },
                 {
-                    title: 'How to use technology to adapt your talent to the world',
-                    description: 'Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.',
-                    image: '/images/blog/blog-img2.jpg'
+                    title: "How to use technology to adapt your talent to the world",
+                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                    image: "/images/blog/blog-img2.jpg"
                 },
                 {
-                    title: 'Here are the things to look for when selecting an online course',
-                    description: 'Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.',
-                    image: '/images/blog/blog-img5.jpg'
+                    title: "Here are the things to look for when selecting an online course",
+                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                    image: "/images/blog/blog-img5.jpg"
                 },
             ],
         };
     },
+    components: { Breadcrumb }
 }
 </script>

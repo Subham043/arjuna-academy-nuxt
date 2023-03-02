@@ -1,23 +1,23 @@
 <template>
     <div class="blog-card">
-        <a href="single-blog-1.html">
+        <NuxtLink to="/knowledge-desk/detail">
             <img :src="image" alt="Blog" />
-        </a>
+        </NuxtLink>
         <div class="content">
             <ul>
                 <li><i class="ri-calendar-todo-fill"></i> Jan 12,2022</li>
                 <li>
                     <i class="ri-price-tag-3-fill"></i>
-                    <a href="tags.html">Education</a>
+                    <NuxtLink to="/knowledge-desk/detail">Education</NuxtLink>
                 </li>
             </ul>
             <h3>
-                <a href="single-blog-1.html">{{ title }}</a>
+                <NuxtLink to="/knowledge-desk/detail">{{ title }}</NuxtLink>
             </h3>
             <p>
                 {{ description }}
             </p>
-            <a href="single-blog-1.html" class="read-btn">Read More</a>
+            <NuxtLink to="/knowledge-desk/detail" class="read-btn">Read More</NuxtLink>
         </div>
     </div>
 </template>

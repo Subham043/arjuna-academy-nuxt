@@ -1,18 +1,6 @@
 <template>
     <div>
-        <div class="inner-banner inner-banner-bg4">
-            <div class="container">
-                <div class="inner-title text-center">
-                    <h3>Expert Tips</h3>
-                    <ul>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>Expert Tips</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <Breadcrumb title="Expert Tips" />
 
         <div class="blog-area pt-100 pb-70">
             <div class="container">
@@ -25,22 +13,7 @@
                 </div>
                 <div class="row justify-content-center">
                     <div v-for="(item, i) in blog_data" :key="i" class="col-lg-6 col-md-6">
-                        <div class="event-item">
-                            <div class="event-content">
-                                <ul class="event-list">
-                                    <li><i class="ri-calendar-todo-fill"></i> 02 Jan 2022</li>
-                                    <li><i class="ri-map-pin-fill"></i> Aberdeen City, U.k</li>
-                                    <li><i class="ri-time-fill"></i> 12:00 AM</li>
-                                </ul>
-                                <h3>
-                                    <a href="courses-details.html">{{ item.title }}</a>
-                                </h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                                    necessitatibus
-                                </p>
-                            </div>
-                        </div>
+                        <EventCard :title="item.title" :is_event="false" />
                     </div>
                     <div class="col-lg-12 col-md-12 text-center">
                         <div class="pagination-area">
@@ -63,6 +36,8 @@
 
 <script>
 import BlogCard from '~/components/BlogCard.vue';
+import Breadcrumb from '~/components/Breadcrumb.vue';
+import EventCard from '~/components/EventCard.vue';
 
 
 export default {
@@ -110,6 +85,6 @@ export default {
             ],
         };
     },
-    components: { BlogCard }
+    components: { BlogCard, EventCard, Breadcrumb }
 }
 </script>

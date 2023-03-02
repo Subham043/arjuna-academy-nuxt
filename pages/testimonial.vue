@@ -1,18 +1,6 @@
 <template>
     <div>
-        <div class="inner-banner inner-banner-bg">
-            <div class="container">
-                <div class="inner-title text-center">
-                    <h3>Testimonial</h3>
-                    <ul>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>Testimonial</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <Breadcrumb title="Testimonial" />
 
         <div v-if="testimonial_data.length > 0" class="testimonials-area pt-100 pb-100">
             <div class="container">
@@ -22,27 +10,12 @@
                 </div>
                 <div class="testimonials-slider-two owl-carousel owl-theme">
                     <VueSlickCarousel v-bind="slickTestimonialOptions" ref="slickTestimonial">
-                        <div v-for="(item, i) in testimonial_data" :key="i" class="testimonials-card-two">
-                            <div class="rating">
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                            </div>
-                            <p>
-                                “Morbi porttitor ligula id varius consectetur. Integer ipsum
-                                justo, congue sit amet massa vel, porttitor semper magna. Orci
-                                varius natoque penatibus et magnis dis parturient montes, nascetur
-                                ridiculus.”
-                            </p>
-                            <div class="content">
-                                <img :src="item.image" alt="testimonials" />
-                                <h3>{{ item.name }}</h3>
-                                <span>{{ item.designation }}</span>
-                            </div>
-                            <div class="quote"><i class="flaticon-quote"></i></div>
-                        </div>
+                        <TestimonialCard 
+                            v-for="(item, i) in testimonial_data" 
+                            :key="i" 
+                            :image="item.image" 
+                            :name="item.name" 
+                            :designation="item.designation" />
                     </VueSlickCarousel>
                 </div>
             </div>
@@ -52,6 +25,9 @@
 </template>
 
 <script>
+import Breadcrumb from '~/components/Breadcrumb.vue';
+import TestimonialCard from '~/components/TestimonialCard.vue';
+
 
 
 export default {
@@ -120,5 +96,6 @@ export default {
             this.$scrollTo("#__nuxt", 0, { force: true });
         }
     },
+    components: { TestimonialCard, Breadcrumb }
 }
 </script>

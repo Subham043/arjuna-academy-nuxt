@@ -1,18 +1,6 @@
 <template>
     <div>
-        <div class="inner-banner inner-banner-bg4">
-            <div class="container">
-                <div class="inner-title text-center">
-                    <h3>Blog grid</h3>
-                    <ul>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>Blog grid</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <Breadcrumb title="Blogs" />
 
         <div class="blog-area pt-100 pb-70">
             <div class="container">
@@ -48,6 +36,7 @@
 
 <script>
 import BlogCard from '~/components/BlogCard.vue';
+import Breadcrumb from '~/components/Breadcrumb.vue';
 
 
 export default {
@@ -95,6 +84,6 @@ export default {
             ],
         };
     },
-    components: { BlogCard }
+    components: { BlogCard, Breadcrumb }
 }
 </script>

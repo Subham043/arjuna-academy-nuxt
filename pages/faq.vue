@@ -1,18 +1,6 @@
 <template>
     <div>
-        <div class="inner-banner inner-banner-bg5">
-            <div class="container">
-                <div class="inner-title text-center">
-                    <h3>FAQ</h3>
-                    <ul>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>FAQ</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <Breadcrumb title="FAQ" />
 
         <div class="faq-area pt-100 pb-70">
             <div class="container">
@@ -154,6 +142,8 @@
 </template>
 
 <script>
+import Breadcrumb from '~/components/Breadcrumb.vue';
+
 
 
 export default {
@@ -168,5 +158,6 @@ export default {
             this.$scrollTo("#__nuxt", 0, { force: true });
         }
     },
+    components: { Breadcrumb }
 }
 </script>

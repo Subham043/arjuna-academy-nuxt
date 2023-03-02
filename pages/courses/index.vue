@@ -1,18 +1,6 @@
 <template>
     <div>
-        <div class="inner-banner inner-banner-bg">
-            <div class="container">
-                <div class="inner-title text-center">
-                    <h3>Courses</h3>
-                    <ul>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>Courses</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <Breadcrumb title="Courses" />
 
         <div class="blog-area pt-100 pb-70">
             <div class="container">
@@ -25,35 +13,16 @@
                 </div>
                 <div class="row justify-content-center">
                     <div v-for="(item, i) in course_data" :key="i" class="col-lg-4 col-md-6">
-                        <div class="courses-item">
-                            <a href="courses-details.html">
-                                <img :src="item.course_image" alt="Courses" />
-                            </a>
-                            <div class="content">
-                                <div class="course-instructors">
-                                    <img :src="item.instructor_image" alt="instructors" />
-                                </div>
-                                <a href="courses.html" class="tag-btn">{{ item.category }}</a>
-                                <h3>
-                                    <a href="courses-details.html">{{ item.title }}</a>
-                                </h3>
-                                <ul class="course-list">
-                                    <li><i class="ri-time-fill"></i> {{ item.duration }}</li>
-                                    <li><i class="ri-vidicon-fill"></i> {{ item.lectures }}</li>
-                                </ul>
-                                <div class="bottom-content">
-                                    <div class="rating2">
-                                        <i class="ri-star-fill"></i>
-                                        <i class="ri-star-fill"></i>
-                                        <i class="ri-star-fill"></i>
-                                        <i class="ri-star-fill"></i>
-                                        <i class="ri-star-fill"></i>
-                                        5 (30+ rating)
-                                    </div>
-                                    <div class="bottom-price">${{ item.price }}</div>
-                                </div>
-                            </div>
-                        </div>
+                        <CourseCard 
+                            v-for="(item, i) in course_data" 
+                            :key="i" 
+                            :course_image="item.course_image"
+                            :instructor_image="item.instructor_image"
+                            :category="item.category"
+                            :title="item.title"
+                            :duration="item.duration"
+                            :lectures="item.lectures"
+                            :price="item.price" />
                     </div>
                     <div class="col-lg-12 col-md-12 text-center">
                         <div class="pagination-area">
@@ -78,6 +47,9 @@
 </template>
 
 <script>
+import Breadcrumb from '~/components/Breadcrumb.vue';
+import CourseCard from '~/components/CourseCard.vue';
+
 
 
 export default {
@@ -149,5 +121,6 @@ export default {
             this.$scrollTo("#__nuxt", 0, { force: true });
         }
     },
+    components: { CourseCard, Breadcrumb }
 }
 </script>

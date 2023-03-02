@@ -1,18 +1,6 @@
 <template>
     <div>
-        <div class="inner-banner inner-banner-bg3">
-            <div class="container">
-                <div class="inner-title text-center">
-                    <h3>Single Expert Tip</h3>
-                    <ul>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>Single Expert Tip</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <Breadcrumb title="Expert Tips Detail" />
 
         <div class="blog-details-area pt-100 pb-70">
             <div class="container">
@@ -140,6 +128,8 @@
 </template>
 
 <script>
+import Breadcrumb from '~/components/Breadcrumb.vue';
+
 
 export default {
     name: "ExpertTipDetailPage",
@@ -154,37 +144,38 @@ export default {
         return {
             blog_data: [
                 {
-                    title: 'All that is wrong with codding in the field of apprentices',
-                    description: 'Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.',
-                    image: '/images/blog/blog-img4.jpg'
+                    title: "All that is wrong with codding in the field of apprentices",
+                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                    image: "/images/blog/blog-img4.jpg"
                 },
                 {
-                    title: 'How to use technology to adapt your talent to the world',
-                    description: 'Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.',
-                    image: '/images/blog/blog-img2.jpg'
+                    title: "How to use technology to adapt your talent to the world",
+                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                    image: "/images/blog/blog-img2.jpg"
                 },
                 {
-                    title: 'Here are the things to look for when selecting an online course',
-                    description: 'Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.',
-                    image: '/images/blog/blog-img5.jpg'
+                    title: "Here are the things to look for when selecting an online course",
+                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                    image: "/images/blog/blog-img5.jpg"
                 },
                 {
-                    title: 'All that is wrong with codding in the field of apprentices',
-                    description: 'Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.',
-                    image: '/images/blog/blog-img4.jpg'
+                    title: "All that is wrong with codding in the field of apprentices",
+                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                    image: "/images/blog/blog-img4.jpg"
                 },
                 {
-                    title: 'How to use technology to adapt your talent to the world',
-                    description: 'Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.',
-                    image: '/images/blog/blog-img2.jpg'
+                    title: "How to use technology to adapt your talent to the world",
+                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                    image: "/images/blog/blog-img2.jpg"
                 },
                 {
-                    title: 'Here are the things to look for when selecting an online course',
-                    description: 'Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.',
-                    image: '/images/blog/blog-img5.jpg'
+                    title: "Here are the things to look for when selecting an online course",
+                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
+                    image: "/images/blog/blog-img5.jpg"
                 },
             ],
         };
     },
+    components: { Breadcrumb }
 }
 </script>

@@ -2,6 +2,7 @@
   <div>
       <Header />
       <Nuxt />
+      <Newsletter />
       <Footer />
   </div>
 </template>
@@ -9,6 +10,7 @@
 <script>
 import Footer from '~/components/Footer.vue';
 import Header from '~/components/Header.vue';
+import Newsletter from '~/components/Newsletter.vue';
 
 
 export default {
@@ -20,6 +22,6 @@ export default {
             ],
         };
     },
-    components: { Header, Footer }
+    components: { Header, Footer, Newsletter }
 }
 </script>

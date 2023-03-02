@@ -5,9 +5,9 @@
         <div class="col-lg-3 col-sm-6">
           <div class="footer-widget">
             <div class="footer-logo">
-              <a href="index.html">
+              <NuxtLink to="/">
                 <img src="/images/logos/new-logo.png" alt="Images" />
-              </a>
+              </NuxtLink>
             </div>
             <p>
               Lorem ipsum dolor sit amet, consec tetur adipiscing elit eiusmod

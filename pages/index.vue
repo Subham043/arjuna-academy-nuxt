@@ -96,145 +96,16 @@
           </div>
         </div>
 
-        <div class="enrolled-area-two pb-70">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="enrolled-img-three mb-30 pr-20">
-                            <img src="/images/enrolled/enrolled-img3.jpg" alt="Enrolled" />
-                            <div class="enrolled-img-content">
-                                <i class="flaticon-discount"></i>
-                                <div class="content">
-                                    <h3>Get 40% off</h3>
-                                    <p>Every course</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="enrolled-content mb-30">
-                            <div class="section-title">
-                                <span>WHO WE ARE</span>
-                                <h2>
-                                    We have the most qualified instructors in your hometown.
-                                </h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
-                                    maecenas accumsan lacus vel facilisis.
-                                </p>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-6">
-                                    <ul class="enrolled-list">
-                                        <li><i class="flaticon-check"></i> Full lifetime access</li>
-                                        <li>
-                                            <i class="flaticon-check"></i> Certificate of completion
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-6 col-6">
-                                    <ul class="enrolled-list">
-                                        <li>
-                                            <i class="flaticon-check"></i> 20+ downloadable resources
-                                        </li>
-                                        <li><i class="flaticon-check"></i> Free trial 7 days</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <a href="courses.html" class="default-btn border-radius-50">Enrolled today</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="featured-area pb-70">
-            <div class="container">
-                <div class="row align-items-center mb-45">
-                    <div class="col-lg-8 col-md-9">
-                        <div class="section-title mt-rs-20">
-                            <span>WHAT WE DO</span>
-                            <h2>Explore top featured categories</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-3 text-end">
-                        <a href="courses.html" class="default-btn border-radius-50">Explore more</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-6">
-                        <div class="featured-item-two">
-                            <a href="courses.html">
-                                <i class="flaticon-web-development"></i>
-                                <h3>Development</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <div class="featured-item-two">
-                            <a href="courses.html">
-                                <i class="flaticon-design"></i>
-                                <h3>Web designing</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <div class="featured-item-two">
-                            <a href="courses.html">
-                                <i class="flaticon-wellness"></i>
-                                <h3>Lifestyle</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <div class="featured-item-two">
-                            <a href="courses.html">
-                                <i class="flaticon-heart-beat"></i>
-                                <h3>Health & fitness</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <div class="featured-item-two">
-                            <a href="courses.html">
-                                <i class="flaticon-corporate"></i>
-                                <h3>Gov. exams</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <div class="featured-item-two">
-                            <a href="courses.html">
-                                <i class="flaticon-camera"></i>
-                                <h3>Photography</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <div class="featured-item-two">
-                            <a href="courses.html">
-                                <i class="flaticon-user"></i>
-                                <h3>Accounting</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <div class="featured-item-two">
-                            <a href="courses.html">
-                                <i class="flaticon-folder"></i>
-                                <h3>Data science</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <WhoWeAreCard 
+            image="/images/enrolled/enrolled-img3.jpg"
+            heading="Welcome to Arjunaa Academy for Achievers – Best Coaching Centre for NEET, IIT JEE, NTSE, KCET, Olympiads Courses"
+            :detail="[
+                'Arjunaa Academy for Achievers (AAA) is a Premier institute training for JEE Mains, JEE Advanced, NEET, KVPY, KCET, NTSE, NSTSE, Olympiads, IIT JEE Foundation, NEET Foundation (Class VIII to X), Boards(CBSE, ICSE & State) established in the year 2012. We have more than 10 branches in Bangalore & Mysore, India.',
+                'The institute is well regarded for the high-quality entrance exams & board exams preparation and produces best results with 100% pass percentage in board exams, more than 60% students securing distinction and over 40% of students qualifying in JEE Mains & NEET year after year.'
+            ]"
+        />
+        
+        <WhatWeDoCard />
 
         <div v-if="course_data.length>0" class="courses-area-two section-bg pt-100 pb-70">
             <div class="container">
@@ -251,35 +122,16 @@
                 </div>
                 <div class="course-slider-two owl-carousel owl-theme">
                     <VueSlickCarousel v-bind="slickCourseOptions" ref="slickCourse">
-                        <div v-for="(item, i) in course_data" :key="i" class="courses-item">
-                            <a href="courses-details.html">
-                                <img :src="item.course_image" alt="Courses" />
-                            </a>
-                            <div class="content">
-                                <div class="course-instructors">
-                                    <img :src="item.instructor_image" alt="instructors" />
-                                </div>
-                                <a href="courses.html" class="tag-btn">{{ item.category }}</a>
-                                <h3>
-                                    <a href="courses-details.html">{{ item.title }}</a>
-                                </h3>
-                                <ul class="course-list">
-                                    <li><i class="ri-time-fill"></i> {{ item.duration }}</li>
-                                    <li><i class="ri-vidicon-fill"></i> {{ item.lectures }}</li>
-                                </ul>
-                                <div class="bottom-content">
-                                    <div class="rating2">
-                                        <i class="ri-star-fill"></i>
-                                        <i class="ri-star-fill"></i>
-                                        <i class="ri-star-fill"></i>
-                                        <i class="ri-star-fill"></i>
-                                        <i class="ri-star-fill"></i>
-                                        5 (30+ rating)
-                                    </div>
-                                    <div class="bottom-price">${{ item.price }}</div>
-                                </div>
-                            </div>
-                        </div>
+                        <CourseCard 
+                            v-for="(item, i) in course_data" 
+                            :key="i" 
+                            :course_image="item.course_image"
+                            :instructor_image="item.instructor_image"
+                            :category="item.category"
+                            :title="item.title"
+                            :duration="item.duration"
+                            :lectures="item.lectures"
+                            :price="item.price" />
                     </VueSlickCarousel>
                 </div>
             </div>
@@ -332,27 +184,12 @@
                 </div>
                 <div class="testimonials-slider-two owl-carousel owl-theme">
                     <VueSlickCarousel v-bind="slickTestimonialOptions" ref="slickTestimonial">
-                        <div v-for="(item, i) in testimonial_data" :key="i" class="testimonials-card-two">
-                            <div class="rating">
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                            </div>
-                            <p>
-                                “Morbi porttitor ligula id varius consectetur. Integer ipsum
-                                justo, congue sit amet massa vel, porttitor semper magna. Orci
-                                varius natoque penatibus et magnis dis parturient montes, nascetur
-                                ridiculus.”
-                            </p>
-                            <div class="content">
-                                <img :src="item.image" alt="testimonials" />
-                                <h3>{{ item.name }}</h3>
-                                <span>{{ item.designation }}</span>
-                            </div>
-                            <div class="quote"><i class="flaticon-quote"></i></div>
-                        </div>
+                        <TestimonialCard 
+                            v-for="(item, i) in testimonial_data" 
+                            :key="i" 
+                            :image="item.image" 
+                            :name="item.name" 
+                            :designation="item.designation" />
                     </VueSlickCarousel>
                 </div>
             </div>
@@ -428,27 +265,7 @@
                 </div>
                 <div class="event-slider owl-carousel owl-theme">
                     <VueSlickCarousel v-bind="slickEventOptions" ref="slickEvent">
-                        <div v-for="(item, i) in event_data" :key="i" class="event-item">
-                            <div class="event-img">
-                                <a href="event-details.html">
-                                    <img :src="item.image" alt="Events" />
-                                </a>
-                            </div>
-                            <div class="event-content">
-                                <ul class="event-list">
-                                    <li><i class="ri-calendar-todo-fill"></i> 02 Jan 2022</li>
-                                    <li><i class="ri-map-pin-fill"></i> Aberdeen City, U.k</li>
-                                    <li><i class="ri-time-fill"></i> 12:00 AM</li>
-                                </ul>
-                                <h3>
-                                    <a href="courses-details.html">{{ item.title }}</a>
-                                </h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                                    necessitatibus
-                                </p>
-                            </div>
-                        </div>
+                        <EventCard v-for="(item, i) in event_data" :key="i" :image="item.image" :title="item.title" />
                     </VueSlickCarousel>
                 </div>
             </div>
@@ -477,35 +294,17 @@
             </div>
         </div>
 
-        <div class="newsletter-area section-bg ptb-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <div class="section-title mt-rs-20">
-                            <span>ARE YOU IMPRESSED FOR AMAZING SERVICES?</span>
-                            <h2>Subscribe our newsletter</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <form class="newsletter-form" data-toggle="validator" method="POST">
-                            <input type="email" class="form-control" placeholder="Enter Your Email Address" name="EMAIL"
-                                required autocomplete="off" />
-                            <button class="subscribe-btn" type="submit">
-                                Subscribe Now <i class="flaticon-paper-plane"></i>
-                            </button>
-                            <div id="validator-newsletter" class="form-result"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
     </div>
 </template>
 
 <script>
 import BlogCard from '~/components/BlogCard.vue';
+import CourseCard from '~/components/CourseCard.vue';
+import EventCard from '~/components/EventCard.vue';
+import TestimonialCard from '~/components/TestimonialCard.vue';
+import WhatWeDoCard from '~/components/WhatWeDoCard.vue';
+import WhoWeAreCard from '~/components/WhoWeAreCard.vue';
 
 
 export default {
@@ -756,6 +555,6 @@ export default {
             ],
         };
     },
-    components: { BlogCard }
+    components: { BlogCard, CourseCard, TestimonialCard, EventCard, WhoWeAreCard, WhatWeDoCard }
 }
 </script>
