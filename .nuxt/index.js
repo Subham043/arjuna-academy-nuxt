@@ -26,6 +26,7 @@ import nuxt_plugin_validationprovider_53910e08 from 'nuxt_plugin_validationprovi
 import nuxt_plugin_publicApi_634fd7dc from 'nuxt_plugin_publicApi_634fd7dc' // Source: ../plugins/publicApi.js (mode: 'all')
 import nuxt_plugin_privateApi_1da1ad6c from 'nuxt_plugin_privateApi_1da1ad6c' // Source: ../plugins/privateApi.js (mode: 'all')
 import nuxt_plugin_vueslickcarousel_1c6345a5 from 'nuxt_plugin_vueslickcarousel_1c6345a5' // Source: ../plugins/vue-slick-carousel.js (mode: 'all')
+import nuxt_plugin_pagination_0c55d867 from 'nuxt_plugin_pagination_0c55d867' // Source: ../plugins/pagination.js (mode: 'all')
 import nuxt_plugin_auth_6fe43095 from 'nuxt_plugin_auth_6fe43095' // Source: ./auth.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -274,6 +275,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_vueslickcarousel_1c6345a5 === 'function') {
     await nuxt_plugin_vueslickcarousel_1c6345a5(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_pagination_0c55d867 === 'function') {
+    await nuxt_plugin_pagination_0c55d867(app.context, inject)
   }
 
   if (typeof nuxt_plugin_auth_6fe43095 === 'function') {

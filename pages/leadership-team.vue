@@ -135,280 +135,32 @@ Patent Holder of US Patent No: US9977454B1</i>
                 <div class="section-title text-center mb-45">
                     <h2>Our Faculties</h2>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-3 col-md-6">
+                <div v-if="staffLoading" class="row justify-content-center">
+                    <div  v-for="i in 8" :key="i" class="col-lg-3 col-md-6">
+                        <el-skeleton style="width: 100%" animated>
+                            <template slot="template">
+                            <el-skeleton-item variant="image" style="width: 100%; height: 240px;" />
+                            <div style="padding: 14px;">
+                                <el-skeleton-item variant="p" style="width: 50%" />
+                                <br/>
+                                <el-skeleton-item variant="text" style="width: 30%;" />
+                            </div>
+                            </template>
+                        </el-skeleton>
+                    </div>
+                </div>
+                <div v-if="!staffLoading && staff.length>0" class="row justify-content-center">
+                    <div v-for="(item, i) in staff" :key="i" class="col-lg-3 col-md-6">
                         <div class="instructors-card">
-                            <a href="instructors-details.html">
-                                <img src="/images/instructors/instructors-img1.jpg" alt="Team Images" />
-                            </a>
+                            <img :src="item.image" :alt="item.alt" :title="item.title" />
                             <div class="content">
-                                <ul class="instructors-social">
-                                    <li class="share-btn"><i class="ri-add-line"></i></li>
-                                    <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
-                                            <i class="ri-facebook-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <i class="ri-instagram-line"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/" target="_blank">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.linkedin.com/" target="_blank">
-                                            <i class="ri-linkedin-box-line"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <h3><a href="instructors-details.html">Sally welch</a></h3>
-                                <span>Web designer</span>
+                                <h3>{{ item.name }}</h3>
+                                <span>{{ item.designation }}</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="instructors-card">
-                            <a href="instructors-details.html">
-                                <img src="/images/instructors/instructors-img2.jpg" alt="Team Images" />
-                            </a>
-                            <div class="content">
-                                <ul class="instructors-social">
-                                    <li class="share-btn"><i class="ri-add-line"></i></li>
-                                    <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
-                                            <i class="ri-facebook-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <i class="ri-instagram-line"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/" target="_blank">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.linkedin.com/" target="_blank">
-                                            <i class="ri-linkedin-box-line"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <h3><a href="instructors-details.html">Jesse joslin</a></h3>
-                                <span>Content strategist</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="instructors-card">
-                            <a href="instructors-details.html">
-                                <img src="/images/instructors/instructors-img3.jpg" alt="Team Images" />
-                            </a>
-                            <div class="content">
-                                <ul class="instructors-social">
-                                    <li class="share-btn"><i class="ri-add-line"></i></li>
-                                    <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
-                                            <i class="ri-facebook-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <i class="ri-instagram-line"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/" target="_blank">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.linkedin.com/" target="_blank">
-                                            <i class="ri-linkedin-box-line"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <h3><a href="instructors-details.html">Lance altman</a></h3>
-                                <span>Photographer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="instructors-card">
-                            <a href="instructors-details.html">
-                                <img src="/images/instructors/instructors-img4.jpg" alt="Team Images" />
-                            </a>
-                            <div class="content">
-                                <ul class="instructors-social">
-                                    <li class="share-btn"><i class="ri-add-line"></i></li>
-                                    <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
-                                            <i class="ri-facebook-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <i class="ri-instagram-line"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/" target="_blank">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.linkedin.com/" target="_blank">
-                                            <i class="ri-linkedin-box-line"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <h3><a href="instructors-details.html">Jonquil von</a></h3>
-                                <span>Art director</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="instructors-card">
-                            <a href="instructors-details.html">
-                                <img src="/images/instructors/instructors-img5.jpg" alt="Team Images" />
-                            </a>
-                            <div class="content">
-                                <ul class="instructors-social">
-                                    <li class="share-btn"><i class="ri-add-line"></i></li>
-                                    <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
-                                            <i class="ri-facebook-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <i class="ri-instagram-line"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/" target="_blank">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.linkedin.com/" target="_blank">
-                                            <i class="ri-linkedin-box-line"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <h3><a href="instructors-details.html">Oliva welch</a></h3>
-                                <span>Web designer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="instructors-card">
-                            <a href="instructors-details.html">
-                                <img src="/images/instructors/instructors-img6.jpg" alt="Team Images" />
-                            </a>
-                            <div class="content">
-                                <ul class="instructors-social">
-                                    <li class="share-btn"><i class="ri-add-line"></i></li>
-                                    <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
-                                            <i class="ri-facebook-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <i class="ri-instagram-line"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/" target="_blank">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.linkedin.com/" target="_blank">
-                                            <i class="ri-linkedin-box-line"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <h3><a href="instructors-details.html">Carol owens</a></h3>
-                                <span>Chief programmer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="instructors-card">
-                            <a href="instructors-details.html">
-                                <img src="/images/instructors/instructors-img7.jpg" alt="Team Images" />
-                            </a>
-                            <div class="content">
-                                <ul class="instructors-social">
-                                    <li class="share-btn"><i class="ri-add-line"></i></li>
-                                    <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
-                                            <i class="ri-facebook-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <i class="ri-instagram-line"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/" target="_blank">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.linkedin.com/" target="_blank">
-                                            <i class="ri-linkedin-box-line"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <h3>
-                                    <a href="instructors-details.html">Jessica calabrese</a>
-                                </h3>
-                                <span>Creative writer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="instructors-card">
-                            <a href="instructors-details.html">
-                                <img src="/images/instructors/instructors-img8.jpg" alt="Team Images" />
-                            </a>
-                            <div class="content">
-                                <ul class="instructors-social">
-                                    <li class="share-btn"><i class="ri-add-line"></i></li>
-                                    <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
-                                            <i class="ri-facebook-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <i class="ri-instagram-line"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/" target="_blank">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.linkedin.com/" target="_blank">
-                                            <i class="ri-linkedin-box-line"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <h3><a href="instructors-details.html">David charest</a></h3>
-                                <span>Marketing director</span>
-                            </div>
-                        </div>
+                    <div class="col-12 text-center">
+                        <pagination v-model="staffCurrentPage" :records="staffCount" :per-page="staffPerPage"  :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
                     </div>
                 </div>
             </div>
@@ -418,6 +170,7 @@ Patent Holder of US Patent No: US9977454B1</i>
 
 <script>
 import Breadcrumb from '~/components/Breadcrumb.vue';
+import { API_ROUTES } from '~/helper/api_routes';
 
 
 
@@ -425,12 +178,52 @@ export default {
     name: "LeadershipPage",
     layout: "MainPageLayout",
     data() {
-        return {};
+        return {
+            staffLoading: false,
+            staff: [],
+            staffCount:1,
+            staffCurrentPage: 1,
+            staffPerPage: 1,
+        };
+    },
+    async fetch() {
+      await this.getStaff();
+    },
+    watch: {
+        $route(to, from) {
+            this.handlePageChnage();
+        }
     },
     mounted() {
         // eslint-disable-next-line nuxt/no-env-in-hooks
         if (process.client) {
             this.$scrollTo("#__nuxt", 0, { force: true });
+        }
+    },
+    methods: {
+        async getStaff(page=0) {
+            this.staffLoading=true;
+            try {
+                const response = await this.$publicApi.get(API_ROUTES.staff+`?total=8&page=${page}`); // eslint-disable-line
+                this.staff = response.data.data
+                this.staffCount = response?.data?.meta?.total
+                this.staffPerPage = response?.data?.meta?.per_page
+                this.staffCurrentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+
+            }finally{
+                this.staffLoading=false;
+            }
+        },
+        handlePaginationChnage(page){
+            this.$router.push({query:{page}});
+        },
+        handlePageChnage(){
+            this.staffCurrentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
+            this.getStaff(this.$route.query.page ? Number(this.$route.query.page) : 1);
         }
     },
     components: { Breadcrumb }
