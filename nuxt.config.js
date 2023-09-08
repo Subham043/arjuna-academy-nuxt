@@ -36,6 +36,7 @@ export default {
     '~/plugins/privateApi.js',
     '~/plugins/vue-slick-carousel.js',
     '~/plugins/pagination.js',
+    { src: '~/plugins/safeHtml.js', mode: "client" }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

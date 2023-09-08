@@ -2,133 +2,136 @@
     <div>
         <Breadcrumb title="Leadership Team" />
 
-        <div class="instructors-details-area pt-100 pb-70">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <div class="instructors-details-img faq-img">
-                            <img src="/images/instructors/instructors-details.jpg" alt="Instructor" />
-                            <div class="shape">
-                                <h2><span class="badge bg-warning">CEO & Founder</span></h2>
+        <template v-if="managementLoading">
+            <div v-for="i in 4" :key="i" :class="`instructors-details-area ${i===1 && 'pt-100'} pb-70`">
+                <div v-if="(i+1)%2===0" class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="instructors-details-img faq-img">
+                                <el-skeleton style="width: 100%" animated>
+                                    <template slot="template">
+                                        <el-skeleton-item variant="image" style="width: 100%; height: 240px;" />
+                                    </template>
+                                </el-skeleton>
+                            </div>
+                        </div>
+                        <div  class="col-lg-7">
+                            <div class="instructors-details-content pl-20">
+                                <el-skeleton style="width: 100%" animated>
+                                    <template slot="template">
+                                        <el-skeleton-item variant="h2" style="width: 30%" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 20%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                    </template>
+                                </el-skeleton>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-7">
-                        <div class="instructors-details-content pl-20">
-                            <h2>Sally welch</h2>
-                            <i class="d-inline-flex mb-3 fw-semibold text-success-emphasis bg-success-subtle ">B-Tech, E&C, NITK Surathkal <br/>
-Patent Holder of US Patent No: US9977454B1</i>
-                            <p>
-                                Sed porttitor lectus nibh. Donec rutrum congue leo eget
-                                malesuada. Praesent sapien massa, convallis a pellentesque
-                                egestas Curabitur arcu erat, accumsan id imperdiet et, porttitor
-                                at sem. Cras ultricies ligula sed magna dictum porta. Vestibulum
-                                ante ipsum primis in faucibus orci luctus et ultrices posuere
-                                cubilia.
-                            </p>
-                            <p>
-                                Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-                                dui. Vestibulum ac diam sit amet quam vehicula elementum sed sit
-                                amet dui. Curabitur non nulla sit amet nisl tempus convallis
-                                quis ac lectus.
-                            </p>
-                            <p>
-                                Sed porttitor lectus nibh. Donec rutrum congue leo eget
-                                malesuada. Praesent sapien massa, convallis a pellentesque
-                                egestas Curabitur arcu erat, accumsan id imperdiet et, porttitor
-                                at sem. Cras ultricies ligula sed magna dictum porta. Vestibulum
-                                ante ipsum primis in faucibus orci luctus et ultrices posuere
-                                cubilia.
-                            </p>
-                            <p>
-                                Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-                                dui. Vestibulum ac diam sit amet quam vehicula elementum sed sit
-                                amet dui. Curabitur non nulla sit amet nisl tempus convallis
-                                quis ac lectus.
-                            </p>
-                            <p>
-                                Sed porttitor lectus nibh. Donec rutrum congue leo eget
-                                malesuada. Praesent sapien massa, convallis a pellentesque
-                                egestas Curabitur arcu erat, accumsan id imperdiet et, porttitor
-                                at sem. Cras ultricies ligula sed magna dictum porta. Vestibulum
-                                ante ipsum primis in faucibus orci luctus et ultrices posuere
-                                cubilia.
-                            </p>
-                            <p>
-                                Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-                                dui. Vestibulum ac diam sit amet quam vehicula elementum sed sit
-                                amet dui. Curabitur non nulla sit amet nisl tempus convallis
-                                quis ac lectus.
-                            </p>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="instructors-details-area pb-70">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-7">
-                        <div class="instructors-details-content pl-20">
-                            <h2>Sally welch</h2>
-                            <i class="d-inline-flex mb-3 fw-semibold text-success-emphasis bg-success-subtle ">(B. Tech, M.B.A)</i>
-                            <p>
-                                Sed porttitor lectus nibh. Donec rutrum congue leo eget
-                                malesuada. Praesent sapien massa, convallis a pellentesque
-                                egestas Curabitur arcu erat, accumsan id imperdiet et, porttitor
-                                at sem. Cras ultricies ligula sed magna dictum porta. Vestibulum
-                                ante ipsum primis in faucibus orci luctus et ultrices posuere
-                                cubilia.
-                            </p>
-                            <p>
-                                Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-                                dui. Vestibulum ac diam sit amet quam vehicula elementum sed sit
-                                amet dui. Curabitur non nulla sit amet nisl tempus convallis
-                                quis ac lectus.
-                            </p>
-                            <p>
-                                Sed porttitor lectus nibh. Donec rutrum congue leo eget
-                                malesuada. Praesent sapien massa, convallis a pellentesque
-                                egestas Curabitur arcu erat, accumsan id imperdiet et, porttitor
-                                at sem. Cras ultricies ligula sed magna dictum porta. Vestibulum
-                                ante ipsum primis in faucibus orci luctus et ultrices posuere
-                                cubilia.
-                            </p>
-                            <p>
-                                Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-                                dui. Vestibulum ac diam sit amet quam vehicula elementum sed sit
-                                amet dui. Curabitur non nulla sit amet nisl tempus convallis
-                                quis ac lectus.
-                            </p>
-                            <p>
-                                Sed porttitor lectus nibh. Donec rutrum congue leo eget
-                                malesuada. Praesent sapien massa, convallis a pellentesque
-                                egestas Curabitur arcu erat, accumsan id imperdiet et, porttitor
-                                at sem. Cras ultricies ligula sed magna dictum porta. Vestibulum
-                                ante ipsum primis in faucibus orci luctus et ultrices posuere
-                                cubilia.
-                            </p>
-                            <p>
-                                Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-                                dui. Vestibulum ac diam sit amet quam vehicula elementum sed sit
-                                amet dui. Curabitur non nulla sit amet nisl tempus convallis
-                                quis ac lectus.
-                            </p>
+                <div v-else class="container">
+                    <div class="row">
+    
+                        <div class="col-lg-7">
+                            <div class="instructors-details-content pl-20">
+                                <el-skeleton style="width: 100%" animated>
+                                    <template slot="template">
+                                        <el-skeleton-item variant="h2" style="width: 30%" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 20%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                        <br/>
+                                        <el-skeleton-item variant="text" style="width: 100%;" />
+                                    </template>
+                                </el-skeleton>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="instructors-details-img faq-img">
-                            <img src="/images/instructors/instructors-details.jpg" alt="Instructor" />
-                            <div class="shape">
-                                <h2><span class="badge bg-warning">Managing Director</span></h2>
+                        <div class="col-lg-5">
+                            <div class="instructors-details-img faq-img">
+                                <el-skeleton style="width: 100%" animated>
+                                    <template slot="template">
+                                        <el-skeleton-item variant="image" style="width: 100%; height: 240px;" />
+                                    </template>
+                                </el-skeleton>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </template>
+
+        <template v-if="!managementLoading && management.length>0">
+            <div v-for="(item, i) in management" :key="i" :class="`instructors-details-area ${i===0 && 'pt-100'} pb-70`">
+                <div v-if="(i+1)%2===0" class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="instructors-details-img faq-img">
+                                <img :src="item.image" :alt="item.image_alt" :title="item.image_title" />
+                                <div class="shape">
+                                    <h2><span class="badge bg-warning">{{ item.designation }}</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="col-lg-7">
+                            <div class="instructors-details-content pl-20">
+                                <h2>{{ item.name }}</h2>
+                                <i class="d-inline-flex mb-3 fw-semibold text-success-emphasis bg-success-subtle ">{{ item.qualification }}</i>
+                                <div v-html-safe="item.description" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="container">
+                    <div class="row">
+    
+                        <div class="col-lg-7">
+                            <div class="instructors-details-content pl-20">
+                                <h2>{{ item.name }}</h2>
+                                <i class="d-inline-flex mb-3 fw-semibold text-success-emphasis bg-success-subtle ">{{ item.qualification }}</i>
+                                <div v-html-safe="item.description" />
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="instructors-details-img faq-img">
+                                <img :src="item.image" :alt="item.image_alt" :title="item.image_title" />
+                                <div class="shape">
+                                    <h2><span class="badge bg-warning">{{ item.designation }}</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
 
         <div class="instructors-area instructors-area-rs pb-70">
             <div class="container">
@@ -179,6 +182,8 @@ export default {
     layout: "MainPageLayout",
     data() {
         return {
+            managementLoading: false,
+            management: [],
             staffLoading: false,
             staff: [],
             staffCount:1,
@@ -187,6 +192,7 @@ export default {
         };
     },
     async fetch() {
+      await this.getManagement();
       await this.getStaff();
     },
     watch: {
@@ -201,6 +207,20 @@ export default {
         }
     },
     methods: {
+        async getManagement() {
+            this.managementLoading=true;
+            try {
+                const response = await this.$publicApi.get(API_ROUTES.management); // eslint-disable-line
+                this.management = response.data.data
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+
+            }finally{
+                this.managementLoading=false;
+            }
+        },
         async getStaff(page=0) {
             this.staffLoading=true;
             try {
