@@ -1,23 +1,23 @@
 <template>
     <div class="blog-card">
-        <NuxtLink to="/knowledge-desk/detail">
+        <NuxtLink :to="`/knowledge-desk/${slug}`">
             <img :src="image" alt="Blog" />
         </NuxtLink>
         <div class="content">
             <ul>
-                <li><i class="ri-calendar-todo-fill"></i> Jan 12,2022</li>
-                <li>
-                    <i class="ri-price-tag-3-fill"></i>
-                    <NuxtLink to="/knowledge-desk/detail">Education</NuxtLink>
+                <li class="one-line-text"><i class="ri-calendar-todo-fill"></i> {{ date }}</li>
+                <li class="one-line-text">
+                    <i class="ri-user-fill"></i>
+                    <NuxtLink :to="`/leadership-team`">{{ author }}</NuxtLink>
                 </li>
             </ul>
             <h3>
-                <NuxtLink to="/knowledge-desk/detail">{{ title }}</NuxtLink>
+                <NuxtLink :to="`/knowledge-desk/${slug}`">{{ title }}</NuxtLink>
             </h3>
             <p>
                 {{ description }}
             </p>
-            <NuxtLink to="/knowledge-desk/detail" class="read-btn">Read More</NuxtLink>
+            <NuxtLink :to="`/knowledge-desk/${slug}`" class="read-btn">Read More</NuxtLink>
         </div>
     </div>
 </template>
@@ -35,6 +35,18 @@ export default {
             default: '',
         },
         description: {
+            type: String,
+            default: '',
+        },
+        date: {
+            type: String,
+            default: '',
+        },
+        author: {
+            type: String,
+            default: '',
+        },
+        slug: {
             type: String,
             default: '',
         },
