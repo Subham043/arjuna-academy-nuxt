@@ -8,7 +8,7 @@
         <div class="event-content">
             <ul class="event-list">
                 <li><i class="ri-calendar-todo-fill"></i> {{ date }}</li>
-                <li><i class="ri-user-fill"></i> {{ author }}</li>
+                <li v-if="!is_event"><i class="ri-user-fill"></i> {{ author }}</li>
             </ul>
             <h3>
                 <NuxtLink :to="is_event ? `/events/${slug}` :  `/expert-tips/${slug}`">{{ title }}</NuxtLink>

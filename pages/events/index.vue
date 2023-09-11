@@ -12,21 +12,34 @@
                     </p>
                 </div>
                 <div class="row justify-content-center">
-                    <div v-for="(item, i) in event_data" :key="i" class="col-lg-6 col-md-6">
-                        <EventCard :image="item.image" :title="item.title" />
-                    </div>
-                    <div class="col-lg-12 col-md-12 text-center">
-                        <div class="pagination-area">
-                            <a href="blog.html" class="prev page-numbers">
-                                <i class="flaticon-left-arrow"></i>
-                            </a>
-                            <span class="page-numbers current" aria-current="page">1</span>
-                            <a href="blog.html" class="page-numbers">2</a>
-                            <a href="blog.html" class="page-numbers">3</a>
-                            <a href="blog.html" class="next page-numbers">
-                                <i class="flaticon-chevron"></i>
-                            </a>
+                    <div v-if="eventLoading" class="row justify-content-center">
+                        <div v-for="i in 8" :key="i" class="col-lg-6 col-md-6">
+                            <el-skeleton style="width: 100%" animated>
+                                <template slot="template">
+                                    <div class="event-item">
+                                        <div class="event-img" style="width: 40%;">
+                                            <el-skeleton-item variant="image" style="width: 100%; height: 240px;" />
+                                        </div>
+                                        <div class="event-content" style="width: 60%;">
+                                            <el-skeleton-item variant="p" style="width: 100%" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                        </div>
+                                    </div>
+                                </template>
+                            </el-skeleton>
                         </div>
+                    </div>
+                    <div v-if="!eventLoading && event.length>0" v-for="(item, i) in event" :key="i" class="col-lg-6 col-md-6">
+                        <EventCard :image="item.image" :title="item.name" :description="item.short_description" :date="item.event_date_on" :slug="item.slug" />
+                    </div>
+                    <div v-if="!eventLoading && event.length>0" class="col-12 text-center">
+                        <pagination v-model="eventCurrentPage" :records="eventCount" :per-page="eventPerPage"  :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
                     </div>
                 </div>
             </div>
@@ -35,9 +48,9 @@
 </template>
 
 <script>
-import BlogCard from '~/components/BlogCard.vue';
 import Breadcrumb from '~/components/Breadcrumb.vue';
 import EventCard from '~/components/EventCard.vue';
+import { API_ROUTES } from '~/helper/api_routes';
 
 
 export default {
@@ -51,42 +64,47 @@ export default {
     },
     data() {
         return {
-            event_data: [
-                {
-                    title: "University admissions could face emergency controls",
-                    image: "/images/events/event-img1.jpg"
-                },
-                {
-                    title: "As learning moves online trigger warnings must too",
-                    image: "/images/events/event-img2.jpg"
-                },
-                {
-                    title: "Java programming masterclass name for software developers",
-                    image: "/images/events/event-img3.jpg"
-                },
-                {
-                    title: "Java programming masterclass name for software developers",
-                    image: "/images/events/event-img3.jpg"
-                },
-                {
-                    title: "University admissions could face emergency controls",
-                    image: "/images/events/event-img1.jpg"
-                },
-                {
-                    title: "As learning moves online trigger warnings must too",
-                    image: "/images/events/event-img2.jpg"
-                },
-                {
-                    title: "Java programming masterclass name for software developers",
-                    image: "/images/events/event-img3.jpg"
-                },
-                {
-                    title: "Java programming masterclass name for software developers",
-                    image: "/images/events/event-img3.jpg"
-                },
-            ],
+            eventLoading: false,
+            event: [],
+            eventCount:1,
+            eventCurrentPage: 1,
+            eventPerPage: 1,
         };
     },
-    components: { BlogCard, EventCard, Breadcrumb }
+    async fetch() {
+      await this.getEvent();
+    },
+    watch: {
+        $route(to, from) {
+            this.handlePageChnage();
+        }
+    },
+    methods: {
+        async getEvent(page=0) {
+            this.eventLoading=true;
+            try {
+                const response = await this.$publicApi.get(API_ROUTES.event+`?total=8&page=${page}`); // eslint-disable-line
+                this.event = response.data.data
+                this.eventCount = response?.data?.meta?.total
+                this.eventPerPage = response?.data?.meta?.per_page
+                this.eventCurrentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+    
+            }finally{
+                this.eventLoading=false;
+            }
+        },
+        handlePaginationChnage(page){
+            this.$router.push({query:{page}});
+        },
+        handlePageChnage(){
+            this.eventCurrentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
+            this.getEvent(this.$route.query.page ? Number(this.$route.query.page) : 1);
+        },
+    },
+    components: { EventCard, Breadcrumb }
 }
 </script>

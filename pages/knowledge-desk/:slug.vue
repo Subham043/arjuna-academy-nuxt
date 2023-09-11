@@ -10,7 +10,7 @@
                             <template v-if="!blogLoading">
                                 <div class="blog-preview-img">
                                     <img :src="blog.image"
-                                        alt="Blog Details" />
+                                        :alt="blog.image_alt" :title="blog.image_title" />
                                 </div>
                                 <ul class="tag-list">
                                     <li><i class="ri-calendar-todo-fill"></i> {{ blog.published }}</li>

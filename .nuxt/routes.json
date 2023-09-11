@@ -105,11 +105,11 @@
     "_name": "_c3769cb2"
   },
   {
-    "name": "events-detail",
-    "path": "/events/detail",
-    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/events/detail.vue",
-    "chunkName": "pages/events/detail",
-    "_name": "_2ef29090"
+    "name": "events-:slug",
+    "path": "/events/:slug",
+    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/events/:slug.vue",
+    "chunkName": "pages/events/:slug",
+    "_name": "_ea8cda64"
   },
   {
     "name": "expert-tips-:slug",
