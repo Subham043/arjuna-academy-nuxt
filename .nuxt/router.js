@@ -20,7 +20,7 @@ const _f5b218a6 = () => interopDefault(import('../pages/auth/sign-in.vue' /* web
 const _cc856bba = () => interopDefault(import('../pages/auth/sign-up.vue' /* webpackChunkName: "pages/auth/sign-up" */))
 const _c3769cb2 = () => interopDefault(import('../pages/courses/detail.vue' /* webpackChunkName: "pages/courses/detail" */))
 const _2ef29090 = () => interopDefault(import('../pages/events/detail.vue' /* webpackChunkName: "pages/events/detail" */))
-const _5fee9104 = () => interopDefault(import('../pages/expert-tips/detail.vue' /* webpackChunkName: "pages/expert-tips/detail" */))
+const _6d8b6002 = () => interopDefault(import('../pages/expert-tips/:slug.vue' /* webpackChunkName: "pages/expert-tips/:slug" */))
 const _3751127d = () => interopDefault(import('../pages/knowledge-desk/:slug.vue' /* webpackChunkName: "pages/knowledge-desk/:slug" */))
 const _031ad203 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -100,9 +100,9 @@ export const routerOptions = {
     component: _2ef29090,
     name: "events-detail"
   }, {
-    path: "/expert-tips/detail",
-    component: _5fee9104,
-    name: "expert-tips-detail"
+    path: "/expert-tips/:slug",
+    component: _6d8b6002,
+    name: "expert-tips-:slug"
   }, {
     path: "/knowledge-desk/:slug",
     component: _3751127d,

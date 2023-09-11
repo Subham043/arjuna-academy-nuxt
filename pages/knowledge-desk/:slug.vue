@@ -13,7 +13,7 @@
                                         alt="Blog Details" />
                                 </div>
                                 <ul class="tag-list">
-                                    <li><i class="ri-calendar-todo-fill"></i> {{ blog.published_on }}</li>
+                                    <li><i class="ri-calendar-todo-fill"></i> {{ blog.published }}</li>
                                     <li>
                                         <i class="ri-user-fill"></i>
                                         <NuxtLink to="/leadership-team">{{ blog.author_name }}</NuxtLink>

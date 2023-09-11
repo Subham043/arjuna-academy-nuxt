@@ -112,11 +112,11 @@
     "_name": "_2ef29090"
   },
   {
-    "name": "expert-tips-detail",
-    "path": "/expert-tips/detail",
-    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/expert-tips/detail.vue",
-    "chunkName": "pages/expert-tips/detail",
-    "_name": "_5fee9104"
+    "name": "expert-tips-:slug",
+    "path": "/expert-tips/:slug",
+    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/expert-tips/:slug.vue",
+    "chunkName": "pages/expert-tips/:slug",
+    "_name": "_6d8b6002"
   },
   {
     "name": "knowledge-desk-:slug",

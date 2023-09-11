@@ -7,16 +7,14 @@
         </div>
         <div class="event-content">
             <ul class="event-list">
-                <li><i class="ri-calendar-todo-fill"></i> 02 Jan 2022</li>
-                <li><i class="ri-map-pin-fill"></i> Aberdeen City, U.k</li>
-                <li><i class="ri-time-fill"></i> 12:00 AM</li>
+                <li><i class="ri-calendar-todo-fill"></i> {{ date }}</li>
+                <li><i class="ri-user-fill"></i> {{ author }}</li>
             </ul>
             <h3>
-                <NuxtLink :to="is_event ? '/events/detail' :  '/expert-tips/detail'">{{ title }}</NuxtLink>
+                <NuxtLink :to="is_event ? `/events/${slug}` :  `/expert-tips/${slug}`">{{ title }}</NuxtLink>
             </h3>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                necessitatibus
+                {{ description }}
             </p>
         </div>
     </div>
@@ -31,6 +29,22 @@ export default {
             default: '',
         },
         title: {
+            type: String,
+            default: '',
+        },
+        description: {
+            type: String,
+            default: '',
+        },
+        slug: {
+            type: String,
+            default: '',
+        },
+        author: {
+            type: String,
+            default: '',
+        },
+        date: {
             type: String,
             default: '',
         },
