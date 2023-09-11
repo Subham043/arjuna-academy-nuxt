@@ -1,7 +1,7 @@
 <template>
     <div class="event-item">
         <div v-if="image!==''" class="event-img">
-            <NuxtLink to="/events/detail">
+            <NuxtLink :to="is_event ? `/events/${slug}` :  `/expert-tips/${slug}`">
                 <img :src="image" alt="Events" />
             </NuxtLink>
         </div>

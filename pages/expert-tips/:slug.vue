@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Breadcrumb title="Expert Tips Detail" />
+        <Breadcrumb :title="expertTip.name" />
 
         <div class="blog-details-area pt-100 pb-70">
             <div class="container">
