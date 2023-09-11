@@ -19,120 +19,34 @@
                                 <span>FAQ</span>
                                 <h2>Frequently asked question</h2>
                             </div>
-                            <ul class="accordion">
-                                <li class="accordion-item">
+                            <div v-if="faqLoading" class="row justify-content-center">
+                                <div  v-for="i in 9" :key="i" class="col-lg-12 col-md-12">
+                                    <el-skeleton style="width: 100%" animated>
+                                        <template slot="template">
+                                            <el-skeleton-item variant="p" style="width: 50%" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <br/>
+                                        </template>
+                                    </el-skeleton>
+                                </div>
+                            </div>
+                            <ul v-if="!faqLoading && faq.length>0" class="accordion">
+                                <li v-for="(item, i) in faq" :key="i" class="accordion-item">
                                     <h4 class="accordion-title active">
-                                        How do we create course content?
+                                        {{ item.question }}
                                     </h4>
-                                    <div class="accordion-content show">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-                                            diam nonummy nibh sed euismod tincidunt ut laoreet dolore
-                                            magna aliquam erat volutpat ut wisi enim veniam lorem
-                                            dolore magna aliqua consectetuer adipiscing elit diam
-                                            nonummy nibh sed euismod tincidunt ut.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="accordion-item">
-                                    <h4 class="accordion-title active">
-                                        How can i manage my account?
-                                    </h4>
-                                    <div class="accordion-content show">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-                                            diam nonummy nibh sed euismod tincidunt ut laoreet dolore
-                                            magna aliquam erat volutpat ut wisi enim veniam lorem
-                                            dolore magna aliqua consectetuer adipiscing elit diam
-                                            nonummy nibh sed euismod tincidunt ut.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="accordion-item">
-                                    <h4 class="accordion-title active">
-                                        What are the benefits of ledu learning?
-                                    </h4>
-                                    <div class="accordion-content show">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-                                            diam nonummy nibh sed euismod tincidunt ut laoreet dolore
-                                            magna aliquam erat volutpat ut wisi enim veniam lorem
-                                            dolore magna aliqua consectetuer adipiscing elit diam
-                                            nonummy nibh sed euismod tincidunt ut.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="accordion-item">
-                                    <h4 class="accordion-title active">
-                                        Is support for learners included?
-                                    </h4>
-                                    <div class="accordion-content show">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-                                            diam nonummy nibh sed euismod tincidunt ut laoreet dolore
-                                            magna aliquam erat volutpat ut wisi enim veniam lorem
-                                            dolore magna aliqua consectetuer adipiscing elit diam
-                                            nonummy nibh sed euismod tincidunt ut.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="accordion-item">
-                                    <h4 class="accordion-title active">
-                                        How do we create course content?
-                                    </h4>
-                                    <div class="accordion-content show">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-                                            diam nonummy nibh sed euismod tincidunt ut laoreet dolore
-                                            magna aliquam erat volutpat ut wisi enim veniam lorem
-                                            dolore magna aliqua consectetuer adipiscing elit diam
-                                            nonummy nibh sed euismod tincidunt ut.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="accordion-item">
-                                    <h4 class="accordion-title active">
-                                        How can i manage my account?
-                                    </h4>
-                                    <div class="accordion-content show">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-                                            diam nonummy nibh sed euismod tincidunt ut laoreet dolore
-                                            magna aliquam erat volutpat ut wisi enim veniam lorem
-                                            dolore magna aliqua consectetuer adipiscing elit diam
-                                            nonummy nibh sed euismod tincidunt ut.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="accordion-item">
-                                    <h4 class="accordion-title active">
-                                        What are the benefits of ledu learning?
-                                    </h4>
-                                    <div class="accordion-content show">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-                                            diam nonummy nibh sed euismod tincidunt ut laoreet dolore
-                                            magna aliquam erat volutpat ut wisi enim veniam lorem
-                                            dolore magna aliqua consectetuer adipiscing elit diam
-                                            nonummy nibh sed euismod tincidunt ut.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="accordion-item">
-                                    <h4 class="accordion-title active">
-                                        Is support for learners included?
-                                    </h4>
-                                    <div class="accordion-content show">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-                                            diam nonummy nibh sed euismod tincidunt ut laoreet dolore
-                                            magna aliquam erat volutpat ut wisi enim veniam lorem
-                                            dolore magna aliqua consectetuer adipiscing elit diam
-                                            nonummy nibh sed euismod tincidunt ut.
-                                        </p>
-                                    </div>
+                                    <div class="accordion-content show" v-html-safe="item.answer" />
                                 </li>
                             </ul>
+                            <div v-if="!faqLoading && faq.length>0" class="col-12 text-center mt-5">
+                                <pagination v-model="faqCurrentPage" :records="faqCount" :per-page="faqPerPage"  :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -143,6 +57,7 @@
 
 <script>
 import Breadcrumb from '~/components/Breadcrumb.vue';
+import { API_ROUTES } from '~/helper/api_routes';
 
 
 
@@ -150,13 +65,53 @@ export default {
     name: "FaqPage",
     layout: "MainPageLayout",
     data() {
-        return {};
+        return {
+            faqLoading: false,
+            faq: [],
+            faqCount:1,
+            faqCurrentPage: 1,
+            faqPerPage: 1,
+        };
     },
     mounted() {
         // eslint-disable-next-line nuxt/no-env-in-hooks
         if (process.client) {
             this.$scrollTo("#__nuxt", 0, { force: true });
         }
+    },
+    async fetch() {
+      await this.getFaq();
+    },
+    watch: {
+        $route(to, from) {
+            this.handlePageChnage();
+        }
+    },
+    methods: {
+        async getFaq(page=0) {
+            this.faqLoading=true;
+            try {
+                const response = await this.$publicApi.get(API_ROUTES.faq+`?total=12&page=${page}`); // eslint-disable-line
+                this.faq = response.data.data
+                this.faqCount = response?.data?.meta?.total
+                this.faqPerPage = response?.data?.meta?.per_page
+                this.faqCurrentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+    
+            }finally{
+                this.faqLoading=false;
+            }
+        },
+        handlePaginationChnage(page){
+            this.$router.push({query:{page}});
+        },
+        handlePageChnage(){
+            this.faqCurrentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
+            this.getFaq(this.$route.query.page ? Number(this.$route.query.page) : 1);
+        },
     },
     components: { Breadcrumb }
 }
