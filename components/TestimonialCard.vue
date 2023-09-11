@@ -1,17 +1,10 @@
 <template>
     <div class="testimonials-card-two">
         <div class="rating">
-            <i class="ri-star-fill"></i>
-            <i class="ri-star-fill"></i>
-            <i class="ri-star-fill"></i>
-            <i class="ri-star-fill"></i>
-            <i class="ri-star-fill"></i>
+            <i v-for="i in star" :key="i" class="ri-star-fill"></i>
         </div>
         <p>
-            “Morbi porttitor ligula id varius consectetur. Integer ipsum
-            justo, congue sit amet massa vel, porttitor semper magna. Orci
-            varius natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus.”
+            “{{message}}”
         </p>
         <div class="content">
             <img :src="image" alt="testimonials" />
@@ -37,6 +30,14 @@ export default {
         designation: {
             type: String,
             default: '',
+        },
+        message: {
+            type: String,
+            default: '',
+        },
+        star: {
+            type: Number,
+            default: 5,
         },
     },
 }
