@@ -4,13 +4,16 @@
 
         <WhoWeAreCard 
             :first="true"
-            image="/images/enrolled/enrolled-img3.jpg"
-            heading="We have the most qualified instructors in your hometown."
-            :detail="[
-                'Arjunaa Academy for Achivers(AAA) is a premier and a leading coaching institute for the preparation of JEE (Main+Advanced), JEE (Main), Pre-Medical (NEET-UG), KVPY, Pre-Nurture & Career Foundation (Class VIII to X, NTSE & Olympiads) & Boards(CBSE,ICSE & State) in Bangalore, India. The Institute is well regarded for the high-quality entrance exams & Board exams preparation and produces best results year after year. Ever since the inception in 2012, Arjunaa Academy for Achievers (AAA) focusses on building a strong foundation of knowledge and concepts, instilling a vigour for research in the students.',
-                'The best personalized training is provided is given at AAA to each & every student in the form of 24/7 online & offline support. We treat Students like Professionals and care for them like Parents. To our Students, we making education exciting, relevant & stress free.',
-                'We provide value-based education, stressing the importance of character, values along with core competency in order to churn out high character driven responsible future citizens of our Nation.'
-            ]"
+            :loading="aboutLoading"
+            :image_alt="about?.image_alt"
+            :image="about?.image"
+            :image_title="about?.image_title"
+            :heading="about?.heading"
+            :detail="about?.description"
+            :counter_description="about?.counter_description"
+            :counter_image="about?.counter_image"
+            :counter_title="about?.counter_title"
+            :title="about?.title"
         />
 
         <div class="play-area ptb-100">
@@ -30,40 +33,36 @@
 
         <div class="counter-area-three pb-70">
             <div class="container">
+                <div v-if="counterLoading" class="row justify-content-center">
+                    <div v-for="i in 4" :key="i" class="col-lg-3 col-md-6 col-sm-12">
+                        <el-skeleton style="width: 100%" animated>
+                            <template slot="template">
+                                <div class="counter-card box-shadow px-1">
+                                    <el-skeleton-item variant="circle" style="width: 100px; height: 100px;" />
+                                    <el-skeleton-item variant="p" style="width: 50%" />
+                                    <br/>
+                                </div>
+                            </template>
+                        </el-skeleton>
+                    </div>
+                </div>
                 <div class="row">
-                    <div class="col-lg-3 col-6">
+                    <div v-if="!counterLoading && counter.length>0" v-for="(item, i) in counter" :key="i" class="col-lg-3 col-6">
                         <div class="counter-card box-shadow">
-                            <i class="flaticon-online-course"></i>
-                            <h3><span class="odometer" data-count="15000">00000</span>+</h3>
-                            <p>Courses & videos</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <div class="counter-card box-shadow">
-                            <i class="flaticon-student"></i>
-                            <h3><span class="odometer" data-count="145000">000000</span>+</h3>
-                            <p>Students enrolled</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <div class="counter-card box-shadow">
-                            <i class="flaticon-online-course-1"></i>
-                            <h3><span class="odometer" data-count="10000">00000</span>+</h3>
-                            <p>Courses instructors</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <div class="counter-card box-shadow">
-                            <i class="flaticon-customer-satisfaction"></i>
-                            <h3><span class="odometer" data-count="100">000</span>%</h3>
-                            <p>Satisfaction rate</p>
+                            <div class="row align-item-center">
+                                <img :src="item.image" :alt="item.image_alt" :title="item.image_title" style="height: 80px; object-fit: contain; width: auto !important;">
+                                <div class="col-auto">
+                                    <h3><span class="odometer">{{ item.counter }}</span>+</h3>
+                                    <p>{{ item.title }}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <WhatWeDoCard />
+        <WhatWeDoCard :loading="featureLoading" :feature="feature" />
 
 
     </div>
@@ -73,6 +72,7 @@
 import Breadcrumb from '~/components/Breadcrumb.vue';
 import WhatWeDoCard from '~/components/WhatWeDoCard.vue';
 import WhoWeAreCard from '~/components/WhoWeAreCard.vue';
+import { API_ROUTES } from '~/helper/api_routes';
 
 
 
@@ -80,13 +80,69 @@ export default {
     name: "AboutPage",
     layout: "MainPageLayout",
     data() {
-        return {};
+        return {
+            counterLoading: false,
+            counter: [],
+            aboutLoading: false,
+            about: null,
+            featureLoading: false,
+            feature: [],
+        };
     },
     mounted() {
         // eslint-disable-next-line nuxt/no-env-in-hooks
         if (process.client) {
             this.$scrollTo("#__nuxt", 0, { force: true });
         }
+        this.getCounter();
+    },
+    async fetch() {
+      await this.getAboutSection();
+      await this.getFeature();
+    },
+    methods: {
+        async getCounter() {
+            this.counterLoading=true;
+            try {
+                const response = await this.$publicApi.get(API_ROUTES.counter); // eslint-disable-line
+                this.counter = response.data.counter
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+    
+            }finally{
+                this.counterLoading=false;
+            }
+        },
+        async getAboutSection() {
+            this.aboutLoading=true;
+            try {
+                const response = await this.$publicApi.get(API_ROUTES.aboutSection+`/about-page`); // eslint-disable-line
+                this.about = response.data.about;
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+    
+            }finally{
+                this.aboutLoading=false;
+            }
+        },
+        async getFeature() {
+            this.featureLoading=true;
+            try {
+                const response = await this.$publicApi.get(API_ROUTES.feature+`/about-page`); // eslint-disable-line
+                this.feature = response.data.feature;
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+    
+            }finally{
+                this.featureLoading=false;
+            }
+        },
     },
     components: { Breadcrumb, WhoWeAreCard, WhatWeDoCard }
 }

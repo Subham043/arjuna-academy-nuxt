@@ -2394,7 +2394,7 @@ img {
   opacity: 0.5;
 }
 .counter-card {
-  padding: 30px 30px 30px 120px;
+  padding: 30px 10px;
   position: relative;
   background-color: var(--whiteColor);
   margin-bottom: 30px;
@@ -2580,6 +2580,14 @@ img {
   -ms-flex-align: center;
   align-items: center;
 }
+.featured-item-two .feature-icon-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
 .featured-item-two a i {
   padding-top: 10px;
   padding-left: 10px;
@@ -2588,6 +2596,17 @@ img {
   text-align: center;
   line-height: 1;
   color: var(--mainColor);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  background-color: transparent;
+  margin-right: 18px;
+}
+.featured-item-two .feature-icon-holder img {
+  padding-top: 10px;
+  padding-left: 10px;
+  position: relative;
+  font-size: 55px;
+  text-align: center;
   -webkit-transition: var(--transition);
   transition: var(--transition);
   background-color: transparent;
@@ -5127,6 +5146,14 @@ img {
   font-size: 20px;
   color: var(--whiteColor);
   background-color: var(--titleColor);
+  margin-right: 12px;
+  text-align: center;
+  border-radius: 50px;
+}
+.enrolled-img-three .enrolled-img-content img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
   margin-right: 12px;
   text-align: center;
   border-radius: 50px;

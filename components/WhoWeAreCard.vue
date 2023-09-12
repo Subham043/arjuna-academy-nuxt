@@ -1,35 +1,83 @@
 <template>
-    <div :class="`enrolled-area-two ${first ? 'pt-100' : ''} pb-70`">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="enrolled-img-three mb-30 pr-20">
-                        <img :src="image" alt="Enrolled" />
-                        <div class="enrolled-img-content">
-                            <i class="flaticon-discount"></i>
-                            <div class="content">
-                                <h3>Get 40% off</h3>
-                                <p>Every course</p>
+    <div>
+        <template v-if="!loading">
+            <div :class="`enrolled-area-two ${first ? 'pt-100' : ''} pb-70`">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="enrolled-img-three mb-30 pr-20">
+                                <img :src="image" :alt="image_alt" :title="image_title" />
+                                <div class="enrolled-img-content">
+                                    <img :src="counter_image" />
+                                    <div class="content">
+                                        <h3>{{ counter_title }}</h3>
+                                        <p>{{ counter_description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="enrolled-content mb-30">
+                                <div class="section-title">
+                                    <span>{{ title }}</span>
+                                    <h2>
+                                        {{ heading }}
+                                    </h2>
+                                    <div v-html-safe="detail" />
+                                </div>
+                                <NuxtLink to="/leadership-team" class="default-btn border-radius-50">View Leaders</NuxtLink>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="enrolled-content mb-30">
-                        <div class="section-title">
-                            <span>WHO WE ARE</span>
-                            <h2>
-                                {{ heading }}
-                            </h2>
-                            <p v-for="(data, i) in detail" :key="i">
-                                {{ data }}
-                            </p>
-                        </div>
-                        <NuxtLink to="/leadership-team" class="default-btn border-radius-50">View Leaders</NuxtLink>
-                    </div>
-                </div>
             </div>
-        </div>
+        </template>
+        <template v-else>
+            <el-skeleton style="width: 100%" animated>
+                <template slot="template">
+                    <div :class="`enrolled-area-two pt-100 pb-70`">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6">
+                                    <div class="enrolled-img-three mb-30 pr-20">
+                                        <el-skeleton-item variant="image" style="width: 100%; height: 440px;" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="enrolled-content mb-30">
+                                        <div class="section-title">
+                                            <el-skeleton-item variant="p" style="width: 50%" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 100%;" />
+                                            <br/>
+                                            <el-skeleton-item variant="text" style="width: 50%;" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </el-skeleton>
+        </template>
     </div>
 </template>
 
@@ -41,7 +89,19 @@ export default {
             type: Boolean,
             default: false,
         },
+        loading: {
+            type: Boolean,
+            default: true,
+        },
         image: {
+            type: String,
+            default: '',
+        },
+        image_alt: {
+            type: String,
+            default: '',
+        },
+        image_title: {
             type: String,
             default: '',
         },
@@ -49,9 +109,25 @@ export default {
             type: String,
             default: '',
         },
+        title: {
+            type: String,
+            default: '',
+        },
+        counter_description: {
+            type: String,
+            default: '',
+        },
+        counter_title: {
+            type: String,
+            default: '',
+        },
+        counter_image: {
+            type: String,
+            default: '',
+        },
         detail: {
-            type: Array,
-            default: [],
+            type: String,
+            default: '',
         },
     },
 }

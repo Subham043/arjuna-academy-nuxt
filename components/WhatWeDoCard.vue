@@ -9,81 +9,30 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-3 text-end">
-                    <a href="courses.html" class="default-btn border-radius-50">Explore more</a>
+                    <NuxtLink to="/mission-vision" class="default-btn border-radius-50">Mission & Vision</NuxtLink>
                 </div>
             </div>
             <div class="row">
-                
-                <div class="col-lg-4 col-6">
-                    <div class="featured-item-two">
-                        <a href="courses.html">
-                            <i class="flaticon-design"></i>
-                            <h3>24/7</h3>
-                        </a>
-                        <p>24/7 support for doubt clarification, both online & offline.</p>
-                    </div>
+                <div v-if="loading" v-for="i in 6" :key="i" class="col-lg-4 col-md-6 col-sm-12">
+                    <el-skeleton style="width: 100%" animated>
+                        <template slot="template">
+                            <div class="counter-card box-shadow px-1">
+                                <el-skeleton-item variant="rect" style="width: 100px; height: 100px;" />
+                                <el-skeleton-item variant="p" style="width: 50%" />
+                                <br/>
+                                <el-skeleton-item variant="p" style="width: 100%" />
+                                <br/>
+                            </div>
+                        </template>
+                    </el-skeleton>
                 </div>
-                <div class="col-lg-4 col-6">
+                <div v-if="!loading && feature.length>0" v-for="(item, i) in feature" :key="i" class="col-lg-4 col-6">
                     <div class="featured-item-two">
-                        <a href="courses.html">
-                            <i class="flaticon-corporate"></i>
-                            <h3>Best results</h3>
-                        </a>
-                        <p>40% of students succeeding in IIT JEE and NEET, almost thrice better than the national average.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-6">
-                    <div class="featured-item-two">
-                        <a href="courses.html">
-                            <i class="flaticon-heart-beat"></i>
-                            <h3>Personalised Training</h3>
-                        </a>
-                        <p>Personal attention guaranteed with a small batch size of 30 students. Customized doubt sessions.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-6">
-                    <div class="featured-item-two">
-                        <a href="courses.html">
-                            <i class="flaticon-camera"></i>
-                            <h3>Most reasonable fee</h3>
-                        </a>
-                        <p>Provides several additional features as compared to other coaching institutes at a fee of almost 30% lower.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-6">
-                    <div class="featured-item-two">
-                        <a href="courses.html">
-                            <i class="flaticon-wellness"></i>
-                            <h3>Faculty</h3>
-                        </a>
-                        <p>Passionate faculty from IITs, NITs, IISc Research Scientists & NEET Toppers with rich teaching experience</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-6">
-                    <div class="featured-item-two">
-                        <a href="courses.html">
-                            <i class="flaticon-web-development"></i>
-                            <h3>Quality Education</h3>
-                        </a>
-                        <p>1700+ hours of training, High quality updated study material, Chapter-wise DPPs, Regular assignments and tracking</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-6">
-                    <div class="featured-item-two">
-                        <a href="courses.html">
-                            <i class="flaticon-user"></i>
-                            <h3>Tests</h3>
-                        </a>
-                        <p>17+ JEE and NEET Tests per year. Cumulative tests after every 3 tests. Detailed solutions & paper discussion for every test. Error correction assignments after every test</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-6">
-                    <div class="featured-item-two">
-                        <a href="courses.html">
-                            <i class="flaticon-folder"></i>
-                            <h3>Individual mentorship</h3>
-                        </a>
-                        <p>Mentoring, even in a professional environment is a personal experience at AAA.The only institute to provide value education along with training them for IIT, NEET and KVPY</p>
+                        <div class="feature-icon-holder">
+                            <img :src="item.image">
+                            <h3>{{ item.title }}</h3>
+                        </div>
+                        <p>{{ item.description }}</p>
                     </div>
                 </div>
             </div>
@@ -94,5 +43,15 @@
 <script>
 export default {
     name: 'WhatWeDoCardComponent',
+    props: {
+        loading: {
+            type: Boolean,
+            default: true,
+        },
+        feature: {
+            type: Array,
+            default: [],
+        },
+    },
 }
 </script>
