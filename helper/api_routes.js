@@ -7,6 +7,7 @@ export const API_ROUTES = {
     feature: "/api/v1/feature",
     achiever: "/api/v1/achiever",
     aboutSection: "/api/v1/about-section",
+    bannerSection: "/api/v1/home-page-banner",
     blog: "/api/v1/blog",
     expertTip: "/api/v1/expert-tip",
     management: "/api/v1/team-member/management",
