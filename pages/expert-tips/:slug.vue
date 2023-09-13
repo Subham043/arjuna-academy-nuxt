@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Breadcrumb :title="expertTip.name" />
+        <Breadcrumb :title="expertTip?.name" />
 
         <div class="blog-details-area pt-100 pb-70">
             <div class="container">
@@ -9,19 +9,19 @@
                         <div class="blog-details-content pr-20">
                             <template v-if="!expertTipLoading">
                                 <ul class="tag-list">
-                                    <li><i class="ri-calendar-todo-fill"></i> {{ expertTip.published }}</li>
+                                    <li><i class="ri-calendar-todo-fill"></i> {{ expertTip?.published }}</li>
                                     <li>
                                         <i class="ri-user-fill"></i>
-                                        <NuxtLink to="/leadership-team">{{ expertTip.author_name }}</NuxtLink>
+                                        <NuxtLink to="/leadership-team">{{ expertTip?.author_name }}</NuxtLink>
                                     </li>
                                 </ul>
-                                <h1>{{ expertTip.heading }}</h1>
-                                <div v-html-safe="expertTip.description" />
+                                <h1>{{ expertTip?.heading }}</h1>
+                                <div v-html-safe="expertTip?.description" />
                                 <div class="article-share">
                                     <div class="row align-items-center justify-content-between">
                                         <div v-if="prev_expertTip!==null" class="col-lg-auto col-md-auto">
                                             <div class="pagination-area m-0">
-                                                <NuxtLink :to="prev_expertTip!==null ? `/expert-tips/${prev_expertTip.slug}` : '#'" title="previous expert tip" class="prev page-numbers">
+                                                <NuxtLink :to="prev_expertTip!==null ? `/expert-tips/${prev_expertTip?.slug}` : '#'" title="previous expert tip" class="prev page-numbers">
                                                     <i class="flaticon-left-arrow"></i>
                                                 </NuxtLink>
                                             </div>
@@ -31,17 +31,17 @@
                                                 <ul class="social-icon">
                                                     <li class="title">Share :</li>
                                                     <li>
-                                                        <a :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/expert-tips/${expertTip.slug}&title=${expertTip.name}`" target="_blank">
+                                                        <a :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/expert-tips/${expertTip?.slug}&title=${expertTip?.name}`" target="_blank">
                                                             <i class="ri-facebook-fill"></i>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a :href="`https://twitter.com/share?text=${expertTip.name}&url=https://www.aaaedu.in/expert-tips/${expertTip.slug}`" target="_blank">
+                                                        <a :href="`https://twitter.com/share?text=${expertTip?.name}&url=https://www.aaaedu.in/expert-tips/${expertTip?.slug}`" target="_blank">
                                                             <i class="ri-twitter-fill"></i>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/expert-tips/${expertTip.slug}&title=${expertTip.name}&source=${expertTip.name}`" target="_blank">
+                                                        <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/expert-tips/${expertTip?.slug}&title=${expertTip?.name}&source=${expertTip?.name}`" target="_blank">
                                                             <i class="ri-linkedin-fill"></i>
                                                         </a>
                                                     </li>
@@ -50,7 +50,7 @@
                                         </div>
                                         <div v-if="next_expertTip!==null" class="col-lg-auto col-md-auto">
                                             <div class="pagination-area m-0">
-                                                <NuxtLink :to="next_expertTip!==null ? `/expert-tips/${next_expertTip.slug}` : '#'" title="next expert tip" class="next page-numbers">
+                                                <NuxtLink :to="next_expertTip!==null ? `/expert-tips/${next_expertTip?.slug}` : '#'" title="next expert tip" class="next page-numbers">
                                                     <i class="flaticon-chevron"></i>
                                                 </NuxtLink>
                                             </div>

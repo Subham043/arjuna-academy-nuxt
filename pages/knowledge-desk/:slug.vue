@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Breadcrumb :title="blog.name" />
+        <Breadcrumb :title="blog?.name" />
 
         <div class="blog-details-area pt-100 pb-70">
             <div class="container">
@@ -9,23 +9,23 @@
                         <div class="blog-details-content pr-20">
                             <template v-if="!blogLoading">
                                 <div class="blog-preview-img">
-                                    <img :src="blog.image"
-                                        :alt="blog.image_alt" :title="blog.image_title" />
+                                    <img :src="blog?.image"
+                                        :alt="blog?.image_alt" :title="blog?.image_title" />
                                 </div>
                                 <ul class="tag-list">
-                                    <li><i class="ri-calendar-todo-fill"></i> {{ blog.published }}</li>
+                                    <li><i class="ri-calendar-todo-fill"></i> {{ blog?.published }}</li>
                                     <li>
                                         <i class="ri-user-fill"></i>
-                                        <NuxtLink to="/leadership-team">{{ blog.author_name }}</NuxtLink>
+                                        <NuxtLink to="/leadership-team">{{ blog?.author_name }}</NuxtLink>
                                     </li>
                                 </ul>
-                                <h1>{{ blog.heading }}</h1>
-                                <div v-html-safe="blog.description" />
+                                <h1>{{ blog?.heading }}</h1>
+                                <div v-html-safe="blog?.description" />
                                 <div class="article-share">
                                     <div class="row align-items-center justify-content-between">
                                         <div v-if="prev_blog!==null" class="col-lg-auto col-md-auto">
                                             <div class="pagination-area m-0">
-                                                <NuxtLink :to="prev_blog!==null ? `/knowledge-desk/${prev_blog.slug}` : '#'" title="previous blog" class="prev page-numbers">
+                                                <NuxtLink :to="prev_blog!==null ? `/knowledge-desk/${prev_blog?.slug}` : '#'" title="previous blog" class="prev page-numbers">
                                                     <i class="flaticon-left-arrow"></i>
                                                 </NuxtLink>
                                             </div>
@@ -35,17 +35,17 @@
                                                 <ul class="social-icon">
                                                     <li class="title">Share :</li>
                                                     <li>
-                                                        <a :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/knowledge-desk/${blog.slug}&title=${blog.name}`" target="_blank">
+                                                        <a :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/knowledge-desk/${blog?.slug}&title=${blog?.name}`" target="_blank">
                                                             <i class="ri-facebook-fill"></i>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a :href="`https://twitter.com/share?text=${blog.name}&url=https://www.aaaedu.in/knowledge-desk/${blog.slug}`" target="_blank">
+                                                        <a :href="`https://twitter.com/share?text=${blog?.name}&url=https://www.aaaedu.in/knowledge-desk/${blog?.slug}`" target="_blank">
                                                             <i class="ri-twitter-fill"></i>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/knowledge-desk/${blog.slug}&title=${blog.name}&source=${blog.name}`" target="_blank">
+                                                        <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/knowledge-desk/${blog?.slug}&title=${blog?.name}&source=${blog?.name}`" target="_blank">
                                                             <i class="ri-linkedin-fill"></i>
                                                         </a>
                                                     </li>
@@ -54,7 +54,7 @@
                                         </div>
                                         <div v-if="next_blog!==null" class="col-lg-auto col-md-auto">
                                             <div class="pagination-area m-0">
-                                                <NuxtLink :to="next_blog!==null ? `/knowledge-desk/${next_blog.slug}` : '#'" title="next blog" class="next page-numbers">
+                                                <NuxtLink :to="next_blog!==null ? `/knowledge-desk/${next_blog?.slug}` : '#'" title="next blog" class="next page-numbers">
                                                     <i class="flaticon-chevron"></i>
                                                 </NuxtLink>
                                             </div>

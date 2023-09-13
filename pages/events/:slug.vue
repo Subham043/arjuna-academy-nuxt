@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Breadcrumb :title="event.name" />
+        <Breadcrumb :title="event?.name" />
 
         <div class="event-details-area pt-100 pb-70">
             <div class="container">
@@ -9,13 +9,13 @@
                         <template v-if="!eventLoading">
                             <div class="event-details-content pr-20">
                                 <div class="event-preview-img">
-                                    <img :src="event.image" :alt="event.image_alt" :title="event.image_title" />
+                                    <img :src="event?.image" :alt="event?.image_alt" :title="event?.image_title" />
                                 </div>
-                                <h1>{{ event.heading }}</h1>
-                                <div v-html-safe="event.description" />
+                                <h1>{{ event?.heading }}</h1>
+                                <div v-html-safe="event?.description" />
                                 <h3 class="event-details-mt-30">Our speakers</h3>
                                 <div class="row justify-content-center event-details-mt-30">
-                                    <div v-for="(item, i) in event.speakers" :key="i" class="col-lg-3 col-md-6">
+                                    <div v-for="(item, i) in event?.speakers" :key="i" class="col-lg-3 col-md-6">
                                         <div class="instructors-item instructors-item-bg">
                                             <div class="instructors-img">
                                                 <img :src="item.image" :alt="item.image_alt" :title="item.image_title"  />
@@ -59,8 +59,8 @@
                             <div class="event-sidebar">
                                 <h3 class="title">Events description</h3>
                                 <ul>
-                                    <li>Date: <span>{{ event.event_date_on }}</span></li>
-                                    <li v-for="(item, i) in event.specifications" :key="i">
+                                    <li>Date: <span>{{ event?.event_date_on }}</span></li>
+                                    <li v-for="(item, i) in event?.specifications" :key="i">
                                         {{ item.title }}: <span>{{ item.description }}</span>
                                     </li>
                                 </ul>
