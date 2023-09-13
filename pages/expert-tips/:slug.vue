@@ -110,7 +110,7 @@ export default {
     data() {
         return {
             expertTipLoading: false,
-            expertTip: [],
+            expertTip: null,
             prev_expertTip: null,
             next_expertTip: null,
         };

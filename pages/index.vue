@@ -103,7 +103,7 @@
                         </template>
                     </el-skeleton>
                 </div>
-                <div v-if="!commonFeatureLoading && commonFeature.length>0" v-for="(item, i) in feature" :key="i" class="col-lg-4 col-6">
+                <div v-if="!commonFeatureLoading && commonFeature.length>0" v-for="(item, i) in commonFeature" :key="i" class="col-lg-4 col-6">
                     <div class="featured-item">
                     <img :src="item.image" class="featured-img">
                     <h3>{{ item.title }}</h3>

@@ -104,18 +104,19 @@
                                 </li>
                                 <li class="nav-item">
                                     <NuxtLink to="#" class="nav-link dropdown-toggle"> Achievers </NuxtLink>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <NuxtLink to="/achievers" class="nav-link"> JEE </NuxtLink>
-                                        </li>
-                                        <li class="nav-item">
-                                            <NuxtLink to="/achievers" class="nav-link"> NEET </NuxtLink>
-                                        </li>
-                                        <li class="nav-item">
-                                            <NuxtLink to="/achievers" class="nav-link"> K-CET </NuxtLink>
-                                        </li>
-                                        <li class="nav-item">
-                                            <NuxtLink to="/achievers" class="nav-link"> NSTSE </NuxtLink>
+                                    <ul v-if="achieverCategoryLoading" class="dropdown-menu">
+                                        <el-skeleton style="width: 100%" animated>
+                                            <template slot="template">
+                                                <li v-for="i in 4" :key="i"  class="nav-item">
+                                                    <el-skeleton-item variant="p" style="width: 100%" />
+                                                    <br/>
+                                                </li>
+                                            </template>
+                                        </el-skeleton>
+                                    </ul>
+                                    <ul v-if="!achieverCategoryLoading && achieverCategory.length>0" class="dropdown-menu">
+                                        <li v-if="!achieverCategoryLoading && achieverCategory.length>0" v-for="(item, i) in achieverCategory" :key="i" class="nav-item">
+                                            <NuxtLink :to="`/achievers/${item.slug}`" class="nav-link"> {{ item.name }} </NuxtLink>
                                         </li>
                                     </ul>
                                 </li>
@@ -166,7 +167,33 @@
 </template>
 
 <script>
+import { API_ROUTES } from '~/helper/api_routes';
+
 export default {
     name: 'HeaderComponent',
+    mounted() {
+        this.getAchieverCategory();
+    },
+    data() {
+        return {
+            achieverCategory: [],
+            achieverCategoryLoading: false,
+        }
+    },
+    methods: {
+        async getAchieverCategory(page=0) {
+            this.achieverCategoryLoading=true;
+            try {
+                const response = await this.$publicApi.get(API_ROUTES.achieverCategory); // eslint-disable-line
+                this.achieverCategory = response.data.achiverCategory
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+            }finally{
+                this.achieverCategoryLoading=false;
+            }
+        },
+    },
 }
 </script>

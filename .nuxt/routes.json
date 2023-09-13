@@ -7,13 +7,6 @@
     "_name": "_02f35e3d"
   },
   {
-    "name": "achievers",
-    "path": "/achievers",
-    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/achievers.vue",
-    "chunkName": "pages/achievers",
-    "_name": "_ff8385fa"
-  },
-  {
     "name": "contact-us",
     "path": "/contact-us",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/contact-us.vue",
@@ -103,6 +96,13 @@
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/courses/detail.vue",
     "chunkName": "pages/courses/detail",
     "_name": "_c3769cb2"
+  },
+  {
+    "name": "achievers-:slug",
+    "path": "/achievers/:slug",
+    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/achievers/:slug.vue",
+    "chunkName": "pages/achievers/:slug",
+    "_name": "_0e7dee4e"
   },
   {
     "name": "events-:slug",

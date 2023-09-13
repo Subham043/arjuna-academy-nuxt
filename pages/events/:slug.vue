@@ -124,7 +124,7 @@ export default {
     data() {
         return {
             eventLoading: false,
-            event: [],
+            event: null,
             popularEventLoading: false,
             popularEvent: [],
             popularEventCount:1,

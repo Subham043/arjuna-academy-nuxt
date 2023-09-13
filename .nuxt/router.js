@@ -5,7 +5,6 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _02f35e3d = () => interopDefault(import('../pages/about-us.vue' /* webpackChunkName: "pages/about-us" */))
-const _ff8385fa = () => interopDefault(import('../pages/achievers.vue' /* webpackChunkName: "pages/achievers" */))
 const _1665cc8a = () => interopDefault(import('../pages/contact-us.vue' /* webpackChunkName: "pages/contact-us" */))
 const _5b07cb6c = () => interopDefault(import('../pages/courses/index.vue' /* webpackChunkName: "pages/courses/index" */))
 const _0b57818a = () => interopDefault(import('../pages/events/index.vue' /* webpackChunkName: "pages/events/index" */))
@@ -19,6 +18,7 @@ const _32ff8b06 = () => interopDefault(import('../pages/auth/forgot-password.vue
 const _f5b218a6 = () => interopDefault(import('../pages/auth/sign-in.vue' /* webpackChunkName: "pages/auth/sign-in" */))
 const _cc856bba = () => interopDefault(import('../pages/auth/sign-up.vue' /* webpackChunkName: "pages/auth/sign-up" */))
 const _c3769cb2 = () => interopDefault(import('../pages/courses/detail.vue' /* webpackChunkName: "pages/courses/detail" */))
+const _0e7dee4e = () => interopDefault(import('../pages/achievers/:slug.vue' /* webpackChunkName: "pages/achievers/:slug" */))
 const _ea8cda64 = () => interopDefault(import('../pages/events/:slug.vue' /* webpackChunkName: "pages/events/:slug" */))
 const _6d8b6002 = () => interopDefault(import('../pages/expert-tips/:slug.vue' /* webpackChunkName: "pages/expert-tips/:slug" */))
 const _3751127d = () => interopDefault(import('../pages/knowledge-desk/:slug.vue' /* webpackChunkName: "pages/knowledge-desk/:slug" */))
@@ -39,10 +39,6 @@ export const routerOptions = {
     path: "/about-us",
     component: _02f35e3d,
     name: "about-us"
-  }, {
-    path: "/achievers",
-    component: _ff8385fa,
-    name: "achievers"
   }, {
     path: "/contact-us",
     component: _1665cc8a,
@@ -95,6 +91,10 @@ export const routerOptions = {
     path: "/courses/detail",
     component: _c3769cb2,
     name: "courses-detail"
+  }, {
+    path: "/achievers/:slug",
+    component: _0e7dee4e,
+    name: "achievers-:slug"
   }, {
     path: "/events/:slug",
     component: _ea8cda64,

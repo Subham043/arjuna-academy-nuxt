@@ -191,7 +191,7 @@ export default {
     data() {
         return {
             blogLoading: false,
-            blog: [],
+            blog: null,
             prev_blog: null,
             next_blog: null,
             popularBlogLoading: false,
