@@ -2,185 +2,209 @@
     <div>
         <Breadcrumb title="Contact us" />
 
-        <div class="contact-info-area pt-100 pb-70">
+        <div class="faq-area pt-100 pb-70">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-4 col-12 col-sm-8">
-                        <div class="contact-info-card">
-                            <i class="ri-map-pin-fill"></i>
-                            <h3>Our location</h3>
-                            <p>Vijaya Nagar, Bengaluru, Karnataka, 560040</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <div class="contact-info-card">
-                            <i class="ri-mail-fill"></i>
-                            <h3>Email us</h3>
-                            <p>
-                                <a
-                                    href=""><span>info@aaaedu.in</span></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <div class="contact-info-card">
-                            <i class="ri-phone-fill"></i>
-                            <h3>Phone</h3>
-                            <p><a href="tel:+917676642258">+91 7676642258</a></p>
-                            <p><a href="tel:+918197554516">+91 8197554516</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="contact-widget-area pb-70">
-            <div class="container">
-                <div class="section-title text-center mb-45">
-                    <span>SEND MESSAGE</span>
-                    <h2>Get in Touch with us</h2>
-                </div>
-                <div class="contact-form">
-                    <ValidationObserver ref="form" v-slot="{ handleSubmit }">
-                        <form id="contactForm" @submit.prevent="handleSubmit(formHandler)">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h3 class="user-title">Personal Information</h3>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="name">
-                                            <el-input placeholder="Name" class="w-100" v-model="name"></el-input>
-                                            <div  :class="classes">{{ errors[0] }}</div>
-                                        </ValidationProvider>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="contact-info-area pb-70">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-12 col-12 col-sm-8">
+                                        <div class="contact-info-card">
+                                            <i class="ri-map-pin-fill"></i>
+                                            <h3>Our location</h3>
+                                            <p>Vijaya Nagar, Bengaluru, Karnataka, 560040</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|email" name="email">
-                                            <el-input placeholder="Email" class="w-100" v-model="email"></el-input>
-                                            <div  :class="classes">{{ errors[0] }}</div>
-                                        </ValidationProvider>
+                                    <div class="col-lg-6 col-6">
+                                        <div class="contact-info-card">
+                                            <i class="ri-mail-fill"></i>
+                                            <h3>Email us</h3>
+                                            <p>
+                                                <a
+                                                    href=""><span>info@aaaedu.in</span></a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|phone" name="phone">
-                                            <el-input placeholder="Phone" class="w-100" v-model="phone"></el-input>
-                                            <div  :class="classes">{{ errors[0] }}</div>
-                                        </ValidationProvider>
+                                    <div class="col-lg-6 col-6">
+                                        <div class="contact-info-card">
+                                            <i class="ri-phone-fill"></i>
+                                            <h3>Phone</h3>
+                                            <p><a href="tel:+917676642258">+91 7676642258</a></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="course">
-                                            <el-input placeholder="Course" class="w-100" v-model="course"></el-input>
-                                            <div  :class="classes">{{ errors[0] }}</div>
-                                        </ValidationProvider>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="location">
-                                            <el-input placeholder="Location" class="w-100" v-model="location"></el-input>
-                                            <div  :class="classes">{{ errors[0] }}</div>
-                                        </ValidationProvider>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="request_type">
-                                            <el-select v-model="request_type" class="w-100" placeholder="Select Your Request">
-                                                <el-option
-                                                v-for="item in requestOptions"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
-                                                </el-option>
-                                            </el-select>
-                                            <div  :class="classes">{{ errors[0] }}</div>
-                                        </ValidationProvider>
-                                    </div>
-                                </div>
-                                <div class="col-12 mb-3">
-                                    <h3 class="user-title">Please give us your comfortable date & time to contact you</h3>
-                                </div>
-                                <div :class="`${request_type==='Visit Our Center' ? 'col-lg-4' : 'col-lg-6'} col-md-6`">
-                                    <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="date">
-                                            <el-date-picker
-                                            v-model="date"
-                                            type="date"
-                                            class="w-100"
-                                            placeholder="Pick A Date">
-                                            </el-date-picker>
-                                            <div  :class="classes">{{ errors[0] }}</div>
-                                        </ValidationProvider>
-                                    </div>
-                                </div>
-                                <div :class="`${request_type==='Visit Our Center' ? 'col-lg-4' : 'col-lg-6'} col-md-6`">
-                                    <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="time">
-                                            <el-time-picker
-                                            v-model="time"
-                                            class="w-100"
-                                            placeholder="Pick A Time">
-                                            </el-time-picker>
-                                            <div  :class="classes">{{ errors[0] }}</div>
-                                        </ValidationProvider>
-                                    </div>
-                                </div>
-                                <div v-if="request_type==='Visit Our Center'" class="col-lg-4 col-md-6">
-                                    <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" :rules="request_type==='Visit Our Center' ? 'required|custom_message' : ''" name="branch">
-                                            <el-select v-model="branch" class="w-100" placeholder="Select Branch">
-                                                <el-option
-                                                v-for="item in branchOptions"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
-                                                </el-option>
-                                            </el-select>
-                                            <div  :class="classes">{{ errors[0] }}</div>
-                                        </ValidationProvider>
-                                    </div>
-                                </div>
-                                <div class="col-12 mb-3">
-                                    <h3 v-if="request_type==='Home Visit'" class="user-title">Please provide the address where you would like our executive to meet you</h3>
-                                    <h3 v-else-if="request_type==='Connect Online'" class="user-title">Please provide us the details to connect online</h3>
-                                    <h3 v-else class="user-title">Please provide us the reason for contacting us</h3>
-                                </div>
-                                <div class="col-lg-12 col-md-12">
-                                    <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="detail">
-                                            <el-input :placeholder="request_type==='Home Visit' ? 'Address' : 'Detail'" class="w-100" type="textarea" :rows="5" v-model="message"></el-input>
-                                            <div  :class="classes">{{ errors[0] }}</div>
-                                        </ValidationProvider>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12">
-                                    <button type="submit" :disabled="loading" class="default-btn">
-                                        <template v-if="!loading">
-                                            Submit
-                                        </template>
-                                        <div v-else class="spinner-border" role="status"></div>
-                                    </button>
                                 </div>
                             </div>
-                        </form>
-                    </ValidationObserver>
+                        </div>
+                        <div class="contact-map-area pb-100">
+                            <div class="container">
+                                <div class="contact-map mb-20">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.972641599872!2d-122.40869708532713!3d37.790680919018435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808bfb7cb35b%3A0x9b649f6a7d9c50e8!2s560%20Bush%20St%20%235%2C%20San%20Francisco%2C%20CA%2094108%2C%20USA!5e0!3m2!1sen!2sbd!4v1641381557316!5m2!1sen!2sbd"></iframe>
+                                </div>
+                                <div class="contact-map mb-20">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.972641599872!2d-122.40869708532713!3d37.790680919018435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808bfb7cb35b%3A0x9b649f6a7d9c50e8!2s560%20Bush%20St%20%235%2C%20San%20Francisco%2C%20CA%2094108%2C%20USA!5e0!3m2!1sen!2sbd!4v1641381557316!5m2!1sen!2sbd"></iframe>
+                                </div>
+                                <div class="contact-map mb-20">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.972641599872!2d-122.40869708532713!3d37.790680919018435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808bfb7cb35b%3A0x9b649f6a7d9c50e8!2s560%20Bush%20St%20%235%2C%20San%20Francisco%2C%20CA%2094108%2C%20USA!5e0!3m2!1sen!2sbd!4v1641381557316!5m2!1sen!2sbd"></iframe>
+                                </div>
+                                <div class="contact-map mb-20">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.972641599872!2d-122.40869708532713!3d37.790680919018435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808bfb7cb35b%3A0x9b649f6a7d9c50e8!2s560%20Bush%20St%20%235%2C%20San%20Francisco%2C%20CA%2094108%2C%20USA!5e0!3m2!1sen!2sbd!4v1641381557316!5m2!1sen!2sbd"></iframe>
+                                </div>
+                                <div class="contact-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.972641599872!2d-122.40869708532713!3d37.790680919018435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808bfb7cb35b%3A0x9b649f6a7d9c50e8!2s560%20Bush%20St%20%235%2C%20San%20Francisco%2C%20CA%2094108%2C%20USA!5e0!3m2!1sen!2sbd!4v1641381557316!5m2!1sen!2sbd"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="contact-widget-area faq-contact">
+                            <div class="container">
+                                <div class="contact-form">
+                                    <div class="section-title text-center mb-20">
+                                        <span>SEND MESSAGE</span>
+                                        <h2>Get in Touch with us</h2>
+                                    </div>
+                                    <ValidationObserver ref="form" v-slot="{ handleSubmit }">
+                                        <form id="contactForm" @submit.prevent="handleSubmit(formHandler)">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h3 class="user-title">Personal Information</h3>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="name">
+                                                            <el-input placeholder="Name" class="w-100" v-model="name"></el-input>
+                                                            <div  :class="classes">{{ errors[0] }}</div>
+                                                        </ValidationProvider>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|email" name="email">
+                                                            <el-input placeholder="Email" class="w-100" v-model="email"></el-input>
+                                                            <div  :class="classes">{{ errors[0] }}</div>
+                                                        </ValidationProvider>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|phone" name="phone">
+                                                            <el-input placeholder="Phone" class="w-100" v-model="phone"></el-input>
+                                                            <div  :class="classes">{{ errors[0] }}</div>
+                                                        </ValidationProvider>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="course">
+                                                            <el-input placeholder="Course" class="w-100" v-model="course"></el-input>
+                                                            <div  :class="classes">{{ errors[0] }}</div>
+                                                        </ValidationProvider>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="location">
+                                                            <el-input placeholder="Location" class="w-100" v-model="location"></el-input>
+                                                            <div  :class="classes">{{ errors[0] }}</div>
+                                                        </ValidationProvider>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="request_type">
+                                                            <el-select v-model="request_type" class="w-100" placeholder="Select Your Request">
+                                                                <el-option
+                                                                v-for="item in requestOptions"
+                                                                :key="item.value"
+                                                                :label="item.label"
+                                                                :value="item.value">
+                                                                </el-option>
+                                                            </el-select>
+                                                            <div  :class="classes">{{ errors[0] }}</div>
+                                                        </ValidationProvider>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 mb-3">
+                                                    <h3 class="user-title">Please give us your comfortable date & time to contact you</h3>
+                                                </div>
+                                                <div :class="`${request_type==='Visit Our Center' ? 'col-lg-4' : 'col-lg-6'} col-md-6`">
+                                                    <div class="form-group">
+                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="date">
+                                                            <el-date-picker
+                                                            v-model="date"
+                                                            type="date"
+                                                            class="w-100"
+                                                            placeholder="Pick A Date">
+                                                            </el-date-picker>
+                                                            <div  :class="classes">{{ errors[0] }}</div>
+                                                        </ValidationProvider>
+                                                    </div>
+                                                </div>
+                                                <div :class="`${request_type==='Visit Our Center' ? 'col-lg-4' : 'col-lg-6'} col-md-6`">
+                                                    <div class="form-group">
+                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="time">
+                                                            <el-time-picker
+                                                            v-model="time"
+                                                            class="w-100"
+                                                            placeholder="Pick A Time">
+                                                            </el-time-picker>
+                                                            <div  :class="classes">{{ errors[0] }}</div>
+                                                        </ValidationProvider>
+                                                    </div>
+                                                </div>
+                                                <div v-if="request_type==='Visit Our Center'" class="col-lg-4 col-md-6">
+                                                    <div class="form-group">
+                                                        <ValidationProvider v-slot="{ classes, errors }" :rules="request_type==='Visit Our Center' ? 'required|custom_message' : ''" name="branch">
+                                                            <el-select v-model="branch" class="w-100" placeholder="Select Branch">
+                                                                <el-option
+                                                                v-for="item in branchOptions"
+                                                                :key="item.value"
+                                                                :label="item.label"
+                                                                :value="item.value">
+                                                                </el-option>
+                                                            </el-select>
+                                                            <div  :class="classes">{{ errors[0] }}</div>
+                                                        </ValidationProvider>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 mb-3">
+                                                    <h3 v-if="request_type==='Home Visit'" class="user-title">Please provide the address where you would like our executive to meet you</h3>
+                                                    <h3 v-else-if="request_type==='Connect Online'" class="user-title">Please provide us the details to connect online</h3>
+                                                    <h3 v-else class="user-title">Please provide us the reason for contacting us</h3>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12">
+                                                    <div class="form-group">
+                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="detail">
+                                                            <el-input :placeholder="request_type==='Home Visit' ? 'Address' : 'Detail'" class="w-100" type="textarea" :rows="5" v-model="message"></el-input>
+                                                            <div  :class="classes">{{ errors[0] }}</div>
+                                                        </ValidationProvider>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12">
+                                                    <button type="submit" :disabled="loading" class="default-btn">
+                                                        <template v-if="!loading">
+                                                            Submit
+                                                        </template>
+                                                        <div v-else class="spinner-border" role="status"></div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </ValidationObserver>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="contact-map-area pb-100">
-            <div class="container">
-                <div class="contact-map">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.972641599872!2d-122.40869708532713!3d37.790680919018435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808bfb7cb35b%3A0x9b649f6a7d9c50e8!2s560%20Bush%20St%20%235%2C%20San%20Francisco%2C%20CA%2094108%2C%20USA!5e0!3m2!1sen!2sbd!4v1641381557316!5m2!1sen!2sbd"></iframe>
-                </div>
-            </div>
-        </div>
     </div>
 </template>
 

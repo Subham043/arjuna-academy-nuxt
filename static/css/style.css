@@ -4285,6 +4285,11 @@ img {
   margin-bottom: 30px;
   top: 150px;
 }
+.faq-contact {
+  position: sticky;
+  margin-bottom: 30px;
+  top: 80px;
+}
 .faq-img img {
   -webkit-animation: border-transform 10s linear infinite alternate forwards;
   animation: border-transform 10s linear infinite alternate forwards;
