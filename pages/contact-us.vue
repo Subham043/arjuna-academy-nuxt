@@ -41,61 +41,134 @@
                     <h2>Ready to get started?</h2>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" name="name" id="name" class="form-control" required
-                                        data-error="Please Enter Your Name" placeholder="Name" />
-                                    <div class="help-block with-errors"></div>
+                    <ValidationObserver ref="form" v-slot="{ handleSubmit }">
+                        <form id="contactForm" @submit.prevent="handleSubmit(formHandler)">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3 class="user-title">Personal Information</h3>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="name">
+                                            <el-input placeholder="Name" class="w-100" v-model="name"></el-input>
+                                            <div  :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="email">
+                                            <el-input placeholder="Email" class="w-100" v-model="email"></el-input>
+                                            <div  :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="phone">
+                                            <el-input placeholder="Phone" class="w-100" v-model="phone"></el-input>
+                                            <div  :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="course">
+                                            <el-input placeholder="Course" class="w-100" v-model="course"></el-input>
+                                            <div  :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="location">
+                                            <el-input placeholder="Location" class="w-100" v-model="location"></el-input>
+                                            <div  :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="request type">
+                                            <el-select v-model="request_type" class="w-100" placeholder="Select Your Request">
+                                                <el-option
+                                                v-for="item in requestOptions"
+                                                :key="item.value"
+                                                :label="item.label"
+                                                :value="item.value">
+                                                </el-option>
+                                            </el-select>
+                                            <div  :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <h3 class="user-title">Please give us your comfortable date & time to contact you</h3>
+                                </div>
+                                <div :class="`${request_type==='Visit Our Center' ? 'col-lg-4' : 'col-lg-6'} col-md-6`">
+                                    <div class="form-group">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required" name="date">
+                                            <el-date-picker
+                                            v-model="date"
+                                            type="date"
+                                            class="w-100"
+                                            placeholder="Pick A Date">
+                                            </el-date-picker>
+                                            <div  :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
+                                    </div>
+                                </div>
+                                <div :class="`${request_type==='Visit Our Center' ? 'col-lg-4' : 'col-lg-6'} col-md-6`">
+                                    <div class="form-group">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required" name="time">
+                                            <el-time-picker
+                                            v-model="time"
+                                            class="w-100"
+                                            placeholder="Pick A Time">
+                                            </el-time-picker>
+                                            <div  :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
+                                    </div>
+                                </div>
+                                <div v-if="request_type==='Visit Our Center'" class="col-lg-4 col-md-6">
+                                    <div class="form-group">
+                                        <ValidationProvider v-slot="{ classes, errors }" :rules="request_type==='Visit Our Center' ? 'required|alpha_spaces' : ''" name="branch">
+                                            <el-select v-model="branch" class="w-100" placeholder="Select Branch">
+                                                <el-option
+                                                v-for="item in branchOptions"
+                                                :key="item.value"
+                                                :label="item.label"
+                                                :value="item.value">
+                                                </el-option>
+                                            </el-select>
+                                            <div  :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <h3 v-if="request_type==='Home Visit'" class="user-title">Please provide the address where you would like our executive to meet you</h3>
+                                    <h3 v-else-if="request_type==='Connect Online'" class="user-title">Please provide us the details to connect online</h3>
+                                    <h3 v-else class="user-title">Please provide us the reason for contacting us</h3>
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="message">
+                                            <el-input :placeholder="request_type==='Home Visit' ? 'Address' : 'Message'" class="w-100" type="textarea" :rows="5" v-model="message"></el-input>
+                                            <div  :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <button type="submit" :disabled="loading" class="default-btn">
+                                        <template v-if="!loading">
+                                            Send Message
+                                        </template>
+                                        <div v-else class="spinner-border" role="status"></div>
+                                    </button>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="email" name="email" id="email" class="form-control" required
-                                        data-error="Please Enter Your Email" placeholder="Email" />
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" name="phone_number" id="phone_number" required
-                                        data-error="Please Enter Your number" class="form-control"
-                                        placeholder="Phone Number" />
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" name="msg_subject" id="msg_subject" class="form-control" required
-                                        data-error="Please Enter Your Subject" placeholder="Your Subject" />
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <textarea name="message" class="form-control" id="message" cols="30" rows="7" required
-                                        data-error="Write your message" placeholder="Your Message"></textarea>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="agree-label">
-                                    <input type="checkbox" id="chb1" />
-                                    <label for="chb1">
-                                        Accept
-                                        <a href="terms-condition.html">Terms & Conditions</a> And
-                                        <a href="privacy-policy.html">Privacy Policy.</a>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-md-12">
-                                <button type="submit" class="default-btn">Send Message</button>
-                                <div id="msgSubmit" class="h3 text-center hidden"></div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </ValidationObserver>
                 </div>
             </div>
         </div>
@@ -113,20 +186,111 @@
 
 <script>
 import Breadcrumb from '~/components/Breadcrumb.vue';
-
-
-
+import { API_ROUTES } from '~/helper/api_routes';
 
 export default {
     name: "ContactPage",
     layout: "MainPageLayout",
     data() {
-        return {};
+        return {
+            requestOptions: [
+                {
+                    value: 'Call Back',
+                    label: 'Call Back'
+                },
+                {
+                    value: 'Home Visit',
+                    label: 'Home Visit'
+                },
+                {
+                    value: 'Visit Our Center',
+                    label: 'Visit Our Center'
+                },
+                {
+                    value: 'Connect Online',
+                    label: 'Connect Online'
+                },
+            ],
+            branchOptions: [
+                {
+                    value: 'Vijaynagar',
+                    label: 'Vijaynagar'
+                },
+                {
+                    value: 'Hebbal',
+                    label: 'Hebbal'
+                },
+                {
+                    value: 'Kanakapura Road',
+                    label: 'Kanakapura Road'
+                }
+            ],
+            name:'',
+            email:'',
+            phone:'',
+            course:'',
+            location:'',
+            date:'',
+            time:'',
+            message:'',
+            request_type:'',
+            branch:'',
+            loading: false,
+        };
     },
     mounted() {
         // eslint-disable-next-line nuxt/no-env-in-hooks
         if (process.client) {
             this.$scrollTo("#__nuxt", 0, { force: true });
+        }
+    },
+    methods: {
+        async formHandler(){
+            this.loading = true;
+            try {
+                await this.$publicApi.post(API_ROUTES.contact, {
+                    name:this.name, 
+                    email:this.email, 
+                    phone:this.phone, 
+                    course:this.course,
+                    location:this.location,
+                    date:this.date,
+                    time:this.time,
+                    branch:this.branch,
+                    message:this.message,
+                    request_type:this.request_type,
+                });
+                this.name=''
+                this.email=''
+                this.phone=''
+                this.message=''
+                this.course=''
+                this.location=''
+                this.date=''
+                this.time=''
+                this.branch=''
+                this.request_type=''
+                this.$toast.success('Message Recieved Successfully.')
+            } catch (err) {
+                console.log(err.response);// eslint-disable-line
+                this.$refs.form.setErrors({
+                    email: err?.response?.data?.errors?.email[0],
+                    name: err?.response?.data?.errors?.name[0],
+                    phone: err?.response?.data?.errors?.phone[0],
+                    course: err?.response?.data?.errors?.course[0],
+                    location: err?.response?.data?.errors?.location[0],
+                    date: err?.response?.data?.errors?.date[0],
+                    time: err?.response?.data?.errors?.time[0],
+                    branch: err?.response?.data?.errors?.branch[0],
+                    message: err?.response?.data?.errors?.message[0],
+                    request_type: err?.response?.data?.errors?.request_type[0],
+                });
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                
+            } finally{
+                this.loading = false;
+            }
         }
     },
     components: { Breadcrumb }
