@@ -38,7 +38,7 @@
             <div class="container">
                 <div class="section-title text-center mb-45">
                     <span>SEND MESSAGE</span>
-                    <h2>Ready to get started?</h2>
+                    <h2>Get in Touch with us</h2>
                 </div>
                 <div class="contact-form">
                     <ValidationObserver ref="form" v-slot="{ handleSubmit }">
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6">
                                     <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="email">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|email" name="email">
                                             <el-input placeholder="Email" class="w-100" v-model="email"></el-input>
                                             <div  :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6">
                                     <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="phone">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|phone" name="phone">
                                             <el-input placeholder="Phone" class="w-100" v-model="phone"></el-input>
                                             <div  :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6">
                                     <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="course">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="course">
                                             <el-input placeholder="Course" class="w-100" v-model="course"></el-input>
                                             <div  :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6">
                                     <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="location">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="location">
                                             <el-input placeholder="Location" class="w-100" v-model="location"></el-input>
                                             <div  :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6">
                                     <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="request type">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="request type">
                                             <el-select v-model="request_type" class="w-100" placeholder="Select Your Request">
                                                 <el-option
                                                 v-for="item in requestOptions"
@@ -107,7 +107,7 @@
                                 </div>
                                 <div :class="`${request_type==='Visit Our Center' ? 'col-lg-4' : 'col-lg-6'} col-md-6`">
                                     <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required" name="date">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="date">
                                             <el-date-picker
                                             v-model="date"
                                             type="date"
@@ -120,7 +120,7 @@
                                 </div>
                                 <div :class="`${request_type==='Visit Our Center' ? 'col-lg-4' : 'col-lg-6'} col-md-6`">
                                     <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required" name="time">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="time">
                                             <el-time-picker
                                             v-model="time"
                                             class="w-100"
@@ -132,7 +132,7 @@
                                 </div>
                                 <div v-if="request_type==='Visit Our Center'" class="col-lg-4 col-md-6">
                                     <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" :rules="request_type==='Visit Our Center' ? 'required|alpha_spaces' : ''" name="branch">
+                                        <ValidationProvider v-slot="{ classes, errors }" :rules="request_type==='Visit Our Center' ? 'required|custom_message' : ''" name="branch">
                                             <el-select v-model="branch" class="w-100" placeholder="Select Branch">
                                                 <el-option
                                                 v-for="item in branchOptions"
@@ -152,8 +152,8 @@
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="message">
-                                            <el-input :placeholder="request_type==='Home Visit' ? 'Address' : 'Message'" class="w-100" type="textarea" :rows="5" v-model="message"></el-input>
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="detail">
+                                            <el-input :placeholder="request_type==='Home Visit' ? 'Address' : 'Detail'" class="w-100" type="textarea" :rows="5" v-model="message"></el-input>
                                             <div  :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
                                     </div>
@@ -257,8 +257,9 @@ export default {
                     date:this.date,
                     time:this.time,
                     branch:this.branch,
-                    message:this.message,
+                    detail:this.message,
                     request_type:this.request_type,
+                    page_url:window.location.href,
                 });
                 this.name=''
                 this.email=''
@@ -270,20 +271,21 @@ export default {
                 this.time=''
                 this.branch=''
                 this.request_type=''
+                this.$refs.form.reset()
                 this.$toast.success('Message Recieved Successfully.')
             } catch (err) {
-                console.log(err.response);// eslint-disable-line
+                console.log(err?.response?.data?.errors?.email[0]);// eslint-disable-line
                 this.$refs.form.setErrors({
-                    email: err?.response?.data?.errors?.email[0],
-                    name: err?.response?.data?.errors?.name[0],
-                    phone: err?.response?.data?.errors?.phone[0],
-                    course: err?.response?.data?.errors?.course[0],
-                    location: err?.response?.data?.errors?.location[0],
-                    date: err?.response?.data?.errors?.date[0],
-                    time: err?.response?.data?.errors?.time[0],
-                    branch: err?.response?.data?.errors?.branch[0],
-                    message: err?.response?.data?.errors?.message[0],
-                    request_type: err?.response?.data?.errors?.request_type[0],
+                    email: err?.response?.data?.errors?.email?.length>0 && err?.response?.data?.errors?.email[0],
+                    name: err?.response?.data?.errors?.name?.length>0 && err?.response?.data?.errors?.name[0],
+                    phone: err?.response?.data?.errors?.phone?.length>0 && err?.response?.data?.errors?.phone[0],
+                    course: err?.response?.data?.errors?.course?.length>0 && err?.response?.data?.errors?.course[0],
+                    location: err?.response?.data?.errors?.location?.length>0 && err?.response?.data?.errors?.location[0],
+                    date: err?.response?.data?.errors?.date?.length>0 && err?.response?.data?.errors?.date[0],
+                    time: err?.response?.data?.errors?.time?.length>0 && err?.response?.data?.errors?.time[0],
+                    branch: err?.response?.data?.errors?.branch?.length>0 && err?.response?.data?.errors?.branch[0],
+                    message: err?.response?.data?.errors?.message?.length>0 && err?.response?.data?.errors?.message[0],
+                    request_type: err?.response?.data?.errors?.request_type?.length>0 && err?.response?.data?.errors?.request_type[0],
                 });
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)

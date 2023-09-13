@@ -7412,3 +7412,7 @@ img {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+.is-invalid{
+  color: red;
+}

@@ -13,5 +13,5 @@ export const API_ROUTES = {
     expertTip: "/api/v1/expert-tip",
     management: "/api/v1/team-member/management",
     staff: "/api/v1/team-member/staff",
-    contact: "/api/v1/enquiry",
+    contact: "/api/v1/contact-form",
 };
