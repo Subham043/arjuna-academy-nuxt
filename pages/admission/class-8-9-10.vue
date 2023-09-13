@@ -19,7 +19,7 @@
                                 <div class="contact-form">
                                     <div class="section-title text-center mb-30">
                                         <h3>
-                                            Online Admission Form for Class 11 or 1st PUC    
+                                            Online Admission Form for Class 8, 9 & 10   
                                         </h3>
                                     </div>
                                     <ValidationObserver ref="form" v-slot="{ handleSubmit }">
@@ -99,6 +99,22 @@
                                                 </div>
                                                 <div class="col-lg-6 col-md-6">
                                                     <div class="form-group">
+                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="class">
+                                                            <el-input placeholder="Class" class="w-100" v-model="class_no"></el-input>
+                                                            <div  :class="classes">{{ errors[0] }}</div>
+                                                        </ValidationProvider>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|numeric" name="percentage">
+                                                            <el-input placeholder="% In Previous Year" class="w-100" v-model="percentage"></el-input>
+                                                            <div  :class="classes">{{ errors[0] }}</div>
+                                                        </ValidationProvider>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="form-group">
                                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="center">
                                                             <el-select v-model="center" class="w-100" placeholder="Choose Your Center">
                                                                 <el-option
@@ -130,7 +146,7 @@
                                                 <div class="col-lg-12 col-md-12">
                                                     <ValidationProvider v-slot="{ classes, errors }" rules="required|ext:jpg,jpeg,png,webp" name="marks">
                                                         <div class="form-group">
-                                                            <label class="form-label">Class 10 Preparatory Marks* <br/> <code>(Only PDF | JPG | PNG files are allowed. Max-size 512kb)</code></label>
+                                                            <label class="form-label">Choose Marksheet* <br/> <code>(Only PDF | JPG | PNG files are allowed. Max-size 512kb)</code></label>
                                                             <input v-model="marks" type="hidden" />
                                                             <input class="form-control" type="file" @change="handleFileChnage" />
                                                         </div>
@@ -175,7 +191,7 @@
                                                     <template v-if="sibling_occupation">
                                                         <div class="col-lg-4 col-md-6">
                                                             <div class="form-group">
-                                                                <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="no_of_sibling">
+                                                                <ValidationProvider v-slot="{ classes, errors }" rules="required|numeric" name="no_of_sibling">
                                                                     <el-input placeholder="Number of Siblings" class="w-100" v-model="no_of_sibling"></el-input>
                                                                     <div  :class="classes">{{ errors[0] }}</div>
                                                                 </ValidationProvider>
@@ -291,6 +307,8 @@ export default {
             center:'',
             batch:'',
             address:'',
+            percentage:'',
+            class_no:'',
             sibling:false,
             sibling_occupation:false,
             no_of_sibling:'',
@@ -323,6 +341,8 @@ export default {
                 formData.append('center', this.center);
                 formData.append('batch', this.batch);
                 formData.append('address', this.address);
+                formData.append('percentage', this.percentage);
+                formData.append('class', this.class_no);
                 formData.append('sibling', this.sibling ? 'Yes' : 'No');
                 if(this.sibling){
                     formData.append('sibling_occupation', this.sibling_occupation ? 'studying' : 'working');
@@ -333,7 +353,7 @@ export default {
                     }
                 }
                 formData.append('marks', this.marks);
-                await this.$publicApi.post(API_ROUTES.admission_puc,formData);
+                await this.$publicApi.post(API_ROUTES.admission_not_puc,formData);
                 this.name=''
                 this.school_name=''
                 this.aadhar=''
@@ -346,6 +366,8 @@ export default {
                 this.center=''
                 this.batch=''
                 this.address=''
+                this.percentage=''
+                this.class_no=''
                 this.no_of_sibling=''
                 this.sibling_school=''
                 this.sibling_class=''
@@ -370,6 +392,8 @@ export default {
                     marks: err?.response?.data?.errors?.marks?.length>0 && err?.response?.data?.errors?.marks[0],
                     branch: err?.response?.data?.errors?.branch?.length>0 && err?.response?.data?.errors?.branch[0],
                     address: err?.response?.data?.errors?.address?.length>0 && err?.response?.data?.errors?.address[0],
+                    class: err?.response?.data?.errors?.class?.length>0 && err?.response?.data?.errors?.class[0],
+                    percentage: err?.response?.data?.errors?.percentage?.length>0 && err?.response?.data?.errors?.percentage[0],
                     sibling: err?.response?.data?.errors?.sibling?.length>0 && err?.response?.data?.errors?.sibling[0],
                     sibling_occupation: err?.response?.data?.errors?.sibling_occupation?.length>0 && err?.response?.data?.errors?.sibling_occupation[0],
                     sibling_school: err?.response?.data?.errors?.sibling_school?.length>0 && err?.response?.data?.errors?.sibling_school[0],

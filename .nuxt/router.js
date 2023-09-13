@@ -14,6 +14,7 @@ const _b228822c = () => interopDefault(import('../pages/knowledge-desk/index.vue
 const _7481a0d6 = () => interopDefault(import('../pages/leadership-team.vue' /* webpackChunkName: "pages/leadership-team" */))
 const _16673c30 = () => interopDefault(import('../pages/mission-vision.vue' /* webpackChunkName: "pages/mission-vision" */))
 const _cb276ee0 = () => interopDefault(import('../pages/testimonial.vue' /* webpackChunkName: "pages/testimonial" */))
+const _77b854fc = () => interopDefault(import('../pages/admission/class-8-9-10.vue' /* webpackChunkName: "pages/admission/class-8-9-10" */))
 const _406e0dae = () => interopDefault(import('../pages/admission/puc.vue' /* webpackChunkName: "pages/admission/puc" */))
 const _32ff8b06 = () => interopDefault(import('../pages/auth/forgot-password.vue' /* webpackChunkName: "pages/auth/forgot-password" */))
 const _f5b218a6 = () => interopDefault(import('../pages/auth/sign-in.vue' /* webpackChunkName: "pages/auth/sign-in" */))
@@ -76,6 +77,10 @@ export const routerOptions = {
     path: "/testimonial",
     component: _cb276ee0,
     name: "testimonial"
+  }, {
+    path: "/admission/class-8-9-10",
+    component: _77b854fc,
+    name: "admission-class-8-9-10"
   }, {
     path: "/admission/puc",
     component: _406e0dae,

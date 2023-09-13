@@ -70,6 +70,13 @@
     "_name": "_cb276ee0"
   },
   {
+    "name": "admission-class-8-9-10",
+    "path": "/admission/class-8-9-10",
+    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/admission/class-8-9-10.vue",
+    "chunkName": "pages/admission/class-8-9-10",
+    "_name": "_77b854fc"
+  },
+  {
     "name": "admission-puc",
     "path": "/admission/puc",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/admission/puc.vue",

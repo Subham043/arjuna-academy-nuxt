@@ -14,4 +14,6 @@ export const API_ROUTES = {
     management: "/api/v1/team-member/management",
     staff: "/api/v1/team-member/staff",
     contact: "/api/v1/contact-form",
+    admission_puc: "/api/v1/admission/puc",
+    admission_not_puc: "/api/v1/admission/not-puc",
 };

@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6">
                                     <div class="form-group">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="request type">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="request_type">
                                             <el-select v-model="request_type" class="w-100" placeholder="Select Your Request">
                                                 <el-option
                                                 v-for="item in requestOptions"
@@ -274,7 +274,6 @@ export default {
                 this.$refs.form.reset()
                 this.$toast.success('Message Recieved Successfully.')
             } catch (err) {
-                console.log(err?.response?.data?.errors?.email[0]);// eslint-disable-line
                 this.$refs.form.setErrors({
                     email: err?.response?.data?.errors?.email?.length>0 && err?.response?.data?.errors?.email[0],
                     name: err?.response?.data?.errors?.name?.length>0 && err?.response?.data?.errors?.name[0],

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import { ValidationProvider, extend, ValidationObserver, configure } from 'vee-validate';
 // eslint-disable-next-line camelcase
-import { required, email, alpha_spaces, confirmed, ext } from 'vee-validate/dist/rules';
+import { required, email, alpha_spaces, confirmed, ext, numeric } from 'vee-validate/dist/rules';
 
 configure({
   classes: {
@@ -66,6 +66,10 @@ extend('confirmed', {
 
 extend('ext', {
   ...ext,
+});
+
+extend('numeric', {
+  ...numeric,
 });
 
 extend('min', {
