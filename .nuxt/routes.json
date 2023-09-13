@@ -70,6 +70,13 @@
     "_name": "_cb276ee0"
   },
   {
+    "name": "admission-puc",
+    "path": "/admission/puc",
+    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/admission/puc.vue",
+    "chunkName": "pages/admission/puc",
+    "_name": "_406e0dae"
+  },
+  {
     "name": "auth-forgot-password",
     "path": "/auth/forgot-password",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/auth/forgot-password.vue",

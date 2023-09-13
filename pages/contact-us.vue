@@ -161,7 +161,7 @@
                                 <div class="col-lg-12 col-md-12">
                                     <button type="submit" :disabled="loading" class="default-btn">
                                         <template v-if="!loading">
-                                            Send Message
+                                            Submit
                                         </template>
                                         <div v-else class="spinner-border" role="status"></div>
                                     </button>
