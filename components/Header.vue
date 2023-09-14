@@ -143,8 +143,19 @@
                                 <li class="nav-item">
                                     <NuxtLink to="/contact-us" class="nav-link"> Contact Us </NuxtLink>
                                 </li>
-                                <li class="nav-item">
+                                <li v-if="!$auth.loggedIn" class="nav-item">
                                     <NuxtLink to="/auth/sign-in" class="nav-link"> Sign In </NuxtLink>
+                                </li>
+                                <li v-else class="nav-item">
+                                    <NuxtLink to="#" class="nav-link dropdown-toggle"> Account </NuxtLink>
+                                    <ul class="dropdown-menu" style="left: unset; right: 0;">
+                                        <li class="nav-item">
+                                            <NuxtLink to="/profile" class="nav-link"> Profile ({{ $auth.user.name }}) </NuxtLink>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="javascript:void(0)" class="nav-link"> Logout </a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>

@@ -41,16 +41,8 @@ export default function (ctx, inject) {
   // local
   $auth.registerStrategy('local', new LocalScheme($auth, {
   "token": {
-    "property": "access_token",
+    "property": "token",
     "global": true,
-    "required": true,
-    "type": "Bearer",
-    "name": "Authorization"
-  },
-  "refreshToken": {
-    "property": "refresh_token",
-    "data": "refresh_token",
-    "maxAge": 86400000,
     "required": true,
     "type": "Bearer",
     "name": "Authorization"
@@ -61,19 +53,15 @@ export default function (ctx, inject) {
   },
   "endpoints": {
     "login": {
-      "url": "/api/auth/login",
+      "url": "/api/v1/auth/login",
       "method": "post"
     },
     "logout": {
-      "url": "/api/auth/logout",
-      "method": "get"
-    },
-    "refresh": {
-      "url": "/api/auth/refresh-token",
+      "url": "/api/v1/auth/logout",
       "method": "get"
     },
     "user": {
-      "url": "/api/auth/profile",
+      "url": "/api/v1/profile",
       "method": "get"
     }
   },

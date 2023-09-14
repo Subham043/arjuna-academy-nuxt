@@ -106,29 +106,29 @@ export default {
       local: {
         scheme: 'local',
         token: {
-          property: 'access_token',
+          property: 'token',
           global: true,
           required: true,
           type: 'Bearer',
           name: 'Authorization'
         },
-        refreshToken: {
-          property: 'refresh_token',
-          data: 'refresh_token',
-          maxAge: 24 * 60 * 60 * 1000,
-          required: true,
-          type: 'Bearer',
-          name: 'Authorization'
-        },
+        // refreshToken: {
+        //   property: 'refresh_token',
+        //   data: 'refresh_token',
+        //   maxAge: 24 * 60 * 60 * 1000,
+        //   required: true,
+        //   type: 'Bearer',
+        //   name: 'Authorization'
+        // },
         user: {
           property: 'user',
           autoFetch: true
         },
         endpoints: {
-          login: { url: '/api/auth/login', method: 'post' },
-          logout: { url: '/api/auth/logout', method: 'get' },
-          refresh: { url: '/api/auth/refresh-token', method: 'get' },
-          user: { url: '/api/auth/profile', method: 'get' }
+          login: { url: '/api/v1/auth/login', method: 'post' },
+          logout: { url: '/api/v1/auth/logout', method: 'get' },
+          // refresh: { url: '/api/v1/auth/refresh-token', method: 'get' },
+          user: { url: '/api/v1/profile', method: 'get' }
         },
         tokenRequired: true,
         tokenType: 'JWT',
