@@ -133,7 +133,7 @@
                                             <NuxtLink to="/faq" class="nav-link"> FAQ </NuxtLink>
                                         </li>
                                         <li class="nav-item">
-                                            <NuxtLink to="#" class="nav-link"> Vriddhi </NuxtLink>
+                                            <NuxtLink to="/vriddhi" class="nav-link"> Vriddhi </NuxtLink>
                                         </li>
                                     </ul>
                                 </li>
