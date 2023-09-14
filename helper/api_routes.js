@@ -18,5 +18,7 @@ export const API_ROUTES = {
     register: "/api/v1/auth/register",
     forgot_password: "/api/v1/auth/forgot-password",
     admission_puc: "/api/v1/admission/puc",
+    password_update: "/api/v1/profile/update-password",
+    profile_update: "/api/v1/profile/update",
     admission_not_puc: "/api/v1/admission/not-puc",
 };

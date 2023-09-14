@@ -95,10 +95,10 @@ export default {
 
   auth: {
     redirect: {
-      login: '/auth/login',
-      logout: '/auth/login',
-      callback: '/auth/login',
-      home: '/payment-data'
+      login: '/auth/sign-in',
+      logout: '/auth/sign-in',
+      callback: '/auth/sign-in',
+      home: '/profile'
     },
     localStorage: false, // REALLY not secure, so nah
     resetOnError: true, // kick the user if any error happens w/ the auth
@@ -112,14 +112,6 @@ export default {
           type: 'Bearer',
           name: 'Authorization'
         },
-        // refreshToken: {
-        //   property: 'refresh_token',
-        //   data: 'refresh_token',
-        //   maxAge: 24 * 60 * 60 * 1000,
-        //   required: true,
-        //   type: 'Bearer',
-        //   name: 'Authorization'
-        // },
         user: {
           property: 'user',
           autoFetch: true
@@ -127,7 +119,6 @@ export default {
         endpoints: {
           login: { url: '/api/v1/auth/login', method: 'post' },
           logout: { url: '/api/v1/auth/logout', method: 'get' },
-          // refresh: { url: '/api/v1/auth/refresh-token', method: 'get' },
           user: { url: '/api/v1/profile', method: 'get' }
         },
         tokenRequired: true,

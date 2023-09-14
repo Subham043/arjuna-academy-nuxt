@@ -100,6 +100,9 @@ export default {
             this.loading=true;
             try {
                 await this.$auth.loginWith('local', { data: {email:this.email, password:this.password} }); // eslint-disable-line
+                this.email=''
+                this.password=''
+                this.$refs.form.reset()
                 this.$toast.success('Logged in successfully')
                 // console.log(this.$store.state.auth);// eslint-disable-line
             } catch (err) {

@@ -126,6 +126,12 @@ export default {
                     password:this.password,
                     confirm_password:this.confirm_password, 
                 });
+                this.name=''
+                this.email=''
+                this.phone=''
+                this.password=''
+                this.confirm_password=''
+                this.$refs.form.reset()
                 this.$toast.success(response.data.message)
             } catch (err) {
                 this.$refs.form.setErrors({

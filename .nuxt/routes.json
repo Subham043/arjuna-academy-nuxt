@@ -60,6 +60,12 @@
     "chunkName": "pages/mission-vision"
   },
   {
+    "name": "profile",
+    "path": "/profile",
+    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/profile.vue",
+    "chunkName": "pages/profile"
+  },
+  {
     "name": "testimonial",
     "path": "/testimonial",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/testimonial.vue",

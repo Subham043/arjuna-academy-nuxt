@@ -33,7 +33,7 @@ export default function ({ $axios, app, $config: {apiURL} }, inject) {
         !prevRequest?.sent
       ) {
         prevRequest.sent = true
-        await app.$auth.refreshTokens('refresh')
+        // await app.$auth.refreshTokens('refresh')
         prevRequest.headers.Authorization = `${app.$auth.strategy.token.get()}`
         return privateApi(prevRequest)
       }

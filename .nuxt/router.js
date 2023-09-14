@@ -14,6 +14,7 @@ const _16735e43 = () => interopDefault(import('../pages/gallery.vue' /* webpackC
 const _b228822c = () => interopDefault(import('../pages/knowledge-desk/index.vue' /* webpackChunkName: "pages/knowledge-desk/index" */))
 const _7481a0d6 = () => interopDefault(import('../pages/leadership-team.vue' /* webpackChunkName: "pages/leadership-team" */))
 const _16673c30 = () => interopDefault(import('../pages/mission-vision.vue' /* webpackChunkName: "pages/mission-vision" */))
+const _bdb325cc = () => interopDefault(import('../pages/profile.vue' /* webpackChunkName: "pages/profile" */))
 const _cb276ee0 = () => interopDefault(import('../pages/testimonial.vue' /* webpackChunkName: "pages/testimonial" */))
 const _73e905c2 = () => interopDefault(import('../pages/vriddhi.vue' /* webpackChunkName: "pages/vriddhi" */))
 const _77b854fc = () => interopDefault(import('../pages/admission/class-8-9-10.vue' /* webpackChunkName: "pages/admission/class-8-9-10" */))
@@ -79,6 +80,10 @@ export const routerOptions = {
     path: "/mission-vision",
     component: _16673c30,
     name: "mission-vision"
+  }, {
+    path: "/profile",
+    component: _bdb325cc,
+    name: "profile"
   }, {
     path: "/testimonial",
     component: _cb276ee0,

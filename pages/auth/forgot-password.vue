@@ -82,6 +82,8 @@ export default {
                 const response = await this.$publicApi.post(API_ROUTES.forgot_password, {
                     email:this.email, 
                 });
+                this.email=''
+                this.$refs.form.reset()
                 this.$toast.success(response.data.message)
             } catch (err) {
                 this.$refs.form.setErrors({

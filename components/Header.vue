@@ -153,7 +153,7 @@
                                             <NuxtLink to="/profile" class="nav-link"> Profile ({{ $auth.user.name }}) </NuxtLink>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="javascript:void(0)" class="nav-link"> Logout </a>
+                                            <a href="javascript:void(0)" class="nav-link" @click="logout"> Logout </a>
                                         </li>
                                     </ul>
                                 </li>
@@ -205,6 +205,9 @@ export default {
                 this.achieverCategoryLoading=false;
             }
         },
+        async logout(){
+        await this.$auth.logout()
+        }
     },
 }
 </script>
