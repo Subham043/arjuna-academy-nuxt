@@ -10,6 +10,7 @@ const _5b07cb6c = () => interopDefault(import('../pages/courses/index.vue' /* we
 const _0b57818a = () => interopDefault(import('../pages/events/index.vue' /* webpackChunkName: "pages/events/index" */))
 const _45b3e722 = () => interopDefault(import('../pages/expert-tips/index.vue' /* webpackChunkName: "pages/expert-tips/index" */))
 const _d4f0f6f2 = () => interopDefault(import('../pages/faq.vue' /* webpackChunkName: "pages/faq" */))
+const _16735e43 = () => interopDefault(import('../pages/gallery.vue' /* webpackChunkName: "pages/gallery" */))
 const _b228822c = () => interopDefault(import('../pages/knowledge-desk/index.vue' /* webpackChunkName: "pages/knowledge-desk/index" */))
 const _7481a0d6 = () => interopDefault(import('../pages/leadership-team.vue' /* webpackChunkName: "pages/leadership-team" */))
 const _16673c30 = () => interopDefault(import('../pages/mission-vision.vue' /* webpackChunkName: "pages/mission-vision" */))
@@ -62,6 +63,10 @@ export const routerOptions = {
     path: "/faq",
     component: _d4f0f6f2,
     name: "faq"
+  }, {
+    path: "/gallery",
+    component: _16735e43,
+    name: "gallery"
   }, {
     path: "/knowledge-desk",
     component: _b228822c,
