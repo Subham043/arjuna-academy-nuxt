@@ -126,8 +126,10 @@ export default {
                 this.counter = response.data.counter
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
     
             }finally{
                 this.counterLoading=false;
@@ -140,8 +142,10 @@ export default {
                 this.about = response.data.about;
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
     
             }finally{
                 this.aboutLoading=false;
@@ -154,8 +158,10 @@ export default {
                 this.feature = response.data.feature;
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
     
             }finally{
                 this.featureLoading=false;

@@ -582,8 +582,10 @@ export default {
                 this.about = response.data.about;
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
     
             }finally{
                 this.aboutLoading=false;
@@ -596,8 +598,10 @@ export default {
                 this.banner = response.data.banner;
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
     
             }finally{
                 this.bannerLoading=false;
@@ -610,8 +614,10 @@ export default {
                 this.feature = response.data.feature;
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
     
             }finally{
                 this.featureLoading=false;
@@ -624,8 +630,10 @@ export default {
                 this.commonFeature = response.data.feature;
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
     
             }finally{
                 this.commonFeatureLoading=false;
@@ -638,8 +646,10 @@ export default {
                 this.testimonial = response.data.data
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
             }finally{
                 this.testimonialLoading=false;
             }
@@ -651,8 +661,10 @@ export default {
                 this.blog = response.data.data
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
     
             }finally{
                 this.blogLoading=false;
@@ -665,8 +677,10 @@ export default {
                 this.event = response.data.data
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
     
             }finally{
                 this.eventLoading=false;

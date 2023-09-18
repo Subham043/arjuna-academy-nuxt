@@ -142,38 +142,6 @@ export default {
             popularEventCount:1,
             popularEventCurrentPage: 1,
             popularEventPerPage: 1,
-            blog_data: [
-                {
-                    title: "All that is wrong with codding in the field of apprentices",
-                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
-                    image: "/images/blog/blog-img4.jpg"
-                },
-                {
-                    title: "How to use technology to adapt your talent to the world",
-                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
-                    image: "/images/blog/blog-img2.jpg"
-                },
-                {
-                    title: "Here are the things to look for when selecting an online course",
-                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
-                    image: "/images/blog/blog-img5.jpg"
-                },
-                {
-                    title: "All that is wrong with codding in the field of apprentices",
-                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
-                    image: "/images/blog/blog-img4.jpg"
-                },
-                {
-                    title: "How to use technology to adapt your talent to the world",
-                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
-                    image: "/images/blog/blog-img2.jpg"
-                },
-                {
-                    title: "Here are the things to look for when selecting an online course",
-                    description: "Lorem ipsum dolor sit amet, constetur adipiscing elit, sed do eiusmod tempor incididunt.",
-                    image: "/images/blog/blog-img5.jpg"
-                },
-            ],
         };
     },
     async fetch() {
@@ -192,8 +160,10 @@ export default {
                 this.event = response.data.event;
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
     
             }finally{
                 this.eventLoading=false;
@@ -209,8 +179,10 @@ export default {
                 this.popularEventCurrentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
     
             }finally{
                 this.popularEventLoading=false;

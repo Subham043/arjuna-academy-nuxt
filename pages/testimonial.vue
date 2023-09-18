@@ -103,8 +103,10 @@ export default {
                 this.testimonialCurrentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
     
             }finally{
                 this.testimonialLoading=false;

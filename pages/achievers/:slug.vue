@@ -112,10 +112,11 @@ export default {
                 const response = await this.$publicApi.get(API_ROUTES.achieverCategory+`/${this.$route.params.slug}`); // eslint-disable-line
                 this.achieverCategory = response.data.achiverCategory;
             } catch (err) {
-                // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-    
+                // console.log(err);// eslint-disable-line
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
             }finally{
                 this.achieverCategoryLoading=false;
             }
@@ -130,8 +131,10 @@ export default {
                 this.achieverStudentCurrentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
     
             }finally{
                 this.achieverStudentLoading=false;
