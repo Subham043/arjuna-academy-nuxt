@@ -157,6 +157,9 @@
                                                     {{ item.name }}
                                                 </NuxtLink>
                                             </h4>
+                                            <p>
+                                                {{ item.short_description }}
+                                            </p>
                                             <hr>
                                         </div>
                                     </article>

@@ -16,200 +16,202 @@
                     <div class="col-lg-7">
                         <div class="contact-widget-area pb-70">
                             <div class="container">
-                                <div class="contact-form">
-                                    <div class="section-title text-center mb-30">
+                                <div class="register-form">
+                                    <div class="top-header">
                                         <h3>
-                                            Online Admission Form for Class 11 or 1st PUC    
+                                            Admission for Class 11 or 1st PUC
                                         </h3>
                                     </div>
-                                    <ValidationObserver ref="form" v-slot="{ handleSubmit }">
-                                        <form id="contactForm" @submit.prevent="handleSubmit(formHandler)">
-                                            <div class="row">
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="form-group">
-                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="name">
-                                                            <el-input placeholder="Name" class="w-100" v-model="name"></el-input>
-                                                            <div  :class="classes">{{ errors[0] }}</div>
-                                                        </ValidationProvider>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="form-group">
-                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="school_name">
-                                                            <el-input placeholder="School's Name" class="w-100" v-model="school_name"></el-input>
-                                                            <div  :class="classes">{{ errors[0] }}</div>
-                                                        </ValidationProvider>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="form-group">
-                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="aadhar">
-                                                            <el-input placeholder="Aadhar Card Detail" class="w-100" v-model="aadhar"></el-input>
-                                                            <div  :class="classes">{{ errors[0] }}</div>
-                                                        </ValidationProvider>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="form-group">
-                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="father_name">
-                                                            <el-input placeholder="Father's Name" class="w-100" v-model="father_name"></el-input>
-                                                            <div  :class="classes">{{ errors[0] }}</div>
-                                                        </ValidationProvider>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="form-group">
-                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|phone" name="father_phone">
-                                                            <el-input placeholder="Father's Phone" class="w-100" v-model="father_phone"></el-input>
-                                                            <div  :class="classes">{{ errors[0] }}</div>
-                                                        </ValidationProvider>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="form-group">
-                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="father_occupation">
-                                                            <el-input placeholder="Father's Occupation" class="w-100" v-model="father_occupation"></el-input>
-                                                            <div  :class="classes">{{ errors[0] }}</div>
-                                                        </ValidationProvider>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="form-group">
-                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="mother_name">
-                                                            <el-input placeholder="Mother's Name" class="w-100" v-model="mother_name"></el-input>
-                                                            <div  :class="classes">{{ errors[0] }}</div>
-                                                        </ValidationProvider>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="form-group">
-                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|phone" name="mother_phone">
-                                                            <el-input placeholder="Mother's Phone" class="w-100" v-model="mother_phone"></el-input>
-                                                            <div  :class="classes">{{ errors[0] }}</div>
-                                                        </ValidationProvider>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="form-group">
-                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="mother_occupation">
-                                                            <el-input placeholder="Mother's Occupation" class="w-100" v-model="mother_occupation"></el-input>
-                                                            <div  :class="classes">{{ errors[0] }}</div>
-                                                        </ValidationProvider>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6">
-                                                    <div class="form-group">
-                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="center">
-                                                            <el-select v-model="center" class="w-100" placeholder="Choose Your Center">
-                                                                <el-option
-                                                                v-for="item in centerOptions"
-                                                                :key="item.value"
-                                                                :label="item.label"
-                                                                :value="item.value">
-                                                                </el-option>
-                                                            </el-select>
-                                                            <div  :class="classes">{{ errors[0] }}</div>
-                                                        </ValidationProvider>
-                                                    </div>
-                                                </div>
-                                                <div :class="`col-lg-6 col-md-6`">
-                                                    <div class="form-group">
-                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="batch">
-                                                            <el-select v-model="batch" class="w-100" placeholder="Select Your Batch">
-                                                                <el-option
-                                                                v-for="item in batchOptions"
-                                                                :key="item.value"
-                                                                :label="item.label"
-                                                                :value="item.value">
-                                                                </el-option>
-                                                            </el-select>
-                                                            <div  :class="classes">{{ errors[0] }}</div>
-                                                        </ValidationProvider>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12">
-                                                    <ValidationProvider v-slot="{ classes, errors }" rules="required|ext:jpg,jpeg,png,webp" name="marks">
+                                    <div class="contact-form">
+                                        <ValidationObserver ref="form" v-slot="{ handleSubmit }">
+                                            <form id="contactForm" @submit.prevent="handleSubmit(formHandler)">
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-md-6">
                                                         <div class="form-group">
-                                                            <label class="form-label">Class 10 Preparatory Marks* <br/> <code>(Only PDF | JPG | PNG files are allowed. Max-size 512kb)</code></label>
-                                                            <input v-model="marks" type="hidden" />
-                                                            <input class="form-control" type="file" @change="handleFileChnage" />
+                                                            <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="name">
+                                                                <el-input placeholder="Name" class="w-100" v-model="name"></el-input>
+                                                                <div  :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
                                                         </div>
-                                                        <div :class="classes">{{ errors[0] }}</div>
-                                                    </ValidationProvider>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12">
-                                                    <div class="form-group">
-                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="address">
-                                                            <el-input placeholder="Permanenet Address" class="w-100" type="textarea" :rows="5" v-model="address"></el-input>
-                                                            <div  :class="classes">{{ errors[0] }}</div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6">
+                                                        <div class="form-group">
+                                                            <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="school_name">
+                                                                <el-input placeholder="School's Name" class="w-100" v-model="school_name"></el-input>
+                                                                <div  :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6">
+                                                        <div class="form-group">
+                                                            <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="aadhar">
+                                                                <el-input placeholder="Aadhar Card Detail" class="w-100" v-model="aadhar"></el-input>
+                                                                <div  :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6">
+                                                        <div class="form-group">
+                                                            <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="father_name">
+                                                                <el-input placeholder="Father's Name" class="w-100" v-model="father_name"></el-input>
+                                                                <div  :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6">
+                                                        <div class="form-group">
+                                                            <ValidationProvider v-slot="{ classes, errors }" rules="required|phone" name="father_phone">
+                                                                <el-input placeholder="Father's Phone" class="w-100" v-model="father_phone"></el-input>
+                                                                <div  :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6">
+                                                        <div class="form-group">
+                                                            <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="father_occupation">
+                                                                <el-input placeholder="Father's Occupation" class="w-100" v-model="father_occupation"></el-input>
+                                                                <div  :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6">
+                                                        <div class="form-group">
+                                                            <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="mother_name">
+                                                                <el-input placeholder="Mother's Name" class="w-100" v-model="mother_name"></el-input>
+                                                                <div  :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6">
+                                                        <div class="form-group">
+                                                            <ValidationProvider v-slot="{ classes, errors }" rules="required|phone" name="mother_phone">
+                                                                <el-input placeholder="Mother's Phone" class="w-100" v-model="mother_phone"></el-input>
+                                                                <div  :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6">
+                                                        <div class="form-group">
+                                                            <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="mother_occupation">
+                                                                <el-input placeholder="Mother's Occupation" class="w-100" v-model="mother_occupation"></el-input>
+                                                                <div  :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6">
+                                                        <div class="form-group">
+                                                            <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="center">
+                                                                <el-select v-model="center" class="w-100" placeholder="Choose Your Center">
+                                                                    <el-option
+                                                                    v-for="item in centerOptions"
+                                                                    :key="item.value"
+                                                                    :label="item.label"
+                                                                    :value="item.value">
+                                                                    </el-option>
+                                                                </el-select>
+                                                                <div  :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
+                                                        </div>
+                                                    </div>
+                                                    <div :class="`col-lg-6 col-md-6`">
+                                                        <div class="form-group">
+                                                            <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="batch">
+                                                                <el-select v-model="batch" class="w-100" placeholder="Select Your Batch">
+                                                                    <el-option
+                                                                    v-for="item in batchOptions"
+                                                                    :key="item.value"
+                                                                    :label="item.label"
+                                                                    :value="item.value">
+                                                                    </el-option>
+                                                                </el-select>
+                                                                <div  :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|ext:jpg,jpeg,png,webp" name="marks">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Class 10 Preparatory Marks* <br/> <code>(Only PDF | JPG | PNG files are allowed. Max-size 512kb)</code></label>
+                                                                <input v-model="marks" type="hidden" />
+                                                                <input class="form-control" type="file" @change="handleFileChnage" />
+                                                            </div>
+                                                            <div :class="classes">{{ errors[0] }}</div>
                                                         </ValidationProvider>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-12">
-                                                    <div class="form-group">
-                                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="sibling">
-                                                            <label>Do you have sibling?</label><br/>
-                                                            <el-switch
-                                                            v-model="sibling"
-                                                            active-text="Yes"
-                                                            inactive-text="No">
-                                                            </el-switch>
-                                                            <div  :class="classes">{{ errors[0] }}</div>
-                                                        </ValidationProvider>
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <div class="form-group">
+                                                            <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="address">
+                                                                <el-input placeholder="Permanenet Address" class="w-100" type="textarea" :rows="5" v-model="address"></el-input>
+                                                                <div  :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <template v-if="sibling">
                                                     <div class="col-lg-6 col-md-12">
                                                         <div class="form-group">
-                                                            <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="sibling_occupation">
-                                                                <label>What are they doing?</label><br/>
+                                                            <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="sibling">
+                                                                <label>Do you have sibling?</label><br/>
                                                                 <el-switch
-                                                                v-model="sibling_occupation"
-                                                                active-text="Studying"
-                                                                inactive-text="Working">
+                                                                v-model="sibling"
+                                                                active-text="Yes"
+                                                                inactive-text="No">
                                                                 </el-switch>
                                                                 <div  :class="classes">{{ errors[0] }}</div>
                                                             </ValidationProvider>
                                                         </div>
                                                     </div>
-                                                    <template v-if="sibling_occupation">
-                                                        <div class="col-lg-4 col-md-6">
+                                                    <template v-if="sibling">
+                                                        <div class="col-lg-6 col-md-12">
                                                             <div class="form-group">
-                                                                <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="no_of_sibling">
-                                                                    <el-input placeholder="Number of Siblings" class="w-100" v-model="no_of_sibling"></el-input>
+                                                                <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="sibling_occupation">
+                                                                    <label>What are they doing?</label><br/>
+                                                                    <el-switch
+                                                                    v-model="sibling_occupation"
+                                                                    active-text="Studying"
+                                                                    inactive-text="Working">
+                                                                    </el-switch>
                                                                     <div  :class="classes">{{ errors[0] }}</div>
                                                                 </ValidationProvider>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-4 col-md-6">
-                                                            <div class="form-group">
-                                                                <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="sibling_class">
-                                                                    <el-input placeholder="If Studying, which grade are they studying in?" class="w-100" v-model="sibling_class"></el-input>
-                                                                    <div  :class="classes">{{ errors[0] }}</div>
-                                                                </ValidationProvider>
+                                                        <template v-if="sibling_occupation">
+                                                            <div class="col-lg-4 col-md-6">
+                                                                <div class="form-group">
+                                                                    <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="no_of_sibling">
+                                                                        <el-input placeholder="Number of Siblings" class="w-100" v-model="no_of_sibling"></el-input>
+                                                                        <div  :class="classes">{{ errors[0] }}</div>
+                                                                    </ValidationProvider>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6">
-                                                            <div class="form-group">
-                                                                <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="sibling_school">
-                                                                    <el-input placeholder="Your Siblings School Name" class="w-100" v-model="sibling_school"></el-input>
-                                                                    <div  :class="classes">{{ errors[0] }}</div>
-                                                                </ValidationProvider>
+                                                            <div class="col-lg-4 col-md-6">
+                                                                <div class="form-group">
+                                                                    <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="sibling_class">
+                                                                        <el-input placeholder="If Studying, which grade are they studying in?" class="w-100" v-model="sibling_class"></el-input>
+                                                                        <div  :class="classes">{{ errors[0] }}</div>
+                                                                    </ValidationProvider>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </template>
-                                                </template>
-                                                <div class="col-lg-12 col-md-12">
-                                                    <button type="submit" :disabled="loading" class="default-btn">
-                                                        <template v-if="!loading">
-                                                            Submit
+                                                            <div class="col-lg-4 col-md-6">
+                                                                <div class="form-group">
+                                                                    <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="sibling_school">
+                                                                        <el-input placeholder="Your Siblings School Name" class="w-100" v-model="sibling_school"></el-input>
+                                                                        <div  :class="classes">{{ errors[0] }}</div>
+                                                                    </ValidationProvider>
+                                                                </div>
+                                                            </div>
                                                         </template>
-                                                        <div v-else class="spinner-border" role="status"></div>
-                                                    </button>
+                                                    </template>
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <button type="submit" :disabled="loading" class="default-btn">
+                                                            <template v-if="!loading">
+                                                                Submit
+                                                            </template>
+                                                            <div v-else class="spinner-border" role="status"></div>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </form>
-                                    </ValidationObserver>
+                                            </form>
+                                        </ValidationObserver>
+                                    </div>
                                 </div>
                             </div>
                         </div>

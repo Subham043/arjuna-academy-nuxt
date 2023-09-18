@@ -67,19 +67,16 @@
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <NuxtLink to="/" class="nav-link active"> Home </NuxtLink>
-                                </li>
-                                <li class="nav-item">
-                                    <NuxtLink to="/about-us" class="nav-link dropdown-toggle"> About Us </NuxtLink>
+                                    <NuxtLink to="/about-us" :class="`nav-link dropdown-toggle ${($nuxt.$route.path.includes('about-us') || $nuxt.$route.path.includes('mission-vision') || $nuxt.$route.path.includes('leadership-team') || $nuxt.$route.path.includes('testimonial')) && 'nuxt-link-active'}`"> About Us </NuxtLink>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <NuxtLink to="/mission-vision" class="nav-link"> Mission & Vision </NuxtLink>
+                                            <NuxtLink to="/mission-vision" :class="`nav-link ${($nuxt.$route.path.includes('mission-vision')) && 'nuxt-link-active'}`"> Mission & Vision </NuxtLink>
                                         </li>
                                         <li class="nav-item">
-                                            <NuxtLink to="/leadership-team" class="nav-link"> Leadership Team & Faculty </NuxtLink>
+                                            <NuxtLink to="/leadership-team" :class="`nav-link ${($nuxt.$route.path.includes('leadership-team')) && 'nuxt-link-active'}`"> Leadership Team & Faculty </NuxtLink>
                                         </li>
                                         <li class="nav-item">
-                                            <NuxtLink to="/testimonial" class="nav-link"> Testimonial </NuxtLink>
+                                            <NuxtLink to="/testimonial" :class="`nav-link ${($nuxt.$route.path.includes('testimonial')) && 'nuxt-link-active'}`"> Testimonial </NuxtLink>
                                         </li>
                                     </ul>
                                 </li>
@@ -103,7 +100,7 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <NuxtLink to="#" class="nav-link dropdown-toggle"> Achievers </NuxtLink>
+                                    <NuxtLink to="#" :class="`nav-link dropdown-toggle ${($nuxt.$route.path.includes('achievers')) && 'nuxt-link-active'}`"> Achievers </NuxtLink>
                                     <ul v-if="achieverCategoryLoading" class="dropdown-menu">
                                         <el-skeleton style="width: 100%" animated>
                                             <template slot="template">
@@ -116,41 +113,41 @@
                                     </ul>
                                     <ul v-if="!achieverCategoryLoading && achieverCategory.length>0" class="dropdown-menu">
                                         <li v-if="!achieverCategoryLoading && achieverCategory.length>0" v-for="(item, i) in achieverCategory" :key="i" class="nav-item">
-                                            <NuxtLink :to="`/achievers/${item.slug}`" class="nav-link"> {{ item.name }} </NuxtLink>
+                                            <NuxtLink :to="`/achievers/${item.slug}`" :class="`nav-link ${($nuxt.$route.path.includes(item.slug)) && 'nuxt-link-active'}`"> {{ item.name }} </NuxtLink>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <NuxtLink to="#" class="nav-link dropdown-toggle"> Knowledge Desk </NuxtLink>
+                                    <NuxtLink to="#" :class="`nav-link dropdown-toggle ${($nuxt.$route.path.includes('knowledge-desk') || $nuxt.$route.path.includes('expert-tips') || $nuxt.$route.path.includes('faq') || $nuxt.$route.path.includes('vriddhi')) && 'nuxt-link-active'}`"> Knowledge Desk </NuxtLink>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <NuxtLink to="/knowledge-desk" class="nav-link"> Blogs </NuxtLink>
+                                            <NuxtLink to="/knowledge-desk" :class="`nav-link ${($nuxt.$route.path.includes('knowledge-desk')) && 'nuxt-link-active'}`"> Blogs </NuxtLink>
                                         </li>
                                         <li class="nav-item">
-                                            <NuxtLink to="/expert-tips" class="nav-link"> Expert Tips </NuxtLink>
+                                            <NuxtLink to="/expert-tips" :class="`nav-link ${($nuxt.$route.path.includes('expert-tips')) && 'nuxt-link-active'}`"> Expert Tips </NuxtLink>
                                         </li>
                                         <li class="nav-item">
-                                            <NuxtLink to="/faq" class="nav-link"> FAQ </NuxtLink>
+                                            <NuxtLink to="/faq" :class="`nav-link ${($nuxt.$route.path.includes('faq')) && 'nuxt-link-active'}`"> FAQ </NuxtLink>
                                         </li>
                                         <li class="nav-item">
-                                            <NuxtLink to="/vriddhi" class="nav-link"> Vriddhi </NuxtLink>
+                                            <NuxtLink to="/vriddhi" :class="`nav-link ${($nuxt.$route.path.includes('vriddhi')) && 'nuxt-link-active'}`"> Vriddhi </NuxtLink>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <NuxtLink to="/events" class="nav-link"> Upcoming Events </NuxtLink>
+                                    <NuxtLink to="/events" :class="`nav-link ${($nuxt.$route.path.includes('events')) && 'nuxt-link-active'}`"> Upcoming Events </NuxtLink>
                                 </li>
                                 <li class="nav-item">
-                                    <NuxtLink to="/contact-us" class="nav-link"> Contact Us </NuxtLink>
+                                    <NuxtLink to="/contact-us" :class="`nav-link ${($nuxt.$route.path.includes('contact-us')) && 'nuxt-link-active'}`"> Contact Us </NuxtLink>
                                 </li>
                                 <li v-if="!$auth.loggedIn" class="nav-item">
-                                    <NuxtLink to="/auth/sign-in" class="nav-link"> Sign In </NuxtLink>
+                                    <NuxtLink to="/auth/sign-in" :class="`nav-link ${($nuxt.$route.path.includes('auth/sign-in')) && 'nuxt-link-active'}`"> Sign In </NuxtLink>
                                 </li>
                                 <li v-else class="nav-item">
-                                    <NuxtLink to="#" class="nav-link dropdown-toggle"> Account </NuxtLink>
+                                    <NuxtLink to="#" :class="`nav-link dropdown-toggle ${($nuxt.$route.path.includes('profile')) && 'nuxt-link-active'}`"> Account </NuxtLink>
                                     <ul class="dropdown-menu" style="left: unset; right: 0;">
                                         <li class="nav-item">
-                                            <NuxtLink to="/profile" class="nav-link"> Profile ({{ $auth.user.name }}) </NuxtLink>
+                                            <NuxtLink to="/profile"  :class="`nav-link ${($nuxt.$route.path.includes('profile')) && 'nuxt-link-active'}`"> Profile ({{ $auth.user.name }}) </NuxtLink>
                                         </li>
                                         <li class="nav-item">
                                             <a href="javascript:void(0)" class="nav-link" @click="logout"> Logout </a>

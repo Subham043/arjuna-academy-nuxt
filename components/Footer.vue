@@ -1,19 +1,20 @@
 <template>
   <footer class="footer-area">
-    <div class="container pt-100 pb-70">
+    <!-- <div class="container pt-70 pb-70"> -->
+    <div class="container pt-3">
       <div class="row">
-        <div class="col-lg-3 col-sm-6">
-          <div class="footer-widget">
+        <div class="col-lg-12 col-sm-12 mb-3">
+          <div class="footer-widget text-center">
             <div class="footer-logo">
               <NuxtLink to="/">
                 <img src="/images/logos/new-logo.png" alt="Images" />
               </NuxtLink>
             </div>
-            <p>
+            <!-- <p>
               Lorem ipsum dolor sit amet, consec tetur adipiscing elit eiusmod
               tempor incididunt labore dolore magna aliqua consec tetur
               adipiscing elite sed do labor.
-            </p>
+            </p> -->
             <ul class="social-link">
               <li class="social-title">Follow Us:</li>
               <li>
@@ -52,6 +53,28 @@
               </li>
               <li>
                 <a href="courses-list.html"> Courses List </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="footer-widget ps-5">
+            <h3>Resources</h3>
+            <ul class="footer-list">
+              <li>
+                <a href="index.html"> Home </a>
+              </li>
+              <li>
+                <a href="courses.html"> Courses </a>
+              </li>
+              <li>
+                <a href="blog.html"> Our Blog </a>
+              </li>
+              <li>
+                <a href="terms-condition.html"> Terms & conditions </a>
+              </li>
+              <li>
+                <a href="privacy-policy.html"> Privacy Policy </a>
               </li>
             </ul>
           </div>
