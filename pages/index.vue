@@ -208,52 +208,29 @@
         <div class="register-area pb-70">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-7">
+                    <div class="col-lg-12">
                         <div class="play-btn-area-two">
-                            <a href="https://www.youtube.com/watch?v=Zd00oIDAt60" class="play-btn">
-                                <i class="flaticon-play-button-arrowhead"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="register-form">
-                            <div class="top-header">
-                                <h3>Register now</h3>
-                                <span>More than 150 courses are free for this month</span>
-                            </div>
-                            <form class="register-form-max">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" required
-                                                data-error="Please Enter Your Name" placeholder="Your name" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" required
-                                                data-error="Please Enter Email" placeholder="Email" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" required
-                                                data-error="Please Enter Subject" placeholder="Subject" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" required data-error="Please Enter Phone"
-                                                placeholder="Phone" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 text-center">
-                                        <button type="submit" class="default-btn border-radius-50">
-                                            Get it now
-                                        </button>
-                                    </div>
+                            <div class="hero-content text-center" style="max-width: 100% !important; position:relative">
+                                <span class="top-title">START LEARNING</span>
+                                <h1 style="color: white !important;">Admission Open For 2022 - 2023</h1>
+                                <div class="banner-btn justify-content-center">
+                                    <el-dropdown>
+                                        <NuxtLink to="/" class="default-btn border-radius-50 m-0">Admission Form</NuxtLink>
+                                        <el-dropdown-menu slot="dropdown">
+                                            <el-dropdown-item>
+                                                <NuxtLink to="/admission/class-8-9-10" class="text-dark">
+                                                    Class 8, 9 & 10
+                                                </NuxtLink>
+                                            </el-dropdown-item>
+                                            <el-dropdown-item>
+                                                <NuxtLink to="/admission/puc" class="text-dark">
+                                                    Class 11 or 1st PUC
+                                                </NuxtLink>
+                                            </el-dropdown-item>
+                                        </el-dropdown-menu>
+                                    </el-dropdown>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>

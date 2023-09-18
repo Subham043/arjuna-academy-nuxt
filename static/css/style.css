@@ -6484,12 +6484,31 @@ img {
   width: 100%;
 }
 .play-btn-area-two {
-  background-image: url(../images/ceo-banner.jpeg);
+  background-image: url(../images/admission-banner.jpg);
   background-size: cover;
-  background-position: center center;
+  background-position: center top;
   background-repeat: no-repeat;
-  padding: 247px 0;
+  padding-top: 200px;
+  padding-bottom: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
   text-align: center;
+  border-radius: 10px;
+  position: relative;
+}
+.play-btn-area-two::before{
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: var(--titleColor); */
+  /* background: #8B907F; */
+  background: #999d90;
+  opacity: 0.9;
   border-radius: 10px;
 }
 .play-btn-area-two .play-btn {
