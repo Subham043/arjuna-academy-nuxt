@@ -4240,7 +4240,7 @@ img {
   opacity: 1;
 }
 .play-btn-area {
-  background-image: url(../images/play-btn.jpg);
+  background-image: url(../images/ceo-banner.jpeg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -6484,7 +6484,7 @@ img {
   width: 100%;
 }
 .play-btn-area-two {
-  background-image: url(../images/play-btn2.jpg);
+  background-image: url(../images/ceo-banner.jpeg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -7449,4 +7449,8 @@ img {
 
 .is-invalid{
   color: red;
+}
+
+.el-dialog__body{
+  padding: 0;
 }

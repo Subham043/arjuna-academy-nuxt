@@ -20,11 +20,11 @@
             <div class="container">
                 <div class="title text-center mb-45">
                     <h2>
-                        We worked with <span>250+ </span> leading universities and companies
+                        "A <span>leader</span> is one who knows the way, goes the way & shows the way"
                     </h2>
                 </div>
                 <div class="play-btn-area">
-                    <a href="https://www.youtube.com/watch?v=Zd00oIDAt60" class="play-btn">
+                    <a href="javascript:void(0)" class="play-btn" @click="dialogVideoVisible = true">
                         <i class="flaticon-play-button-arrowhead"></i>
                     </a>
                 </div>
@@ -64,6 +64,10 @@
         
         <WhatWeDoCard :loading="featureLoading" :feature="feature" />
 
+        <el-dialog title="Hareesh PK" :visible.sync="dialogVideoVisible">
+            <iframe v-if="dialogVideoVisible" src="https://www.youtube.com/embed/sfCJJZ0Wmi8?rel=0&autoplay=1&loop=1" frameborder="0" width="100%" height="450" allowfullscreen></iframe>
+        </el-dialog>
+
 
     </div>
 </template>
@@ -87,6 +91,7 @@ export default {
             about: null,
             featureLoading: false,
             feature: [],
+            dialogVideoVisible: false,
         };
     },
     mounted() {
