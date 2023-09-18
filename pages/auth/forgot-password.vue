@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Breadcrumb title="Forgot Password" />
+        <Breadcrumb 
+            title="Forgot Password"
+            :pages="[
+                {
+                    link:'',
+                    name:'Forgot Password'
+                }
+            ]"
+        />
 
         <div class="user-area pt-70 pb-70">
             <div class="container">

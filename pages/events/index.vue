@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Breadcrumb title="Events" />
+        <Breadcrumb 
+            title="Events"
+            :pages="[
+                {
+                    link:'',
+                    name:'Events'
+                }
+            ]"
+        />
 
         <div class="blog-area pt-100 pb-70">
             <div class="container">

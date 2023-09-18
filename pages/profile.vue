@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Breadcrumb title="Profile" />
+        <Breadcrumb 
+            title="Profile"
+            :pages="[
+                {
+                    link:'',
+                    name:'Profile'
+                }
+            ]"
+        />
 
         <div class="user-area pt-100 pb-70">
             <div class="container">

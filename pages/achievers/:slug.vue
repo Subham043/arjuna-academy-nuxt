@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Breadcrumb :title="achieverCategory?.name" />
+        <Breadcrumb 
+            :title="achieverCategory?.name"
+            :pages="[
+                {
+                    link:'',
+                    name:achieverCategory?.name
+                }
+            ]"
+        />
 
         <div class="blog-area pt-100 pb-70">
             <div class="container">

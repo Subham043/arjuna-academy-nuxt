@@ -1,6 +1,18 @@
 <template>
     <div>
-        <Breadcrumb :title="blog?.name" />
+        <Breadcrumb 
+            :title="blog?.name"
+            :pages="[
+                {
+                    link:'/knowledge-desk',
+                    name:'Knowledge Desk'
+                },
+                {
+                    link:'',
+                    name:blog?.name
+                }
+            ]"
+        />
 
         <div class="blog-details-area pt-100 pb-70">
             <div class="container">

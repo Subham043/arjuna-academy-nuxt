@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Breadcrumb title="Admission" />
+        <Breadcrumb 
+            title="Admission for Class 11 or 1st PUC"
+            :pages="[
+                {
+                    link:'',
+                    name:'Admission for Class 11 or 1st PUC'
+                }
+            ]"
+        />
 
         <div class="faq-area pt-100 pb-70">
             <div class="container">

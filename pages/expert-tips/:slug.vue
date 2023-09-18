@@ -1,6 +1,18 @@
 <template>
     <div>
-        <Breadcrumb :title="expertTip?.name" />
+        <Breadcrumb 
+            :title="expertTip?.name"
+            :pages="[
+                {
+                    link:'/expert-tips',
+                    name:'Expert Tips'
+                },
+                {
+                    link:'',
+                    name:expertTip?.name
+                }
+            ]"
+        />
 
         <div class="blog-details-area pt-100 pb-70">
             <div class="container">

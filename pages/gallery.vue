@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Breadcrumb title="Gallery" />
+        <Breadcrumb 
+            title="Gallery"
+            :pages="[
+                {
+                    link:'',
+                    name:'Gallery'
+                }
+            ]"
+        />
 
         <div class="blog-area pt-100 pb-70">
             <div class="container">

@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Breadcrumb title="Vriddhi" />
+        <Breadcrumb 
+            title="Vriddhi"
+            :pages="[
+                {
+                    link:'',
+                    name:'Vriddhi'
+                }
+            ]"
+        />
 
         <div class="enrolled-area-two pt-100 pb-70">
             <div class="container">

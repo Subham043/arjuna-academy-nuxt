@@ -1,6 +1,18 @@
 <template>
     <div>
-        <Breadcrumb :title="event?.name" />
+        <Breadcrumb 
+            :title="event?.name"
+            :pages="[
+                {
+                    link:'/events',
+                    name:'Events'
+                },
+                {
+                    link:'',
+                    name:event?.name
+                }
+            ]"
+        />
 
         <div class="event-details-area pt-100 pb-70">
             <div class="container">

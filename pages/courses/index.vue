@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Breadcrumb title="Courses" />
+        <Breadcrumb 
+            title="Courses"
+            :pages="[
+                {
+                    link:'',
+                    name:'Courses'
+                }
+            ]"
+        />
 
         <div class="blog-area pt-100 pb-70">
             <div class="container">

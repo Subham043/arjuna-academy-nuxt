@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Breadcrumb title="Leadership Team" />
+        <Breadcrumb 
+            title="Leadership Team"
+            :pages="[
+                {
+                    link:'',
+                    name:'Leadership Team'
+                }
+            ]"
+        />
 
         <template v-if="managementLoading">
             <div v-for="i in 4" :key="i" :class="`instructors-details-area ${i===1 && 'pt-100'} pb-70`">

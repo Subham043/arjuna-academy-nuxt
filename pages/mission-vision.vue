@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Breadcrumb title="Mission & Vision" />
+        <Breadcrumb 
+            title="Mission & Vision"
+            :pages="[
+                {
+                    link:'',
+                    name:'Mission & Vision'
+                }
+            ]"
+        />
 
         <div class="faq-area pt-100 pb-70">
             <div class="container">

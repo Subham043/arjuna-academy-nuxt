@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Breadcrumb title="Contact us" />
+        <Breadcrumb 
+            title="Contact Us"
+            :pages="[
+                {
+                    link:'',
+                    name:'Contact Us'
+                }
+            ]"
+        />
 
         <div class="faq-area pt-100 pb-70">
             <div class="container">

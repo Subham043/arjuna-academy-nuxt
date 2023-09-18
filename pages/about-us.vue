@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Breadcrumb title="About us" />
+        <Breadcrumb 
+            title="About us" 
+            :pages="[
+                {
+                    link:'',
+                    name:'About us'
+                }
+            ]" 
+        />
 
         <WhoWeAreCard 
             :first="true"
@@ -64,8 +72,12 @@
         
         <WhatWeDoCard :loading="featureLoading" :feature="feature" />
 
-        <el-dialog title="Hareesh PK" :visible.sync="dialogVideoVisible">
-            <iframe v-if="dialogVideoVisible" src="https://www.youtube.com/embed/sfCJJZ0Wmi8?rel=0&autoplay=1&loop=1" frameborder="0" width="100%" height="450" allowfullscreen></iframe>
+        <el-dialog title="Hareesh PK" :visible.sync="dialogVideoVisible" width="90%" top="20px">
+            <iframe v-if="dialogVideoVisible" src="https://www.youtube.com/embed/sfCJJZ0Wmi8?rel=0&autoplay=1&loop=1" frameborder="0" width="100%" height="550" allowfullscreen></iframe>
+        </el-dialog>
+        
+        <el-dialog title="ARJUNAA ACADEMY FOR ACHIEVERS" :visible.sync="dialogBannerVisible" width="80%" top="10vh">
+            <img src="/images/jee-main.webp" class="w-100" />
         </el-dialog>
 
 
@@ -92,6 +104,7 @@ export default {
             featureLoading: false,
             feature: [],
             dialogVideoVisible: false,
+            dialogBannerVisible: true,
         };
     },
     mounted() {

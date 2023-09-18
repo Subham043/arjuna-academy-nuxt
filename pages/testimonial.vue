@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Breadcrumb title="Testimonial" />
+        <Breadcrumb 
+            title="Testimonial"
+            :pages="[
+                {
+                    link:'',
+                    name:'Testimonial'
+                }
+            ]"
+        />
 
         <div class="testimonials-area pt-100 pb-100">
             <div class="container">
