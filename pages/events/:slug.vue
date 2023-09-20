@@ -144,6 +144,39 @@ export default {
             popularEventPerPage: 1,
         };
     },
+    head() {
+        return {
+            title: this.event?.meta_title,
+            meta: [
+            // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+                {
+                    hid: 'og:title',
+                    name: 'og:title',
+                    content: this.event?.meta_title
+                },
+                {
+                    hid: 'og:type',
+                    name: 'og:type',
+                    content: 'website'
+                },
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: this.event?.meta_description
+                },
+                {
+                    hid: 'keywords',
+                    name: 'keywords',
+                    content: this.event?.meta_keywords
+                },
+            ],
+            script: [{
+                type: 'application/ld+json',
+                innerHTML: this.event?.meta_scripts // <- set jsonld object in data or wherever you want
+            }],
+            __dangerouslyDisableSanitizers: ['script'],
+        }
+    },
     async fetch() {
       await this.getEvent();
     },

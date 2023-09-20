@@ -76,7 +76,46 @@ export default {
             testimonialCount:1,
             testimonialCurrentPage: 1,
             testimonialPerPage: 1,
+            seo: {
+                meta_title:'',
+                meta_description:'',
+                meta_keywords:'',
+                meta_scripts:'',
+            }
         };
+    },
+    head() {
+        return {
+            title: this.seo.meta_title,
+            meta: [
+            // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+                {
+                    hid: 'og:title',
+                    name: 'og:title',
+                    content: this.seo.meta_title
+                },
+                {
+                    hid: 'og:type',
+                    name: 'og:type',
+                    content: 'website'
+                },
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: this.seo.meta_description
+                },
+                {
+                    hid: 'keywords',
+                    name: 'keywords',
+                    content: this.seo.meta_keywords
+                },
+            ],
+            script: [{
+                type: 'application/ld+json',
+                innerHTML: this.seo.meta_scripts // <- set jsonld object in data or wherever you want
+            }],
+            __dangerouslyDisableSanitizers: ['script'],
+        }
     },
     mounted() {
         // eslint-disable-next-line nuxt/no-env-in-hooks
@@ -86,6 +125,7 @@ export default {
     },
     async fetch() {
       await this.getTestimonial();
+      await this.getSeo();
     },
     watch: {
         $route(to, from) {
@@ -110,6 +150,19 @@ export default {
     
             }finally{
                 this.testimonialLoading=false;
+            }
+        },
+        async getSeo() {
+            try {
+                const response = await this.$publicApi.get(API_ROUTES.seo+`/testimonial-page`); // eslint-disable-line
+                this.seo = response.data.seo
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
+    
             }
         },
         handlePaginationChnage(page){

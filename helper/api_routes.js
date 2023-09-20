@@ -1,5 +1,6 @@
 export const API_ROUTES = {
     mission_vision: "/api/v1/mission-vision",
+    seo: "/api/v1/seo",
     faq: "/api/v1/faq",
     gallery: "/api/v1/gallery",
     event: "/api/v1/event",

@@ -127,6 +127,39 @@ export default {
             next_expertTip: null,
         };
     },
+    head() {
+        return {
+            title: this.expertTip?.meta_title,
+            meta: [
+            // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+                {
+                    hid: 'og:title',
+                    name: 'og:title',
+                    content: this.expertTip?.meta_title
+                },
+                {
+                    hid: 'og:type',
+                    name: 'og:type',
+                    content: 'website'
+                },
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: this.expertTip?.meta_description
+                },
+                {
+                    hid: 'keywords',
+                    name: 'keywords',
+                    content: this.expertTip?.meta_keywords
+                },
+            ],
+            script: [{
+                type: 'application/ld+json',
+                innerHTML: this.expertTip?.meta_scripts // <- set jsonld object in data or wherever you want
+            }],
+            __dangerouslyDisableSanitizers: ['script'],
+        }
+    },
     async fetch() {
       await this.getExpertTip();
     },

@@ -216,6 +216,39 @@ export default {
             popularBlogPerPage: 1,
         };
     },
+    head() {
+        return {
+            title: this.blog?.meta_title,
+            meta: [
+            // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+                {
+                    hid: 'og:title',
+                    name: 'og:title',
+                    content: this.blog?.meta_title
+                },
+                {
+                    hid: 'og:type',
+                    name: 'og:type',
+                    content: 'website'
+                },
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: this.blog?.meta_description
+                },
+                {
+                    hid: 'keywords',
+                    name: 'keywords',
+                    content: this.blog?.meta_keywords
+                },
+            ],
+            script: [{
+                type: 'application/ld+json',
+                innerHTML: this.blog?.meta_scripts // <- set jsonld object in data or wherever you want
+            }],
+            __dangerouslyDisableSanitizers: ['script'],
+        }
+    },
     async fetch() {
       await this.getBlog();
     },
