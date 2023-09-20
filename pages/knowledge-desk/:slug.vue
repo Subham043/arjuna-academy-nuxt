@@ -92,8 +92,7 @@
                                                                                 alt="Images" />
                                                                             <div class="content-dtls">
                                                                                 <h4>{{ item.name }}</h4>
-                                                                                <span>15 Jan, 2022 AT 06:30
-                                                                                    PM</span>
+                                                                                <span>{{ item.comment_on }}</span>
                                                                             </div>
                                                                         </div>
                                                                         <p>
