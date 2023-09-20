@@ -1,18 +1,15 @@
 <template>
     <div>
-        <Breadcrumb 
-            :title="blog?.name"
-            :pages="[
-                {
-                    link:'/knowledge-desk',
-                    name:'Knowledge Desk'
-                },
-                {
-                    link:'',
-                    name:blog?.name
-                }
-            ]"
-        />
+        <Breadcrumb :title="blog?.name" :pages="[
+            {
+                link: '/knowledge-desk',
+                name: 'Knowledge Desk'
+            },
+            {
+                link: '',
+                name: blog?.name
+            }
+        ]" />
 
         <div class="blog-details-area pt-100 pb-70">
             <div class="container">
@@ -21,8 +18,7 @@
                         <div class="blog-details-content pr-20">
                             <template v-if="!blogLoading">
                                 <div class="blog-preview-img">
-                                    <img :src="blog?.image"
-                                        :alt="blog?.image_alt" :title="blog?.image_title" />
+                                    <img :src="blog?.image" :alt="blog?.image_alt" :title="blog?.image_title" />
                                 </div>
                                 <ul class="tag-list">
                                     <li><i class="ri-calendar-todo-fill"></i> {{ blog?.published }}</li>
@@ -35,9 +31,11 @@
                                 <div v-html-safe="blog?.description" />
                                 <div class="article-share">
                                     <div class="row align-items-center justify-content-between">
-                                        <div v-if="prev_blog!==null" class="col-lg-auto col-md-auto">
+                                        <div v-if="prev_blog !== null" class="col-lg-auto col-md-auto">
                                             <div class="pagination-area m-0">
-                                                <NuxtLink :to="prev_blog!==null ? `/knowledge-desk/${prev_blog?.slug}` : '#'" title="previous blog" class="prev page-numbers">
+                                                <NuxtLink
+                                                    :to="prev_blog !== null ? `/knowledge-desk/${prev_blog?.slug}` : '#'"
+                                                    title="previous blog" class="prev page-numbers">
                                                     <i class="flaticon-left-arrow"></i>
                                                 </NuxtLink>
                                             </div>
@@ -47,76 +45,132 @@
                                                 <ul class="social-icon">
                                                     <li class="title">Share :</li>
                                                     <li>
-                                                        <a :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/knowledge-desk/${blog?.slug}&title=${blog?.name}`" target="_blank">
+                                                        <a :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/knowledge-desk/${blog?.slug}&title=${blog?.name}`"
+                                                            target="_blank">
                                                             <i class="ri-facebook-fill"></i>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a :href="`https://twitter.com/share?text=${blog?.name}&url=https://www.aaaedu.in/knowledge-desk/${blog?.slug}`" target="_blank">
+                                                        <a :href="`https://twitter.com/share?text=${blog?.name}&url=https://www.aaaedu.in/knowledge-desk/${blog?.slug}`"
+                                                            target="_blank">
                                                             <i class="ri-twitter-fill"></i>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/knowledge-desk/${blog?.slug}&title=${blog?.name}&source=${blog?.name}`" target="_blank">
+                                                        <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/knowledge-desk/${blog?.slug}&title=${blog?.name}&source=${blog?.name}`"
+                                                            target="_blank">
                                                             <i class="ri-linkedin-fill"></i>
                                                         </a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div v-if="next_blog!==null" class="col-lg-auto col-md-auto">
+                                        <div v-if="next_blog !== null" class="col-lg-auto col-md-auto">
                                             <div class="pagination-area m-0">
-                                                <NuxtLink :to="next_blog!==null ? `/knowledge-desk/${next_blog?.slug}` : '#'" title="next blog" class="next page-numbers">
+                                                <NuxtLink
+                                                    :to="next_blog !== null ? `/knowledge-desk/${next_blog?.slug}` : '#'"
+                                                    title="next blog" class="next page-numbers">
                                                     <i class="flaticon-chevron"></i>
                                                 </NuxtLink>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="comments-form">
-                                    <div class="contact-form">
-                                        <h4>Leave A Reply</h4>
-                                        <p>
-                                            Your email address will not be published. Required fields
-                                            are marked
-                                        </p>
-                                        <form id="contactForm">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-sm-6">
-                                                    <div class="form-group">
-                                                        <input type="text" name="name" id="name" class="form-control" required
-                                                            data-error="Please enter your name" placeholder="Your Name" />
+                                <div class="courses-details-area pb-70">
+                                    <div class="courses-details-contact">
+                                        <div class="tab courses-details-tab">
+                                            <div class="tab_content current active">
+                                                <div class="tabs_item">
+                                                    <div class="courses-details-tab-content">
+                                                        <div class="courses-details-review-form">
+                                                            <h3>Comments:</h3>
+                                                            <template v-if="blogComment.length>0">
+                                                                <div v-for="(item, i) in blogComment" :key="i" class="review-comments">
+                                                                    <div class="review-item">
+                                                                        <div class="content">
+                                                                            <img src="/images/avatar.webp"
+                                                                                alt="Images" />
+                                                                            <div class="content-dtls">
+                                                                                <h4>{{ item.name }}</h4>
+                                                                                <span>15 Jan, 2022 AT 06:30
+                                                                                    PM</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <p>
+                                                                            {{ item.comment }}
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div v-if="blogCommentLastPage!==blogCommentPage" class="text-center">
+                                                                    <button type="button" :disabled="blogCommentLoading" @click="++blogCommentPage"
+                                                                        class="default-btn">
+                                                                        <template v-if="!blogCommentLoading">
+                                                                            Load More Comments
+                                                                        </template>
+                                                                        <div v-else class="spinner-border" role="status"></div>
+                                                                    </button>
+                                                                </div>
+                                                            </template>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-6 col-sm-6">
-                                                    <div class="form-group">
-                                                        <input type="email" name="email" id="email" class="form-control"
-                                                            required data-error="Please enter your email"
-                                                            placeholder="Your Email" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12">
-                                                    <div class="form-group">
-                                                        <textarea name="message" class="form-control" id="message" cols="30"
-                                                            rows="8" required data-error="Write your message"
-                                                            placeholder="Comment..."></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12">
-                                                    <div class="agree-label">
-                                                        <input type="checkbox" id="chb1" />
-                                                        <label for="chb1">
-                                                            Save my info for the next comment
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12">
-                                                    <button type="submit" class="default-btn">
-                                                        Post A Comment
-                                                    </button>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments-form">
+                                    <div class="contact-form">
+                                        <h4>Leave A Comment</h4>
+                                        <ValidationObserver ref="form" v-slot="{ handleSubmit }">
+                                            <form id="contactForm" @submit.prevent="handleSubmit(formHandler)">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-sm-6">
+                                                        <div class="form-group">
+                                                            <ValidationProvider v-slot="{ classes, errors }"
+                                                                rules="required|alpha_spaces" name="name">
+                                                                <input type="text" name="name" v-model="name" id="name"
+                                                                    class="form-control" data-error="Please enter your name"
+                                                                    placeholder="Your Name" />
+                                                                <div :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6">
+                                                        <div class="form-group">
+                                                            <ValidationProvider v-slot="{ classes, errors }"
+                                                                rules="required|email" name="email">
+                                                                <input type="email" name="email" id="email"
+                                                                    class="form-control" v-model="email"
+                                                                    data-error="Please enter your email"
+                                                                    placeholder="Your Email" />
+                                                                <div :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <div class="form-group">
+                                                            <ValidationProvider v-slot="{ classes, errors }"
+                                                                rules="required|custom_message" name="comment">
+                                                                <textarea name="message" v-model="comment"
+                                                                    class="form-control" id="message" cols="30" rows="8"
+                                                                    data-error="Write your message"
+                                                                    placeholder="Comment..."></textarea>
+                                                                <div :class="classes">{{ errors[0] }}</div>
+                                                            </ValidationProvider>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <button type="submit" :disabled="commentPostLoading"
+                                                            class="default-btn">
+                                                            <template v-if="!commentPostLoading">
+                                                                Post A Comment
+                                                            </template>
+                                                            <div v-else class="spinner-border" role="status"></div>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </ValidationObserver>
                                     </div>
                                 </div>
                             </template>
@@ -126,17 +180,17 @@
                                         <el-skeleton-item variant="image" style="width: 100%; height: 440px;" />
                                         <div style="padding: 14px;">
                                             <el-skeleton-item variant="p" style="width: 50%" />
-                                            <br/>
+                                            <br />
                                             <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
+                                            <br />
                                             <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
+                                            <br />
                                             <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
+                                            <br />
                                             <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
+                                            <br />
                                             <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
+                                            <br />
                                             <el-skeleton-item variant="text" style="width: 50%;" />
                                         </div>
                                     </template>
@@ -150,18 +204,19 @@
                                 <h3 class="title">Popular post</h3>
                                 <div class="widget-popular-post">
                                     <article v-if="popularBlogLoading" class="item">
-                                        <div  v-for="i in 8" :key="i" class="info">
+                                        <div v-for="i in 8" :key="i" class="info">
                                             <el-skeleton style="width: 100%" animated>
                                                 <template slot="template">
                                                     <el-skeleton-item variant="p" style="width: 50%" />
-                                                    <br/>
+                                                    <br />
                                                     <el-skeleton-item variant="text" style="width: 100%;" />
                                                 </template>
                                             </el-skeleton>
                                             <hr>
                                         </div>
                                     </article>
-                                    <article v-if="!popularBlogLoading && popularBlog.length>0" v-for="(item, i) in popularBlog" :key="i" class="item">
+                                    <article v-if="!popularBlogLoading && popularBlog.length > 0"
+                                        v-for="(item, i) in popularBlog" :key="i" class="item">
                                         <div class="info">
                                             <p>{{ item.published }}</p>
                                             <h4 class="title-text">
@@ -175,8 +230,10 @@
                                             <hr>
                                         </div>
                                     </article>
-                                    <div v-if="!popularBlogLoading && popularBlog.length>0" class="col-12 text-center">
-                                        <pagination v-model="popularBlogCurrentPage" :records="popularBlogCount" :per-page="popularBlogPerPage"  :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePopularBlogPaginationChnage"/>
+                                    <div v-if="!popularBlogLoading && popularBlog.length > 0" class="col-12 text-center">
+                                        <pagination v-model="popularBlogCurrentPage" :records="popularBlogCount"
+                                            :per-page="popularBlogPerPage" :options="{ chunk: 9, chunksNavigation: 'scroll' }"
+                                            @paginate="handlePopularBlogPaginationChnage" />
                                     </div>
                                 </div>
                             </div>
@@ -202,6 +259,7 @@ export default {
             this.$scrollTo("#__nuxt", 0, { force: true });
         }
         this.getPopluarBlog();
+        this.getBlogComment();
     },
     data() {
         return {
@@ -211,16 +269,26 @@ export default {
             next_blog: null,
             popularBlogLoading: false,
             popularBlog: [],
-            popularBlogCount:1,
+            popularBlogCount: 1,
             popularBlogCurrentPage: 1,
             popularBlogPerPage: 1,
+            blogCommentLoading: false,
+            blogComment: [],
+            blogCommentPage: 1,
+            blogCommentCount: 1,
+            blogCommentPerPage: 1,
+            blogCommentLastPage: 1,
+            commentPostLoading: false,
+            name: this.$auth.loggedIn ? this.$auth.user.name : '',
+            email: this.$auth.loggedIn ? this.$auth.user.email : '',
+            comment: '',
         };
     },
     head() {
         return {
             title: this.blog?.meta_title,
             meta: [
-            // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+                // hid is used as unique identifier. Do not use `vmid` for it as it will not work
                 {
                     hid: 'og:title',
                     name: 'og:title',
@@ -250,18 +318,24 @@ export default {
         }
     },
     async fetch() {
-      await this.getBlog();
+        await this.getBlog();
     },
     watch: {
         $route(to, from) {
             this.handlePopularBlogPageChnage();
-        }
+        },
+        blog(to, from) {
+            this.getBlogComment();
+        },
+        blogCommentPage(to, from) {
+            this.getBlogComment(to);
+        },
     },
     methods: {
         async getBlog() {
-            this.blogLoading=true;
+            this.blogLoading = true;
             try {
-                const response = await this.$publicApi.get(API_ROUTES.blog+`/${this.$route.params.slug}`); // eslint-disable-line
+                const response = await this.$publicApi.get(API_ROUTES.blog + `/${this.$route.params.slug}`); // eslint-disable-line
                 this.blog = response.data.blog;
                 this.next_blog = response.data.next_blog;
                 this.prev_blog = response.data.prev_blog;
@@ -271,15 +345,15 @@ export default {
                     status: err.response.status,
                     message: err.response.data.message,
                 })
-    
-            }finally{
-                this.blogLoading=false;
+
+            } finally {
+                this.blogLoading = false;
             }
         },
-        async getPopluarBlog(page=0) {
-            this.popularBlogLoading=true;
+        async getPopluarBlog(page = 0) {
+            this.popularBlogLoading = true;
             try {
-                const response = await this.$publicApi.get(API_ROUTES.blog+`?total=8&page=${page}&filter[is_popular]=true`); // eslint-disable-line
+                const response = await this.$publicApi.get(API_ROUTES.blog + `?total=8&page=${page}&filter[is_popular]=true`); // eslint-disable-line
                 this.popularBlog = response.data.data
                 this.popularBlogCount = response?.data?.meta?.total
                 this.popularBlogPerPage = response?.data?.meta?.per_page
@@ -290,17 +364,61 @@ export default {
                     status: err.response.status,
                     message: err.response.data.message,
                 })
-    
-            }finally{
-                this.popularBlogLoading=false;
+
+            } finally {
+                this.popularBlogLoading = false;
             }
         },
-        handlePopularBlogPaginationChnage(page){
-            this.$router.push({query:{page}});
+        handlePopularBlogPaginationChnage(page) {
+            this.$router.push({ query: { page } });
         },
-        handlePopularBlogPageChnage(){
+        handlePopularBlogPageChnage() {
             this.popularBlogCurrentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
             this.getPopluarBlog(this.$route.query.page ? Number(this.$route.query.page) : 1);
+        },
+        async formHandler() {
+            this.commentPostLoading = true;
+            try {
+                const response = await this.$publicApi.post(API_ROUTES.blog + `/comment/${this.blog?.id}/create`, {
+                    name: this.name,
+                    email: this.email,
+                    comment: this.comment,
+                });
+                this.comment = ''
+                this.$refs.form.reset()
+                this.$toast.success('Commented Successfully.')
+            } catch (err) {
+                this.$refs.form.setErrors({
+                    email: err?.response?.data?.errors?.email?.length > 0 && err?.response?.data?.errors?.email[0],
+                    name: err?.response?.data?.errors?.name?.length > 0 && err?.response?.data?.errors?.name[0],
+                    comment: err?.response?.data?.errors?.comment?.length > 0 && err?.response?.data?.errors?.comment[0],
+                });
+                if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+
+            } finally {
+                this.commentPostLoading = false;
+            }
+        },
+        async getBlogComment(page = 1) {
+            if(this.blog){
+                this.blogCommentLoading = true;
+                try {
+                    const response = await this.$publicApi.get(API_ROUTES.blog + `/comment/${this.blog?.id}/paginate?total=8&page=${page}`); // eslint-disable-line
+                    this.blogComment = [...this.blogComment, ...response.data.data]
+                    this.blogCommentCount = response?.data?.meta?.total
+                    this.blogCommentPerPage = response?.data?.meta?.per_page
+                    this.blogCommentLastPage = response?.data?.meta?.last_page
+                } catch (err) {
+                    // console.log(err.response);// eslint-disable-line
+                    this.$nuxt.context.error({
+                        status: err.response.status,
+                        message: err.response.data.message,
+                    })
+                } finally {
+                    this.blogCommentLoading = false;
+                }
+            }
         },
     },
     components: { Breadcrumb }

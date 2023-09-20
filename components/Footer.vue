@@ -138,9 +138,7 @@
       <div class="container">
         <div class="copy-right-text text-center">
           <p>
-            Copyright @
-            <b>Ledu</b> All Rights Reserved
-            <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a>
+            Copyright © {{ new Date().getFullYear() }} <NuxtLink to="/">Arjunaa Academy for Achievers</NuxtLink>. All Rights Reserved.
           </p>
         </div>
       </div>
