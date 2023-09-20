@@ -259,7 +259,6 @@ export default {
             this.$scrollTo("#__nuxt", 0, { force: true });
         }
         this.getPopluarBlog();
-        this.getBlogComment();
     },
     data() {
         return {
