@@ -15,6 +15,7 @@ export const API_ROUTES = {
     management: "/api/v1/team-member/management",
     staff: "/api/v1/team-member/staff",
     contact: "/api/v1/contact-form",
+    subscription: "/api/v1/subscription-form",
     register: "/api/v1/auth/register",
     forgot_password: "/api/v1/auth/forgot-password",
     admission_puc: "/api/v1/admission/puc",

@@ -5733,7 +5733,7 @@ img {
   padding: 0;
 }
 .blog-card .content ul li {
-  display: inline-block;
+  display: block;
   margin-right: 30px;
   position: relative;
   color: var(--titleColor);

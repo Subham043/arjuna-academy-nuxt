@@ -291,12 +291,10 @@
                             <i class="el-icon-user"></i>
                             <span>Account</span>
                         </template>
-                        <NuxtLink to="/assessment/all">
+                        <NuxtLink to="/profile">
                             <el-menu-item index="9-1">Profile </el-menu-item>
                         </NuxtLink>
-                        <NuxtLink to="/assessment/free">
-                            <el-menu-item index="9-2">Logout </el-menu-item>
-                        </NuxtLink>
+                        <el-menu-item index="9-2" @click="logout">Logout </el-menu-item>
                     </el-submenu>
                 </el-menu>
             </el-drawer>
