@@ -17,4 +17,16 @@ export default {
     name: "MainPageLayout",
     components: { Header, Footer, Newsletter }
 }
+
+if(process.client){
+  document.addEventListener("DOMContentLoaded", function() {
+      window.addEventListener('scroll', function() {
+          if (window.scrollY > 150) {
+              document.getElementById('navbar').classList.add('is-sticky');
+            } else {
+              document.getElementById('navbar').classList.remove('is-sticky');
+          }
+      });
+  });
+}
 </script>
