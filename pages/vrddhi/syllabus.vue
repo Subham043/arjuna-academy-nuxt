@@ -246,7 +246,7 @@ export default {
                 formData.append('mother_name', this.mother_name);
                 formData.append('mother_email', this.mother_email);
                 formData.append('mother_phone', this.mother_phone);
-                formData.append('standard', this.standard);
+                formData.append('class', this.standard);
                 formData.append('syllabus', this.syllabus);
                 formData.append('card', this.card);
                 await this.$publicApi.post(API_ROUTES.vrddhi,formData);
@@ -275,7 +275,7 @@ export default {
                     mother_name: err?.response?.data?.errors?.mother_name?.length>0 && err?.response?.data?.errors?.mother_name[0],
                     mother_phone: err?.response?.data?.errors?.mother_phone?.length>0 && err?.response?.data?.errors?.mother_name[0],
                     mother_email: err?.response?.data?.errors?.mother_email?.length>0 && err?.response?.data?.errors?.mother_name[0],
-                    standard: err?.response?.data?.errors?.standard?.length>0 && err?.response?.data?.errors?.standard[0],
+                    standard: err?.response?.data?.errors?.class?.length>0 && err?.response?.data?.errors?.class[0],
                     syllabus: err?.response?.data?.errors?.syllabus?.length>0 && err?.response?.data?.errors?.syllabus[0],
                     card: err?.response?.data?.errors?.card?.length>0 && err?.response?.data?.errors?.card[0],
                 });
