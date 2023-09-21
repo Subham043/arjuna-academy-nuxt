@@ -400,7 +400,6 @@ export default {
                     center: err?.response?.data?.errors?.center?.length>0 && err?.response?.data?.errors?.center[0],
                     batch: err?.response?.data?.errors?.batch?.length>0 && err?.response?.data?.errors?.batch[0],
                     marks: err?.response?.data?.errors?.marks?.length>0 && err?.response?.data?.errors?.marks[0],
-                    branch: err?.response?.data?.errors?.branch?.length>0 && err?.response?.data?.errors?.branch[0],
                     address: err?.response?.data?.errors?.address?.length>0 && err?.response?.data?.errors?.address[0],
                     class: err?.response?.data?.errors?.class?.length>0 && err?.response?.data?.errors?.class[0],
                     percentage: err?.response?.data?.errors?.percentage?.length>0 && err?.response?.data?.errors?.percentage[0],

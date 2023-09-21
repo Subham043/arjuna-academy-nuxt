@@ -1,11 +1,11 @@
 <template>
     <div>
         <Breadcrumb 
-            title="Vriddhi"
+            title="Vrddhi"
             :pages="[
                 {
                     link:'',
-                    name:'Vriddhi'
+                    name:'Vrddhi'
                 }
             ]"
         />
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 text-end">
-                        <a href="contact.html" class="default-btn">Click Here</a>
+                        <NuxtLink to="/vrddhi/syllabus" class="default-btn">Click Here</NuxtLink>
                     </div>
                 </div>
             </div>
@@ -198,12 +198,11 @@
 <script>
 import Breadcrumb from '~/components/Breadcrumb.vue';
 import TestimonialCard from '~/components/TestimonialCard.vue';
-import { API_ROUTES } from '~/helper/api_routes';
 
 
 
 export default {
-    name: "FaqPage",
+    name: "VrddhiPage",
     layout: "MainPageLayout",
     data() {
         return {

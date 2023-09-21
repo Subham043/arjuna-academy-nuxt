@@ -84,11 +84,11 @@
     "_name": "_cb276ee0"
   },
   {
-    "name": "vriddhi",
-    "path": "/vriddhi",
-    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/vriddhi.vue",
-    "chunkName": "pages/vriddhi",
-    "_name": "_73e905c2"
+    "name": "vrddhi",
+    "path": "/vrddhi",
+    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/vrddhi/index.vue",
+    "chunkName": "pages/vrddhi/index",
+    "_name": "_2d578b5f"
   },
   {
     "name": "admission-class-8-9-10",
@@ -131,6 +131,13 @@
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/courses/detail.vue",
     "chunkName": "pages/courses/detail",
     "_name": "_c3769cb2"
+  },
+  {
+    "name": "vrddhi-syllabus",
+    "path": "/vrddhi/syllabus",
+    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/vrddhi/syllabus.vue",
+    "chunkName": "pages/vrddhi/syllabus",
+    "_name": "_49333ce8"
   },
   {
     "name": "achievers-:slug",

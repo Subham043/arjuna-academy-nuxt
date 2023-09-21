@@ -16,13 +16,14 @@ const _7481a0d6 = () => interopDefault(import('../pages/leadership-team.vue' /* 
 const _16673c30 = () => interopDefault(import('../pages/mission-vision.vue' /* webpackChunkName: "pages/mission-vision" */))
 const _bdb325cc = () => interopDefault(import('../pages/profile.vue' /* webpackChunkName: "pages/profile" */))
 const _cb276ee0 = () => interopDefault(import('../pages/testimonial.vue' /* webpackChunkName: "pages/testimonial" */))
-const _73e905c2 = () => interopDefault(import('../pages/vriddhi.vue' /* webpackChunkName: "pages/vriddhi" */))
+const _2d578b5f = () => interopDefault(import('../pages/vrddhi/index.vue' /* webpackChunkName: "pages/vrddhi/index" */))
 const _77b854fc = () => interopDefault(import('../pages/admission/class-8-9-10.vue' /* webpackChunkName: "pages/admission/class-8-9-10" */))
 const _406e0dae = () => interopDefault(import('../pages/admission/puc.vue' /* webpackChunkName: "pages/admission/puc" */))
 const _32ff8b06 = () => interopDefault(import('../pages/auth/forgot-password.vue' /* webpackChunkName: "pages/auth/forgot-password" */))
 const _f5b218a6 = () => interopDefault(import('../pages/auth/sign-in.vue' /* webpackChunkName: "pages/auth/sign-in" */))
 const _cc856bba = () => interopDefault(import('../pages/auth/sign-up.vue' /* webpackChunkName: "pages/auth/sign-up" */))
 const _c3769cb2 = () => interopDefault(import('../pages/courses/detail.vue' /* webpackChunkName: "pages/courses/detail" */))
+const _49333ce8 = () => interopDefault(import('../pages/vrddhi/syllabus.vue' /* webpackChunkName: "pages/vrddhi/syllabus" */))
 const _0e7dee4e = () => interopDefault(import('../pages/achievers/:slug.vue' /* webpackChunkName: "pages/achievers/:slug" */))
 const _ea8cda64 = () => interopDefault(import('../pages/events/:slug.vue' /* webpackChunkName: "pages/events/:slug" */))
 const _6d8b6002 = () => interopDefault(import('../pages/expert-tips/:slug.vue' /* webpackChunkName: "pages/expert-tips/:slug" */))
@@ -89,9 +90,9 @@ export const routerOptions = {
     component: _cb276ee0,
     name: "testimonial"
   }, {
-    path: "/vriddhi",
-    component: _73e905c2,
-    name: "vriddhi"
+    path: "/vrddhi",
+    component: _2d578b5f,
+    name: "vrddhi"
   }, {
     path: "/admission/class-8-9-10",
     component: _77b854fc,
@@ -116,6 +117,10 @@ export const routerOptions = {
     path: "/courses/detail",
     component: _c3769cb2,
     name: "courses-detail"
+  }, {
+    path: "/vrddhi/syllabus",
+    component: _49333ce8,
+    name: "vrddhi-syllabus"
   }, {
     path: "/achievers/:slug",
     component: _0e7dee4e,

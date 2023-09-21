@@ -19,6 +19,7 @@ export const API_ROUTES = {
     subscription: "/api/v1/subscription-form",
     register: "/api/v1/auth/register",
     forgot_password: "/api/v1/auth/forgot-password",
+    vrddhi: "/api/v1/vrddhi/create",
     admission_puc: "/api/v1/admission/puc",
     password_update: "/api/v1/profile/update-password",
     profile_update: "/api/v1/profile/update",

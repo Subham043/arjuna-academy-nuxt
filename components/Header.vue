@@ -143,7 +143,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <NuxtLink to="#"
-                                        :class="`nav-link dropdown-toggle ${($nuxt.$route.path.includes('knowledge-desk') || $nuxt.$route.path.includes('expert-tips') || $nuxt.$route.path.includes('faq') || $nuxt.$route.path.includes('vriddhi')) && 'nuxt-link-active'}`">
+                                        :class="`nav-link dropdown-toggle ${($nuxt.$route.path.includes('knowledge-desk') || $nuxt.$route.path.includes('expert-tips') || $nuxt.$route.path.includes('faq') || $nuxt.$route.path.includes('vrddhi')) && 'nuxt-link-active'}`">
                                         Knowledge Desk </NuxtLink>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
@@ -162,9 +162,9 @@
                                                 FAQ </NuxtLink>
                                         </li>
                                         <li class="nav-item">
-                                            <NuxtLink to="/vriddhi"
-                                                :class="`nav-link ${($nuxt.$route.path.includes('vriddhi')) && 'nuxt-link-active'}`">
-                                                Vriddhi </NuxtLink>
+                                            <NuxtLink to="/vrddhi"
+                                                :class="`nav-link ${($nuxt.$route.path.includes('vrddhi')) && 'nuxt-link-active'}`">
+                                                Vrddhi </NuxtLink>
                                         </li>
                                     </ul>
                                 </li>
@@ -265,7 +265,7 @@
                             <el-menu-item index="5-3">Faq </el-menu-item>
                         </NuxtLink>
                         <NuxtLink to="/faw">
-                            <el-menu-item index="5-4">Vriddhi </el-menu-item>
+                            <el-menu-item index="5-4">Vrddhi </el-menu-item>
                         </NuxtLink>
                     </el-submenu>
                     <el-menu-item index="6">
