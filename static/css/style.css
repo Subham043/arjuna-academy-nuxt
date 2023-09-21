@@ -7505,3 +7505,30 @@ img {
 .el-dialog__body{
   padding: 0;
 }
+
+.VuePagination .page-link, .VuePagination .page-item:first-child .page-link, .VuePagination .page-item:last-child .page-link{
+    width: 40px;
+    height: 40px;
+    line-height: 30px;
+    color: #000;
+    color: var(--bodyColor);
+    background-color: transparent;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    margin-left: 3px;
+    margin-right: 3px;
+    border-radius: 50px;
+    border: 1px solid #EACF6C;
+    border: 1px solid var(--mainColor);
+}
+
+.VuePagination .page-item.active .page-link{
+  background-color: var(--mainColor);
+  border-color: var(--mainColor);
+  color: var(--whiteColor);
+}
+
+.pagination{
+  gap: 1;
+}
