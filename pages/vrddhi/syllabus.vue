@@ -249,7 +249,7 @@ export default {
                 formData.append('class', this.standard);
                 formData.append('syllabus', this.syllabus);
                 formData.append('card', this.card);
-                await this.$publicApi.post(API_ROUTES.vrddhi,formData);
+                const response = await this.$publicApi.post(API_ROUTES.vrddhi,formData);
                 this.name=''
                 this.school_name=''
                 this.phone=''
@@ -264,6 +264,7 @@ export default {
                 this.card=[]
                 this.$refs.form.reset()
                 this.$toast.success('Admission Recieved Successfully.')
+                window.open(response.data.file_link, '_blank');
             } catch (err) {
                 this.$refs.form.setErrors({
                     school_name: err?.response?.data?.errors?.school_name?.length>0 && err?.response?.data?.errors?.school_name[0],
