@@ -3,6 +3,7 @@ export const API_ROUTES = {
     seo: "/api/v1/seo",
     faq: "/api/v1/faq",
     gallery: "/api/v1/gallery",
+    campaign: "/api/v1/campaign",
     event: "/api/v1/event",
     testimonial: "/api/v1/testimonial",
     counter: "/api/v1/counter",

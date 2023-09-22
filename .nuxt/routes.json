@@ -173,5 +173,12 @@
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/index.vue",
     "chunkName": "pages/index",
     "_name": "_031ad203"
+  },
+  {
+    "name": ":slug",
+    "path": "/:slug",
+    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/:slug.vue",
+    "chunkName": "pages/:slug",
+    "_name": "_d8ffb4d4"
   }
 ]

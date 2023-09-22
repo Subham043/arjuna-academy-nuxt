@@ -4328,12 +4328,12 @@ img {
 .faq-img {
   position: sticky;
   margin-bottom: 30px;
-  top: 50px;
+  top: 150px;
 }
 .faq-contact {
   position: sticky;
   margin-bottom: 30px;
-  top: 5px;
+  top: 50px;
 }
 .faq-img img {
   -webkit-animation: border-transform 10s linear infinite alternate forwards;
@@ -6459,6 +6459,10 @@ img {
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.06);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.06);
 }
+.register-form.form-sticky {
+  position: sticky;
+  top: 120px;
+}
 .register-form .top-header {
   background-color: var(--mainColor);
   padding: 15px 35px 10px;
@@ -6468,6 +6472,9 @@ img {
   color: var(--whiteColor);
   font-size: 35px;
   margin-bottom: 5px;
+}
+.register-form .top-header h3.size {
+  font-size: 15px;
 }
 .register-form .top-header span {
   color: var(--whiteColor);
@@ -7531,4 +7538,8 @@ img {
 
 .pagination{
   gap: 1;
+}
+
+.main-content a{
+  color: #EACF6C;
 }

@@ -29,6 +29,7 @@ const _ea8cda64 = () => interopDefault(import('../pages/events/:slug.vue' /* web
 const _6d8b6002 = () => interopDefault(import('../pages/expert-tips/:slug.vue' /* webpackChunkName: "pages/expert-tips/:slug" */))
 const _3751127d = () => interopDefault(import('../pages/knowledge-desk/:slug.vue' /* webpackChunkName: "pages/knowledge-desk/:slug" */))
 const _031ad203 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _d8ffb4d4 = () => interopDefault(import('../pages/:slug.vue' /* webpackChunkName: "pages/:slug" */))
 
 const emptyFn = () => {}
 
@@ -141,6 +142,10 @@ export const routerOptions = {
     path: "/",
     component: _031ad203,
     name: "index"
+  }, {
+    path: "/:slug",
+    component: _d8ffb4d4,
+    name: ":slug"
   }],
 
   fallback: false

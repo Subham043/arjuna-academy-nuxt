@@ -45,4 +45,17 @@ import Newsletter from '~/components/Newsletter.vue';
     },
     components: { Header, Newsletter, Footer }
 }
+
+if(process.client){
+  document.addEventListener("DOMContentLoaded", function() {
+      window.addEventListener('scroll', function() {
+          if (window.scrollY > 150) {
+              document.getElementById('navbar').classList.add('is-sticky');
+            } else {
+              document.getElementById('navbar').classList.remove('is-sticky');
+          }
+      });
+  });
+}
+
   </script>
