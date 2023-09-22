@@ -193,15 +193,12 @@
                         <div class="courses-details-sidebar">
                             <img src="https://www.aaaedu.in/course/class-8-foundation-course_thumb.jpg" alt="Courses" />
                             <div class="content">
-                                <span>
-                                    <h3 class="d-inline"><del>Rs 37760</del></h3>
-                                    <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-success-emphasis bg-success-subtle border border-success-subtle rounded-2">20% OFF</small>
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <h5 class="d-inline m-0"><code><del>&#8377;37760</del></code> <span>&#8377;37760</span></h5>
+                                    <small class="d-inline-flex m-0 px-2 py-1 fw-semibold text-success-emphasis bg-success-subtle border border-success-subtle rounded-2">20% OFF</small>
                                 </span>
-                                <br/>
-                                <h3 class="d-inline">Rs 37760</h3>
-                                <br/>
-                                <span>This course includes:</span>
-                                <ul class="courses-details-list">
+                                <span class="mt-3">This course includes:</span>
+                                <ul class="courses-details-list mt-2">
                                     <li>8.5 hours on-demand video</li>
                                     <li>2 articles</li>
                                     <li>16 downloadable resources</li>
