@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Preloader />
         <Header />
         <div class="error-area pt-70 pb-70">
             <div class="d-table">
@@ -28,6 +29,7 @@
 import Footer from '~/components/Footer.vue';
 import Header from '~/components/Header.vue';
 import Newsletter from '~/components/Newsletter.vue';
+import Preloader from '~/components/Preloader.vue';
 
   export default {
     name: 'ErrorDefault',
@@ -43,19 +45,22 @@ import Newsletter from '~/components/Newsletter.vue';
             this.$router.push('/');
         }
     },
-    components: { Header, Newsletter, Footer }
+    components: { Header, Newsletter, Footer, Preloader }
 }
 
 if(process.client){
-  document.addEventListener("DOMContentLoaded", function() {
-      window.addEventListener('scroll', function() {
-          if (window.scrollY > 150) {
-              document.getElementById('navbar').classList.add('is-sticky');
-            } else {
-              document.getElementById('navbar').classList.remove('is-sticky');
-          }
-      });
-  });
+    window.addEventListener("load", (event) => {
+        document.getElementById('preloader-main').classList.add('d-none');
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 150) {
+                document.getElementById('navbar').classList.add('is-sticky');
+                } else {
+                document.getElementById('navbar').classList.remove('is-sticky');
+            }
+        });
+    });
 }
 
   </script>
