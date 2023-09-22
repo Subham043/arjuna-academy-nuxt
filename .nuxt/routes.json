@@ -1,5 +1,12 @@
 [
   {
+    "name": "2-year-integrated-day-scholar-and-residential-program",
+    "path": "/2-year-integrated-day-scholar-and-residential-program",
+    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/2-year-integrated-day-scholar-and-residential-program.vue",
+    "chunkName": "pages/2-year-integrated-day-scholar-and-residential-program",
+    "_name": "_323a344e"
+  },
+  {
     "name": "about-us",
     "path": "/about-us",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/about-us.vue",

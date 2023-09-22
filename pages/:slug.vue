@@ -205,7 +205,6 @@
 </template>
 
 <script>
-import Breadcrumb from '~/components/Breadcrumb.vue';
 import TestimonialCard from '~/components/TestimonialCard.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
@@ -309,7 +308,7 @@ export default {
             }
         },
     },
-    components: { Breadcrumb, TestimonialCard }
+    components: { TestimonialCard }
 }
 </script>
 
