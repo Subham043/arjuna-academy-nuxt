@@ -61,8 +61,8 @@
                                 <img :src="course?.image" :alt="course?.image_alt" :title="course?.image_title" />
                                 <div class="content">
                                     <span class="d-flex justify-content-between align-items-center">
-                                        <h5 class="d-inline m-0"><code v-if="course?.discount!=0"><del>&#8377;{{ course?.amount }}</del></code> <span>&#8377;{{ course?.discounted_amount }}</span></h5>
                                         <small v-if="course?.discount!=0" class="d-inline-flex m-0 px-2 py-1 fw-semibold text-success-emphasis bg-success-subtle border border-success-subtle rounded-2">{{course?.discount}}% OFF</small>
+                                        <h5 class="d-inline m-0"><code v-if="course?.discount!=0"><del>&#8377;{{ course?.amount }}</del></code> <span>&#8377;{{ course?.discounted_amount }}</span></h5>
                                     </span>
                                     <hr/>
                                     <div class="">

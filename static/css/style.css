@@ -509,7 +509,8 @@ img {
 .desktop-nav .navbar .navbar-nav .nav-item .dropdown-menu li a {
   /* color: var(--titleColor); */
   color: #354620;
-  padding: 12px 20px 9px;
+  /* padding: 12px 20px 9px; */
+  padding: 8px 8px 8px;
   margin: 0;
   font-size: 15px;
   position: relative;
@@ -534,7 +535,8 @@ img {
   position: absolute;
   content: "\ea4e";
   line-height: 1;
-  right: 15px;
+  /* right: 15px; */
+  right: 7px;
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -551,7 +553,8 @@ img {
   display: none;
 }
 .desktop-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu {
-  left: -245px;
+  /* left: -245px; */
+  left: 200px;
   top: 0;
   opacity: 0;
   visibility: hidden;
@@ -607,7 +610,8 @@ img {
   .dropdown-menu
   li
   .dropdown-menu {
-  left: -245px;
+  /* left: -245px; */
+  left: 200px;
   right: auto;
   top: 0;
   opacity: 0;
@@ -1169,7 +1173,8 @@ img {
   .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  top: -15px;
+  /* top: -15px; */
+  top: 0px;
 }
 .desktop-nav .navbar .navbar-nav .nav-item .dropdown-menu li.active a {
   color: var(--mainColor);
@@ -1183,7 +1188,7 @@ img {
   .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  top: -15px;
+  top: 0px;
 }
 .desktop-nav .navbar .navbar-nav .nav-item:hover .dropdown-menu {
   top: 100%;
@@ -1215,9 +1220,19 @@ img {
 .navbar-area.is-sticky .logo-one{
   display: none;
 }
-.navbar-area.is-sticky .logo-two{
-  display: block !important;
+.navbar-area.is-sticky .desktop-nav .navbar .navbar-nav .nav-item{
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
+.navbar-area.is-sticky .desktop-nav .navbar .navbar-nav .nav-item .dropdown-menu li{
+  padding: 0;
+}
+.navbar-area.is-sticky .desktop-nav .navbar .navbar-nav{
+  margin-right: auto;
+}
+/* .navbar-area.is-sticky .logo-two{
+  display: block !important;
+} */
 .mobile-logo{
   height: 100px !important;
   object-fit: contain !important;
@@ -3756,7 +3771,7 @@ img {
   margin-top: -250px;
   margin-bottom: 30px;
   position: sticky;
-  top: 100px;
+  top: 70px;
 }
 .courses-details-sidebar .content {
   padding: 30px;
@@ -4328,12 +4343,12 @@ img {
 .faq-img {
   position: sticky;
   margin-bottom: 30px;
-  top: 150px;
+  top: 70px;
 }
 .faq-contact {
   position: sticky;
   margin-bottom: 30px;
-  top: 50px;
+  top: 0px;
 }
 .faq-img img {
   -webkit-animation: border-transform 10s linear infinite alternate forwards;
@@ -6452,7 +6467,7 @@ img {
 }
 .register-form.form-sticky {
   position: sticky;
-  top: 120px;
+  top: 90px;
 }
 .register-form .top-header {
   background-color: var(--mainColor);
@@ -7536,4 +7551,10 @@ img {
 }
 .float-right{
   float: right;
+}
+.v-modal{
+  z-index: 200 !important;
+}
+.dropdown-toggle {
+  white-space: normal;
 }
