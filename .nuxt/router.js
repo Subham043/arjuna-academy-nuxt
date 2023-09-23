@@ -7,7 +7,6 @@ import scrollBehavior from './router.scrollBehavior.js'
 const _323a344e = () => interopDefault(import('../pages/2-year-integrated-day-scholar-and-residential-program.vue' /* webpackChunkName: "pages/2-year-integrated-day-scholar-and-residential-program" */))
 const _02f35e3d = () => interopDefault(import('../pages/about-us.vue' /* webpackChunkName: "pages/about-us" */))
 const _1665cc8a = () => interopDefault(import('../pages/contact-us.vue' /* webpackChunkName: "pages/contact-us" */))
-const _5b07cb6c = () => interopDefault(import('../pages/courses/index.vue' /* webpackChunkName: "pages/courses/index" */))
 const _0b57818a = () => interopDefault(import('../pages/events/index.vue' /* webpackChunkName: "pages/events/index" */))
 const _45b3e722 = () => interopDefault(import('../pages/expert-tips/index.vue' /* webpackChunkName: "pages/expert-tips/index" */))
 const _d4f0f6f2 = () => interopDefault(import('../pages/faq.vue' /* webpackChunkName: "pages/faq" */))
@@ -23,7 +22,6 @@ const _406e0dae = () => interopDefault(import('../pages/admission/puc.vue' /* we
 const _32ff8b06 = () => interopDefault(import('../pages/auth/forgot-password.vue' /* webpackChunkName: "pages/auth/forgot-password" */))
 const _f5b218a6 = () => interopDefault(import('../pages/auth/sign-in.vue' /* webpackChunkName: "pages/auth/sign-in" */))
 const _cc856bba = () => interopDefault(import('../pages/auth/sign-up.vue' /* webpackChunkName: "pages/auth/sign-up" */))
-const _c3769cb2 = () => interopDefault(import('../pages/courses/detail.vue' /* webpackChunkName: "pages/courses/detail" */))
 const _49333ce8 = () => interopDefault(import('../pages/vrddhi/syllabus.vue' /* webpackChunkName: "pages/vrddhi/syllabus" */))
 const _0e7dee4e = () => interopDefault(import('../pages/achievers/:slug.vue' /* webpackChunkName: "pages/achievers/:slug" */))
 const _ea8cda64 = () => interopDefault(import('../pages/events/:slug.vue' /* webpackChunkName: "pages/events/:slug" */))
@@ -31,6 +29,7 @@ const _6d8b6002 = () => interopDefault(import('../pages/expert-tips/:slug.vue' /
 const _3751127d = () => interopDefault(import('../pages/knowledge-desk/:slug.vue' /* webpackChunkName: "pages/knowledge-desk/:slug" */))
 const _031ad203 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 const _d8ffb4d4 = () => interopDefault(import('../pages/:slug.vue' /* webpackChunkName: "pages/:slug" */))
+const _62645c84 = () => interopDefault(import('../pages/:branch_slug/courses/:course_slug.vue' /* webpackChunkName: "pages/:branch_slug/courses/:course_slug" */))
 
 const emptyFn = () => {}
 
@@ -55,10 +54,6 @@ export const routerOptions = {
     path: "/contact-us",
     component: _1665cc8a,
     name: "contact-us"
-  }, {
-    path: "/courses",
-    component: _5b07cb6c,
-    name: "courses"
   }, {
     path: "/events",
     component: _0b57818a,
@@ -120,10 +115,6 @@ export const routerOptions = {
     component: _cc856bba,
     name: "auth-sign-up"
   }, {
-    path: "/courses/detail",
-    component: _c3769cb2,
-    name: "courses-detail"
-  }, {
     path: "/vrddhi/syllabus",
     component: _49333ce8,
     name: "vrddhi-syllabus"
@@ -151,6 +142,10 @@ export const routerOptions = {
     path: "/:slug",
     component: _d8ffb4d4,
     name: ":slug"
+  }, {
+    path: "/:branch_slug/courses/:course_slug",
+    component: _62645c84,
+    name: ":branch_slug-courses-:course_slug"
   }],
 
   fallback: false

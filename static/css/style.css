@@ -2331,7 +2331,7 @@ img {
 .inner-banner .inner-title ul li a:hover {
   color: var(--mainColor);
 }
-.inner-banner-bg {
+.inner-banner-bg, .inner-banner-bg9 {
   background-image: url(../images/inner-banner/inner-banner1.jpg);
 }
 /* .inner-banner-bg2 {
