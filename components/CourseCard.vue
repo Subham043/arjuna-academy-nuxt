@@ -1,30 +1,29 @@
 <template>
     <div class="courses-item">
-        <NuxtLink to="/courses/detail">
-            <img :src="course_image" alt="Courses" />
-        </NuxtLink>
+        <img :src="image" :alt="image_alt" :title="image_title" />
         <div class="content">
-            <div class="course-instructors">
-                <img :src="instructor_image" alt="instructors" />
+            <div class="bottom-content align-items-center">
+                <a href="javascript:void(0)" class="tag-btn">{{ className }}</a>
+                <small v-if="discount!=0" class="d-inline-flex m-0 px-2 py-1 fw-semibold text-success-emphasis bg-success-subtle border border-success-subtle rounded-2">{{discount}}% OFF</small>
             </div>
-            <NuxtLink to="/courses/detail" class="tag-btn">{{ category }}</NuxtLink>
             <h3>
-                <NuxtLink to="/courses/detail">{{ title }}</NuxtLink>
+                {{ title }}
             </h3>
-            <ul class="course-list">
-                <li><i class="ri-time-fill"></i> {{ duration }}</li>
-                <li><i class="ri-vidicon-fill"></i> {{ lectures }}</li>
-            </ul>
-            <div class="bottom-content">
-                <div class="rating2">
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i>
-                    5 (30+ rating)
-                </div>
-                <div class="bottom-price">${{ price }}</div>
+            <p>{{ description }}</p>
+            <hr>
+            <div class="bottom-content align-items-center">
+                <div class="bottom-price">&#8377;{{ price }}</div>
+                <el-dropdown>
+                    <NuxtLink to="/" class="default-btn border-radius-50 m-0">Enroll Now</NuxtLink>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item v-for="(item, i) in branches" 
+                            :key="i">
+                            <NuxtLink :to="`/${item.slug}/courses/${slug}`" class="text-dark">
+                                {{ item.name }}
+                            </NuxtLink>
+                        </el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
             </div>
         </div>
     </div>
@@ -34,15 +33,19 @@
 export default {
     name: 'CourseCardComponent',
     props: {
-        course_image: {
+        image: {
             type: String,
             default: '',
         },
-        instructor_image: {
+        image_alt: {
             type: String,
             default: '',
         },
-        category: {
+        image_title: {
+            type: String,
+            default: '',
+        },
+        className: {
             type: String,
             default: '',
         },
@@ -50,17 +53,25 @@ export default {
             type: String,
             default: '',
         },
-        duration: {
+        description: {
             type: String,
             default: '',
         },
-        lectures: {
+        slug: {
             type: String,
             default: '',
+        },
+        branches: {
+            type: Array,
+            default: [],
         },
         price: {
-            type: String,
-            default: '',
+            type: Number,
+            default: 0,
+        },
+        discount: {
+            type: Number,
+            default: 0,
         },
     },
 }

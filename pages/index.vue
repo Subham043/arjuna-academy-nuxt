@@ -134,28 +134,37 @@
         <div v-if="course_data.length>0" class="courses-area-two section-bg pt-100 pb-70">
             <div class="container">
                 <div class="row align-items-end mb-45">
-                    <div class="col-lg-8">
-                        <div class="section-title mt-rs-20">
+                    <div class="col-lg-12">
+                        <div class="section-title mt-rs-20 text-center">
                             <span>COURSES</span>
                             <h2>Find popular courses</h2>
                         </div>
                     </div>
-                    <div class="col-lg-4 text-end">
-                        <a href="blog.html" class="default-btn border-radius-50">View all courses</a>
+                </div>
+                <div v-if="courseLoading" class="row justify-content-center">
+                    <div  v-for="i in 3" :key="i" class="col-lg-4 col-md-6">
+                        <el-skeleton style="width: 100%" animated>
+                            <template slot="template">
+                                <el-skeleton-item variant="rect" style="width: 100%; height: 340px;" />
+                            </template>
+                        </el-skeleton>
                     </div>
                 </div>
-                <div class="course-slider-two owl-carousel owl-theme">
+                <div v-if="!courseLoading && course.length>0" class="course-slider-two owl-carousel owl-theme">
                     <VueSlickCarousel v-bind="slickCourseOptions" ref="slickCourse">
                         <CourseCard 
-                            v-for="(item, i) in course_data" 
+                            v-for="(item, i) in course" 
                             :key="i" 
-                            :course_image="item.course_image"
-                            :instructor_image="item.instructor_image"
-                            :category="item.category"
-                            :title="item.title"
-                            :duration="item.duration"
-                            :lectures="item.lectures"
-                            :price="item.price" />
+                            :image="item.image"
+                            :image_alt="item.image_alt"
+                            :image_title="item.image_title"
+                            :description="item.short_description"
+                            :title="item.name"
+                            :branches="item.branches"
+                            :slug="item.slug"
+                            :discount="item.discount"
+                            :className="item.class"
+                            :price="item.discounted_amount" />
                     </VueSlickCarousel>
                 </div>
             </div>
@@ -342,6 +351,7 @@ export default {
         if (process.client) {
             this.$scrollTo("#__nuxt", 0, { force: true });
         }
+        this.getCourse();
         this.getTestimonial();
         this.getEvent();
         this.getBlog();
@@ -369,6 +379,8 @@ export default {
             blog: [],
             eventLoading: false,
             event: [],
+            courseLoading: false,
+            course: [],
             slickBannerOptions: {
                 arrows: false,
                 dots: false,
@@ -655,6 +667,21 @@ export default {
     
             }finally{
                 this.commonFeatureLoading=false;
+            }
+        },
+        async getCourse() {
+            this.courseLoading=true;
+            try {
+                const response = await this.$publicApi.get(API_ROUTES.course); // eslint-disable-line
+                this.course = response.data.course
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
+            }finally{
+                this.courseLoading=false;
             }
         },
         async getTestimonial(page=0) {
