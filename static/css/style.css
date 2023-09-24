@@ -199,11 +199,11 @@ img {
   transition: transform 0.9s, -webkit-transform 0.9s;
 }
 .default-btn.two {
-  background: var(--redColor);
+  background: #6E8B55;
   color: var(--whiteColor);
 }
 .default-btn.two::before {
-  background-color: var(--mainColor);
+  background-color: #354620;
 }
 .default-btn:hover {
   color: var(--whiteColor) !important;

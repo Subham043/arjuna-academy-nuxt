@@ -214,6 +214,7 @@
                                 <span class="top-title">START LEARNING</span>
                                 <h1 style="color: white !important;">Admission Open For 2022 - 2023</h1>
                                 <div class="banner-btn justify-content-center">
+                                    <a href="/pdf/brochure.pdf" target="_blank" class="default-btn two border-radius-50 mr-2">Download Brochure</a>
                                     <el-dropdown>
                                         <NuxtLink to="/" class="default-btn border-radius-50 m-0">Admission Form</NuxtLink>
                                         <el-dropdown-menu slot="dropdown">
