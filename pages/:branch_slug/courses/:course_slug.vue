@@ -66,8 +66,8 @@
                                     </span>
                                     <hr/>
                                     <div class="">
-                                        <ValidationObserver ref="form" v-slot="{ handleSubmit }">
-                                            <form id="contactForm" @submit.prevent="handleSubmit(formHandler)">
+                                        <ValidationObserver ref="form">
+                                            <form id="contactForm">
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <h3 class="user-title">Fill in your details</h3>
@@ -98,13 +98,18 @@
                                                     </div>
                                                     <div class="col-lg-12 col-md-12">
                                                         <div class="d-flex align-items-center">
-                                                            <button type="submit" :disabled="enrollmentLoading" class="default-btn">
+                                                            <button type="button" :disabled="enrollmentLoading" class="default-btn" @click.prevent="formHandler">
                                                                 <template v-if="!enrollmentLoading">
                                                                     Enroll Now
                                                                 </template>
                                                                 <div v-else class="spinner-border" role="status"></div>
                                                             </button>
-                                                            <a href="cart.html" class="default-btn mx-1">Request Callback</a>
+                                                            <button type="button" :disabled="enrollmentLoading" class="default-btn mx-1" @click.prevent="formCallbackHandler">
+                                                                <template v-if="!enrollmentLoading">
+                                                                    Request Callback
+                                                                </template>
+                                                                <div v-else class="spinner-border" role="status"></div>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -226,27 +231,60 @@ export default {
             }
         },
         async formHandler() {
-            this.enrollmentLoading = true;
-            try {
-                const response = await this.$publicApi.post(API_ROUTES.course + `/${this.$route.params.course_slug}/branch/${this.$route.params.branch_slug}/enroll`, {
-                    name: this.name,
-                    email: this.email,
-                    phone: this.phone,
-                });
-                this.$refs.form.reset()
-                this.loadRazorpay(response.data.enrollmentForm)
-            } catch (err) {
-                this.$refs.form.setErrors({
-                    email: err?.response?.data?.errors?.email?.length > 0 && err?.response?.data?.errors?.email[0],
-                    name: err?.response?.data?.errors?.name?.length > 0 && err?.response?.data?.errors?.name[0],
-                    phone: err?.response?.data?.errors?.phone?.length > 0 && err?.response?.data?.errors?.phone[0],
-                });
-                if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-
-            } finally {
-                this.enrollmentLoading = false;
-            }
+            this.$refs.form.validate().then(async(success) => {
+                if (!success) {
+                    return;
+                }
+                this.enrollmentLoading = true;
+                try {
+                    const response = await this.$publicApi.post(API_ROUTES.course + `/${this.$route.params.course_slug}/branch/${this.$route.params.branch_slug}/enroll`, {
+                        name: this.name,
+                        email: this.email,
+                        phone: this.phone,
+                    });
+                    this.$refs.form.reset()
+                    this.loadRazorpay(response.data.enrollmentForm)
+                } catch (err) {
+                    this.$refs.form.setErrors({
+                        email: err?.response?.data?.errors?.email?.length > 0 && err?.response?.data?.errors?.email[0],
+                        name: err?.response?.data?.errors?.name?.length > 0 && err?.response?.data?.errors?.name[0],
+                        phone: err?.response?.data?.errors?.phone?.length > 0 && err?.response?.data?.errors?.phone[0],
+                    });
+                    if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                    if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+    
+                } finally {
+                    this.enrollmentLoading = false;
+                }
+            })
+        },
+        async formCallbackHandler() {
+            this.$refs.form.validate().then(async(success) => {
+                if (!success) {
+                    return;
+                }
+                this.enrollmentLoading = true;
+                try {
+                    await this.$publicApi.post(API_ROUTES.course + `/${this.$route.params.course_slug}/branch/${this.$route.params.branch_slug}/request`, {
+                        name: this.name,
+                        email: this.email,
+                        phone: this.phone,
+                    });
+                    this.$refs.form.reset()
+                    this.$toast.success('We have received your request. Our team will contact you soon.')
+                } catch (err) {
+                    this.$refs.form.setErrors({
+                        email: err?.response?.data?.errors?.email?.length > 0 && err?.response?.data?.errors?.email[0],
+                        name: err?.response?.data?.errors?.name?.length > 0 && err?.response?.data?.errors?.name[0],
+                        phone: err?.response?.data?.errors?.phone?.length > 0 && err?.response?.data?.errors?.phone[0],
+                    });
+                    if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                    if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+    
+                } finally {
+                    this.enrollmentLoading = false;
+                }
+            })
         },
         loadRazorpay(data){
             const options = {
