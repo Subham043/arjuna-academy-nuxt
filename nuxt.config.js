@@ -53,6 +53,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/auth-next',
     'vue-scrollto/nuxt',
+    '@nuxtjs/sitemap',
     ["vue-toastification/nuxt", {
       timeout: 8000,
       position: "bottom-center"
@@ -68,10 +69,6 @@ export default {
     apiURL: process.env.API_BASE_URL,
     mainURL: process.env.MAIN_BASE_URL,
     RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID,
-  },
-
-  rootPath:{
-    imagePath: process.env.LOCAL_IMAGE_URL,
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -125,6 +122,40 @@ export default {
         tokenType: 'JWT',
       }
     }
+  },
+
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: process.env.MAIN_BASE_URL,
+    cacheTime: 1000 * 60 * 15,
+    gzip: true,
+    generate: false,
+    routes: [
+      '/',
+      '/about-us',
+      '/mission-vision',
+    ],
+    // sitemaps: [
+    //   {
+    //     path: '/sitemap.xml',
+    //     exclude: [
+    //       '/secret',
+    //       '/profile',
+    //       '/admin/**',
+    //     ],
+    //     // routes: () => {
+    //     //   return [
+    //     //     '/page/1',
+    //     //     '/page/2',
+    //     //   ]
+    //     // }
+    //     // routes: async () => {
+    //     //     let apiUrl = 'your site url' // or API url
+    //     //     const { data } = await axios.get(`${apiUrl}store1`)
+    //     //     return data.data.map(v => `/${v.id}`)
+    //     // }
+    //   },
+    // ]
   },
 
 

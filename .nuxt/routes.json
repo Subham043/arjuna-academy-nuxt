@@ -4,6 +4,7 @@
     "path": "/2-year-integrated-day-scholar-and-residential-program",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/2-year-integrated-day-scholar-and-residential-program.vue",
     "chunkName": "pages/2-year-integrated-day-scholar-and-residential-program",
+    "url": "/2-year-integrated-day-scholar-and-residential-program",
     "_name": "_323a344e"
   },
   {
@@ -11,6 +12,7 @@
     "path": "/about-us",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/about-us.vue",
     "chunkName": "pages/about-us",
+    "url": "/about-us",
     "_name": "_02f35e3d"
   },
   {
@@ -18,6 +20,7 @@
     "path": "/contact-us",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/contact-us.vue",
     "chunkName": "pages/contact-us",
+    "url": "/contact-us",
     "_name": "_1665cc8a"
   },
   {
@@ -25,6 +28,7 @@
     "path": "/events",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/events/index.vue",
     "chunkName": "pages/events/index",
+    "url": "/events",
     "_name": "_0b57818a"
   },
   {
@@ -32,6 +36,7 @@
     "path": "/expert-tips",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/expert-tips/index.vue",
     "chunkName": "pages/expert-tips/index",
+    "url": "/expert-tips",
     "_name": "_45b3e722"
   },
   {
@@ -39,6 +44,7 @@
     "path": "/faq",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/faq.vue",
     "chunkName": "pages/faq",
+    "url": "/faq",
     "_name": "_d4f0f6f2"
   },
   {
@@ -46,6 +52,7 @@
     "path": "/gallery",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/gallery.vue",
     "chunkName": "pages/gallery",
+    "url": "/gallery",
     "_name": "_16735e43"
   },
   {
@@ -53,6 +60,7 @@
     "path": "/knowledge-desk",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/knowledge-desk/index.vue",
     "chunkName": "pages/knowledge-desk/index",
+    "url": "/knowledge-desk",
     "_name": "_b228822c"
   },
   {
@@ -60,6 +68,7 @@
     "path": "/leadership-team",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/leadership-team.vue",
     "chunkName": "pages/leadership-team",
+    "url": "/leadership-team",
     "_name": "_7481a0d6"
   },
   {
@@ -67,6 +76,7 @@
     "path": "/mission-vision",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/mission-vision.vue",
     "chunkName": "pages/mission-vision",
+    "url": "/mission-vision",
     "_name": "_16673c30"
   },
   {
@@ -74,6 +84,7 @@
     "path": "/profile",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/profile.vue",
     "chunkName": "pages/profile",
+    "url": "/profile",
     "_name": "_bdb325cc"
   },
   {
@@ -81,6 +92,7 @@
     "path": "/testimonial",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/testimonial.vue",
     "chunkName": "pages/testimonial",
+    "url": "/testimonial",
     "_name": "_cb276ee0"
   },
   {
@@ -88,6 +100,7 @@
     "path": "/vrddhi",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/vrddhi/index.vue",
     "chunkName": "pages/vrddhi/index",
+    "url": "/vrddhi",
     "_name": "_2d578b5f"
   },
   {
@@ -95,6 +108,7 @@
     "path": "/admission/class-8-9-10",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/admission/class-8-9-10.vue",
     "chunkName": "pages/admission/class-8-9-10",
+    "url": "/admission/class-8-9-10",
     "_name": "_77b854fc"
   },
   {
@@ -102,6 +116,7 @@
     "path": "/admission/puc",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/admission/puc.vue",
     "chunkName": "pages/admission/puc",
+    "url": "/admission/puc",
     "_name": "_406e0dae"
   },
   {
@@ -109,6 +124,7 @@
     "path": "/auth/forgot-password",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/auth/forgot-password.vue",
     "chunkName": "pages/auth/forgot-password",
+    "url": "/auth/forgot-password",
     "_name": "_32ff8b06"
   },
   {
@@ -116,6 +132,7 @@
     "path": "/auth/sign-in",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/auth/sign-in.vue",
     "chunkName": "pages/auth/sign-in",
+    "url": "/auth/sign-in",
     "_name": "_f5b218a6"
   },
   {
@@ -123,6 +140,7 @@
     "path": "/auth/sign-up",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/auth/sign-up.vue",
     "chunkName": "pages/auth/sign-up",
+    "url": "/auth/sign-up",
     "_name": "_cc856bba"
   },
   {
@@ -130,6 +148,7 @@
     "path": "/vrddhi/syllabus",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/vrddhi/syllabus.vue",
     "chunkName": "pages/vrddhi/syllabus",
+    "url": "/vrddhi/syllabus",
     "_name": "_49333ce8"
   },
   {
@@ -172,6 +191,7 @@
     "path": "/",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/index.vue",
     "chunkName": "pages/index",
+    "url": "/",
     "_name": "_031ad203"
   },
   {
