@@ -10,13 +10,12 @@
             ]"
         />
 
-        <div class="blog-area pt-100 pb-70">
+        <div class="blog-area pt-70 pb-70">
             <div class="container">
                 <div class="section-title mb-45 text-center">
                     <h2>Latest from our <b>blogs</b></h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore.
+                        Explore The Latest Updates About NEET, JEE, IIT Exams And Foundation Courses
                     </p>
                 </div>
                 <div class="row justify-content-center">

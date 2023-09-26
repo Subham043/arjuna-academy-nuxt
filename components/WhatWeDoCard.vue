@@ -1,5 +1,5 @@
 <template>
-    <div class="featured-area pb-70">
+    <div class="featured-area pt-70 pb-70">
         <div class="container">
             <div class="row align-items-center mb-45">
                 <div class="col-lg-8 col-md-9">

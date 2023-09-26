@@ -14,7 +14,7 @@
             ]"
         />
 
-        <div class="faq-area pt-100 pb-70">
+        <div class="faq-area pt-70 pb-70">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5">

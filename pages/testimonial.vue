@@ -10,7 +10,7 @@
             ]"
         />
 
-        <div class="testimonials-area pt-100 pb-100">
+        <div class="testimonials-area pt-70 pb-70">
             <div class="container">
                 <div class="section-title text-center">
                     <span>TESTIMONIAL</span>

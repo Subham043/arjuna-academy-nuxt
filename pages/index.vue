@@ -127,9 +127,8 @@
             :counter_image="about?.counter_image"
             :counter_title="about?.counter_title"
             :title="about?.title"
+            :heading_center="true"
         />
-        
-        <WhatWeDoCard heading="Why Arjunaa Academy for Achievers is the Top Coaching Centre in Bangalore?" :loading="featureLoading" :feature="feature" />
 
         <div v-if="course_data.length>0" class="courses-area-two section-bg pt-70 pb-70">
             <div class="container">
@@ -137,7 +136,7 @@
                     <div class="col-lg-12">
                         <div class="section-title mt-rs-20 text-center">
                             <span>COURSES</span>
-                            <h2>Find popular courses</h2>
+                            <h2>What are the courses offered by Arjunaa Academy?</h2>
                         </div>
                     </div>
                 </div>
@@ -170,13 +169,48 @@
             </div>
         </div>
 
-        <div class="testimonials-area pt-70 pb-70">
+        <WhatWeDoCard heading="Why Arjunaa Academy for Achievers is the Top Coaching Centre in Bangalore?" :loading="featureLoading" :feature="feature" />
+
+        <div class="register-area pb-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="play-btn-area-two">
+                            <div class="hero-content text-center" style="max-width: 100% !important; position:relative">
+                                <span class="top-title">START LEARNING</span>
+                                <h1 style="color: white !important;">Admission Open For {{ new Date().getFullYear()-1 }} - {{ new Date().getFullYear() }}</h1>
+                                <div class="banner-btn justify-content-center">
+                                    <a href="/pdf/brochure.pdf" target="_blank" class="default-btn two border-radius-50 mr-2">Download Brochure</a>
+                                    <el-dropdown>
+                                        <NuxtLink to="/" class="default-btn border-radius-50 m-0">Admission Form</NuxtLink>
+                                        <el-dropdown-menu slot="dropdown">
+                                            <el-dropdown-item>
+                                                <NuxtLink to="/admission/class-8-9-10" class="text-dark">
+                                                    Class 8, 9 & 10
+                                                </NuxtLink>
+                                            </el-dropdown-item>
+                                            <el-dropdown-item>
+                                                <NuxtLink to="/admission/puc" class="text-dark">
+                                                    Class 11 or 1st PUC
+                                                </NuxtLink>
+                                            </el-dropdown-item>
+                                        </el-dropdown-menu>
+                                    </el-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials-area pb-70">
             <div class="container">
                 <div class="row align-items-center mb-20">
                     <div class="col-lg-8 col-md-9">
                         <div class="section-title mt-rs-20">
                             <span>TESTIMONIAL</span>
-                            <h2>What people say about us</h2>
+                            <h2>Testimonials describe what has been, & are a promise of what is to come</h2>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-3 text-end">
@@ -221,40 +255,7 @@
             </div>
         </div>
 
-        <div class="register-area pb-70">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="play-btn-area-two">
-                            <div class="hero-content text-center" style="max-width: 100% !important; position:relative">
-                                <span class="top-title">START LEARNING</span>
-                                <h1 style="color: white !important;">Admission Open For {{ new Date().getFullYear()-1 }} - {{ new Date().getFullYear() }}</h1>
-                                <div class="banner-btn justify-content-center">
-                                    <a href="/pdf/brochure.pdf" target="_blank" class="default-btn two border-radius-50 mr-2">Download Brochure</a>
-                                    <el-dropdown>
-                                        <NuxtLink to="/" class="default-btn border-radius-50 m-0">Admission Form</NuxtLink>
-                                        <el-dropdown-menu slot="dropdown">
-                                            <el-dropdown-item>
-                                                <NuxtLink to="/admission/class-8-9-10" class="text-dark">
-                                                    Class 8, 9 & 10
-                                                </NuxtLink>
-                                            </el-dropdown-item>
-                                            <el-dropdown-item>
-                                                <NuxtLink to="/admission/puc" class="text-dark">
-                                                    Class 11 or 1st PUC
-                                                </NuxtLink>
-                                            </el-dropdown-item>
-                                        </el-dropdown-menu>
-                                    </el-dropdown>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="event-area section-bg pb-70">
+        <div class="event-area section-bg pt-70 pb-70">
             <div class="container">
                 <div class="row align-items-end mb-45">
                     <div class="col-lg-8">
@@ -303,7 +304,7 @@
                 <div class="row align-items-end mb-45">
                     <div class="col-lg-8">
                         <div class="section-title mt-rs-20">
-                            <span>LATEST BLOG</span>
+                            <span>KNOWLEDGE DESK</span>
                             <h2>Latest from our blogs</h2>
                         </div>
                     </div>

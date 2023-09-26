@@ -10,7 +10,7 @@
             ]"
         />
 
-        <div class="enrolled-area-two pt-100 pb-70">
+        <div class="enrolled-area-two pt-70 pb-70">
             <div class="container">
                 <div class="col-lg-12">
                     <div class="enrolled-content mb-30">
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="enrolled-area pt-100 pb-70">
+        <div class="enrolled-area pt-70 pb-70">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-5">
@@ -84,7 +84,7 @@
             </div>
         </div>
 
-        <div class="testimonials-area pt-100 pb-100">
+        <div class="testimonials-area pt-70 pb-70">
             <div class="container">
                 <div class="section-title text-center">
                     <span>TESTIMONIAL</span>
@@ -99,7 +99,7 @@
             </div>
         </div>
 
-        <div class="enrolled-area pt-100 pb-70">
+        <div class="enrolled-area pt-70 pb-70">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-7">
@@ -144,7 +144,7 @@
 
         <div class="footer-contact-area ptb-70">
             <div class="container">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-lg-9 col-md-9">
                         <div class="section-title">
                             <h2>To View the Syllabus & the Model Paper</h2>
@@ -157,7 +157,7 @@
             </div>
         </div>
 
-        <div class="faq-area pt-100 pb-70">
+        <div class="faq-area pt-70 pb-70">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">

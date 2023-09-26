@@ -97,7 +97,7 @@
         </template>
 
         <template v-if="!managementLoading && management.length>0">
-            <div v-for="(item, i) in management" :key="i" :class="`instructors-details-area ${i===0 && 'pt-100'} pb-70`">
+            <div v-for="(item, i) in management" :key="i" :class="`instructors-details-area ${i===0 && 'pt-70'} pb-70`">
                 <div v-if="(i+1)%2===0" class="container">
                     <div class="row">
                         <div class="col-lg-5">

@@ -3,6 +3,7 @@
         <div class="rating">
             <i v-for="i in star" :key="i" class="ri-star-fill"></i>
         </div>
+        <div class="quote"><i class="flaticon-quote"></i></div>
         <p>
             “{{message}}”
         </p>
@@ -11,7 +12,6 @@
             <h3>{{ name }}</h3>
             <span>{{ designation }}</span>
         </div>
-        <div class="quote"><i class="flaticon-quote"></i></div>
     </div>
 </template>
 

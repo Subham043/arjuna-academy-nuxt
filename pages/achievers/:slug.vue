@@ -10,7 +10,7 @@
             ]"
         />
 
-        <div class="blog-area pt-100 pb-70">
+        <div class="blog-area pt-70 pb-70">
             <div class="container">
                 <div v-if="!achieverCategoryLoading" class="section-title mb-45 text-center">
                     <h2>{{ achieverCategory?.heading }}</h2>

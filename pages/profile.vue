@@ -10,7 +10,7 @@
             ]"
         />
 
-        <div class="user-area pt-100 pb-70">
+        <div class="user-area pt-70 pb-70">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-6">

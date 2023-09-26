@@ -1,9 +1,17 @@
 <template>
     <div>
         <template v-if="!loading">
-            <div :class="`enrolled-area-two ${first ? 'pt-100' : ''} pb-70`">
+            <div :class="`enrolled-area-two ${first ? 'pt-70' : ''} pb-70`">
                 <div class="container">
                     <div class="row align-items-center">
+                        <div v-if="heading_center" class="col-lg-12">
+                            <div class="section-title text-center">
+                                <span>{{ title }}</span>
+                                <h2>
+                                    {{ heading }}
+                                </h2>
+                            </div>
+                        </div>
                         <div class="col-lg-6">
                             <div class="enrolled-img-three mb-30 pr-20">
                                 <img :src="image" :alt="image_alt" :title="image_title" />
@@ -19,8 +27,8 @@
                         <div class="col-lg-6">
                             <div class="enrolled-content mb-30">
                                 <div class="section-title">
-                                    <span>{{ title }}</span>
-                                    <h2>
+                                    <span v-if="!heading_center">{{ title }}</span>
+                                    <h2 v-if="!heading_center">
                                         {{ heading }}
                                     </h2>
                                     <div v-html-safe="detail" />
@@ -85,6 +93,10 @@
 export default {
     name: 'WhoWeAreCardComponent',
     props: {
+        heading_center: {
+            type: Boolean,
+            default: false,
+        },
         first: {
             type: Boolean,
             default: false,

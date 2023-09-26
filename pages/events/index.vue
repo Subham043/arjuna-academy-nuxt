@@ -10,7 +10,7 @@
             ]"
         />
 
-        <div class="blog-area pt-100 pb-70">
+        <div class="blog-area pt-70 pb-70">
             <div class="container">
                 <div class="section-title mb-45 text-center">
                     <h2>Latest from our <b>events</b></h2>
