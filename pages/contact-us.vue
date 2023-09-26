@@ -21,7 +21,7 @@
                                         <div class="contact-info-card">
                                             <i class="ri-map-pin-fill"></i>
                                             <h3>Our location</h3>
-                                            <p>Vijaya Nagar, Bengaluru, Karnataka, 560040</p>
+                                            <p>3rd Floor, No.02, CHBCS 1st Layout, 1st Floor, 5th Main, Vijaya Nagar</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-6">
@@ -30,7 +30,7 @@
                                             <h3>Email us</h3>
                                             <p>
                                                 <a
-                                                    href=""><span>info@aaaedu.in</span></a>
+                                                    href="mailto:info@aaaedu.in"><span>info@aaaedu.in</span></a>
                                             </p>
                                         </div>
                                     </div>

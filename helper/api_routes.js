@@ -2,6 +2,7 @@ export const API_ROUTES = {
     mission_vision: "/api/v1/mission-vision",
     seo: "/api/v1/seo",
     faq: "/api/v1/faq",
+    legal: "/api/v1/legal",
     branch: "/api/v1/branch",
     course: "/api/v1/course",
     gallery: "/api/v1/gallery",

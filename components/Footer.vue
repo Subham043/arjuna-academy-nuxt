@@ -16,20 +16,30 @@
               adipiscing elite sed do labor.
             </p> -->
             <ul class="social-link">
-              <li class="social-title">Follow Us:</li>
+              <!-- <li class="social-title">Follow Us:</li> -->
               <li>
-                <a href="https://www.facebook.com/" target="_blank">
+                <a href="https://www.facebook.com/www.aaaedu.in/" target="_blank">
                   <i class="ri-facebook-fill"></i>
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com/" target="_blank">
+                <a href="https://twitter.com/academy_arjunaa" target="_blank">
                   <i class="ri-twitter-fill"></i>
                 </a>
               </li>
               <li>
-                <a href="https://www.pinterest.com/" target="_blank">
+                <a href="https://www.instagram.com/arjunaa_academy_for_achievers/" target="_blank">
                   <i class="ri-instagram-line"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://in.linkedin.com/company/arjunaa-academy-for-achievers" target="_blank">
+                  <i class="ri-linkedin-line"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCcPOkcZ_YGpTMcVnLJQYLPA" target="_blank">
+                  <i class="ri-youtube-line"></i>
                 </a>
               </li>
             </ul>
@@ -40,41 +50,19 @@
             <h3>About us</h3>
             <ul class="footer-list">
               <li>
-                <a href="about.html"> About Us </a>
+                <NuxtLink to="/about-us"> About Us </NuxtLink>
               </li>
               <li>
-                <a href="signup.html"> Instructor registration </a>
+                <NuxtLink to="/mission-vision"> Mission & Vision </NuxtLink>
               </li>
               <li>
-                <a href="instructors.html"> Instructors </a>
+                <NuxtLink to="/leadership-team"> Leadership Team & Faculty </NuxtLink>
               </li>
               <li>
-                <a href="event.html"> Our Event </a>
+                <NuxtLink to="/testimonial"> Testimonial </NuxtLink>
               </li>
               <li>
-                <a href="courses-list.html"> Courses List </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="footer-widget ps-5">
-            <h3>Resources</h3>
-            <ul class="footer-list">
-              <li>
-                <a href="index.html"> Home </a>
-              </li>
-              <li>
-                <a href="courses.html"> Courses </a>
-              </li>
-              <li>
-                <a href="blog.html"> Our Blog </a>
-              </li>
-              <li>
-                <a href="terms-condition.html"> Terms & conditions </a>
-              </li>
-              <li>
-                <a href="privacy-policy.html"> Privacy Policy </a>
+                <NuxtLink to="/contact-us"> Contact Us </NuxtLink>
               </li>
             </ul>
           </div>
@@ -84,19 +72,42 @@
             <h3>Resources</h3>
             <ul class="footer-list">
               <li>
-                <a href="index.html"> Home </a>
+                <NuxtLink to="/knowledge-desk"> Knowledge Desk </NuxtLink>
               </li>
               <li>
-                <a href="courses.html"> Courses </a>
+                <NuxtLink to="/expert-tips"> Expert Tips </NuxtLink>
               </li>
               <li>
-                <a href="blog.html"> Our Blog </a>
+                <NuxtLink to="/faq"> FAQ </NuxtLink>
               </li>
               <li>
-                <a href="terms-condition.html"> Terms & conditions </a>
+                <NuxtLink to="/gallery"> Gallery </NuxtLink>
               </li>
               <li>
-                <a href="privacy-policy.html"> Privacy Policy </a>
+                <NuxtLink to="/events"> Events </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/2-year-integrated-day-scholar-and-residential-program"> Day Scholar / Residential </NuxtLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="footer-widget ps-5">
+            <h3>Legal</h3>
+            <ul v-if="legalLoading" class="footer-list">
+                <el-skeleton style="width: 100%" animated>
+                    <template slot="template">
+                        <li v-for="i in 4" :key="i">
+                            <el-skeleton-item variant="p" style="width: 100%" />
+                            <br />
+                        </li>
+                    </template>
+                </el-skeleton>
+            </ul>
+            <ul v-if="!legalLoading && legal.length > 0" class="footer-list">
+              <li v-for="(item, i) in legal" :key="i">
+                <NuxtLink :to="`/legal/${item.slug}`"> {{ item.page_name }} </NuxtLink>
               </li>
             </ul>
           </div>
@@ -109,7 +120,7 @@
                 <i class="ri-map-pin-2-fill"></i>
                 <div class="content">
                   <h4>Location:</h4>
-                  <span>2976 Sunrise Road Las Vegas</span>
+                  <span><a href="https://goo.gl/maps/pDUVxh6ZVWEanYsi6" target="_blank" rel="noopener noreferrer">3rd Floor, No.02, CHBCS 1st Layout, 1st Floor, 5th Main, Vijaya Nagar</a></span>
                 </div>
               </li>
               <li>
@@ -117,16 +128,15 @@
                 <div class="content">
                   <h4>Email:</h4>
                   <span><a
-                      href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#7e161b1212113e121b1a0b501d1113"><span
-                        class="__cf_email__"
-                        data-cfemail="375f525b5b58775b5253421954585a">[email&#160;protected]</span></a></span>
+                      href="mailto:info@aaaedu.in">info@aaaedu.in</a></span>
                 </div>
               </li>
               <li>
                 <i class="ri-phone-fill"></i>
                 <div class="content">
                   <h4>Phone:</h4>
-                  <span><a href="tel:098765432150">098765432150</a></span>
+                  <span><a href="tel:7676642258">76766 42258</a></span><br/>
+                  <span><a href="tel:8197554516">81975 54516</a></span>
                 </div>
               </li>
             </ul>
@@ -147,7 +157,33 @@
 </template>
 
 <script>
+import { API_ROUTES } from '~/helper/api_routes';
+
 export default {
   name: 'FooterComponent',
+  data(){
+    return {
+      legal: [],
+      legalLoading: false,
+    }
+  },
+  mounted() {
+    this.getLegal();
+  },
+  methods: {
+    async getLegal() {
+        this.legalLoading = true;
+        try {
+            const response = await this.$publicApi.get(API_ROUTES.legal); // eslint-disable-line
+            this.legal = response.data.legal
+        } catch (err) {
+            // console.log(err.response);// eslint-disable-line
+            if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+            if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+        } finally {
+            this.legalLoading = false;
+        }
+    },
+  },
 }
 </script>

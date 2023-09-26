@@ -161,6 +161,13 @@
     "_name": "_3751127d"
   },
   {
+    "name": "legal-:slug",
+    "path": "/legal/:slug",
+    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/legal/:slug.vue",
+    "chunkName": "pages/legal/:slug",
+    "_name": "_942bba00"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/index.vue",
