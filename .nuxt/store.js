@@ -20,8 +20,6 @@ let store = {};
   store.modules = store.modules || {}
 
   resolveStoreModules(require('../store/dark.js'), 'dark.js')
-  resolveStoreModules(require('../store/profilebar.js'), 'profilebar.js')
-  resolveStoreModules(require('../store/sidebar.js'), 'sidebar.js')
 
   // If the environment supports hot reloading...
 
@@ -30,8 +28,6 @@ let store = {};
     module.hot.accept([
       '../store/dark.js',
       '../store/index.js',
-      '../store/profilebar.js',
-      '../store/sidebar.js',
     ], () => {
       // Update `root.modules` with the latest definitions.
       updateModules()
