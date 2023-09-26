@@ -52,8 +52,10 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/auth-next',
+    'nuxt-helmet',
     'vue-scrollto/nuxt',
     '@nuxtjs/sitemap',
+    '@nuxtjs/google-analytics',
     ["vue-toastification/nuxt", {
       timeout: 8000,
       position: "bottom-center"
@@ -156,6 +158,30 @@ export default {
     //     // }
     //   },
     // ]
+  },
+
+  googleAnalytics: {
+    // Options
+    id: 'UA-XXX-X'
+  },
+
+  helmet: {
+    /*
+    frameguard: false,
+    ...
+    */
+    contentSecurityPolicy: false,
+    crossOriginOpenerPolicy: { policy: "same-origin-allow-popups" },
+    crossOriginResourcePolicy: true,
+    referrerPolicy: {policy: "no-referrer"},
+    frameguard: {action: "sameorigin"},
+    hidePoweredBy: true,
+    hsts: {
+      maxAge: 15552000,
+      includeSubDomains: true,
+      preload: true,
+    },
+    xssFilter: true,
   },
 
 
