@@ -5,7 +5,7 @@
                 <div class="col-lg-8 col-md-9">
                     <div class="section-title mt-rs-20">
                         <span>WHAT WE DO</span>
-                        <h2>Why Arjunaa Academy for Achievers is the Top Coaching Centre in Bangalore?</h2>
+                        <h2>{{ heading }}</h2>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-3 text-end">
@@ -47,6 +47,10 @@ export default {
         loading: {
             type: Boolean,
             default: true,
+        },
+        heading: {
+            type: String,
+            default: '',
         },
         feature: {
             type: Array,

@@ -129,7 +129,7 @@
             :title="about?.title"
         />
         
-        <WhatWeDoCard :loading="featureLoading" :feature="feature" />
+        <WhatWeDoCard heading="Why Arjunaa Academy for Achievers is the Top Coaching Centre in Bangalore?" :loading="featureLoading" :feature="feature" />
 
         <div v-if="course_data.length>0" class="courses-area-two section-bg pt-70 pb-70">
             <div class="container">
@@ -180,7 +180,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-3 text-end">
-                        <NuxtLink to="/mission-vision" class="default-btn border-radius-50">View all Testimonial</NuxtLink>
+                        <NuxtLink to="/testimonial" class="default-btn border-radius-50">View all Testimonial</NuxtLink>
                     </div>
                 </div>
                 <div v-if="testimonialLoading" class="row justify-content-center testimonials-slider-two">

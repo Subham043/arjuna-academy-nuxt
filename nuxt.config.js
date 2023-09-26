@@ -162,7 +162,8 @@ export default {
 
   googleAnalytics: {
     // Options
-    id: 'UA-XXX-X'
+    id: 'UA-XXX-X',
+    checkDuplicatedScript: true
   },
 
   helmet: {

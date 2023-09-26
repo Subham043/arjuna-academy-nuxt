@@ -70,7 +70,7 @@
             </div>
         </div>
         
-        <WhatWeDoCard :loading="featureLoading" :feature="feature" />
+        <WhatWeDoCard heading="Why choose Arjunaa Academy for Achievers?" :loading="featureLoading" :feature="feature" />
 
         <el-dialog title="Hareesh PK" :visible.sync="dialogVideoVisible" width="90%" top="20px">
             <iframe v-if="dialogVideoVisible" src="https://www.youtube.com/embed/sfCJJZ0Wmi8?rel=0&autoplay=1&loop=1" frameborder="0" width="100%" height="550" allowfullscreen></iframe>

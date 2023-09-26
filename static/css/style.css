@@ -5077,6 +5077,8 @@ img {
   top: 0;
   left: 0;
   width: 70px !important;
+  height: 70px !important;
+  object-fit: cover;
   border-radius: 50%;
 }
 .testimonials-card-two .content h3 {
