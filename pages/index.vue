@@ -131,7 +131,7 @@
         
         <WhatWeDoCard :loading="featureLoading" :feature="feature" />
 
-        <div v-if="course_data.length>0" class="courses-area-two section-bg pt-100 pb-70">
+        <div v-if="course_data.length>0" class="courses-area-two section-bg pt-70 pb-70">
             <div class="container">
                 <div class="row align-items-end mb-45">
                     <div class="col-lg-12">
@@ -170,11 +170,18 @@
             </div>
         </div>
 
-        <div class="testimonials-area pt-100 pb-100">
+        <div class="testimonials-area pt-70 pb-70">
             <div class="container">
-                <div class="section-title text-center">
-                    <span>TESTIMONIAL</span>
-                    <h2>What people say about us</h2>
+                <div class="row align-items-center mb-20">
+                    <div class="col-lg-8 col-md-9">
+                        <div class="section-title mt-rs-20">
+                            <span>TESTIMONIAL</span>
+                            <h2>What people say about us</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-3 text-end">
+                        <NuxtLink to="/mission-vision" class="default-btn border-radius-50">View all Testimonial</NuxtLink>
+                    </div>
                 </div>
                 <div v-if="testimonialLoading" class="row justify-content-center testimonials-slider-two">
                     <div v-for="i in 3" :key="i" class="col-lg-4 col-md-6 col-sm-12">
@@ -221,7 +228,7 @@
                         <div class="play-btn-area-two">
                             <div class="hero-content text-center" style="max-width: 100% !important; position:relative">
                                 <span class="top-title">START LEARNING</span>
-                                <h1 style="color: white !important;">Admission Open For 2022 - 2023</h1>
+                                <h1 style="color: white !important;">Admission Open For {{ new Date().getFullYear()-1 }} - {{ new Date().getFullYear() }}</h1>
                                 <div class="banner-btn justify-content-center">
                                     <a href="/pdf/brochure.pdf" target="_blank" class="default-btn two border-radius-50 mr-2">Download Brochure</a>
                                     <el-dropdown>
@@ -247,7 +254,7 @@
             </div>
         </div>
 
-        <div class="event-area section-bg pb-100">
+        <div class="event-area section-bg pb-70">
             <div class="container">
                 <div class="row align-items-end mb-45">
                     <div class="col-lg-8">
@@ -257,7 +264,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 text-end">
-                        <NuxtLink to="/events" class="default-btn border-radius-50">View all events</NuxtLink>
+                        <NuxtLink to="/events" class="default-btn border-radius-50">View all Events</NuxtLink>
                     </div>
                 </div>
                 <div v-if="eventLoading" class="row justify-content-center">
@@ -291,7 +298,7 @@
             </div>
         </div>
 
-        <div class="blog-area pt-100 pb-70">
+        <div class="blog-area pt-70 pb-70">
             <div class="container">
                 <div class="row align-items-end mb-45">
                     <div class="col-lg-8">
@@ -301,7 +308,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 text-end">
-                        <NuxtLink to="/knowledge-desk" class="default-btn border-radius-50">View all blogs</NuxtLink>
+                        <NuxtLink to="/knowledge-desk" class="default-btn border-radius-50">View all Blogs</NuxtLink>
                     </div>
                 </div>
                 <div v-if="blogLoading" class="row justify-content-center">
