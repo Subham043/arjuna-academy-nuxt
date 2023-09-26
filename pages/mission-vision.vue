@@ -13,15 +13,15 @@
         <div class="faq-area pt-100 pb-70">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <div class="faq-img">
-                            <img src="/images/faq-img.jpg" alt="faq" />
+                            <img src="/images/mission-vision.png" alt="faq" />
                             <div class="shape">
                                 <img src="/images/faq-shape.png" alt="Faq" />
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-8">
                         <div class="faq-accordion pl-20">
                             <ul class="accordion">
                                 <li class="accordion-item">
