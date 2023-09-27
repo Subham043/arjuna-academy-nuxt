@@ -161,7 +161,7 @@
                     </div>
                 </div>
                 <div v-if="!staffLoading && staff.length>0" class="row justify-content-center">
-                    <div v-for="(item, i) in staff" :key="i" class="col-lg-3 col-md-6">
+                    <div v-for="(item, i) in staff" :key="i" class="col-lg-2 col-md-6">
                         <div class="instructors-card">
                             <img :src="item.image" :alt="item.alt" :title="item.title" />
                             <div class="content">
@@ -171,7 +171,7 @@
                         </div>
                     </div>
                     <div class="col-12 text-center">
-                        <pagination v-model="staffCurrentPage" :records="staffCount" :per-page="staffPerPage"  :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
+                        <pagination v-model="staffCurrentPage" :records="staffCount" :per-page="staffPerPage"  :options="{edgeNavigation:false}" @paginate="handlePaginationChnage"/>
                     </div>
                 </div>
             </div>
@@ -240,7 +240,7 @@ export default {
     },
     async fetch() {
       await this.getManagement();
-      await this.getStaff();
+      await this.getStaff(this.$route.query.page ? Number(this.$route.query.page) : 1);
       await this.getSeo();
     },
     watch: {
@@ -274,7 +274,7 @@ export default {
         async getStaff(page=0) {
             this.staffLoading=true;
             try {
-                const response = await this.$publicApi.get(API_ROUTES.staff+`?total=8&page=${page}`); // eslint-disable-line
+                const response = await this.$publicApi.get(API_ROUTES.staff+`?total=12&page=${page}`); // eslint-disable-line
                 this.staff = response.data.data
                 this.staffCount = response?.data?.meta?.total
                 this.staffPerPage = response?.data?.meta?.per_page

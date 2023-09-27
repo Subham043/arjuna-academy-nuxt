@@ -35,7 +35,7 @@
                         <EventCard :title="item.name" :description="item.short_description" :date="item.published" :author="item.author_name" :slug="item.slug" :is_event="false" />
                     </div>
                     <div v-if="!expertTipLoading && expertTip.length>0" class="col-12 text-center">
-                        <pagination v-model="expertTipCurrentPage" :records="expertTipCount" :per-page="expertTipPerPage"  :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
+                        <pagination v-model="expertTipCurrentPage" :records="expertTipCount" :per-page="expertTipPerPage"  :options="{edgeNavigation:false}" @paginate="handlePaginationChnage"/>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@ export default {
         }
     },
     async fetch() {
-      await this.getExpertTip();
+      await this.getExpertTip(this.$route.query.page ? Number(this.$route.query.page) : 1);
       await this.getSeo();
     },
     watch: {

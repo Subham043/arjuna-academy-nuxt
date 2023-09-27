@@ -106,7 +106,7 @@
                                 </div>
                             </article>
                             <div v-if="!popularEventLoading && popularEvent.length>0" class="col-12 text-center">
-                                <pagination v-model="popularEventCurrentPage" :records="popularEventCount" :per-page="popularEventPerPage"  :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePopularEventPaginationChnage"/>
+                                <pagination v-model="popularEventCurrentPage" :records="popularEventCount" :per-page="popularEventPerPage"  :options="{edgeNavigation:false}" @paginate="handlePopularEventPaginationChnage"/>
                             </div>
                         </div>
                     </div>

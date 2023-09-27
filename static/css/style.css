@@ -3773,7 +3773,7 @@ img {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.06);
   position: relative;
   z-index: 2;
-  margin-top: -250px;
+  margin-top: -225px;
   margin-bottom: 30px;
   position: sticky;
   top: 70px;
@@ -5430,6 +5430,9 @@ img {
   margin-bottom: 35px;
   background-color: #f5f5f5;
   padding: 35px 23px;
+}
+.event-sidebar .title-text {
+  font-size: 1rem;
 }
 .event-sidebar .title {
   font-size: 22px;
@@ -7576,4 +7579,7 @@ img {
 }
 .dropdown-toggle {
   white-space: normal;
+}
+.VuePagination .page-item:first-child .page-link, .VuePagination .page-item:last-child .page-link{
+  display: none;
 }

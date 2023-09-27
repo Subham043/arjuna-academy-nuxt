@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div v-if="!testimonialLoading && testimonial.length>0" class="col-12 text-center">
-                    <pagination v-model="testimonialCurrentPage" :records="testimonialCount" :per-page="testimonialPerPage"  :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
+                    <pagination v-model="testimonialCurrentPage" :records="testimonialCount" :per-page="testimonialPerPage"  :options="{edgeNavigation:false}" @paginate="handlePaginationChnage"/>
                 </div>
             </div>
         </div>
@@ -124,7 +124,7 @@ export default {
         }
     },
     async fetch() {
-      await this.getTestimonial();
+      await this.getTestimonial(this.$route.query.page ? Number(this.$route.query.page) : 1);
       await this.getSeo();
     },
     watch: {

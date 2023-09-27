@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div v-if="!galleryLoading && gallery.length>0" class="col-12 text-center">
-                        <pagination v-model="galleryCurrentPage" :records="galleryCount" :per-page="galleryPerPage"  :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
+                        <pagination v-model="galleryCurrentPage" :records="galleryCount" :per-page="galleryPerPage"  :options="{edgeNavigation:false}" @paginate="handlePaginationChnage"/>
                     </div>
                 </viewer>
             </div>
@@ -84,7 +84,7 @@ export default {
         };
     },
     async fetch() {
-      await this.getGallery();
+      await this.getGallery(this.$route.query.page ? Number(this.$route.query.page) : 1);
     },
     watch: {
         $route(to, from) {

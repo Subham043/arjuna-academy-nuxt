@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <div v-if="!achieverStudentLoading && achieverStudent.length>0" class="col-12 text-center">
-                        <pagination v-model="achieverStudentCurrentPage" :records="achieverStudentCount" :per-page="achieverStudentPerPage"  :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handleAchieverStudentPaginationChnage"/>
+                        <pagination v-model="achieverStudentCurrentPage" :records="achieverStudentCount" :per-page="achieverStudentPerPage"  :options="{edgeNavigation:false}" @paginate="handleAchieverStudentPaginationChnage"/>
                     </div>
                 </div>
             </div>
@@ -95,10 +95,10 @@ export default {
         if (process.client) {
             this.$scrollTo("#__nuxt", 0, { force: true });
         }
-        this.getAchieverStudent();
     },
     async fetch() {
-      await this.getAchieverCategory();
+        await this.getAchieverCategory();
+        await this.getAchieverStudent(this.$route.query.page ? Number(this.$route.query.page) : 1);
     },
     watch: {
         $route(to, from) {

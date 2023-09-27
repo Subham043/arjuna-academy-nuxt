@@ -47,7 +47,7 @@
                         <EventCard :image="item.image" :title="item.name" :description="item.short_description" :date="item.event_date_on" :slug="item.slug" />
                     </div>
                     <div v-if="!eventLoading && event.length>0" class="col-12 text-center">
-                        <pagination v-model="eventCurrentPage" :records="eventCount" :per-page="eventPerPage"  :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
+                        <pagination v-model="eventCurrentPage" :records="eventCount" :per-page="eventPerPage"  :options="{edgeNavigation:false}" @paginate="handlePaginationChnage"/>
                     </div>
                 </div>
             </div>
@@ -119,7 +119,7 @@ export default {
         }
     },
     async fetch() {
-      await this.getEvent();
+      await this.getEvent(this.$route.query.page ? Number(this.$route.query.page) : 1);
       await this.getSeo();
     },
     watch: {

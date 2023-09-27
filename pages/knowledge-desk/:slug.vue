@@ -231,7 +231,7 @@
                                     </article>
                                     <div v-if="!popularBlogLoading && popularBlog.length > 0" class="col-12 text-center">
                                         <pagination v-model="popularBlogCurrentPage" :records="popularBlogCount"
-                                            :per-page="popularBlogPerPage" :options="{ chunk: 9, chunksNavigation: 'scroll' }"
+                                            :per-page="popularBlogPerPage" :options="{ edgeNavigation:false }"
                                             @paginate="handlePopularBlogPaginationChnage" />
                                     </div>
                                 </div>
@@ -257,7 +257,7 @@ export default {
         if (process.client) {
             this.$scrollTo("#__nuxt", 0, { force: true });
         }
-        this.getPopluarBlog();
+        this.getPopluarBlog(this.$route.query.page ? Number(this.$route.query.page) : 1);
     },
     data() {
         return {

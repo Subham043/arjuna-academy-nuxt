@@ -53,7 +53,7 @@
                                 </li>
                             </ul>
                             <div v-if="!faqLoading && faq.length>0" class="col-12 text-center mt-5">
-                                <pagination v-model="faqCurrentPage" :records="faqCount" :per-page="faqPerPage"  :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
+                                <pagination v-model="faqCurrentPage" :records="faqCount" :per-page="faqPerPage"  :options="{edgeNavigation:false}" @paginate="handlePaginationChnage"/>
                             </div>
                         </div>
                     </div>
@@ -127,7 +127,7 @@ export default {
         }
     },
     async fetch() {
-      await this.getFaq();
+      await this.getFaq(this.$route.query.page ? Number(this.$route.query.page) : 1);
       await this.getSeo();
     },
     watch: {
