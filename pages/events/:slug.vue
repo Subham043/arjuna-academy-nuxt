@@ -25,8 +25,8 @@
                                 </div>
                                 <h1>{{ event?.heading }}</h1>
                                 <div v-html-safe="event?.description" />
-                                <h3 class="event-details-mt-30">Our speakers</h3>
-                                <div class="row justify-content-center event-details-mt-30">
+                                <h3 v-if="event?.speakers.length>0" class="event-details-mt-30">Our speakers</h3>
+                                <div v-if="event?.speakers.length>0" class="row justify-content-center event-details-mt-30">
                                     <div v-for="(item, i) in event?.speakers" :key="i" class="col-lg-3 col-md-6">
                                         <div class="instructors-item instructors-item-bg">
                                             <div class="instructors-img">

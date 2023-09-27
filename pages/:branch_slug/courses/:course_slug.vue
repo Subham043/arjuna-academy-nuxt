@@ -172,13 +172,13 @@ export default {
     },
     head() {
         return {
-            title: this.course?.meta_title,
+            title: this.course?.branch_details.length>0 ? this.course?.branch_details[0].meta_title : '',
             meta: [
                 // hid is used as unique identifier. Do not use `vmid` for it as it will not work
                 {
                     hid: 'og:title',
                     name: 'og:title',
-                    content: this.course?.meta_title
+                    content: this.course?.branch_details.length>0 ? this.course?.branch_details[0].meta_title : ''
                 },
                 {
                     hid: 'og:type',
@@ -188,17 +188,17 @@ export default {
                 {
                     hid: 'description',
                     name: 'description',
-                    content: this.course?.meta_description
+                    content: this.course?.branch_details.length>0 ? this.course?.branch_details[0].meta_description : ''
                 },
                 {
                     hid: 'keywords',
                     name: 'keywords',
-                    content: this.course?.meta_keywords
+                    content: this.course?.branch_details.length>0 ? this.course?.branch_details[0].meta_keywords : ''
                 },
             ],
             script: [{
                 type: 'application/ld+json',
-                innerHTML: this.course?.meta_scripts // <- set jsonld object in data or wherever you want
+                innerHTML: this.course?.branch_details.length>0 ? this.course?.branch_details[0].meta_scripts : '' // <- set jsonld object in data or wherever you want
             },
             { src: 'https://checkout.razorpay.com/v1/checkout.js' }],
             __dangerouslyDisableSanitizers: ['script'],
