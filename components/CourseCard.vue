@@ -4,7 +4,6 @@
         <div class="content">
             <div class="bottom-content align-items-center">
                 <a href="javascript:void(0)" class="tag-btn">{{ className }}</a>
-                <small v-if="discount!=0" class="d-inline-flex m-0 px-2 py-1 fw-semibold text-success-emphasis bg-success-subtle border border-success-subtle rounded-2">{{discount}}% OFF</small>
             </div>
             <h3>
                 {{ title }}
@@ -12,9 +11,19 @@
             <p>{{ description }}</p>
             <hr>
             <div class="bottom-content align-items-center">
-                <div class="bottom-price">&#8377;{{ price }}</div>
                 <el-dropdown>
-                    <NuxtLink to="/" class="default-btn border-radius-50 m-0">Enroll Now</NuxtLink>
+                    <NuxtLink to="/" target="_blank" class="default-btn two border-radius-50 m-0">Enroll Now</NuxtLink>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item v-for="(item, i) in branches" 
+                            :key="i">
+                            <NuxtLink :to="`/${item.slug}/courses/${slug}`" class="text-dark">
+                                {{ item.name }}
+                            </NuxtLink>
+                        </el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
+                <el-dropdown>
+                    <NuxtLink to="/" class="default-btn border-radius-50 mr-2">Request Callback</NuxtLink>
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item v-for="(item, i) in branches" 
                             :key="i">
@@ -64,14 +73,6 @@ export default {
         branches: {
             type: Array,
             default: [],
-        },
-        price: {
-            type: Number,
-            default: 0,
-        },
-        discount: {
-            type: Number,
-            default: 0,
         },
     },
 }

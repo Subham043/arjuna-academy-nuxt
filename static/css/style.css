@@ -3011,6 +3011,9 @@ img {
   right: 0;
   opacity: 1;
 }
+.courses-item .default-btn {
+  padding: 8px 20px;
+}
 .courses-item {
   margin-bottom: 30px;
   background-color: var(--whiteColor);

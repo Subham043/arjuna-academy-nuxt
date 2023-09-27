@@ -161,9 +161,7 @@
                             :title="item.name"
                             :branches="item.branches"
                             :slug="item.slug"
-                            :discount="item.discount"
-                            :className="item.class"
-                            :price="item.discounted_amount" />
+                            :className="item.class" />
                     </VueSlickCarousel>
                 </div>
             </div>
