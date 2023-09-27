@@ -23,9 +23,9 @@ export default {
 }
 
 if(process.client){
-  window.addEventListener("load", (event) => {
-    document.getElementById('preloader-main').classList.add('d-none');
-  });
+  // window.addEventListener("load", (event) => {
+  //   document.getElementById('preloader-main').classList.add('d-none');
+  // });
   document.addEventListener("DOMContentLoaded", function() {
       window.addEventListener('scroll', function() {
           if (window.scrollY > 150) {

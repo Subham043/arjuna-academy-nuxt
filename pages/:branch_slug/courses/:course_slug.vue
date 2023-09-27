@@ -27,6 +27,65 @@
                                             <div class="courses-details-tab-content">
                                                 <div v-if="course?.branch_details.length>0" class="courses-details-into" v-html-safe="course?.branch_details[0].description" />
                                                 <div class="courses-details-into" v-html-safe="course?.description" />
+                                                <template v-if="course?.branch_details.length>0 && course?.branch_details[0].include_staff === true">
+                                                    <div class="section-title text-center">
+                                                        <span>STAFFS</span>
+                                                        <h2>{{ course?.branch_details[0].staff_heading }}</h2>
+                                                    </div>
+                                                    <div v-if="course?.branch_details[0].staffs.length>0" class="row justify-content-center mt-4">
+                                                        <div v-if="course?.branch_details[0].staffs.length>0" v-for="(item, i) in course?.branch_details[0].staffs" :key="i" class="col-lg-6 col-md-6">
+                                                            <div class="instructors-card">
+                                                                <img :src="item.image" :alt="item.alt" :title="item.title" />
+                                                                <div class="content">
+                                                                    <h3>{{ item.name }}</h3>
+                                                                    <span>{{ item.designation }}</span>
+                                                                </div>
+                                                                <div class="instructor-detail">
+                                                                    <p v-html-safe="item.description" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </template>
+                                                <template v-if="course?.branch_details.length>0 && course?.branch_details[0].include_topper === true">
+                                                    <div class="section-title text-center">
+                                                        <span>ACHIEVERS</span>
+                                                        <h2>{{ course?.branch_details[0].topper_heading }}</h2>
+                                                    </div>
+                                                    <div v-if="course?.branch_details[0].achievers.length>0" class="row justify-content-center mt-4">
+                                                        <div v-if="course?.branch_details[0].achievers.length>0" v-for="(item, i) in course?.branch_details[0].achievers" :key="i" class="col-lg-4 col-md-4">
+                                                            <div class="achiever-detail">
+                                                                <div class="achiever-detail-container pb-0">
+                                                                    <img :src="item.image"
+                                                                    :alt="item.image_alt" :title="item.image_title"
+                                                                    class="img-responsive">
+                                                                    <h5>{{ item.name }}</h5>
+                                                                </div>
+                                                                <h3> {{ item.rank }}</h3>
+                                                                <div class="achiever-detail-container pt-0">
+                                                                    <p>{{ item.college }} </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </template>
+                                                <template v-if="course?.branch_details.length>0 && course?.branch_details[0].include_testimonial === true">
+                                                    <div class="section-title text-center">
+                                                        <span>TESTIMONIAL</span>
+                                                        <h2>{{ course?.branch_details[0].testimonial_heading }}</h2>
+                                                    </div>
+                                                    <div v-if="course?.branch_details[0].testimonials.length>0" class="testimonials-slider-two row justify-content-center mt-4">
+                                                        <div v-for="(item, i) in course?.branch_details[0].testimonials" 
+                                                                :key="i" class="col-lg-6 col-md-6 col-sm-12">
+                                                            <TestimonialCard 
+                                                                :image="item.image" 
+                                                                :name="item.name" 
+                                                                :star="item.star" 
+                                                                :message="item.message" 
+                                                                :designation="item.designation" />
+                                                        </div>
+                                                    </div>
+                                                </template>
                                             </div>
                                         </div>
                                     </div>
@@ -155,6 +214,7 @@
 </template>
 
 <script>
+import TestimonialCard from '~/components/TestimonialCard.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 export default {
@@ -172,13 +232,13 @@ export default {
     },
     head() {
         return {
-            title: this.course?.branch_details.length>0 ? this.course?.branch_details[0].meta_title : '',
+            title: this.course?.branch_details.length > 0 ? this.course?.branch_details[0].meta_title : '',
             meta: [
                 // hid is used as unique identifier. Do not use `vmid` for it as it will not work
                 {
                     hid: 'og:title',
                     name: 'og:title',
-                    content: this.course?.branch_details.length>0 ? this.course?.branch_details[0].meta_title : ''
+                    content: this.course?.branch_details.length > 0 ? this.course?.branch_details[0].meta_title : ''
                 },
                 {
                     hid: 'og:type',
@@ -188,21 +248,21 @@ export default {
                 {
                     hid: 'description',
                     name: 'description',
-                    content: this.course?.branch_details.length>0 ? this.course?.branch_details[0].meta_description : ''
+                    content: this.course?.branch_details.length > 0 ? this.course?.branch_details[0].meta_description : ''
                 },
                 {
                     hid: 'keywords',
                     name: 'keywords',
-                    content: this.course?.branch_details.length>0 ? this.course?.branch_details[0].meta_keywords : ''
+                    content: this.course?.branch_details.length > 0 ? this.course?.branch_details[0].meta_keywords : ''
                 },
             ],
             script: [{
-                type: 'application/ld+json',
-                innerHTML: this.course?.branch_details.length>0 ? this.course?.branch_details[0].meta_scripts : '' // <- set jsonld object in data or wherever you want
-            },
-            { src: 'https://checkout.razorpay.com/v1/checkout.js' }],
+                    type: 'application/ld+json',
+                    innerHTML: this.course?.branch_details.length > 0 ? this.course?.branch_details[0].meta_scripts : '' // <- set jsonld object in data or wherever you want
+                },
+                { src: 'https://checkout.razorpay.com/v1/checkout.js' }],
             __dangerouslyDisableSanitizers: ['script'],
-        }
+        };
     },
     async fetch() {
         await this.getCourse();
@@ -219,19 +279,20 @@ export default {
             try {
                 const response = await this.$publicApi.get(API_ROUTES.course + `/${this.$route.params.course_slug}/branch/${this.$route.params.branch_slug}`); // eslint-disable-line
                 this.course = response.data.course;
-            } catch (err) {
+            }
+            catch (err) {
                 // console.log(err.response);// eslint-disable-line
                 this.$nuxt.context.error({
                     status: err.response.status,
                     message: err.response.data.message,
-                })
-
-            } finally {
+                });
+            }
+            finally {
                 this.courseLoading = false;
             }
         },
         async formHandler() {
-            this.$refs.form.validate().then(async(success) => {
+            this.$refs.form.validate().then(async (success) => {
                 if (!success) {
                     return;
                 }
@@ -242,24 +303,27 @@ export default {
                         email: this.email,
                         phone: this.phone,
                     });
-                    this.$refs.form.reset()
-                    this.loadRazorpay(response.data.enrollmentForm)
-                } catch (err) {
+                    this.$refs.form.reset();
+                    this.loadRazorpay(response.data.enrollmentForm);
+                }
+                catch (err) {
                     this.$refs.form.setErrors({
                         email: err?.response?.data?.errors?.email?.length > 0 && err?.response?.data?.errors?.email[0],
                         name: err?.response?.data?.errors?.name?.length > 0 && err?.response?.data?.errors?.name[0],
                         phone: err?.response?.data?.errors?.phone?.length > 0 && err?.response?.data?.errors?.phone[0],
                     });
-                    if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                    if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-    
-                } finally {
+                    if (err?.response?.data?.message)
+                        this.$toast.error(err?.response?.data?.message);
+                    if (err?.response?.data?.error)
+                        this.$toast.error(err?.response?.data?.error);
+                }
+                finally {
                     this.enrollmentLoading = false;
                 }
-            })
+            });
         },
         async formCallbackHandler() {
-            this.$refs.form.validate().then(async(success) => {
+            this.$refs.form.validate().then(async (success) => {
                 if (!success) {
                     return;
                 }
@@ -270,65 +334,115 @@ export default {
                         email: this.email,
                         phone: this.phone,
                     });
-                    this.$refs.form.reset()
-                    this.$toast.success('We have received your request. Our team will contact you soon.')
-                } catch (err) {
+                    this.$refs.form.reset();
+                    this.$toast.success('We have received your request. Our team will contact you soon.');
+                }
+                catch (err) {
                     this.$refs.form.setErrors({
                         email: err?.response?.data?.errors?.email?.length > 0 && err?.response?.data?.errors?.email[0],
                         name: err?.response?.data?.errors?.name?.length > 0 && err?.response?.data?.errors?.name[0],
                         phone: err?.response?.data?.errors?.phone?.length > 0 && err?.response?.data?.errors?.phone[0],
                     });
-                    if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                    if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-    
-                } finally {
+                    if (err?.response?.data?.message)
+                        this.$toast.error(err?.response?.data?.message);
+                    if (err?.response?.data?.error)
+                        this.$toast.error(err?.response?.data?.error);
+                }
+                finally {
                     this.enrollmentLoading = false;
                 }
-            })
+            });
         },
-        loadRazorpay(data){
+        loadRazorpay(data) {
             const options = {
                 key: this.$config.RAZORPAY_KEY_ID,
-                amount: data.discounted_amount*100,
+                amount: data.discounted_amount * 100,
                 currency: 'INR',
                 description: "Payment description",
                 order_id: data.razorpay_order_id,
                 prefill: {
-                name: data.name,
-                email: data.email,
-                contact: data.phone
+                    name: data.name,
+                    email: data.email,
+                    contact: data.phone
                 },
                 theme: {
-                color: "#000000" // Set your website theme color
+                    color: "#000000" // Set your website theme color
                 },
                 handler: async (response) => {
-                    await this.verifyPayment(response)
+                    await this.verifyPayment(response);
                 }
             };
-
             // eslint-disable-next-line no-undef
             const rzp = new Razorpay(options);
             rzp.open();
         },
-        async verifyPayment(data){
+        async verifyPayment(data) {
             const loading = this.$loading({
                 lock: true,
                 fullscreen: true,
             });
             try {
-                const response = await this.$privateApi.post('/api/v1/enrollment/verify',{
+                const response = await this.$privateApi.post('/api/v1/enrollment/verify', {
                     razorpay_order_id: data.razorpay_order_id,
                     razorpay_payment_id: data.razorpay_payment_id,
                     razorpay_signature: data.razorpay_signature,
                 }); // eslint-disable-line
-                this.$toast.success(response.data.message)
-            } catch (err) {
-                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-            } finally{
-                loading.close()
+                this.$toast.success(response.data.message);
+            }
+            catch (err) {
+                if (err?.response?.data?.message)
+                    this.$toast.error(err?.response?.data?.message);
+                if (err?.response?.data?.error)
+                    this.$toast.error(err?.response?.data?.error);
+            }
+            finally {
+                loading.close();
             }
         }
     },
+    components: { TestimonialCard }
 }
 </script>
+
+<style scoped>
+.achiever-detail {
+    background-color: #f9f9f9;
+    text-align: center;
+    margin-bottom: 30px;
+    clip-path: polygon(50% 0,100% 0,100% 99%,50% 85%,0 100%,0 0);
+    min-height: 375px;
+    height: 375px;
+}
+
+.achiever-detail-container{
+    padding: 15px 30px;
+}
+.achiever-detail img {
+    width: 55%;
+    border: 2px solid #D7C167;
+}
+.achiever-detail h5 {
+    font-weight: 700;
+    font-size: 17px;
+    padding: 10px 0;
+    margin: 0;
+}
+.achiever-detail h3 {
+    font-size: 15px;
+    color: #fff;
+    background: #304557;
+    padding: 10px;
+    font-weight: 700;
+    text-align: center;
+}
+.tab-filter p {
+    font-size: 14px;
+    text-align: center;
+    padding: 0 10%;
+    font-weight: 620;
+}
+.achiever-detail p {
+    font-weight: 700;
+}
+
+</style>

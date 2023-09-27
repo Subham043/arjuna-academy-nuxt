@@ -96,7 +96,7 @@
                                             <span>ACHIEVERS</span>
                                             <h2>{{ campaign?.topper_heading }}</h2>
                                         </div>
-                                        <div v-if="campaign?.testimonials.length>0" class="row justify-content-center mt-4">
+                                        <div v-if="campaign?.achievers.length>0" class="row justify-content-center mt-4">
                                             <div v-if="campaign?.achievers.length>0" v-for="(item, i) in campaign?.achievers" :key="i" class="col-lg-4 col-md-4">
                                                 <div class="achiever-detail">
                                                     <div class="achiever-detail-container pb-0">
