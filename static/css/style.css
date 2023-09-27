@@ -4603,6 +4603,10 @@ img {
   background-color: var(--whiteColor);
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.06);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.06);
+  position: relative;
+  transition: all 0.4s ease-in-out;
+  border-radius: 10px;
+  perspective: 500px;
 }
 .instructors-card a {
   display: block;
@@ -4613,10 +4617,38 @@ img {
   height: 200px;
   width: 100%;
   object-fit: contain;
+  padding: 10px;
 }
 .instructors-card .content {
   padding: 10px;
   position: relative;
+  text-align: center;
+}
+.instructors-card .instructor-detail{
+  display: none;
+  background-color: #EACF6C;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.4s ease-in-out;
+}
+.instructors-card .instructor-detail p{
+  max-height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  text-align: justify;
+  color: #fff;
+}
+.instructors-card:hover{
+  transform: rotateY(180deg);
+}
+.instructors-card:hover .instructor-detail{
+  display: block;
+  transform: rotateY(180deg);
 }
 .instructors-card .content .instructors-social {
   margin: 0;
@@ -4694,6 +4726,9 @@ img {
 .instructors-card .content .instructors-social:hover li a i {
   opacity: 1;
 }
+.instructors-card .content .instructors-social:hover .instructor-detail {
+  opacity: 1;
+}
 .instructors-card .content .instructors-social:hover li:nth-child(1) {
   z-index: 1;
 }
@@ -4712,6 +4747,7 @@ img {
 .instructors-card .content h3 {
   margin-bottom: 5px;
   font-size: 17px;
+  text-align: center;
 }
 .instructors-card .content h3 a {
   color: var(--titleColor);

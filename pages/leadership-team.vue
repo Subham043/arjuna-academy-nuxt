@@ -161,12 +161,15 @@
                     </div>
                 </div>
                 <div v-if="!staffLoading && staff.length>0" class="row justify-content-center">
-                    <div v-for="(item, i) in staff" :key="i" class="col-lg-2 col-md-6">
+                    <div v-for="(item, i) in staff" :key="i" class="col-lg-3 col-md-4">
                         <div class="instructors-card">
                             <img :src="item.image" :alt="item.alt" :title="item.title" />
                             <div class="content">
                                 <h3>{{ item.name }}</h3>
                                 <span>{{ item.designation }}</span>
+                            </div>
+                            <div class="instructor-detail">
+                                <p v-html-safe="item.description" />
                             </div>
                         </div>
                     </div>
