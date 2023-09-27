@@ -113,6 +113,9 @@ export default {
     },
     watch: {
         $route(to, from) {
+            if (process.client) {
+                this.$scrollTo("#__nuxt", 0, { force: true });
+            }
             this.handlePageChnage();
         }
     },
