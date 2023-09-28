@@ -445,4 +445,11 @@ export default {
     font-weight: 700;
 }
 
+@media only screen and (max-width:767px) {
+    .achiever-detail {
+        min-height: 445px;
+        height: 445px;
+    }
+}
+
 </style>

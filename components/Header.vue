@@ -252,7 +252,7 @@
                     </nav>
                 </div>
             </div>
-            <el-drawer size="60%" :visible.sync="drawer" direction="rtl">
+            <el-drawer title="Arjunaa Academy for Achievers" size="80%" :visible.sync="drawer" direction="rtl">
                 <el-menu default-active="2" class="el-menu-vertical-demo">
                     <el-menu-item index="1">
                         <NuxtLink to="/">
@@ -280,7 +280,7 @@
                                 <NuxtLink v-for="(it, index) in item.courses" :key="index"
                                     v-if="it.class == 'Senior Secondary (XI, XII, PU)'"
                                     :to="`/${item.slug}/courses/${it.slug}`">
-                                    <el-menu-item :index="`1-${i}-3-${index}`">{{ it.name }} </el-menu-item>
+                                    <el-menu-item :index="`1-${i}-3-${index}`">{{ it.name }}</el-menu-item>
                                 </NuxtLink>
                             </el-submenu>
                             <el-submenu :index="`1-${i}-3`">
@@ -328,10 +328,10 @@
                         <NuxtLink to="/expert-tips">
                             <el-menu-item index="5-2">Expert Tips </el-menu-item>
                         </NuxtLink>
-                        <NuxtLink to="/faw">
+                        <NuxtLink to="/faq">
                             <el-menu-item index="5-3">Faq </el-menu-item>
                         </NuxtLink>
-                        <NuxtLink to="/faw">
+                        <NuxtLink to="/vrddhi">
                             <el-menu-item index="5-4">Vrddhi </el-menu-item>
                         </NuxtLink>
                     </el-submenu>

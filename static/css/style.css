@@ -7622,3 +7622,6 @@ img {
 .VuePagination .page-item:first-child .page-link, .VuePagination .page-item:last-child .page-link{
   display: none;
 }
+.navbar-toggler:focus{
+  box-shadow: none;
+}

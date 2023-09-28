@@ -5,7 +5,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div v-if="heading_center" class="col-lg-12">
-                            <div class="section-title text-center">
+                            <div class="section-title text-center mb-3">
                                 <span>{{ title }}</span>
                                 <h2>
                                     {{ heading }}
