@@ -47,8 +47,10 @@
                         <div class="contact-map-area pb-100">
                             <div class="container">
                                 <div v-for="(item, i) in maps" :key="i" class="contact-map mb-20">
-                                    <iframe
-                                        :src="item"></iframe>
+                                    <div class="contact-info-card p-4 rounded">
+                                        <iframe
+                                            :src="item"></iframe>
+                                    </div>
                                 </div>
                             </div>
                         </div>
