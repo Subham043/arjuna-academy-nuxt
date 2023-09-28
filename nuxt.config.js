@@ -1,3 +1,6 @@
+import { API_ROUTES } from './helper/api_routes'
+
+const axios = require('axios')
 
 export default {
   server: {
@@ -132,32 +135,24 @@ export default {
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false,
-    routes: [
-      '/',
-      '/about-us',
-      '/mission-vision',
-    ],
-    // sitemaps: [
-    //   {
-    //     path: '/sitemap.xml',
-    //     exclude: [
-    //       '/secret',
-    //       '/profile',
-    //       '/admin/**',
-    //     ],
-    //     // routes: () => {
-    //     //   return [
-    //     //     '/page/1',
-    //     //     '/page/2',
-    //     //   ]
-    //     // }
-    //     // routes: async () => {
-    //     //     let apiUrl = 'your site url' // or API url
-    //     //     const { data } = await axios.get(`${apiUrl}store1`)
-    //     //     return data.data.map(v => `/${v.id}`)
-    //     // }
-    //   },
-    // ]
+    routes: async () => {
+      const achiever = await axios.get(process.env.API_BASE_URL+API_ROUTES.achieverCategory)
+      const achievers = achiever.data.achiverCategory.map((item) => `/achievers/${item.slug}`)
+      const legal = await axios.get(process.env.API_BASE_URL+API_ROUTES.legal)
+      const legals = legal.data.legal.map((item) => `/legal/${item.slug}`)
+      const branch = await axios.get(process.env.API_BASE_URL+API_ROUTES.branch + '/all')
+      const branches = branch.data.branch.map((item) => item.courses.map((i) => `/${item.slug}/courses/${i.slug}`))
+      const courses = []; branches.map((item) => item.map((i) => courses.push(i)));
+      const blog = await axios.get(process.env.API_BASE_URL+API_ROUTES.blog + '/all')
+      const blogs = blog.data.blogs.map((item) => `/knowledge-desk/${item.slug}`)
+      const event = await axios.get(process.env.API_BASE_URL+API_ROUTES.event + '/all')
+      const events = event.data.events.map((item) => `/events/${item.slug}`)
+      const expertTip = await axios.get(process.env.API_BASE_URL+API_ROUTES.expertTip + '/all')
+      const expertTips = expertTip.data.expertTips.map((item) => `/expert-tips/${item.slug}`)
+      const campaign = await axios.get(process.env.API_BASE_URL+API_ROUTES.campaign + '/all')
+      const campaigns = campaign.data.campaigns.map((item) => `/${item.slug}`)
+      return [...achievers, ...courses, ...blogs, expertTips, ...events, ...campaigns, ...legals]
+    },
   },
 
   googleAnalytics: {
