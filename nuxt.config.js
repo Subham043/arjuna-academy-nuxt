@@ -58,7 +58,8 @@ export default {
     'nuxt-helmet',
     'vue-scrollto/nuxt',
     '@nuxtjs/sitemap',
-    '@nuxtjs/google-analytics',
+    '@nuxtjs/gtm',
+    'nuxt-robots-module',
     ["vue-toastification/nuxt", {
       timeout: 8000,
       position: "bottom-center"
@@ -155,10 +156,17 @@ export default {
     },
   },
 
-  googleAnalytics: {
+  gtm: {
     // Options
-    id: 'UA-XXX-X',
-    checkDuplicatedScript: true
+    id: 'GTM-N5WS2TC',
+    enabled: true
+  },
+
+  robots: {
+    /* module options */
+    UserAgent: '*',
+    Allow: '/',
+    Sitemap: process.env.MAIN_BASE_URL+`/sitemap.xml`
   },
 
   helmet: {

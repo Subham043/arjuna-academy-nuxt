@@ -14,7 +14,7 @@ import { createStore } from './store.js'
 /* Plugins */
 
 import nuxt_plugin_toast_357e9c2c from 'nuxt_plugin_toast_357e9c2c' // Source: ./toast.js (mode: 'client')
-import nuxt_plugin_googleanalytics_66321fea from 'nuxt_plugin_googleanalytics_66321fea' // Source: ./google-analytics.js (mode: 'client')
+import nuxt_plugin_gtm_2ecf3ed1 from 'nuxt_plugin_gtm_2ecf3ed1' // Source: ./gtm.js (mode: 'all')
 import nuxt_plugin_vuescrollto_05ec586e from 'nuxt_plugin_vuescrollto_05ec586e' // Source: ./vue-scrollto.js (mode: 'client')
 import nuxt_plugin_workbox_cf4710d2 from 'nuxt_plugin_workbox_cf4710d2' // Source: ./workbox.js (mode: 'client')
 import nuxt_plugin_metaplugin_fca790ac from 'nuxt_plugin_metaplugin_fca790ac' // Source: ./pwa/meta.plugin.js (mode: 'all')
@@ -97,7 +97,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"Arjunaa Academy","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"},{"httpEquiv":"X-UA-Compatible","content":"IE=edge"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+    head: {"title":"Arjunaa Academy","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"},{"httpEquiv":"X-UA-Compatible","content":"IE=edge"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[{"hid":"gtm-script","innerHTML":"if(!window._gtm_init){window._gtm_init=1;(function(w,n,d,m,e,p){w[d]=(w[d]==1||n[d]=='yes'||n[d]==1||n[m]==1||(w[e]&&w[e][p]&&w[e][p]()))?1:0})(window,navigator,'doNotTrack','msDoNotTrack','external','msTrackingProtectionEnabled');(function(w,d,s,l,x,y){w[x]={};w._gtm_inject=function(i){if(w.doNotTrack||w[x][i])return;w[x][i]=1;w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https:\u002F\u002Fwww.googletagmanager.com\u002Fgtm.js?id='+i;f.parentNode.insertBefore(j,f);};w[y]('GTM-N5WS2TC')})(window,document,'script','dataLayer','_gtm_ids','_gtm_inject')}"}],"noscript":[{"hid":"gtm-noscript","pbody":true,"innerHTML":"\u003Ciframe src=\"https:\u002F\u002Fwww.googletagmanager.com\u002Fns.html?id=GTM-N5WS2TC&\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\" title=\"gtm\"\u003E\u003C\u002Fiframe\u003E"}],"__dangerouslyDisableSanitizersByTagID":{"gtm-script":["innerHTML"],"gtm-noscript":["innerHTML"]}},
 
     store,
     router,
@@ -231,8 +231,8 @@ async function createApp(ssrContext, config = {}) {
     await nuxt_plugin_toast_357e9c2c(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_googleanalytics_66321fea === 'function') {
-    await nuxt_plugin_googleanalytics_66321fea(app.context, inject)
+  if (typeof nuxt_plugin_gtm_2ecf3ed1 === 'function') {
+    await nuxt_plugin_gtm_2ecf3ed1(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_vuescrollto_05ec586e === 'function') {
