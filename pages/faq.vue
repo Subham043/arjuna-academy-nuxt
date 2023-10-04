@@ -15,9 +15,9 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="faq-img">
-                            <img src="/images/faq-img.jpg" alt="faq" />
+                            <img src="/images/faq-img.jpg" alt="faq" title="faq" />
                             <div class="shape">
-                                <img src="/images/faq-shape.png" alt="Faq" />
+                                <img src="/images/faq-shape.png" alt="Faq" title="Faq" />
                             </div>
                         </div>
                     </div>
@@ -46,9 +46,7 @@
                             </div>
                             <ul v-if="!faqLoading && faq.length>0" class="accordion">
                                 <li v-for="(item, i) in faq" :key="i" class="accordion-item">
-                                    <h4 class="accordion-title active">
-                                        {{ item.question }}
-                                    </h4>
+                                    <h4 class="accordion-title active" v-html-safe="item.question" />
                                     <div class="accordion-content show" v-html-safe="item.answer" />
                                 </li>
                             </ul>

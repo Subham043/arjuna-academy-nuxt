@@ -9,7 +9,7 @@
                     </li>
                     <li v-for="(item, i) in pages" :key="i">
                         <NuxtLink v-if="(i+1)!=pages.length" :to="item.link">{{ item.name }}</NuxtLink>
-                        <template v-else>
+                        <template v-else >
                             &nbsp;{{ item.name }}
                         </template>
                     </li>

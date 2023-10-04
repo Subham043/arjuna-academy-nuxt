@@ -23,7 +23,7 @@
                                 <div class="event-preview-img">
                                     <img :src="event?.image" :alt="event?.image_alt" :title="event?.image_title" />
                                 </div>
-                                <h1>{{ event?.heading }}</h1>
+                                <h1 v-html-safe="event?.heading" />
                                 <div v-html-safe="event?.description" />
                                 <h3 v-if="event?.speakers.length>0" class="event-details-mt-30">Our speakers</h3>
                                 <div v-if="event?.speakers.length>0" class="row justify-content-center event-details-mt-30">
@@ -33,10 +33,8 @@
                                                 <img :src="item.image" :alt="item.image_alt" :title="item.image_title"  />
                                             </div>
                                             <div class="content">
-                                                <h3>
-                                                    {{ item.name }}
-                                                </h3>
-                                                <span>{{ item.designation }}</span>
+                                                <h3 v-html-safe="item?.name" />
+                                                <span v-html-safe="item?.designation" />
                                             </div>
                                         </div>
                                     </div>
@@ -44,26 +42,7 @@
                             </div>
                         </template>
                         <template v-else>
-                            <el-skeleton style="width: 100%" animated>
-                                <template slot="template">
-                                    <el-skeleton-item variant="image" style="width: 100%; height: 440px;" />
-                                    <div style="padding: 14px;">
-                                        <el-skeleton-item variant="p" style="width: 50%" />
-                                        <br/>
-                                        <el-skeleton-item variant="text" style="width: 100%;" />
-                                        <br/>
-                                        <el-skeleton-item variant="text" style="width: 100%;" />
-                                        <br/>
-                                        <el-skeleton-item variant="text" style="width: 100%;" />
-                                        <br/>
-                                        <el-skeleton-item variant="text" style="width: 100%;" />
-                                        <br/>
-                                        <el-skeleton-item variant="text" style="width: 100%;" />
-                                        <br/>
-                                        <el-skeleton-item variant="text" style="width: 50%;" />
-                                    </div>
-                                </template>
-                            </el-skeleton>
+                            <PageDetailLoading />
                         </template>
                     </div>
                     <div class="col-lg-4">
@@ -120,6 +99,7 @@
 
 <script>
 import Breadcrumb from '~/components/Breadcrumb.vue';
+import PageDetailLoading from '~/components/PageDetailLoading.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -229,6 +209,6 @@ export default {
             this.getPopluarEvent(this.$route.query.page ? Number(this.$route.query.page) : 1);
         },
     },
-    components: { Breadcrumb }
+    components: { Breadcrumb, PageDetailLoading }
 }
 </script>

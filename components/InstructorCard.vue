@@ -1,0 +1,44 @@
+<template>
+    <div class="instructors-card">
+        <img :src="image" :alt="image_alt" :title="image_title" />
+        <div class="content">
+            <h3 v-html-safe="name" />
+            <span v-html-safe="designation" />
+        </div>
+        <div class="instructor-detail">
+            <p v-html-safe="description" />
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'InstructorCardComponent',
+    props: {
+        image: {
+            type: String,
+            default: '',
+        },
+        name: {
+            type: String,
+            default: '',
+        },
+        designation: {
+            type: String,
+            default: '',
+        },
+        image_alt: {
+            type: String,
+            default: '',
+        },
+        image_title: {
+            type: String,
+            default: '',
+        },
+        description: {
+            type: String,
+            default: '',
+        },
+    },
+}
+</script>

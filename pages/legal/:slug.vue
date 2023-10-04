@@ -24,31 +24,7 @@
                                 <div v-html-safe="legal?.description" />
                             </template>
                             <template v-else>
-                                <el-skeleton style="width: 100%" animated>
-                                    <template slot="template">
-                                        <div style="padding: 14px;">
-                                            <el-skeleton-item variant="p" style="width: 50%" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 50%;" />
-                                        </div>
-                                    </template>
-                                </el-skeleton>
+                                <PageDetailLoading :image="false" />
                             </template>
                         </div>
                     </div>
@@ -60,6 +36,7 @@
 
 <script>
 import Breadcrumb from '~/components/Breadcrumb.vue';
+import PageDetailLoading from '~/components/PageDetailLoading.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -132,6 +109,6 @@ export default {
             }
         },
     },
-    components: { Breadcrumb }
+    components: { Breadcrumb, PageDetailLoading }
 }
 </script>

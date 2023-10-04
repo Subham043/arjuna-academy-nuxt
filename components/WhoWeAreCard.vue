@@ -6,10 +6,8 @@
                     <div class="row align-items-center">
                         <div v-if="heading_center" class="col-lg-12">
                             <div class="section-title text-center mb-3">
-                                <span>{{ title }}</span>
-                                <h2>
-                                    {{ heading }}
-                                </h2>
+                                <span v-html-safe="title" />
+                                <h2 v-html-safe="heading" />
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -18,8 +16,8 @@
                                 <div class="enrolled-img-content">
                                     <img :src="counter_image" />
                                     <div class="content">
-                                        <h3>{{ counter_title }}</h3>
-                                        <p>{{ counter_description }}</p>
+                                        <h3 v-html-safe="counter_title" />
+                                        <p v-html-safe="counter_description" />
                                     </div>
                                 </div>
                             </div>
@@ -27,10 +25,8 @@
                         <div class="col-lg-6">
                             <div class="enrolled-content mb-30">
                                 <div class="section-title">
-                                    <span v-if="!heading_center">{{ title }}</span>
-                                    <h2 v-if="!heading_center">
-                                        {{ heading }}
-                                    </h2>
+                                    <span v-if="!heading_center" v-html-safe="title" />
+                                    <h2 v-if="!heading_center" v-html-safe="heading" />
                                     <div v-html-safe="detail" />
                                 </div>
                                 <NuxtLink to="/leadership-team" class="default-btn border-radius-50">View Leaders</NuxtLink>

@@ -22,32 +22,13 @@
                     </p>
                 </div>
                 <viewer :options="{zoom_in: false}" :images="gallery" class="row justify-content-center">
-                    <div v-if="galleryLoading" class="row justify-content-center">
-                        <div  v-for="i in 9" :key="i" class="col-lg-4 col-md-6">
-                            <el-skeleton style="width: 100%" animated>
-                                <template slot="template">
-                                    <el-skeleton-item variant="image" style="width: 100%; height: 240px;" />
-                                    <div style="padding: 14px;">
-                                        <el-skeleton-item variant="p" style="width: 50%" />
-                                        <br/>
-                                        <el-skeleton-item variant="text" style="width: 100%;" />
-                                        <br/>
-                                        <el-skeleton-item variant="text" style="width: 50%;" />
-                                    </div>
-                                </template>
-                            </el-skeleton>
-                        </div>
-                    </div>
+                    <BlogCardLoading v-if="galleryLoading" :count="6" />
                     <div v-if="!galleryLoading && gallery.length>0" v-for="(item, i) in gallery" :key="i" class="col-lg-4 col-md-6">
                         <div class="blog-card">
                             <img :src="item.image" :alt="item.image_alt" :title="item.image_title" style="cursor: pointer;" />
                             <div class="content">
-                                <h3>
-                                    {{ item.title }}
-                                </h3>
-                                <p>
-                                    {{ item.description }}
-                                </p>
+                                <h3 v-html-safe="item.title" />
+                                <p v-html-safe="item.description" />
                             </div>
                         </div>
                     </div>
@@ -61,6 +42,7 @@
 </template>
 
 <script>
+import BlogCardLoading from '~/components/BlogCardLoading.vue';
 import Breadcrumb from '~/components/Breadcrumb.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
@@ -122,6 +104,6 @@ export default {
             this.getGallery(this.$route.query.page ? Number(this.$route.query.page) : 1);
         },
     },
-    components: { Breadcrumb }
+    components: { Breadcrumb, BlogCardLoading }
 }
 </script>

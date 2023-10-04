@@ -16,29 +16,7 @@
                     <span>TESTIMONIAL</span>
                     <h2>What our learers have to say</h2>
                 </div>
-                <div v-if="testimonialLoading" class="row justify-content-center testimonials-slider-two">
-                    <div v-for="i in 9" :key="i" class="col-lg-4 col-md-6 col-sm-12">
-                        <el-skeleton style="width: 100%" animated>
-                            <template slot="template">
-                                <div class="testimonials-card-two">
-                                    <div class="rating">
-                                        <i v-for="i in 5" :key="i" class="ri-star-fill"></i>
-                                    </div>
-                                    <el-skeleton-item variant="text" style="width: 100%;" />
-                                    <br/>
-                                    <el-skeleton-item variant="text" style="width: 100%;" />
-                                    <br/>
-                                    <div class="content px-0">
-                                        <el-skeleton-item variant="circle" style="width: 100px; height: 100px;" />
-                                        <el-skeleton-item variant="p" style="width: 50%" />
-                                        <br/>
-                                    </div>
-                                    <div class="quote"><i class="flaticon-quote"></i></div>
-                                </div>
-                            </template>
-                        </el-skeleton>
-                    </div>
-                </div>
+                <TestimonialCardLoading v-if="testimonialLoading" :count="9" />
                 <div v-if="!testimonialLoading && testimonial.length>0" class="testimonials-slider-two row">
                     <div v-for="(item, i) in testimonial" 
                             :key="i" class="col-lg-4 col-md-6 col-sm-12">
@@ -62,6 +40,7 @@
 <script>
 import Breadcrumb from '~/components/Breadcrumb.vue';
 import TestimonialCard from '~/components/TestimonialCard.vue';
+import TestimonialCardLoading from '~/components/TestimonialCardLoading.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -176,6 +155,6 @@ export default {
             this.getTestimonial(this.$route.query.page ? Number(this.$route.query.page) : 1);
         },
     },
-    components: { TestimonialCard, Breadcrumb }
+    components: { TestimonialCard, Breadcrumb, TestimonialCardLoading }
 }
 </script>

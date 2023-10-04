@@ -13,26 +13,14 @@
                 </div>
             </div>
             <div class="row">
-                <div v-if="loading" v-for="i in 6" :key="i" class="col-lg-4 col-md-6 col-sm-12">
-                    <el-skeleton style="width: 100%" animated>
-                        <template slot="template">
-                            <div class="counter-card box-shadow px-1">
-                                <el-skeleton-item variant="rect" style="width: 100px; height: 100px;" />
-                                <el-skeleton-item variant="p" style="width: 50%" />
-                                <br/>
-                                <el-skeleton-item variant="p" style="width: 100%" />
-                                <br/>
-                            </div>
-                        </template>
-                    </el-skeleton>
-                </div>
+                <FeatureCardLoading v-if="loading" :count="6" />
                 <div v-if="!loading && feature.length>0" v-for="(item, i) in feature" :key="i" class="col-lg-4 col-6">
                     <div class="featured-item-two">
                         <div class="feature-icon-holder">
-                            <img :src="item.image">
-                            <h3>{{ item.title }}</h3>
+                            <img :src="item.image" :alt="item.title" :title="item.title">
+                            <h3 v-html-safe="item.title" />
                         </div>
-                        <p>{{ item.description }}</p>
+                        <p v-html-safe="item.description" />
                     </div>
                 </div>
             </div>
@@ -41,6 +29,8 @@
 </template>
 
 <script>
+import FeatureCardLoading from './FeatureCardLoading.vue';
+
 export default {
     name: 'WhatWeDoCardComponent',
     props: {
@@ -57,5 +47,6 @@ export default {
             default: [],
         },
     },
+    components: { FeatureCardLoading }
 }
 </script>

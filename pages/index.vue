@@ -1,35 +1,7 @@
 <template>
     <div>
         <div class="hero-slider-area">
-            <div v-if="bannerLoading" class="row justify-content-center hero-slider">
-                <div v-for="i in 1" :key="i" class="col-lg-12 col-md-12 col-sm-12">
-                    <el-skeleton style="width: 100%" animated>
-                        <template slot="template">
-                            <div class="container-fluid">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-6">
-                                        <div class="hero-content">
-                                            <el-skeleton-item variant="p" style="width: 30%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="h1" style="width: 50%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="hero-img">
-                                            <el-skeleton-item variant="image" style="width: 100%; height: 400px;" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </template>
-                    </el-skeleton>
-                </div>
-            </div>
+            <BannerCardLoading v-if="bannerLoading" />
             <div v-if="!bannerLoading && banner.length>0" class="hero-slider owl-carousel owl-theme">
                 <VueSlickCarousel v-bind="slickBannerOptions" ref="slickBanner">
                     <div v-for="(item, i) in banner" :key="i" class="hero-item">
@@ -37,11 +9,11 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="hero-content">
-                                        <span class="top-title">{{ item.title }}</span>
-                                        <h1>{{ item.heading }}</h1>
-                                        <p>{{ item.description }}</p>
+                                        <span class="top-title" v-html-safe="item.title" />
+                                        <h1 v-html-safe="item.heading" />
+                                        <p v-html-safe="item.description" />
                                         <div class="banner-btn">
-                                            <a :href="item.button_link" target="_blank" class="default-btn border-radius-50">{{ item.button_text }}</a>
+                                            <a :href="item.button_link" target="_blank" class="default-btn border-radius-50" v-html-safe="item.button_text" />
                                         </div>
                                     </div>
                                 </div>
@@ -54,19 +26,19 @@
                                         </div>
                                         <div class="top-content">
                                             <div class="hero-img-content">
-                                                <img :src="item.counter_image_1" />
+                                                <img :src="item.counter_image_1" :alt="item.counter_title_1" :title="item.counter_title_1" />
                                                 <div class="content">
-                                                    <h3>{{ item.counter_title_1 }}</h3>
-                                                    <p>{{ item.counter_description_1 }}</p>
+                                                    <h3 v-html-safe="item.counter_title_1" />
+                                                    <p v-html-safe="item.counter_description_1" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="right-content">
                                             <div class="hero-img-content">
-                                                <img :src="item.counter_image_2" />
+                                                <img :src="item.counter_image_2" :alt="item.counter_title_2" :title="item.counter_title_2" />
                                                 <div class="content">
-                                                    <h3>{{ item.counter_title_2 }}</h3>
-                                                    <p>{{ item.counter_description_2 }}</p>
+                                                    <h3 v-html-safe="item.counter_title_2" />
+                                                    <p v-html-safe="item.counter_description_2" />
                                                 </div>
                                             </div>
                                         </div>
@@ -88,32 +60,18 @@
         </div>
 
         <div class="featured-area featured-area-mt pb-70">
-          <div class="container">
-            <div class="row justify-content-center">
-                <div v-if="commonFeatureLoading" v-for="i in 3" :key="i" class="col-lg-4 col-md-6 col-sm-12">
-                    <el-skeleton style="width: 100%" animated>
-                        <template slot="template">
-                            <div class="counter-card box-shadow px-1">
-                                <el-skeleton-item variant="circle" style="width: 50px; height: 50px;" />
-                                <el-skeleton-item variant="p" style="width: 50%" />
-                                <br/>
-                                <el-skeleton-item variant="p" style="width: 100%" />
-                                <br/>
-                            </div>
-                        </template>
-                    </el-skeleton>
-                </div>
-                <div v-if="!commonFeatureLoading && commonFeature.length>0" v-for="(item, i) in commonFeature" :key="i" class="col-lg-4 col-6">
-                    <div class="featured-item">
-                    <img :src="item.image" class="featured-img">
-                    <h3>{{ item.title }}</h3>
-                    <p>
-                        {{ item.description }}
-                    </p>
+            <div class="container">
+                <FeatureCardLoading v-if="commonFeatureLoading" :count="3" />
+                <div class="row justify-content-center">
+                    <div v-if="!commonFeatureLoading && commonFeature.length>0" v-for="(item, i) in commonFeature" :key="i" class="col-lg-4 col-6">
+                        <div class="featured-item">
+                            <img :src="item.image" class="featured-img" :alt="item.title" :title="item.title">
+                            <h3 v-html-safe="item.title" />
+                            <p v-html-safe="item.description" />
+                        </div>
                     </div>
                 </div>
             </div>
-          </div>
         </div>
 
         <WhoWeAreCard 
@@ -140,15 +98,7 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="courseLoading" class="row justify-content-center">
-                    <div  v-for="i in 3" :key="i" class="col-lg-4 col-md-6">
-                        <el-skeleton style="width: 100%" animated>
-                            <template slot="template">
-                                <el-skeleton-item variant="rect" style="width: 100%; height: 340px;" />
-                            </template>
-                        </el-skeleton>
-                    </div>
-                </div>
+                <CourseCardLoading v-if="courseLoading" :count="3" />
                 <div v-if="!courseLoading && course.length>0" class="course-slider-two owl-carousel owl-theme">
                     <VueSlickCarousel v-bind="slickCourseOptions" ref="slickCourse">
                         <CourseCard 
@@ -215,29 +165,7 @@
                         <NuxtLink to="/testimonial" class="default-btn border-radius-50">View all Testimonial</NuxtLink>
                     </div>
                 </div>
-                <div v-if="testimonialLoading" class="row justify-content-center testimonials-slider-two">
-                    <div v-for="i in 3" :key="i" class="col-lg-4 col-md-6 col-sm-12">
-                        <el-skeleton style="width: 100%" animated>
-                            <template slot="template">
-                                <div class="testimonials-card-two">
-                                    <div class="rating">
-                                        <i v-for="i in 5" :key="i" class="ri-star-fill"></i>
-                                    </div>
-                                    <el-skeleton-item variant="text" style="width: 100%;" />
-                                    <br/>
-                                    <el-skeleton-item variant="text" style="width: 100%;" />
-                                    <br/>
-                                    <div class="content px-0">
-                                        <el-skeleton-item variant="circle" style="width: 100px; height: 100px;" />
-                                        <el-skeleton-item variant="p" style="width: 50%" />
-                                        <br/>
-                                    </div>
-                                    <div class="quote"><i class="flaticon-quote"></i></div>
-                                </div>
-                            </template>
-                        </el-skeleton>
-                    </div>
-                </div>
+                <TestimonialCardLoading v-if="testimonialLoading" :count="3" />
                 <div v-if="!testimonialLoading && testimonial.length>0" class="testimonials-slider-two owl-carousel owl-theme">
                     <VueSlickCarousel v-bind="slickTestimonialOptions" ref="slickTestimonial">
                         <TestimonialCard 
@@ -266,29 +194,7 @@
                         <NuxtLink to="/events" class="default-btn border-radius-50">View all Events</NuxtLink>
                     </div>
                 </div>
-                <div v-if="eventLoading" class="row justify-content-center">
-                    <div v-for="i in 2" :key="i" class="col-lg-6 col-md-6">
-                        <el-skeleton style="width: 100%" animated>
-                            <template slot="template">
-                                <div class="event-item">
-                                    <div class="event-img" style="width: 40%;">
-                                        <el-skeleton-item variant="image" style="width: 100%; height: 140px;" />
-                                    </div>
-                                    <div class="event-content" style="width: 60%;">
-                                        <el-skeleton-item variant="p" style="width: 100%" />
-                                        <br/>
-                                        <el-skeleton-item variant="text" style="width: 100%;" />
-                                        <br/>
-                                        <el-skeleton-item variant="text" style="width: 100%;" />
-                                        <br/>
-                                        <el-skeleton-item variant="text" style="width: 100%;" />
-                                        <br/>
-                                    </div>
-                                </div>
-                            </template>
-                        </el-skeleton>
-                    </div>
-                </div>
+                <EventCardLoading v-if="eventLoading" :count="2" />
                 <div v-if="!eventLoading && event.length>0" class="event-slider owl-carousel owl-theme">
                     <VueSlickCarousel v-bind="slickEventOptions" ref="slickEvent">
                         <EventCard v-for="(item, i) in event" :key="i" :image="item.image" :title="item.name" :description="item.short_description" :date="item.event_date_on" :slug="item.slug" />
@@ -310,22 +216,7 @@
                         <NuxtLink to="/knowledge-desk" class="default-btn border-radius-50">View all Blogs</NuxtLink>
                     </div>
                 </div>
-                <div v-if="blogLoading" class="row justify-content-center">
-                    <div  v-for="i in 3" :key="i" class="col-lg-4 col-md-6">
-                        <el-skeleton style="width: 100%" animated>
-                            <template slot="template">
-                                <el-skeleton-item variant="image" style="width: 100%; height: 240px;" />
-                                <div style="padding: 14px;">
-                                    <el-skeleton-item variant="p" style="width: 50%" />
-                                    <br/>
-                                    <el-skeleton-item variant="text" style="width: 100%;" />
-                                    <br/>
-                                    <el-skeleton-item variant="text" style="width: 50%;" />
-                                </div>
-                            </template>
-                        </el-skeleton>
-                    </div>
-                </div>
+                <BlogCardLoading v-if="blogLoading" :count="3" />
                 <div v-if="!blogLoading && blog.length>0" class="row justify-content-center">
                     <VueSlickCarousel v-bind="slickCourseOptions" ref="slickBlog">
                         <div v-for="(item, i) in blog" :key="i" class="col-lg-12 col-md-12">
@@ -341,10 +232,16 @@
 </template>
 
 <script>
+import BannerCardLoading from '~/components/BannerCardLoading.vue';
 import BlogCard from '~/components/BlogCard.vue';
+import BlogCardLoading from '~/components/BlogCardLoading.vue';
 import CourseCard from '~/components/CourseCard.vue';
+import CourseCardLoading from '~/components/CourseCardLoading.vue';
 import EventCard from '~/components/EventCard.vue';
+import EventCardLoading from '~/components/EventCardLoading.vue';
+import FeatureCardLoading from '~/components/FeatureCardLoading.vue';
 import TestimonialCard from '~/components/TestimonialCard.vue';
+import TestimonialCardLoading from '~/components/TestimonialCardLoading.vue';
 import WhatWeDoCard from '~/components/WhatWeDoCard.vue';
 import WhoWeAreCard from '~/components/WhoWeAreCard.vue';
 import { API_ROUTES } from '~/helper/api_routes';
@@ -751,6 +648,6 @@ export default {
             }
         },
     },
-    components: { BlogCard, CourseCard, TestimonialCard, EventCard, WhoWeAreCard, WhatWeDoCard }
+    components: { BlogCard, CourseCard, TestimonialCard, EventCard, WhoWeAreCard, WhatWeDoCard, BannerCardLoading, FeatureCardLoading, CourseCardLoading, TestimonialCardLoading, EventCardLoading, BlogCardLoading }
 }
 </script>

@@ -13,10 +13,8 @@
         <div class="blog-area pt-70 pb-70">
             <div class="container">
                 <div v-if="!achieverCategoryLoading" class="section-title mb-45 text-center">
-                    <h2>{{ achieverCategory?.heading }}</h2>
-                    <p>
-                        {{ achieverCategory?.description }}
-                    </p>
+                    <h2 v-html-safe="achieverCategory?.heading" />
+                    <p v-html-safe="achieverCategory?.description" />
                 </div>
                 <div v-if="achieverCategoryLoading" class="section-title mb-45 text-center">
                     <el-skeleton style="width: 100%" animated>
@@ -29,35 +27,10 @@
                         </template>
                     </el-skeleton>
                 </div>
-                <div class="row justify-content-center">
-                    <div  v-if="achieverStudentLoading" v-for="i in 8" :key="i" class="col-lg-3 col-md-6">
-                        <el-skeleton style="width: 100%" animated>
-                            <template slot="template">
-                                <div class="achiever-detail">
-                                    <div class="achiever-detail-container pb-0 text-center">
-                                        <el-skeleton-item variant="image" style="width: 50%; height: 150px; margin: auto;" />
-                                        <br/>
-                                        <el-skeleton-item variant="p" style="width: 100%" />
-                                        <br/>
-                                        <el-skeleton-item variant="p" style="width: 100%" />
-                                    </div>
-                                </div>
-                            </template>
-                        </el-skeleton>
-                    </div>
-                    <div v-if="!achieverStudentLoading && achieverStudent.length>0" v-for="(item, i) in achieverStudent" :key="i" class="col-lg-3 col-md-6">
-                        <div class="achiever-detail">
-                            <div class="achiever-detail-container pb-0">
-                                <img :src="item.image"
-                                :alt="item.image_alt" :title="item.image_title"
-                                class="img-responsive">
-                                <h5>{{ item.name }}</h5>
-                            </div>
-                            <h3> {{ item.rank }}</h3>
-                            <div class="achiever-detail-container pt-0">
-                                <p>{{ item.college }} </p>
-                            </div>
-                        </div>
+                <AchieverStudentLoading v-if="achieverStudentLoading" :count="8" />
+                <div v-if="!achieverStudentLoading && achieverStudent.length>0" class="row justify-content-center">
+                    <div v-for="(item, i) in achieverStudent" :key="i" class="col-lg-3 col-md-6">
+                        <AchieverStudentCard :image="item.image" :image_alt="item.image_alt" :image_title="item.image_title" :name="item.name" :rank="item.rank" :college="item.college" />
                     </div>
                     <div v-if="!achieverStudentLoading && achieverStudent.length>0" class="col-12 text-center">
                         <pagination v-model="achieverStudentCurrentPage" :records="achieverStudentCount" :per-page="achieverStudentPerPage"  :options="{edgeNavigation:false}" @paginate="handleAchieverStudentPaginationChnage"/>
@@ -71,6 +44,8 @@
 </template>
 
 <script>
+import AchieverStudentCard from '~/components/AchieverStudentCard.vue';
+import AchieverStudentLoading from '~/components/AchieverStudentLoading.vue';
 import Breadcrumb from '~/components/Breadcrumb.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
@@ -148,55 +123,6 @@ export default {
             this.getAchieverStudent(this.$route.query.page ? Number(this.$route.query.page) : 1);
         },
     },
-    components: { Breadcrumb }
+    components: { Breadcrumb, AchieverStudentLoading, AchieverStudentCard }
 }
 </script>
-
-<style scoped>
-.achiever-detail {
-    background-color: #f9f9f9;
-    text-align: center;
-    margin-bottom: 30px;
-    clip-path: polygon(50% 0,100% 0,100% 99%,50% 85%,0 100%,0 0);
-    min-height: 375px;
-    height: 375px;
-}
-
-.achiever-detail-container{
-    padding: 15px 30px;
-}
-.achiever-detail img {
-    width: 55%;
-    border: 2px solid #D7C167;
-}
-.achiever-detail h5 {
-    font-weight: 700;
-    font-size: 17px;
-    padding: 10px 0;
-    margin: 0;
-}
-.achiever-detail h3 {
-    font-size: 15px;
-    color: #fff;
-    background: #304557;
-    padding: 10px;
-    font-weight: 700;
-    text-align: center;
-}
-.tab-filter p {
-    font-size: 14px;
-    text-align: center;
-    padding: 0 10%;
-    font-weight: 620;
-}
-.achiever-detail p {
-    font-weight: 700;
-}
-
-@media only screen and (max-width:767px) {
-    .achiever-detail {
-        min-height: 445px;
-        height: 445px;
-    }
-}
-</style>

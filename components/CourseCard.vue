@@ -3,12 +3,10 @@
         <img :src="image" :alt="image_alt" :title="image_title" />
         <div class="content">
             <div class="bottom-content align-items-center">
-                <a href="javascript:void(0)" class="tag-btn">{{ className }}</a>
+                <p class="tag-btn" v-html-safe="className" />
             </div>
-            <h3>
-                {{ title }}
-            </h3>
-            <p>{{ description }}</p>
+            <h3 v-html-safe="title" />
+            <p v-html-safe="description" />
             <hr>
             <div class="bottom-content align-items-center">
                 <el-dropdown>
@@ -16,9 +14,7 @@
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item v-for="(item, i) in branches" 
                             :key="i">
-                            <NuxtLink :to="`/${item.slug}/courses/${slug}`" class="text-dark">
-                                {{ item.name }}
-                            </NuxtLink>
+                            <NuxtLink :to="`/${item.slug}/courses/${slug}`" class="text-dark" v-html-safe="item.name" />
                         </el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
@@ -27,9 +23,7 @@
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item v-for="(item, i) in branches" 
                             :key="i">
-                            <NuxtLink :to="`/${item.slug}/courses/${slug}`" class="text-dark">
-                                {{ item.name }}
-                            </NuxtLink>
+                            <NuxtLink :to="`/${item.slug}/courses/${slug}`" class="text-dark" v-html-safe="item.name" />
                         </el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>

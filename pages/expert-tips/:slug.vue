@@ -24,10 +24,10 @@
                                     <li><i class="ri-calendar-todo-fill"></i> {{ expertTip?.published }}</li>
                                     <li>
                                         <i class="ri-user-fill"></i>
-                                        <NuxtLink to="/leadership-team">{{ expertTip?.author_name }}</NuxtLink>
+                                        <NuxtLink to="/leadership-team" v-html-safe="expertTip?.author_name" />
                                     </li>
                                 </ul>
-                                <h1>{{ expertTip?.heading }}</h1>
+                                <h1 v-html-safe="expertTip?.heading" />
                                 <div v-html-safe="expertTip?.description" />
                                 <div class="article-share">
                                     <div class="row align-items-center justify-content-between">
@@ -71,31 +71,7 @@
                                 </div>
                             </template>
                             <template v-else>
-                                <el-skeleton style="width: 100%" animated>
-                                    <template slot="template">
-                                        <div style="padding: 14px;">
-                                            <el-skeleton-item variant="p" style="width: 50%" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 50%;" />
-                                        </div>
-                                    </template>
-                                </el-skeleton>
+                                <PageDetailLoading :image="false" />
                             </template>
                         </div>
                     </div>
@@ -107,6 +83,7 @@
 
 <script>
 import Breadcrumb from '~/components/Breadcrumb.vue';
+import PageDetailLoading from '~/components/PageDetailLoading.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -183,6 +160,6 @@ export default {
             }
         },
     },
-    components: { Breadcrumb }
+    components: { Breadcrumb, PageDetailLoading }
 }
 </script>

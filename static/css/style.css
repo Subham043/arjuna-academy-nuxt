@@ -3026,7 +3026,7 @@ img {
 .courses-item img {
   width: 100%;
   height: 215px;
-  object-fit: contain;
+  object-fit: cover;
 }
 .courses-item a {
   display: block;

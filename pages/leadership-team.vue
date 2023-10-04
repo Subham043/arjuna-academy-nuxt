@@ -104,14 +104,14 @@
                             <div class="instructors-details-img faq-img">
                                 <img :src="item.image" :alt="item.image_alt" :title="item.image_title" />
                                 <div class="shape">
-                                    <h2><span class="badge bg-warning">{{ item.designation }}</span></h2>
+                                    <h2><span class="badge bg-warning" v-html-safe="item.designation" /></h2>
                                 </div>
                             </div>
                         </div>
                         <div  class="col-lg-7">
                             <div class="instructors-details-content pl-20">
-                                <h2>{{ item.name }}</h2>
-                                <i class="d-inline-flex mb-3 fw-semibold text-success-emphasis bg-success-subtle ">{{ item.qualification }}</i>
+                                <h2 v-html-safe="item.name" />
+                                <i class="d-inline-flex mb-3 fw-semibold text-success-emphasis bg-success-subtle " v-html-safe="item.qualification" />
                                 <div v-html-safe="item.description" />
                             </div>
                         </div>
@@ -122,8 +122,8 @@
     
                         <div class="col-lg-7">
                             <div class="instructors-details-content pl-20">
-                                <h2>{{ item.name }}</h2>
-                                <i class="d-inline-flex mb-3 fw-semibold text-success-emphasis bg-success-subtle ">{{ item.qualification }}</i>
+                                <h2 v-html-safe="item.name" />
+                                <i class="d-inline-flex mb-3 fw-semibold text-success-emphasis bg-success-subtle " v-html-safe="item.qualification" />
                                 <div v-html-safe="item.description" />
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                             <div class="instructors-details-img faq-img">
                                 <img :src="item.image" :alt="item.image_alt" :title="item.image_title" />
                                 <div class="shape">
-                                    <h2><span class="badge bg-warning">{{ item.designation }}</span></h2>
+                                    <h2><span class="badge bg-warning" v-html-safe="item.designation" /></h2>
                                 </div>
                             </div>
                         </div>
@@ -162,16 +162,7 @@
                 </div>
                 <div v-if="!staffLoading && staff.length>0" class="row justify-content-center">
                     <div v-for="(item, i) in staff" :key="i" class="col-lg-3 col-md-4">
-                        <div class="instructors-card">
-                            <img :src="item.image" :alt="item.alt" :title="item.title" />
-                            <div class="content">
-                                <h3>{{ item.name }}</h3>
-                                <span>{{ item.designation }}</span>
-                            </div>
-                            <div class="instructor-detail">
-                                <p v-html-safe="item.description" />
-                            </div>
-                        </div>
+                        <InstructorCard :image="item.image" :image_alt="item.image_alt" :image_title="item.image_title" :name="item.name" :designation="item.designation" :description="item.description" />
                     </div>
                     <div class="col-12 text-center">
                         <pagination v-model="staffCurrentPage" :records="staffCount" :per-page="staffPerPage"  :options="{edgeNavigation:false}" @paginate="handlePaginationChnage"/>
@@ -184,6 +175,7 @@
 
 <script>
 import Breadcrumb from '~/components/Breadcrumb.vue';
+import InstructorCard from '~/components/InstructorCard.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -317,6 +309,6 @@ export default {
             this.getStaff(this.$route.query.page ? Number(this.$route.query.page) : 1);
         }
     },
-    components: { Breadcrumb }
+    components: { Breadcrumb, InstructorCard }
 }
 </script>

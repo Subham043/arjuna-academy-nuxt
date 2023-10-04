@@ -6,17 +6,12 @@
         <div class="content">
             <ul>
                 <li class="one-line-text"><i class="ri-calendar-todo-fill"></i> {{ date }}</li>
-                <li class="one-line-text">
-                    <i class="ri-user-fill"></i>
-                    <NuxtLink :to="`/leadership-team`">{{ author }}</NuxtLink>
-                </li>
+                <li class="one-line-text"><i class="ri-user-fill"></i> {{ author }}</li>
             </ul>
             <h3>
-                <NuxtLink :to="`/knowledge-desk/${slug}`">{{ title }}</NuxtLink>
+                <NuxtLink :to="`/knowledge-desk/${slug}`" v-html-safe="title" />
             </h3>
-            <p>
-                {{ description }}
-            </p>
+            <p v-html-safe="description" />
             <NuxtLink :to="`/knowledge-desk/${slug}`" class="read-btn">Read More</NuxtLink>
         </div>
     </div>

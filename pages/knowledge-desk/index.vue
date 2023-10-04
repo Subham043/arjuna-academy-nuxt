@@ -19,22 +19,7 @@
                     </p>
                 </div>
                 <div class="row justify-content-center">
-                    <div v-if="blogLoading" class="row justify-content-center">
-                        <div  v-for="i in 9" :key="i" class="col-lg-4 col-md-6">
-                            <el-skeleton style="width: 100%" animated>
-                                <template slot="template">
-                                    <el-skeleton-item variant="image" style="width: 100%; height: 240px;" />
-                                    <div style="padding: 14px;">
-                                        <el-skeleton-item variant="p" style="width: 50%" />
-                                        <br/>
-                                        <el-skeleton-item variant="text" style="width: 100%;" />
-                                        <br/>
-                                        <el-skeleton-item variant="text" style="width: 50%;" />
-                                    </div>
-                                </template>
-                            </el-skeleton>
-                        </div>
-                    </div>
+                    <BlogCardLoading v-if="blogLoading" :count="9" />
                     <div v-if="!blogLoading && blog.length>0" v-for="(item, i) in blog" :key="i" class="col-lg-4 col-md-6">
                         <BlogCard :image="item.image" :title="item.name" :description="item.short_description" :date="item.published" :slug="item.slug" :author="item.author_name" />
                     </div>
@@ -49,6 +34,7 @@
 
 <script>
 import BlogCard from '~/components/BlogCard.vue';
+import BlogCardLoading from '~/components/BlogCardLoading.vue';
 import Breadcrumb from '~/components/Breadcrumb.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
@@ -163,6 +149,6 @@ export default {
             this.getBlog(this.$route.query.page ? Number(this.$route.query.page) : 1);
         },
     },
-    components: { BlogCard, Breadcrumb }
+    components: { BlogCard, Breadcrumb, BlogCardLoading }
 }
 </script>

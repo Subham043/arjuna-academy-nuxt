@@ -60,8 +60,8 @@
                             <div class="row align-item-center">
                                 <img :src="item.image" :alt="item.image_alt" :title="item.image_title" style="height: 80px; object-fit: contain; width: auto !important;">
                                 <div class="col-auto">
-                                    <h3><span class="odometer">{{ item.counter }}</span>+</h3>
-                                    <p>{{ item.title }}</p>
+                                    <h3><span class="odometer" >{{ item.counter }}</span>+</h3>
+                                    <p v-html-safe="item.title" />
                                 </div>
                             </div>
                         </div>
