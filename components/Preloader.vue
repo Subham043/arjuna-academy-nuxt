@@ -1,7 +1,7 @@
 <template>
     <div v-if="show" id="preloader-main" class="preloader-main">
         <div class="w-100 text-center mt-3">
-            <img src="/images/logos/new-logo.png" id="logo-one" class="logo-loader" alt="Logo" />
+            <img src="/images/logos/new-logo.png" id="logo-one" class="logo-loader" alt="Logo" data-not-lazy/>
             <div class="loadingio-spinner-double-ring-i5dvv3lz8da">
                 <div class="ldio-9qwgbpz47o">
                     <div></div>

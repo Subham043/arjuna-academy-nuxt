@@ -18,7 +18,7 @@
                         <div class="blog-details-content pr-20">
                             <template v-if="!blogLoading">
                                 <div class="blog-preview-img">
-                                    <img :src="blog?.image" :alt="blog?.image_alt" :title="blog?.image_title" />
+                                    <img v-lazy-load :data-src="blog?.image" :alt="blog?.image_alt" :title="blog?.image_title" />
                                 </div>
                                 <ul class="tag-list">
                                     <li><i class="ri-calendar-todo-fill"></i> {{ blog?.published }}</li>
@@ -88,8 +88,8 @@
                                                                 <div v-for="(item, i) in blogComment" :key="i" class="review-comments">
                                                                     <div class="review-item">
                                                                         <div class="content">
-                                                                            <img src="/images/avatar.webp"
-                                                                                alt="Images" />
+                                                                            <img data-src="/images/avatar.webp"
+                                                                                alt="Images" v-lazy-load/>
                                                                             <div class="content-dtls">
                                                                                 <h4 v-html-safe="item.name" />
                                                                                 <span v-html-safe="item.comment_on" />

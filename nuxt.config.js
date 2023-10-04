@@ -61,6 +61,7 @@ export default {
     '@nuxtjs/sitemap',
     '@nuxtjs/gtm',
     'nuxt-robots-module',
+    'nuxt-lazy-load',
     ["vue-toastification/nuxt", {
       timeout: 8000,
       position: "bottom-center"
@@ -205,5 +206,24 @@ export default {
       },
     }
   },
+
+  lazyLoad: {
+    // These are the default values
+    images: true,
+    videos: true,
+    audios: true,
+    iframes: true,
+    native: false,
+    directiveOnly: false,
+    
+    // Default image must be in the public folder
+    defaultImage: '/images/default-image.jpg',
+  
+    // To remove class set value to false
+    loadingClass: 'isLoading',
+    loadedClass: 'isLoaded',
+    appendClass: 'lazyLoad',
+    
+  }
 
 }

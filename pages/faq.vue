@@ -15,9 +15,9 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="faq-img">
-                            <img src="/images/faq-img.jpg" alt="faq" title="faq" />
+                            <img data-src="/images/faq-img.jpg" alt="faq" title="faq" v-lazy-load/>
                             <div class="shape">
-                                <img src="/images/faq-shape.png" alt="Faq" title="Faq" />
+                                <img data-src="/images/faq-shape.png" alt="Faq" title="Faq" v-lazy-load/>
                             </div>
                         </div>
                     </div>

@@ -22,7 +22,7 @@
                 <div class="row justify-content-center">
                     <EventCardLoading v-if="eventLoading" :count="8" />
                     <div v-if="!eventLoading && event.length>0" v-for="(item, i) in event" :key="i" class="col-lg-6 col-md-6">
-                        <EventCard :image="item.image" :title="item.name" :description="item.short_description" :date="item.event_date_on" :slug="item.slug" />
+                        <EventCard :image="item.image" :title="item.name" :description="item.short_description" :date="item.event_date_on"  :image_alt="item.image_alt" :image_title="item.image_title" :slug="item.slug" />
                     </div>
                     <div v-if="!eventLoading && event.length>0" class="col-12 text-center">
                         <pagination v-model="eventCurrentPage" :records="eventCount" :per-page="eventPerPage"  :options="{edgeNavigation:false}" @paginate="handlePaginationChnage"/>

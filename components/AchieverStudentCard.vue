@@ -1,9 +1,9 @@
 <template>
     <div class="achiever-detail">
         <div class="achiever-detail-container pb-0">
-            <img :src="image"
+            <img :data-src="image"
             :alt="image_alt" :title="image_title"
-            class="img-responsive">
+            class="img-responsive" v-lazy-load>
             <h5 v-html-safe="name" />
         </div>
         <h3 v-html-safe="rank" />

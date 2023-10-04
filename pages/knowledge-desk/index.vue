@@ -21,7 +21,7 @@
                 <div class="row justify-content-center">
                     <BlogCardLoading v-if="blogLoading" :count="9" />
                     <div v-if="!blogLoading && blog.length>0" v-for="(item, i) in blog" :key="i" class="col-lg-4 col-md-6">
-                        <BlogCard :image="item.image" :title="item.name" :description="item.short_description" :date="item.published" :slug="item.slug" :author="item.author_name" />
+                        <BlogCard :image="item.image" :title="item.name" :description="item.short_description" :date="item.published" :slug="item.slug" :author="item.author_name"  :image_alt="item.image_alt" :image_title="item.image_title" />
                     </div>
                     <div v-if="!blogLoading && blog.length>0" class="col-12 text-center">
                         <pagination v-model="blogCurrentPage" :records="blogCount" :per-page="blogPerPage"  :options="{edgeNavigation:false}" @paginate="handlePaginationChnage"/>

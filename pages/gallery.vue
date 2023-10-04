@@ -25,7 +25,7 @@
                     <BlogCardLoading v-if="galleryLoading" :count="6" />
                     <div v-if="!galleryLoading && gallery.length>0" v-for="(item, i) in gallery" :key="i" class="col-lg-4 col-md-6">
                         <div class="blog-card">
-                            <img :src="item.image" :alt="item.image_alt" :title="item.image_title" style="cursor: pointer;" />
+                            <img :data-src="item.image" v-lazy-load :alt="item.image_alt" :title="item.image_title" style="cursor: pointer;" />
                             <div class="content">
                                 <h3 v-html-safe="item.title" />
                                 <p v-html-safe="item.description" />

@@ -19,14 +19,14 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="hero-img">
-                                        <img :src="item.banner_image" class="hero" :alt="item.banner_image_alt" :title="item.banner_image_title" />
+                                        <img :src="item.banner_image" class="hero" :alt="item.banner_image_alt" :title="item.banner_image_title" data-not-lazy/>
                                         <div class="hero-bg-shape">
-                                            <img src="/images/home-three/bg-shape1.png" class="bg-img-shape1" alt="Hero" />
-                                            <img src="/images/home-three/bg-shape2.png" class="bg-img-shape2" alt="Hero" />
+                                            <img data-src="/images/home-three/bg-shape1.png" class="bg-img-shape1" alt="Hero" v-lazy-load/>
+                                            <img data-src="/images/home-three/bg-shape2.png" class="bg-img-shape2" alt="Hero" v-lazy-load/>
                                         </div>
                                         <div class="top-content">
                                             <div class="hero-img-content">
-                                                <img :src="item.counter_image_1" :alt="item.counter_title_1" :title="item.counter_title_1" />
+                                                <img :data-src="item.counter_image_1" :alt="item.counter_title_1" :title="item.counter_title_1" v-lazy-load/>
                                                 <div class="content">
                                                     <h3 v-html-safe="item.counter_title_1" />
                                                     <p v-html-safe="item.counter_description_1" />
@@ -35,7 +35,7 @@
                                         </div>
                                         <div class="right-content">
                                             <div class="hero-img-content">
-                                                <img :src="item.counter_image_2" :alt="item.counter_title_2" :title="item.counter_title_2" />
+                                                <img :data-src="item.counter_image_2" :alt="item.counter_title_2" :title="item.counter_title_2" v-lazy-load/>
                                                 <div class="content">
                                                     <h3 v-html-safe="item.counter_title_2" />
                                                     <p v-html-safe="item.counter_description_2" />
@@ -51,10 +51,10 @@
             </div>
             <div class="hero-shape">
                 <div class="shape1">
-                    <img src="/images/home-three/shape.png" alt="Shape" />
+                    <img data-src="/images/home-three/shape.png" alt="Shape" v-lazy-load/>
                 </div>
                 <div class="shape2">
-                    <img src="/images/home-three/shape2.png" alt="Shape" />
+                    <img data-src="/images/home-three/shape2.png" alt="Shape" v-lazy-load/>
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
                 <div class="row justify-content-center">
                     <div v-if="!commonFeatureLoading && commonFeature.length>0" v-for="(item, i) in commonFeature" :key="i" class="col-lg-4 col-6">
                         <div class="featured-item">
-                            <img :src="item.image" class="featured-img" :alt="item.title" :title="item.title">
+                            <img :data-src="item.image" class="featured-img" :alt="item.title" :title="item.title" v-lazy-load>
                             <h3 v-html-safe="item.title" />
                             <p v-html-safe="item.description" />
                         </div>

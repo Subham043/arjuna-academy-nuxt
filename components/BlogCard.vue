@@ -1,7 +1,7 @@
 <template>
     <div class="blog-card">
         <NuxtLink :to="`/knowledge-desk/${slug}`">
-            <img :src="image" alt="Blog" />
+            <img :data-src="image"  :alt="image_alt" :title="image_title" v-lazy-load/>
         </NuxtLink>
         <div class="content">
             <ul>
@@ -42,6 +42,14 @@ export default {
             default: '',
         },
         slug: {
+            type: String,
+            default: '',
+        },
+        image_alt: {
+            type: String,
+            default: '',
+        },
+        image_title: {
             type: String,
             default: '',
         },

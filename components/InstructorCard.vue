@@ -1,6 +1,6 @@
 <template>
     <div class="instructors-card">
-        <img :src="image" :alt="image_alt" :title="image_title" />
+        <img :data-src="image" :alt="image_alt" :title="image_title" v-lazy-load/>
         <div class="content">
             <h3 v-html-safe="name" />
             <span v-html-safe="designation" />

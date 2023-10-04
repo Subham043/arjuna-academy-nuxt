@@ -8,7 +8,7 @@
             “<span v-html-safe="message" />”
         </p>
         <div class="content">
-            <img :src="image" :alt="name" :title="name" />
+            <img :data-src="image" :alt="name" :title="name" v-lazy-load/>
             <h3 v-html-safe="name" />
             <span v-html-safe="designation" />
         </div>

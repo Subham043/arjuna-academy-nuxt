@@ -2,7 +2,7 @@
     <div class="event-item">
         <div v-if="image!==''" class="event-img">
             <NuxtLink :to="is_event ? `/events/${slug}` :  `/expert-tips/${slug}`">
-                <img :src="image" :alt="title" :title="title" />
+                <img :data-src="image" :alt="image_alt" :title="image_title" v-lazy-load/>
             </NuxtLink>
         </div>
         <div class="event-content">
@@ -43,6 +43,14 @@ export default {
             default: '',
         },
         date: {
+            type: String,
+            default: '',
+        },
+        image_title: {
+            type: String,
+            default: '',
+        },
+        image_alt: {
             type: String,
             default: '',
         },

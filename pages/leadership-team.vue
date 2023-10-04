@@ -102,7 +102,7 @@
                     <div class="row">
                         <div class="col-lg-5">
                             <div class="instructors-details-img faq-img">
-                                <img :src="item.image" :alt="item.image_alt" :title="item.image_title" />
+                                <img :data-src="item.image" v-lazy-load :alt="item.image_alt" :title="item.image_title" />
                                 <div class="shape">
                                     <h2><span class="badge bg-warning" v-html-safe="item.designation" /></h2>
                                 </div>
@@ -129,7 +129,7 @@
                         </div>
                         <div class="col-lg-5">
                             <div class="instructors-details-img faq-img">
-                                <img :src="item.image" :alt="item.image_alt" :title="item.image_title" />
+                                <img :data-src="item.image" v-lazy-load :alt="item.image_alt" :title="item.image_title" />
                                 <div class="shape">
                                     <h2><span class="badge bg-warning" v-html-safe="item.designation" /></h2>
                                 </div>

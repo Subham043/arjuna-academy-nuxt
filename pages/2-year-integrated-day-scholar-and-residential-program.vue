@@ -7,10 +7,10 @@
                     <div class="col-lg-12">
                         <div class="blog-details-content">
                             <div class="blog-preview-img">
-                                <img v-if="selected==='Day Scholar'" src="/images/scholar-bg.jpg"
+                                <img v-if="selected==='Day Scholar'" data-src="/images/scholar-bg.jpg" v-lazy-load
                                     alt="2 Year Integrated Day Scholar Program for PU/CBSE Boards, CET, NEET and JEE"
                                     title="2 Year Integrated Day Scholar Program for PU/CBSE Boards, CET, NEET and JEE" />
-                                <img v-else src="/images/residential-bg.jpg"
+                                <img v-else data-src="/images/residential-bg.jpg" v-lazy-load
                                     alt="2 Year Integrated Residential Program for PU/CBSE Boards, CET, JEE and NEET"
                                     title="2 Year Integrated Residential Program for PU/CBSE Boards, CET, JEE and NEET" />
                             </div>

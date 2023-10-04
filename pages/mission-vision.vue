@@ -15,9 +15,9 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4">
                         <div class="faq-img">
-                            <img src="/images/mission-vision.png" alt="faq" />
+                            <img v-lazy-load data-src="/images/mission-vision.png" alt="faq" />
                             <div class="shape">
-                                <img src="/images/faq-shape.png" alt="Faq" />
+                                <img v-lazy-load data-src="/images/faq-shape.png" alt="Faq" />
                             </div>
                         </div>
                     </div>

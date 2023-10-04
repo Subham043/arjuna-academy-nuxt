@@ -38,7 +38,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5">
                         <div class="enrolled-img-two mb-30" data-speed="0.05" data-revert="true">
-                            <img src="/images/parent-say.png" alt="Enrolled">
+                            <img v-lazy-load data-src="/images/parent-say.png" alt="Enrolled">
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -135,7 +135,7 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="enrolled-img-two mb-30" data-speed="0.05" data-revert="true">
-                            <img src="/images/objective-of-vrddhi.jpg" alt="Enrolled">
+                            <img v-lazy-load data-src="/images/objective-of-vrddhi.jpg" alt="Enrolled">
                         </div>
                     </div>
                 </div>
@@ -162,9 +162,9 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="faq-img">
-                            <img src="/images/faq-img.jpg" alt="faq" />
+                            <img v-lazy-load data-src="/images/faq-img.jpg" alt="faq" />
                             <div class="shape">
-                                <img src="/images/faq-shape.png" alt="Faq" />
+                                <img v-lazy-load data-src="/images/faq-shape.png" alt="Faq" />
                             </div>
                         </div>
                     </div>
@@ -251,7 +251,6 @@ export default {
                             `,
                 },
             ],
-            // slickTestimonialOptions: slickTestimonialOptions,
         };
     },
     computed: {

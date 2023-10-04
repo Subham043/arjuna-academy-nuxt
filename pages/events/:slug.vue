@@ -21,7 +21,7 @@
                         <template v-if="!eventLoading">
                             <div class="event-details-content pr-20">
                                 <div class="event-preview-img">
-                                    <img :src="event?.image" :alt="event?.image_alt" :title="event?.image_title" />
+                                    <img v-lazy-load :data-src="event?.image" :alt="event?.image_alt" :title="event?.image_title" />
                                 </div>
                                 <h1 v-html-safe="event?.heading" />
                                 <div v-html-safe="event?.description" />
@@ -30,7 +30,7 @@
                                     <div v-for="(item, i) in event?.speakers" :key="i" class="col-lg-3 col-md-6">
                                         <div class="instructors-item instructors-item-bg">
                                             <div class="instructors-img">
-                                                <img :src="item.image" :alt="item.image_alt" :title="item.image_title"  />
+                                                <img v-lazy-load :data-src="item.image" :alt="item.image_alt" :title="item.image_title"  />
                                             </div>
                                             <div class="content">
                                                 <h3 v-html-safe="item?.name" />

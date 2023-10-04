@@ -8,7 +8,7 @@
                         <div class="col-lg-12">
                             <div class="blog-details-content">
                                 <div class="blog-preview-img">
-                                    <img :src="campaign?.image" :alt="campaign?.image_alt" :title="campaign?.image_title" />
+                                    <img :data-src="campaign?.image" :alt="campaign?.image_alt" :title="campaign?.image_title" v-lazy-load/>
                                 </div>
                             </div>
                         </div>
