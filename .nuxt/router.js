@@ -23,6 +23,7 @@ const _32ff8b06 = () => interopDefault(import('../pages/auth/forgot-password.vue
 const _f5b218a6 = () => interopDefault(import('../pages/auth/sign-in.vue' /* webpackChunkName: "pages/auth/sign-in" */))
 const _cc856bba = () => interopDefault(import('../pages/auth/sign-up.vue' /* webpackChunkName: "pages/auth/sign-up" */))
 const _49333ce8 = () => interopDefault(import('../pages/vrddhi/syllabus.vue' /* webpackChunkName: "pages/vrddhi/syllabus" */))
+const _3be67641 = () => interopDefault(import('../pages/auth/reset-password/:user_token.vue' /* webpackChunkName: "pages/auth/reset-password/:user_token" */))
 const _0e7dee4e = () => interopDefault(import('../pages/achievers/:slug.vue' /* webpackChunkName: "pages/achievers/:slug" */))
 const _ea8cda64 = () => interopDefault(import('../pages/events/:slug.vue' /* webpackChunkName: "pages/events/:slug" */))
 const _6d8b6002 = () => interopDefault(import('../pages/expert-tips/:slug.vue' /* webpackChunkName: "pages/expert-tips/:slug" */))
@@ -119,6 +120,10 @@ export const routerOptions = {
     path: "/vrddhi/syllabus",
     component: _49333ce8,
     name: "vrddhi-syllabus"
+  }, {
+    path: "/auth/reset-password/:user_token",
+    component: _3be67641,
+    name: "auth-reset-password-:user_token"
   }, {
     path: "/achievers/:slug",
     component: _0e7dee4e,

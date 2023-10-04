@@ -152,6 +152,13 @@
     "_name": "_49333ce8"
   },
   {
+    "name": "auth-reset-password-:user_token",
+    "path": "/auth/reset-password/:user_token",
+    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/auth/reset-password/:user_token.vue",
+    "chunkName": "pages/auth/reset-password/:user_token",
+    "_name": "_3be67641"
+  },
+  {
     "name": "achievers-:slug",
     "path": "/achievers/:slug",
     "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/achievers/:slug.vue",

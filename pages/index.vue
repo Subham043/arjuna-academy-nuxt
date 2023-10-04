@@ -247,6 +247,9 @@ export default {
         if (process.client) {
             this.$scrollTo("#__nuxt", 0, { force: true });
         }
+        if (this.$route.query.verified && this.$route.query.verified=='true') {
+            this.$toast.success('Email verified successfully.')
+        }
         this.getCourse();
         this.getTestimonial();
         this.getEvent();
