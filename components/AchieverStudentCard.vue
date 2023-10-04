@@ -1,7 +1,7 @@
 <template>
     <div class="achiever-detail">
         <div class="achiever-detail-container pb-0">
-            <img :data-src="image"
+            <img :data-src="image" width="131" height="148"
             :alt="image_alt" :title="image_title"
             class="img-responsive" v-lazy-load>
             <h5 v-html-safe="name" />

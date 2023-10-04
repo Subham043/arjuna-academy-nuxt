@@ -58,9 +58,9 @@
                     <div class="mobile-responsive-menu">
                         <div class="logo">
                             <NuxtLink to="/">
-                                <img data-src="/images/logos/logo-sm.png" id="logo-one-mobile" class="logo-one mobile-logo" v-lazy-load
+                                <img data-src="/images/logos/logo-sm.png" id="logo-one-mobile" class="logo-one mobile-logo" width="342" height="160" v-lazy-load
                                     alt="logo" />
-                                <img data-src="/images/logos/logo-sm.png" id="logo-two-mobile" class="logo-two mobile-logo" v-lazy-load
+                                <img data-src="/images/logos/logo-sm.png" id="logo-two-mobile" class="logo-two mobile-logo" width="342" height="160" v-lazy-load
                                     alt="logo" />
                             </NuxtLink>
                         </div>
@@ -77,8 +77,8 @@
                 <div class="container-fluid">
                     <nav class="navbar navbar-expand-md navbar-light">
                         <NuxtLink to="/" class="navbar-brand">
-                            <img data-src="/images/logos/new-logo.png" id="logo-one" class="logo-one" alt="Logo" v-lazy-load/>
-                            <img data-src="/images/logos/logo-sm.png" id="logo-two" class="logo-two" alt="Logo" v-lazy-load/>
+                            <img data-src="/images/logos/new-logo.png" id="logo-one" class="logo-one" alt="Logo" width="342" height="160" v-lazy-load/>
+                            <img data-src="/images/logos/logo-sm.png" id="logo-two" class="logo-two" alt="Logo" width="342" height="160" v-lazy-load/>
                         </NuxtLink>
 
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">

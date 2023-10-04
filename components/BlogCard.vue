@@ -1,7 +1,7 @@
 <template>
     <div class="blog-card">
         <NuxtLink :to="`/knowledge-desk/${slug}`">
-            <img :data-src="image"  :alt="image_alt" :title="image_title" v-lazy-load/>
+            <img :data-src="image"  :alt="image_alt" :title="image_title" width="412" height="215" v-lazy-load/>
         </NuxtLink>
         <div class="content">
             <ul>

@@ -1,6 +1,6 @@
 <template>
     <div class="courses-item">
-        <img :data-src="image" :alt="image_alt" :title="image_title" v-lazy-load/>
+        <img :data-src="image" :alt="image_alt" :title="image_title" width="412" height="215" v-lazy-load/>
         <div class="content">
             <div class="bottom-content align-items-center">
                 <p class="tag-btn" v-html-safe="className" />

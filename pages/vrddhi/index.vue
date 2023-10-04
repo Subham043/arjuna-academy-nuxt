@@ -38,7 +38,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5">
                         <div class="enrolled-img-two mb-30" data-speed="0.05" data-revert="true">
-                            <img v-lazy-load data-src="/images/parent-say.png" alt="Enrolled">
+                            <img v-lazy-load data-src="/images/parent-say.png" width="526" height="376" alt="Enrolled">
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -135,7 +135,7 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="enrolled-img-two mb-30" data-speed="0.05" data-revert="true">
-                            <img v-lazy-load data-src="/images/objective-of-vrddhi.jpg" alt="Enrolled">
+                            <img v-lazy-load data-src="/images/objective-of-vrddhi.jpg" width="526" height="330" alt="Enrolled">
                         </div>
                     </div>
                 </div>
@@ -162,9 +162,9 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="faq-img">
-                            <img v-lazy-load data-src="/images/faq-img.jpg" alt="faq" />
+                            <img v-lazy-load data-src="/images/faq-img.jpg" width="636" height="594" alt="faq" />
                             <div class="shape">
-                                <img v-lazy-load data-src="/images/faq-shape.png" alt="Faq" />
+                                <img v-lazy-load data-src="/images/faq-shape.png" width="80" height="85" alt="Faq" />
                             </div>
                         </div>
                     </div>

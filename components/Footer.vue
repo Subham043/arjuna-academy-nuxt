@@ -7,7 +7,7 @@
           <div class="footer-widget text-center">
             <div class="footer-logo">
               <NuxtLink to="/">
-                <img data-src="/images/logos/new-logo.png" alt="Images" v-lazy-load/>
+                <img data-src="/images/logos/new-logo.png" alt="Images" width="491" height="230" v-lazy-load/>
               </NuxtLink>
             </div>
             <!-- <p>
