@@ -29,9 +29,7 @@ export default {
     mounted() {
         // eslint-disable-next-line nuxt/no-env-in-hooks
         if (process.client) {
-            setTimeout(() => {
-                this.show = false
-            }, 1000);
+            this.show = false
         }
     },
     methods: {
