@@ -225,18 +225,24 @@ export default {
                     value: 'Parivarthana College, Mysore (for both boys & girls)',
                     label: 'Parivarthana College, Mysore (for both boys & girls)'
                 },
-            ]
+            ],
+            seo: {
+                meta_title:'',
+                meta_description:'',
+                meta_keywords:'',
+                meta_scripts:'',
+            }
         };
     },
     head() {
         return {
-            title: '',
+            title: this.seo.meta_title,
             meta: [
-                // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+            // hid is used as unique identifier. Do not use `vmid` for it as it will not work
                 {
                     hid: 'og:title',
                     name: 'og:title',
-                    content: ''
+                    content: this.seo.meta_title
                 },
                 {
                     hid: 'og:type',
@@ -246,20 +252,23 @@ export default {
                 {
                     hid: 'description',
                     name: 'description',
-                    content: ''
+                    content: this.seo.meta_description
                 },
                 {
                     hid: 'keywords',
                     name: 'keywords',
-                    content: ''
+                    content: this.seo.meta_keywords
                 },
             ],
             script: [{
                 type: 'application/ld+json',
-                innerHTML: '' // <- set jsonld object in data or wherever you want
+                innerHTML: this.seo.meta_scripts // <- set jsonld object in data or wherever you want
             }],
             __dangerouslyDisableSanitizers: ['script'],
         }
+    },
+    async fetch() {
+      await this.getSeo();
     },
     methods: {
         async formHandler() {
@@ -291,6 +300,19 @@ export default {
 
             } finally {
                 this.enquiryLoading = false;
+            }
+        },
+        async getSeo() {
+            try {
+                const response = await this.$publicApi.get(API_ROUTES.seo+`/day-scholar-page`); // eslint-disable-line
+                this.seo = response.data.seo
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
+    
             }
         },
     },

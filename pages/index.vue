@@ -311,10 +311,67 @@ export default {
                     content: this.seo.meta_keywords
                 },
             ],
-            script: [{
-                type: 'application/ld+json',
-                innerHTML: this.seo.meta_scripts // <- set jsonld object in data or wherever you want
-            }],
+            script: [
+                {
+                    type: 'application/ld+json',
+                    innerHTML: this.seo.meta_scripts // <- set jsonld object in data or wherever you want
+                },
+                {
+                    type: 'application/ld+json',
+                    innerHTML: `{
+                        "@context": "https://schema.org/",
+                        "@type": "WebSite",
+                        "name": "Arjunaa Academy for Achievers",
+
+                        "url": "https://www.aaaedu.in/",
+                        "potentialAction": {
+                            "@type": "SearchAction",
+                            "target": "https://www.aaaedu.in/?s={search_term_string}",
+                            "query-input": "required name=search_term_string"
+                        }
+                        }` // <- set jsonld object in data or wherever you want
+                },
+                {
+                    type: 'application/ld+json',
+                    innerHTML: `{
+                        "@context": "https://schema.org",
+                        "@type": "CollegeOrUniversity",
+                        "name": "Arjunaa Academy for Achievers",
+                        "alternateName": "Arjunaa Academy",
+                        "url": "https://www.aaaedu.in/",
+                        "logo": "https://www.aaaedu.in/assets/img/new-logo.jpg",
+                        "sameAs": [
+                            "https://www.facebook.com/www.aaaedu.in/",
+                            "https://twitter.com/academy_arjunaa",
+                            "https://www.instagram.com/arjunaa_academy_for_achievers/",
+                            "https://www.youtube.com/channel/UCcPOkcZ_YGpTMcVnLJQYLPA",
+                            "https://in.linkedin.com/company/arjunaa-academy-for-achievers"
+                        ]
+                        }` // <- set jsonld object in data or wherever you want
+                },
+                {
+                    type: 'application/ld+json',
+                    innerHTML: `{
+                            "@context": "https://schema.org",
+                            "@type": "VideoObject",
+                            "name": "Arjunaa Academy Feedback of Achievers",
+                            "description": "Students of Arjunaa Academy speak about institute and coaching style and practice. How the institute and coaches help them in preparation of studies and exams.",
+                            "thumbnailUrl": "",
+                            "uploadDate": "2020-05-08",  
+                            "publisher": {
+                                "@type": "Organization",
+                                "name": "Arjunaa Academy for Achievers",
+                                "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://www.aaaedu.in/assets/img/new-logo.webp",
+                                "width": "",
+                                "height": ""
+                                }
+                            },
+                            "contentUrl": "https://www.youtube.com/watch?v=S9Z9BR_KAz4&list=TLGG6RaqinZghqAxMjExMjAyMQ"
+                            }` // <- set jsonld object in data or wherever you want
+                },
+            ],
             __dangerouslyDisableSanitizers: ['script'],
         }
     },
