@@ -88,7 +88,7 @@
             :heading_center="true"
         />
 
-        <div v-if="course_data.length>0" class="courses-area-two section-bg pt-70 pb-70">
+        <div v-if="course.length>0" class="courses-area-two section-bg pt-70 pb-70">
             <div class="container">
                 <div class="row align-items-end mb-45">
                     <div class="col-lg-12">
@@ -245,6 +245,7 @@ import TestimonialCardLoading from '~/components/TestimonialCardLoading.vue';
 import WhatWeDoCard from '~/components/WhatWeDoCard.vue';
 import WhoWeAreCard from '~/components/WhoWeAreCard.vue';
 import { API_ROUTES } from '~/helper/api_routes';
+import { slickBannerOptions, slickCourseOptions, slickEventOptions, slickTestimonialOptions } from '~/helper/slick_options';
 
 export default {
     name: "IndexPage",
@@ -284,188 +285,6 @@ export default {
             event: [],
             courseLoading: false,
             course: [],
-            slickBannerOptions: {
-                arrows: false,
-                dots: false,
-                infinite: true,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                draggable: true,
-                pauseOnHover: true,
-                swipe: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                            infinite: true,
-                            dots: false,
-                        },
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                            dots: false,
-                        },
-                    },
-                ],
-            },
-            slickCourseOptions: {
-                arrows: false,
-                dots: false,
-                infinite: true,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                draggable: true,
-                pauseOnHover: true,
-                swipe: true,
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1,
-                            infinite: true,
-                            dots: false,
-                        },
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                            dots: false,
-                        },
-                    },
-                ],
-            },
-            slickTestimonialOptions: {
-                arrows: false,
-                dots: false,
-                infinite: true,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                draggable: true,
-                pauseOnHover: true,
-                swipe: true,
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1,
-                            infinite: true,
-                            dots: false,
-                        },
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                            dots: false,
-                        },
-                    },
-                ],
-            },
-            slickEventOptions: {
-                arrows: false,
-                dots: false,
-                infinite: true,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                draggable: true,
-                pauseOnHover: true,
-                swipe: true,
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1,
-                            infinite: true,
-                            dots: false,
-                        },
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                            dots: false,
-                        },
-                    },
-                ],
-            },
-            banner_data: [
-                {
-                    title: "CHOOSE YOUR BEST COURSE",
-                    heading: "A course is essential for building career",
-                    description: "Flexible easy to access learning opportunities can bring a significant change in how to learn! The Ellen can offer you to enjoy the beauty of eLearning!",
-                    image: "/images/home-three/hero-img1.jpg"
-                },
-                {
-                    title: "CHOOSE YOUR BEST COURSE",
-                    heading: "Start learning from best platform",
-                    description: "Flexible easy to access learning opportunities can bring a significant change in how to learn! The Ellen can offer you to enjoy the beauty of eLearning!",
-                    image: "/images/home-three/hero-img3.jpg"
-                },
-                {
-                    title: "CHOOSE YOUR BEST COURSE",
-                    heading: "Improve your skills by study with us",
-                    description: "Flexible easy to access learning opportunities can bring a significant change in how to learn! The Ellen can offer you to enjoy the beauty of eLearning!",
-                    image: "/images/home-three/hero-img2.jpg"
-                },
-            ],
-            course_data: [
-                {
-                    course_image: "/images/courses/courses-img7.jpg",
-                    instructor_image: "/images/courses/instructors1.jpg",
-                    category: "Finance",
-                    title: "The complete business plan course includes 50 templates",
-                    duration: "10 hr 07 min",
-                    lectures: "67 lectures",
-                    price: "120"
-                },
-                {
-                    course_image: "/images/courses/courses-img8.jpg",
-                    instructor_image: "/images/courses/instructors2.jpg",
-                    category: "Banking",
-                    title: "Full web designing course with 20 web template designing",
-                    duration: "10 hr 07 min",
-                    lectures: "67 lectures",
-                    price: "400"
-                },
-                {
-                    course_image: "/images/courses/courses-img9.jpg",
-                    instructor_image: "/images/courses/instructors3.jpg",
-                    category: "Physics",
-                    title: "Visual effects for games in unity beginner to intermediate",
-                    duration: "10 hr 07 min",
-                    lectures: "67 lectures",
-                    price: "200"
-                },
-                {
-                    course_image: "/images/courses/courses-img2.jpg",
-                    instructor_image: "/images/courses/instructors4.jpg",
-                    category: "Accounting",
-                    title: "Basic knowledge about hibernal bharat in history",
-                    duration: "10 hr 07 min",
-                    lectures: "67 lectures",
-                    price: "300"
-                },
-            ],
             seo: {
                 meta_title:'',
                 meta_description:'',
@@ -506,6 +325,20 @@ export default {
             }],
             __dangerouslyDisableSanitizers: ['script'],
         }
+    },
+    computed: {
+        slickTestimonialOptions() {
+            return slickTestimonialOptions;
+        },
+        slickEventOptions() {
+            return slickEventOptions;
+        },
+        slickCourseOptions() {
+            return slickCourseOptions;
+        },
+        slickBannerOptions() {
+            return slickBannerOptions;
+        },
     },
     methods: {
         async getAboutSection() {
