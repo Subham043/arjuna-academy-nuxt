@@ -15,7 +15,7 @@
                         <div v-if="campaign?.include_form === true" class="col-lg-3">
                             <div class="register-form form-sticky">
                                 <div class="top-header">
-                                    <h3 class="size">{{ campaign?.form_heading }}</h3>
+                                    <h3 class="size" v-html-safe="campaign?.form_heading" />
                                 </div>
                                 <div class="contact-form px-3">
                                     <h5 class="text-center">Fill in your details</h5>
@@ -72,12 +72,12 @@
                         <div :class="campaign?.include_form === true ? 'col-lg-9' : 'col-lg-12'">
                             <div class="blog-details-content pr-20 main-content">
                                 <template v-if="!campaignLoading">
-                                    <h1>{{ campaign?.heading }}</h1>
+                                    <h1 v-html-safe="campaign?.heading" />
                                     <div v-html-safe="campaign?.description" />
                                     <template v-if="campaign?.include_testimonial === true">
                                         <div class="section-title text-center">
                                             <span>TESTIMONIAL</span>
-                                            <h2>{{ campaign?.testimonial_heading }}</h2>
+                                            <h2 v-html-safe="campaign?.testimonial_heading" />
                                         </div>
                                         <div v-if="campaign?.testimonials.length>0" class="testimonials-slider-two row justify-content-center mt-4">
                                             <div v-for="(item, i) in campaign?.testimonials" 
@@ -94,7 +94,7 @@
                                     <template v-if="campaign?.include_topper === true">
                                         <div class="section-title text-center">
                                             <span>ACHIEVERS</span>
-                                            <h2>{{ campaign?.topper_heading }}</h2>
+                                            <h2 v-html-safe="campaign?.topper_heading" />
                                         </div>
                                         <div v-if="campaign?.achievers.length>0" class="row justify-content-center mt-4">
                                             <div v-if="campaign?.achievers.length>0" v-for="(item, i) in campaign?.achievers" :key="i" class="col-lg-4 col-md-4">

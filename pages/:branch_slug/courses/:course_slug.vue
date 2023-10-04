@@ -30,7 +30,7 @@
                                                 <template v-if="course?.branch_details.length>0 && course?.branch_details[0].include_staff === true">
                                                     <div class="section-title text-center">
                                                         <span>STAFFS</span>
-                                                        <h2>{{ course?.branch_details[0].staff_heading }}</h2>
+                                                        <h2 v-html-safe="course?.branch_details[0].staff_heading" />
                                                     </div>
                                                     <div v-if="course?.branch_details[0].staffs.length>0" class="row justify-content-center mt-4">
                                                         <div v-if="course?.branch_details[0].staffs.length>0" v-for="(item, i) in course?.branch_details[0].staffs" :key="i" class="col-lg-6 col-md-6">
@@ -41,7 +41,7 @@
                                                 <template v-if="course?.branch_details.length>0 && course?.branch_details[0].include_topper === true">
                                                     <div class="section-title text-center">
                                                         <span>ACHIEVERS</span>
-                                                        <h2>{{ course?.branch_details[0].topper_heading }}</h2>
+                                                        <h2 v-html-safe="course?.branch_details[0].topper_heading" />
                                                     </div>
                                                     <div v-if="course?.branch_details[0].achievers.length>0" class="row justify-content-center mt-4">
                                                         <div v-if="course?.branch_details[0].achievers.length>0" v-for="(item, i) in course?.branch_details[0].achievers" :key="i" class="col-lg-4 col-md-4">
@@ -52,7 +52,7 @@
                                                 <template v-if="course?.branch_details.length>0 && course?.branch_details[0].include_testimonial === true">
                                                     <div class="section-title text-center">
                                                         <span>TESTIMONIAL</span>
-                                                        <h2>{{ course?.branch_details[0].testimonial_heading }}</h2>
+                                                        <h2 v-html-safe="course?.branch_details[0].testimonial_heading" />
                                                     </div>
                                                     <div v-if="course?.branch_details[0].testimonials.length>0" class="testimonials-slider-two row justify-content-center mt-4">
                                                         <div v-for="(item, i) in course?.branch_details[0].testimonials" 

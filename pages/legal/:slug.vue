@@ -20,7 +20,7 @@
                     <div class="col-lg-12">
                         <div class="blog-details-content pr-20">
                             <template v-if="!legalLoading">
-                                <h1>{{ legal?.heading }}</h1>
+                                <h1 v-html-safe="legal?.heading" />
                                 <div v-html-safe="legal?.description" />
                             </template>
                             <template v-else>

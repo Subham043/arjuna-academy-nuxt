@@ -91,13 +91,11 @@
                                                                             <img src="/images/avatar.webp"
                                                                                 alt="Images" />
                                                                             <div class="content-dtls">
-                                                                                <h4>{{ item.name }}</h4>
-                                                                                <span>{{ item.comment_on }}</span>
+                                                                                <h4 v-html-safe="item.name" />
+                                                                                <span v-html-safe="item.comment_on" />
                                                                             </div>
                                                                         </div>
-                                                                        <p>
-                                                                            {{ item.comment }}
-                                                                        </p>
+                                                                        <p v-html-safe="item.comment" />
                                                                     </div>
                                                                 </div>
                                                                 <div v-if="blogCommentLastPage!==blogCommentPage" class="text-center">
@@ -183,18 +181,7 @@
                             <div class="side-bar-widget">
                                 <h3 class="title">Popular post</h3>
                                 <div class="widget-popular-post">
-                                    <article v-if="popularBlogLoading" class="item">
-                                        <div v-for="i in 8" :key="i" class="info">
-                                            <el-skeleton style="width: 100%" animated>
-                                                <template slot="template">
-                                                    <el-skeleton-item variant="p" style="width: 50%" />
-                                                    <br />
-                                                    <el-skeleton-item variant="text" style="width: 100%;" />
-                                                </template>
-                                            </el-skeleton>
-                                            <hr>
-                                        </div>
-                                    </article>
+                                    <PopularPostLoading v-if="popularBlogLoading" />
                                     <article v-if="!popularBlogLoading && popularBlog.length > 0"
                                         v-for="(item, i) in popularBlog" :key="i" class="item">
                                         <div class="info">
@@ -228,6 +215,7 @@
 <script>
 import Breadcrumb from '~/components/Breadcrumb.vue';
 import PageDetailLoading from '~/components/PageDetailLoading.vue';
+import PopularPostLoading from '~/components/PopularPostLoading.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -401,6 +389,6 @@ export default {
             }
         },
     },
-    components: { Breadcrumb, PageDetailLoading }
+    components: { Breadcrumb, PageDetailLoading, PopularPostLoading }
 }
 </script>

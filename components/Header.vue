@@ -122,9 +122,7 @@
                                     <ul v-if="!branchLoading && branch.length > 0" class="dropdown-menu">
                                         <li v-for="(item, i) in branch" :key="i" class="nav-item">
                                             <NuxtLink to="#"
-                                                :class="`nav-link dropdown-toggle ${($nuxt.$route.path.includes(item.slug)) && 'nuxt-link-active'}`">
-                                                {{ item.name }}
-                                            </NuxtLink>
+                                                :class="`nav-link dropdown-toggle ${($nuxt.$route.path.includes(item.slug)) && 'nuxt-link-active'}`" v-html-safe="item.name" />
                                             <ul class="dropdown-menu">
                                                 <li class="nav-item">
                                                     <NuxtLink to="#" class="nav-link dropdown-toggle">School (STD VIII to X)
@@ -133,8 +131,7 @@
                                                         <li v-for="(it, index) in item.courses" :key="index"
                                                             v-if="it.class == 'School (STD VIII to X)'" class="nav-item">
                                                             <NuxtLink :to="`/${item.slug}/courses/${it.slug}`"
-                                                                :class="`nav-link ${($nuxt.$route.path.includes(it.slug)) && 'nuxt-link-active'}`">
-                                                                {{ it.name }} </NuxtLink>
+                                                                :class="`nav-link ${($nuxt.$route.path.includes(it.slug)) && 'nuxt-link-active'}`" v-html-safe="it.name" />
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -146,8 +143,7 @@
                                                             v-if="it.class == 'Senior Secondary (XI, XII, PU)'"
                                                             class="nav-item">
                                                             <NuxtLink :to="`/${item.slug}/courses/${it.slug}`"
-                                                                :class="`nav-link ${($nuxt.$route.path.includes(it.slug)) && 'nuxt-link-active'}`">
-                                                                {{ it.name }} </NuxtLink>
+                                                                :class="`nav-link ${($nuxt.$route.path.includes(it.slug)) && 'nuxt-link-active'}`" v-html-safe="it.name" />
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -157,8 +153,7 @@
                                                         <li v-for="(it, index) in item.courses" :key="index"
                                                             v-if="it.class == 'Online'" class="nav-item">
                                                             <NuxtLink :to="`/${item.slug}/courses/${it.slug}`"
-                                                                :class="`nav-link ${($nuxt.$route.path.includes(it.slug)) && 'nuxt-link-active'}`">
-                                                                {{ it.name }} </NuxtLink>
+                                                                :class="`nav-link ${($nuxt.$route.path.includes(it.slug)) && 'nuxt-link-active'}`" v-html-safe="it.name" />
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -185,8 +180,7 @@
                                         <li v-if="!achieverCategoryLoading && achieverCategory.length > 0"
                                             v-for="(item, i) in achieverCategory" :key="i" class="nav-item">
                                             <NuxtLink :to="`/achievers/${item.slug}`"
-                                                :class="`nav-link ${($nuxt.$route.path.includes(item.slug)) && 'nuxt-link-active'}`">
-                                                {{ item.name }} </NuxtLink>
+                                                :class="`nav-link ${($nuxt.$route.path.includes(item.slug)) && 'nuxt-link-active'}`" v-html-safe="item.name" />
                                         </li>
                                     </ul>
                                 </li>
@@ -267,12 +261,14 @@
                         </template>
                         <el-submenu v-if="!branchLoading && branch.length > 0" v-for="(item, i) in branch" :key="i"
                             :index="`1-${i}`">
-                            <template slot="title">{{ item.name }}</template>
+                            <p slot="title" v-html-safe="item.name" />
                             <el-submenu :index="`1-${i}-1`">
                                 <template slot="title">School</template>
                                 <NuxtLink v-for="(it, index) in item.courses" :key="index"
                                     v-if="it.class == 'School (STD VIII to X)'" :to="`/${item.slug}/courses/${it.slug}`">
-                                    <el-menu-item :index="`1-${i}-3-${index}`">{{ it.name }} </el-menu-item>
+                                    <el-menu-item :index="`1-${i}-3-${index}`">
+                                    <span v-html-safe="it.name" />
+                                    </el-menu-item>
                                 </NuxtLink>
                             </el-submenu>
                             <el-submenu :index="`1-${i}-2`">
@@ -280,14 +276,18 @@
                                 <NuxtLink v-for="(it, index) in item.courses" :key="index"
                                     v-if="it.class == 'Senior Secondary (XI, XII, PU)'"
                                     :to="`/${item.slug}/courses/${it.slug}`">
-                                    <el-menu-item :index="`1-${i}-3-${index}`">{{ it.name }}</el-menu-item>
+                                    <el-menu-item :index="`1-${i}-3-${index}`">
+                                        <span v-html-safe="it.name" />
+                                    </el-menu-item>
                                 </NuxtLink>
                             </el-submenu>
                             <el-submenu :index="`1-${i}-3`">
                                 <template slot="title">Online</template>
                                 <NuxtLink v-for="(it, index) in item.courses" :key="index" v-if="it.class == 'Online'"
                                     :to="`/${item.slug}/courses/${it.slug}`">
-                                    <el-menu-item :index="`1-${i}-3-${index}`">{{ it.name }} </el-menu-item>
+                                    <el-menu-item :index="`1-${i}-3-${index}`">
+                                        <span v-html-safe="it.name" />
+                                    </el-menu-item>
                                 </NuxtLink>
                             </el-submenu>
                         </el-submenu>
@@ -314,7 +314,9 @@
                         </template>
                         <NuxtLink v-if="!achieverCategoryLoading && achieverCategory.length > 0"
                             v-for="(item, i) in achieverCategory" :key="i" :to="`/achievers/${item.slug}`">
-                            <el-menu-item :index="`4-${i + 1}`">{{ item.name }} </el-menu-item>
+                            <el-menu-item :index="`4-${i + 1}`">
+                                <span  v-html-safe="item.name" />
+                            </el-menu-item>
                         </NuxtLink>
                     </el-submenu>
                     <el-submenu index="5">

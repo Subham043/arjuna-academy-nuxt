@@ -7626,3 +7626,6 @@ img {
 .navbar-toggler:focus{
   box-shadow: none;
 }
+.el-menu a{
+  display: block;
+}

@@ -52,35 +52,20 @@
                                 <ul>
                                     <li>Date: <span>{{ event?.event_date_on }}</span></li>
                                     <li v-for="(item, i) in event?.specifications" :key="i">
-                                        {{ item.title }}: <span>{{ item.description }}</span>
+                                        {{ item.title }}: <span v-html-safe="item.description" />
                                     </li>
                                 </ul>
                             </div>
                         </template>
                         <div class="event-sidebar">
                             <h3 class="title">Upcoming Events</h3>
-                            <article v-if="popularEventLoading" class="item">
-                                <div  v-for="i in 8" :key="i" class="info">
-                                    <el-skeleton style="width: 100%" animated>
-                                        <template slot="template">
-                                            <el-skeleton-item variant="p" style="width: 50%" />
-                                            <br/>
-                                            <el-skeleton-item variant="text" style="width: 100%;" />
-                                        </template>
-                                    </el-skeleton>
-                                    <hr>
-                                </div>
-                            </article>
+                            <PopularPostLoading v-if="popularEventLoading" />
                             <article v-if="!popularEventLoading && popularEvent.length>0" v-for="(item, i) in popularEvent" :key="i" class="item">
                                 <div class="info">
                                     <NuxtLink :to="`/events/${item.slug}`">
-                                        <h4 class="title-text">
-                                            {{ item.name }}
-                                        </h4>
+                                        <h4 class="title-text" v-html-safe="item.name" />
                                     </NuxtLink>
-                                    <p>
-                                        {{ item.short_description }}
-                                    </p>
+                                    <p v-html-safe="item.short_description" />
                                     <hr>
                                 </div>
                             </article>
@@ -100,6 +85,7 @@
 <script>
 import Breadcrumb from '~/components/Breadcrumb.vue';
 import PageDetailLoading from '~/components/PageDetailLoading.vue';
+import PopularPostLoading from '~/components/PopularPostLoading.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -209,6 +195,6 @@ export default {
             this.getPopluarEvent(this.$route.query.page ? Number(this.$route.query.page) : 1);
         },
     },
-    components: { Breadcrumb, PageDetailLoading }
+    components: { Breadcrumb, PageDetailLoading, PopularPostLoading }
 }
 </script>
