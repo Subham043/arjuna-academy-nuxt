@@ -196,10 +196,8 @@
 </template>
 
 <script>
-import Breadcrumb from '~/components/Breadcrumb.vue';
-import TestimonialCard from '~/components/TestimonialCard.vue';
 import { slickTestimonialOptions } from '~/helper/slick_options';
-
+import TestimonialCard from '~/components/TestimonialCard.vue';
 
 
 export default {
@@ -267,6 +265,9 @@ export default {
     methods: {
 
     },
-    components: { Breadcrumb, TestimonialCard }
+    components: { 
+        Breadcrumb: () => import('~/components/Breadcrumb.vue'), 
+        TestimonialCard 
+    }
 }
 </script>

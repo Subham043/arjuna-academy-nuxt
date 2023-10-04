@@ -213,9 +213,6 @@
 </template>
 
 <script>
-import Breadcrumb from '~/components/Breadcrumb.vue';
-import PageDetailLoading from '~/components/PageDetailLoading.vue';
-import PopularPostLoading from '~/components/PopularPostLoading.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -389,6 +386,10 @@ export default {
             }
         },
     },
-    components: { Breadcrumb, PageDetailLoading, PopularPostLoading }
+    components: { 
+        Breadcrumb: () => import('~/components/Breadcrumb.vue'), 
+        PageDetailLoading: () => import('~/components/PageDetailLoading.vue'), 
+        PopularPostLoading: () => import('~/components/PopularPostLoading.vue') 
+    }
 }
 </script>

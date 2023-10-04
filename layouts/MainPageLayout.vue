@@ -10,16 +10,17 @@
 </template>
 
 <script>
-import Footer from '~/components/Footer.vue';
-import Header from '~/components/Header.vue';
-import Newsletter from '~/components/Newsletter.vue';
-import Preloader from '~/components/Preloader.vue';
-import VerifyNotification from '~/components/VerifyNotification.vue';
 
 
 export default {
     name: "MainPageLayout",
-    components: { Header, Footer, Newsletter, VerifyNotification, Preloader }
+    components: { 
+      Header: () => import('~/components/Header.vue'), 
+      Footer: () => import('~/components/Footer.vue'), 
+      Newsletter: () => import('~/components/Newsletter.vue'), 
+      VerifyNotification: () => import('~/components/VerifyNotification.vue'), 
+      Preloader: () => import('~/components/Preloader.vue') 
+    }
 }
 
 if(process.client){

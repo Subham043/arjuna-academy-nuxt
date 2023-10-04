@@ -65,7 +65,6 @@
 </template>
 
 <script>
-import Breadcrumb from '~/components/Breadcrumb.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 export default {
@@ -105,6 +104,8 @@ export default {
             }
         }
     },
-    components: { Breadcrumb }
+    components: { 
+        Breadcrumb: () => import('~/components/Breadcrumb.vue') 
+    }
 }
 </script>

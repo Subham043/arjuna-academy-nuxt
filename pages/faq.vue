@@ -62,7 +62,6 @@
 </template>
 
 <script>
-import Breadcrumb from '~/components/Breadcrumb.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -177,6 +176,8 @@ export default {
             this.getFaq(this.$route.query.page ? Number(this.$route.query.page) : 1);
         },
     },
-    components: { Breadcrumb }
+    components: { 
+        Breadcrumb: () => import('~/components/Breadcrumb.vue') 
+    }
 }
 </script>

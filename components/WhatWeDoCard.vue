@@ -29,7 +29,6 @@
 </template>
 
 <script>
-import FeatureCardLoading from './FeatureCardLoading.vue';
 
 export default {
     name: 'WhatWeDoCardComponent',
@@ -47,6 +46,8 @@ export default {
             default: [],
         },
     },
-    components: { FeatureCardLoading }
+    components: { 
+        FeatureCardLoading: () => import('~/components/FeatureCardLoading.vue')
+    }
 }
 </script>

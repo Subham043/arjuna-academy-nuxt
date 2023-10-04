@@ -33,9 +33,6 @@
 </template>
 
 <script>
-import BlogCard from '~/components/BlogCard.vue';
-import BlogCardLoading from '~/components/BlogCardLoading.vue';
-import Breadcrumb from '~/components/Breadcrumb.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -149,6 +146,10 @@ export default {
             this.getBlog(this.$route.query.page ? Number(this.$route.query.page) : 1);
         },
     },
-    components: { BlogCard, Breadcrumb, BlogCardLoading }
+    components: { 
+        BlogCard: () => import('~/components/BlogCard.vue'), 
+        Breadcrumb: () => import('~/components/Breadcrumb.vue'), 
+        BlogCardLoading: () => import('~/components/BlogCardLoading.vue') 
+    }
 }
 </script>

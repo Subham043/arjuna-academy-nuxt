@@ -38,9 +38,6 @@
 </template>
 
 <script>
-import Breadcrumb from '~/components/Breadcrumb.vue';
-import TestimonialCard from '~/components/TestimonialCard.vue';
-import TestimonialCardLoading from '~/components/TestimonialCardLoading.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -155,6 +152,10 @@ export default {
             this.getTestimonial(this.$route.query.page ? Number(this.$route.query.page) : 1);
         },
     },
-    components: { TestimonialCard, Breadcrumb, TestimonialCardLoading }
+    components: { 
+        TestimonialCard: () => import('~/components/TestimonialCard.vue'), 
+        Breadcrumb: () => import('~/components/Breadcrumb.vue'), 
+        TestimonialCardLoading: () => import('~/components/TestimonialCardLoading.vue') 
+    }
 }
 </script>

@@ -81,9 +81,6 @@
 </template>
 
 <script>
-import Breadcrumb from '~/components/Breadcrumb.vue';
-
-
 
 export default {
     name: "SigninPage",
@@ -125,6 +122,8 @@ export default {
             }
         }
     },
-    components: { Breadcrumb }
+    components: { 
+        Breadcrumb: () => import('~/components/Breadcrumb.vue')
+    }
 }
 </script>

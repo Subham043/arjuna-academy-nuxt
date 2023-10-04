@@ -173,7 +173,6 @@
 </template>
 
 <script>
-import Breadcrumb from '~/components/Breadcrumb.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -291,6 +290,8 @@ export default {
             this.card = event.target.files[0];
         },
     },
-    components: { Breadcrumb }
+    components: { 
+        Breadcrumb: () => import('~/components/Breadcrumb.vue') 
+    }
 }
 </script>

@@ -232,18 +232,10 @@
 </template>
 
 <script>
-import BannerCardLoading from '~/components/BannerCardLoading.vue';
 import BlogCard from '~/components/BlogCard.vue';
-import BlogCardLoading from '~/components/BlogCardLoading.vue';
 import CourseCard from '~/components/CourseCard.vue';
-import CourseCardLoading from '~/components/CourseCardLoading.vue';
 import EventCard from '~/components/EventCard.vue';
-import EventCardLoading from '~/components/EventCardLoading.vue';
-import FeatureCardLoading from '~/components/FeatureCardLoading.vue';
 import TestimonialCard from '~/components/TestimonialCard.vue';
-import TestimonialCardLoading from '~/components/TestimonialCardLoading.vue';
-import WhatWeDoCard from '~/components/WhatWeDoCard.vue';
-import WhoWeAreCard from '~/components/WhoWeAreCard.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 import { slickBannerOptions, slickCourseOptions, slickEventOptions, slickTestimonialOptions } from '~/helper/slick_options';
 
@@ -481,6 +473,19 @@ export default {
             }
         },
     },
-    components: { BlogCard, CourseCard, TestimonialCard, EventCard, WhoWeAreCard, WhatWeDoCard, BannerCardLoading, FeatureCardLoading, CourseCardLoading, TestimonialCardLoading, EventCardLoading, BlogCardLoading }
+    components: {
+        BlogCard, 
+        CourseCard, 
+        TestimonialCard, 
+        EventCard, 
+        WhoWeAreCard: () => import('~/components/WhoWeAreCard.vue'), 
+        WhatWeDoCard: () => import('~/components/WhatWeDoCard.vue'), 
+        BannerCardLoading: () => import('~/components/BannerCardLoading.vue'), 
+        FeatureCardLoading: () => import('~/components/FeatureCardLoading.vue'), 
+        CourseCardLoading: () => import('~/components/CourseCardLoading.vue'), 
+        TestimonialCardLoading: () => import('~/components/TestimonialCardLoading.vue'), 
+        EventCardLoading: () => import('~/components/EventCardLoading.vue'), 
+        BlogCardLoading: () => import('~/components/BlogCardLoading.vue') 
+    }
 }
 </script>

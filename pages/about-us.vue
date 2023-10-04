@@ -85,9 +85,6 @@
 </template>
 
 <script>
-import Breadcrumb from '~/components/Breadcrumb.vue';
-import WhatWeDoCard from '~/components/WhatWeDoCard.vue';
-import WhoWeAreCard from '~/components/WhoWeAreCard.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -221,6 +218,10 @@ export default {
             }
         },
     },
-    components: { Breadcrumb, WhoWeAreCard, WhatWeDoCard }
+    components: { 
+        Breadcrumb: () => import('~/components/Breadcrumb.vue'), 
+        WhoWeAreCard: () => import('~/components/WhoWeAreCard.vue'), 
+        WhatWeDoCard: () => import('~/components/WhatWeDoCard.vue') 
+    }
 }
 </script>

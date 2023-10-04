@@ -194,8 +194,6 @@
 </template>
 
 <script>
-import AchieverStudentCard from '~/components/AchieverStudentCard.vue';
-import TestimonialCard from '~/components/TestimonialCard.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -298,6 +296,9 @@ export default {
             }
         },
     },
-    components: { TestimonialCard, AchieverStudentCard }
+    components: { 
+        TestimonialCard: () => import('~/components/TestimonialCard.vue'), 
+        AchieverStudentCard: () => import('~/components/AchieverStudentCard.vue') 
+    }
 }
 </script>

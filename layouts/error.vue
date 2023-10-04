@@ -26,10 +26,6 @@
   </template>
   
   <script>
-import Footer from '~/components/Footer.vue';
-import Header from '~/components/Header.vue';
-import Newsletter from '~/components/Newsletter.vue';
-import Preloader from '~/components/Preloader.vue';
 
   export default {
     name: 'ErrorDefault',
@@ -45,7 +41,12 @@ import Preloader from '~/components/Preloader.vue';
             this.$router.push('/');
         }
     },
-    components: { Header, Newsletter, Footer, Preloader }
+    components: { 
+        Header: () => import('~/components/Header.vue'), 
+        Newsletter: () => import('~/components/Newsletter.vue'), 
+        Footer: () => import('~/components/Footer.vue'), 
+        Preloader: () => import('~/components/Preloader.vue')
+    }
 }
 
 if(process.client){

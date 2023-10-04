@@ -176,10 +176,6 @@
 </template>
 
 <script>
-import AchieverStudentCard from '~/components/AchieverStudentCard.vue';
-import PageDetailLoading from '~/components/PageDetailLoading.vue';
-import TestimonialCard from '~/components/TestimonialCard.vue';
-import InstructorCard from '~/components/InstructorCard.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 export default {
@@ -365,6 +361,11 @@ export default {
             }
         }
     },
-    components: { TestimonialCard, PageDetailLoading, AchieverStudentCard, InstructorCard }
+    components: { 
+        TestimonialCard: () => import('~/components/TestimonialCard.vue'), 
+        AchieverStudentCard: () => import('~/components/AchieverStudentCard.vue'), 
+        InstructorCard: () => import('~/components/InstructorCard.vue') ,
+        PageDetailLoading: () => import('~/components/PageDetailLoading.vue'), 
+    }
 }
 </script>

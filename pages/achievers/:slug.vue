@@ -44,9 +44,6 @@
 </template>
 
 <script>
-import AchieverStudentCard from '~/components/AchieverStudentCard.vue';
-import AchieverStudentLoading from '~/components/AchieverStudentLoading.vue';
-import Breadcrumb from '~/components/Breadcrumb.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -123,6 +120,10 @@ export default {
             this.getAchieverStudent(this.$route.query.page ? Number(this.$route.query.page) : 1);
         },
     },
-    components: { Breadcrumb, AchieverStudentLoading, AchieverStudentCard }
+    components: { 
+        Breadcrumb: () => import('~/components/Breadcrumb.vue'), 
+        AchieverStudentLoading: () => import('~/components/AchieverStudentLoading.vue'), 
+        AchieverStudentCard: () => import('~/components/AchieverStudentCard.vue')
+    }
 }
 </script>

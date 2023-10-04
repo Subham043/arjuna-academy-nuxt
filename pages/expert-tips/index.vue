@@ -44,9 +44,6 @@
 </template>
 
 <script>
-import BlogCard from '~/components/BlogCard.vue';
-import Breadcrumb from '~/components/Breadcrumb.vue';
-import EventCard from '~/components/EventCard.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -160,6 +157,9 @@ export default {
             this.getExpertTip(this.$route.query.page ? Number(this.$route.query.page) : 1);
         },
     },
-    components: { BlogCard, EventCard, Breadcrumb }
+    components: { 
+        EventCard: () => import('~/components/EventCard.vue'), 
+        Breadcrumb: () => import('~/components/Breadcrumb.vue') 
+    }
 }
 </script>

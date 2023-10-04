@@ -35,8 +35,6 @@
 </template>
 
 <script>
-import Breadcrumb from '~/components/Breadcrumb.vue';
-import PageDetailLoading from '~/components/PageDetailLoading.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -109,6 +107,9 @@ export default {
             }
         },
     },
-    components: { Breadcrumb, PageDetailLoading }
+    components: { 
+        Breadcrumb: () => import('~/components/Breadcrumb.vue'), 
+        PageDetailLoading: () => import('~/components/PageDetailLoading.vue') 
+    }
 }
 </script>

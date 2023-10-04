@@ -174,8 +174,6 @@
 </template>
 
 <script>
-import Breadcrumb from '~/components/Breadcrumb.vue';
-import InstructorCard from '~/components/InstructorCard.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -309,6 +307,9 @@ export default {
             this.getStaff(this.$route.query.page ? Number(this.$route.query.page) : 1);
         }
     },
-    components: { Breadcrumb, InstructorCard }
+    components: { 
+        Breadcrumb: () => import('~/components/Breadcrumb.vue'), 
+        InstructorCard: () => import('~/components/InstructorCard.vue') 
+    }
 }
 </script>

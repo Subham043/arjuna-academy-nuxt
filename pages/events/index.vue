@@ -34,9 +34,6 @@
 </template>
 
 <script>
-import Breadcrumb from '~/components/Breadcrumb.vue';
-import EventCard from '~/components/EventCard.vue';
-import EventCardLoading from '~/components/EventCardLoading.vue';
 import { API_ROUTES } from '~/helper/api_routes';
 
 
@@ -150,6 +147,10 @@ export default {
             this.getEvent(this.$route.query.page ? Number(this.$route.query.page) : 1);
         },
     },
-    components: { EventCard, Breadcrumb, EventCardLoading }
+    components: { 
+        EventCard: () => import('~/components/EventCard.vue'), 
+        Breadcrumb: () => import('~/components/Breadcrumb.vue'), 
+        EventCardLoading: () => import('~/components/EventCardLoading.vue') 
+    }
 }
 </script>
