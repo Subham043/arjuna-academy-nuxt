@@ -61,7 +61,7 @@
                                 <img :data-src="item.image" v-lazy-load :alt="item.image_alt" :title="item.image_title" width="80" height="80" style="height: 80px; object-fit: contain; width: auto !important;">
                                 <div class="col-auto">
                                     <h3><span class="odometer" >{{ item.counter }}</span>+</h3>
-                                    <p v-html-safe="item.title" />
+                                    <p v-html="item.title" />
                                 </div>
                             </div>
                         </div>

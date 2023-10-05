@@ -5,12 +5,12 @@
         </div>
         <div class="quote"><i class="flaticon-quote"></i></div>
         <p>
-            “<span v-html-safe="message" />”
+            “<span v-html="message" />”
         </p>
         <div class="content">
             <img :data-src="image" :alt="name" :title="name" width="70" height="70" v-lazy-load/>
-            <h3 v-html-safe="name" />
-            <span v-html-safe="designation" />
+            <h3 v-html="name" />
+            <span v-html="designation" />
         </div>
     </div>
 </template>

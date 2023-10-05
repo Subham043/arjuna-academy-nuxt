@@ -2,11 +2,11 @@
     <div class="instructors-card">
         <img :data-src="image" :alt="image_alt" :title="image_title" width="286" height="180" v-lazy-load/>
         <div class="content">
-            <h3 v-html-safe="name" />
-            <span v-html-safe="designation" />
+            <h3 v-html="name" />
+            <span v-html="designation" />
         </div>
         <div class="instructor-detail">
-            <p v-html-safe="description" />
+            <p v-html="description" />
         </div>
     </div>
 </template>

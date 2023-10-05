@@ -23,8 +23,8 @@
                                 <div class="event-preview-img">
                                     <img v-lazy-load :data-src="event?.image" :alt="event?.image_alt" :title="event?.image_title" />
                                 </div>
-                                <h1 v-html-safe="event?.heading" />
-                                <div v-html-safe="event?.description" />
+                                <h1 v-html="event?.heading" />
+                                <div v-html="event?.description" />
                                 <h3 v-if="event?.speakers.length>0" class="event-details-mt-30">Our speakers</h3>
                                 <div v-if="event?.speakers.length>0" class="row justify-content-center event-details-mt-30">
                                     <div v-for="(item, i) in event?.speakers" :key="i" class="col-lg-3 col-md-6">
@@ -33,8 +33,8 @@
                                                 <img v-lazy-load :data-src="item.image" :alt="item.image_alt" :title="item.image_title"  />
                                             </div>
                                             <div class="content">
-                                                <h3 v-html-safe="item?.name" />
-                                                <span v-html-safe="item?.designation" />
+                                                <h3 v-html="item?.name" />
+                                                <span v-html="item?.designation" />
                                             </div>
                                         </div>
                                     </div>
@@ -52,7 +52,7 @@
                                 <ul>
                                     <li>Date: <span>{{ event?.event_date_on }}</span></li>
                                     <li v-for="(item, i) in event?.specifications" :key="i">
-                                        {{ item.title }}: <span v-html-safe="item.description" />
+                                        {{ item.title }}: <span v-html="item.description" />
                                     </li>
                                 </ul>
                             </div>
@@ -63,9 +63,9 @@
                             <article v-if="!popularEventLoading && popularEvent.length>0" v-for="(item, i) in popularEvent" :key="i" class="item">
                                 <div class="info">
                                     <NuxtLink :to="`/events/${item.slug}`">
-                                        <h4 class="title-text" v-html-safe="item.name" />
+                                        <h4 class="title-text" v-html="item.name" />
                                     </NuxtLink>
-                                    <p v-html-safe="item.short_description" />
+                                    <p v-html="item.short_description" />
                                     <hr>
                                 </div>
                             </article>

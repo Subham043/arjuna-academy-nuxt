@@ -46,8 +46,8 @@
                             </div>
                             <ul v-if="!faqLoading && faq.length>0" class="accordion">
                                 <li v-for="(item, i) in faq" :key="i" class="accordion-item">
-                                    <h4 class="accordion-title active" v-html-safe="item.question" />
-                                    <div class="accordion-content show" v-html-safe="item.answer" />
+                                    <h4 class="accordion-title active" v-html="item.question" />
+                                    <div class="accordion-content show" v-html="item.answer" />
                                 </li>
                             </ul>
                             <div v-if="!faqLoading && faq.length>0" class="col-12 text-center mt-5">

@@ -6,8 +6,8 @@
                     <div class="row align-items-center">
                         <div v-if="heading_center" class="col-lg-12">
                             <div class="section-title text-center mb-3">
-                                <span v-html-safe="title" />
-                                <h2 v-html-safe="heading" />
+                                <span v-html="title" />
+                                <h2 v-html="heading" />
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -17,8 +17,8 @@
                                 <div class="enrolled-img-content">
                                     <img :data-src="counter_image" :alt="counter_title" :title="counter_title" width="45" height="45" v-lazy-load/>
                                     <div class="content">
-                                        <h3 v-html-safe="counter_title" />
-                                        <p v-html-safe="counter_description" />
+                                        <h3 v-html="counter_title" />
+                                        <p v-html="counter_description" />
                                     </div>
                                 </div>
                             </div>
@@ -26,9 +26,9 @@
                         <div class="col-lg-6">
                             <div class="enrolled-content mb-30">
                                 <div class="section-title">
-                                    <span v-if="!heading_center" v-html-safe="title" />
-                                    <h2 v-if="!heading_center" v-html-safe="heading" />
-                                    <div v-html-safe="detail" />
+                                    <span v-if="!heading_center" v-html="title" />
+                                    <h2 v-if="!heading_center" v-html="heading" />
+                                    <div v-html="detail" />
                                 </div>
                                 <NuxtLink to="/leadership-team" class="default-btn border-radius-50">View Leaders</NuxtLink>
                             </div>

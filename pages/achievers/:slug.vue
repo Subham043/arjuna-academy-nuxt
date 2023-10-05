@@ -13,8 +13,8 @@
         <div class="blog-area pt-70 pb-70">
             <div class="container">
                 <div v-if="!achieverCategoryLoading" class="section-title mb-45 text-center">
-                    <h2 v-html-safe="achieverCategory?.heading" />
-                    <p v-html-safe="achieverCategory?.description" />
+                    <h2 v-html="achieverCategory?.heading" />
+                    <p v-html="achieverCategory?.description" />
                 </div>
                 <div v-if="achieverCategoryLoading" class="section-title mb-45 text-center">
                     <el-skeleton style="width: 100%" animated>

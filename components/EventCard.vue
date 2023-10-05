@@ -11,9 +11,9 @@
                 <li v-if="!is_event"><i class="ri-user-fill"></i> {{ author }}</li>
             </ul>
             <h3>
-                <NuxtLink :to="is_event ? `/events/${slug}` :  `/expert-tips/${slug}`" v-html-safe="title" />
+                <NuxtLink :to="is_event ? `/events/${slug}` :  `/expert-tips/${slug}`" v-html="title" />
             </h3>
-            <p v-html-safe="description" />
+            <p v-html="description" />
         </div>
     </div>
 </template>

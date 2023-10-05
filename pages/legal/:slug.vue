@@ -20,8 +20,8 @@
                     <div class="col-lg-12">
                         <div class="blog-details-content pr-20">
                             <template v-if="!legalLoading">
-                                <h1 v-html-safe="legal?.heading" />
-                                <div v-html-safe="legal?.description" />
+                                <h1 v-html="legal?.heading" />
+                                <div v-html="legal?.description" />
                             </template>
                             <template v-else>
                                 <PageDetailLoading :image="false" />

@@ -30,7 +30,7 @@
                                     </h2>
                                     <div class="accordion-content show">
                                         <el-skeleton v-if="loading" :rows="6" animated />
-                                        <p v-else v-html-safe="mission" />
+                                        <p v-else v-html="mission" />
                                     </div>
                                 </li>
                                 <li class="accordion-item">
@@ -39,7 +39,7 @@
                                     </h2>
                                     <div class="accordion-content show">
                                         <el-skeleton v-if="loading" :rows="6" animated />
-                                        <p v-else v-html-safe="vision" />
+                                        <p v-else v-html="vision" />
                                     </div>
                                 </li>
                             </ul>

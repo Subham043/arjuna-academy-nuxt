@@ -24,11 +24,11 @@
                                     <li><i class="ri-calendar-todo-fill"></i> {{ blog?.published }}</li>
                                     <li>
                                         <i class="ri-user-fill"></i>
-                                        <NuxtLink to="/leadership-team" v-html-safe="blog?.author_name" />
+                                        <NuxtLink to="/leadership-team" v-html="blog?.author_name" />
                                     </li>
                                 </ul>
-                                <h1 v-html-safe="blog?.heading" />
-                                <div v-html-safe="blog?.description" />
+                                <h1 v-html="blog?.heading" />
+                                <div v-html="blog?.description" />
                                 <div class="article-share">
                                     <div class="row align-items-center justify-content-between">
                                         <div v-if="prev_blog !== null" class="col-lg-auto col-md-auto">
@@ -91,11 +91,11 @@
                                                                             <img data-src="/images/avatar.webp"
                                                                                 alt="Images" v-lazy-load/>
                                                                             <div class="content-dtls">
-                                                                                <h4 v-html-safe="item.name" />
-                                                                                <span v-html-safe="item.comment_on" />
+                                                                                <h4 v-html="item.name" />
+                                                                                <span v-html="item.comment_on" />
                                                                             </div>
                                                                         </div>
-                                                                        <p v-html-safe="item.comment" />
+                                                                        <p v-html="item.comment" />
                                                                     </div>
                                                                 </div>
                                                                 <div v-if="blogCommentLastPage!==blogCommentPage" class="text-center">

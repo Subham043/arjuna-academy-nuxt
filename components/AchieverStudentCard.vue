@@ -4,11 +4,11 @@
             <img :data-src="image" width="131" height="148"
             :alt="image_alt" :title="image_title"
             class="img-responsive" v-lazy-load>
-            <h5 v-html-safe="name" />
+            <h5 v-html="name" />
         </div>
-        <h3 v-html-safe="rank" />
+        <h3 v-html="rank" />
         <div class="achiever-detail-container pt-0">
-            <p v-html-safe="college" />
+            <p v-html="college" />
         </div>
     </div>
 </template>

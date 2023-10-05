@@ -9,9 +9,9 @@
                 <li class="one-line-text"><i class="ri-user-fill"></i> {{ author }}</li>
             </ul>
             <h3>
-                <NuxtLink :to="`/knowledge-desk/${slug}`" v-html-safe="title" />
+                <NuxtLink :to="`/knowledge-desk/${slug}`" v-html="title" />
             </h3>
-            <p v-html-safe="description" />
+            <p v-html="description" />
             <NuxtLink :to="`/knowledge-desk/${slug}`" class="read-btn">Read More</NuxtLink>
         </div>
     </div>

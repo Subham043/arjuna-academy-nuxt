@@ -24,11 +24,11 @@
                                     <li><i class="ri-calendar-todo-fill"></i> {{ expertTip?.published }}</li>
                                     <li>
                                         <i class="ri-user-fill"></i>
-                                        <NuxtLink to="/leadership-team" v-html-safe="expertTip?.author_name" />
+                                        <NuxtLink to="/leadership-team" v-html="expertTip?.author_name" />
                                     </li>
                                 </ul>
-                                <h1 v-html-safe="expertTip?.heading" />
-                                <div v-html-safe="expertTip?.description" />
+                                <h1 v-html="expertTip?.heading" />
+                                <div v-html="expertTip?.description" />
                                 <div class="article-share">
                                     <div class="row align-items-center justify-content-between">
                                         <div v-if="prev_expertTip!==null" class="col-lg-auto col-md-auto">

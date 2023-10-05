@@ -9,11 +9,11 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="hero-content">
-                                        <span class="top-title" v-html-safe="item.title" />
-                                        <h1 v-html-safe="item.heading" />
-                                        <p v-html-safe="item.description" />
+                                        <span class="top-title" v-html="item.title" />
+                                        <h1 v-html="item.heading" />
+                                        <p v-html="item.description" />
                                         <div class="banner-btn">
-                                            <a :href="item.button_link" target="_blank" class="default-btn border-radius-50" v-html-safe="item.button_text" />
+                                            <a :href="item.button_link" target="_blank" class="default-btn border-radius-50" v-html="item.button_text" />
                                         </div>
                                     </div>
                                 </div>
@@ -28,8 +28,8 @@
                                             <div class="hero-img-content">
                                                 <img :data-src="item.counter_image_1" :alt="item.counter_title_1" :title="item.counter_title_1" width="45" height="45" v-lazy-load/>
                                                 <div class="content">
-                                                    <h3 v-html-safe="item.counter_title_1" />
-                                                    <p v-html-safe="item.counter_description_1" />
+                                                    <h3 v-html="item.counter_title_1" />
+                                                    <p v-html="item.counter_description_1" />
                                                 </div>
                                             </div>
                                         </div>
@@ -37,8 +37,8 @@
                                             <div class="hero-img-content">
                                                 <img :data-src="item.counter_image_2" :alt="item.counter_title_2" :title="item.counter_title_2" width="45" height="45" v-lazy-load/>
                                                 <div class="content">
-                                                    <h3 v-html-safe="item.counter_title_2" />
-                                                    <p v-html-safe="item.counter_description_2" />
+                                                    <h3 v-html="item.counter_title_2" />
+                                                    <p v-html="item.counter_description_2" />
                                                 </div>
                                             </div>
                                         </div>
@@ -66,8 +66,8 @@
                     <div v-if="!commonFeatureLoading && commonFeature.length>0" v-for="(item, i) in commonFeature" :key="i" class="col-lg-4 col-6">
                         <div class="featured-item">
                             <img :data-src="item.image" class="featured-img" :alt="item.title" :title="item.title" width="55" height="55" v-lazy-load>
-                            <h3 v-html-safe="item.title" />
-                            <p v-html-safe="item.description" />
+                            <h3 v-html="item.title" />
+                            <p v-html="item.description" />
                         </div>
                     </div>
                 </div>
@@ -254,6 +254,7 @@ export default {
         this.getTestimonial();
         this.getEvent();
         this.getBlog();
+        console.log(this.$fetchState.pending);
     },
     async fetch() {
       await this.getBannerSection();

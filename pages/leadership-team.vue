@@ -104,15 +104,15 @@
                             <div class="instructors-details-img faq-img">
                                 <img :data-src="item.image" v-lazy-load :alt="item.image_alt" :title="item.image_title" />
                                 <div class="shape">
-                                    <h2><span class="badge bg-warning" v-html-safe="item.designation" /></h2>
+                                    <h2><span class="badge bg-warning" v-html="item.designation" /></h2>
                                 </div>
                             </div>
                         </div>
                         <div  class="col-lg-7">
                             <div class="instructors-details-content pl-20">
-                                <h2 v-html-safe="item.name" />
-                                <i class="d-inline-flex mb-3 fw-semibold text-success-emphasis bg-success-subtle " v-html-safe="item.qualification" />
-                                <div v-html-safe="item.description" />
+                                <h2 v-html="item.name" />
+                                <i class="d-inline-flex mb-3 fw-semibold text-success-emphasis bg-success-subtle " v-html="item.qualification" />
+                                <div v-html="item.description" />
                             </div>
                         </div>
                     </div>
@@ -122,16 +122,16 @@
     
                         <div class="col-lg-7">
                             <div class="instructors-details-content pl-20">
-                                <h2 v-html-safe="item.name" />
-                                <i class="d-inline-flex mb-3 fw-semibold text-success-emphasis bg-success-subtle " v-html-safe="item.qualification" />
-                                <div v-html-safe="item.description" />
+                                <h2 v-html="item.name" />
+                                <i class="d-inline-flex mb-3 fw-semibold text-success-emphasis bg-success-subtle " v-html="item.qualification" />
+                                <div v-html="item.description" />
                             </div>
                         </div>
                         <div class="col-lg-5">
                             <div class="instructors-details-img faq-img">
                                 <img :data-src="item.image" v-lazy-load :alt="item.image_alt" :title="item.image_title" />
                                 <div class="shape">
-                                    <h2><span class="badge bg-warning" v-html-safe="item.designation" /></h2>
+                                    <h2><span class="badge bg-warning" v-html="item.designation" /></h2>
                                 </div>
                             </div>
                         </div>
