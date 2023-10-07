@@ -254,7 +254,6 @@ export default {
         this.getTestimonial();
         this.getEvent();
         this.getBlog();
-        console.log(this.$fetchState.pending);
     },
     async fetch() {
       await this.getBannerSection();
