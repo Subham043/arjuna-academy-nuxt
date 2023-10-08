@@ -23,13 +23,13 @@ const _32ff8b06 = () => interopDefault(import('../pages/auth/forgot-password.vue
 const _f5b218a6 = () => interopDefault(import('../pages/auth/sign-in.vue' /* webpackChunkName: "pages/auth/sign-in" */))
 const _cc856bba = () => interopDefault(import('../pages/auth/sign-up.vue' /* webpackChunkName: "pages/auth/sign-up" */))
 const _49333ce8 = () => interopDefault(import('../pages/vrddhi/syllabus.vue' /* webpackChunkName: "pages/vrddhi/syllabus" */))
+const _031ad203 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 const _3be67641 = () => interopDefault(import('../pages/auth/reset-password/:user_token.vue' /* webpackChunkName: "pages/auth/reset-password/:user_token" */))
 const _0e7dee4e = () => interopDefault(import('../pages/achievers/:slug.vue' /* webpackChunkName: "pages/achievers/:slug" */))
 const _ea8cda64 = () => interopDefault(import('../pages/events/:slug.vue' /* webpackChunkName: "pages/events/:slug" */))
 const _6d8b6002 = () => interopDefault(import('../pages/expert-tips/:slug.vue' /* webpackChunkName: "pages/expert-tips/:slug" */))
 const _3751127d = () => interopDefault(import('../pages/knowledge-desk/:slug.vue' /* webpackChunkName: "pages/knowledge-desk/:slug" */))
 const _942bba00 = () => interopDefault(import('../pages/legal/:slug.vue' /* webpackChunkName: "pages/legal/:slug" */))
-const _031ad203 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 const _d8ffb4d4 = () => interopDefault(import('../pages/:slug.vue' /* webpackChunkName: "pages/:slug" */))
 const _62645c84 = () => interopDefault(import('../pages/:branch_slug/courses/:course_slug.vue' /* webpackChunkName: "pages/:branch_slug/courses/:course_slug" */))
 
@@ -121,6 +121,10 @@ export const routerOptions = {
     component: _49333ce8,
     name: "vrddhi-syllabus"
   }, {
+    path: "/",
+    component: _031ad203,
+    name: "index"
+  }, {
     path: "/auth/reset-password/:user_token",
     component: _3be67641,
     name: "auth-reset-password-:user_token"
@@ -144,10 +148,6 @@ export const routerOptions = {
     path: "/legal/:slug",
     component: _942bba00,
     name: "legal-:slug"
-  }, {
-    path: "/",
-    component: _031ad203,
-    name: "index"
   }, {
     path: "/:slug",
     component: _d8ffb4d4,

@@ -151,7 +151,7 @@
                                         </li>
                                         <li>
                                             <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/${$route.params.branch_slug}/courses/${$route.params.course_slug}&title=${course?.name}&source=${course?.name}`" target="_blank">
-                                                <i class="ri-linkedin-line"></i>
+                                                <i class="ri-linkedin-fill"></i>
                                             </a>
                                         </li>
                                     </ul>

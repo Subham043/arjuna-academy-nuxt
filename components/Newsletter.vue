@@ -18,7 +18,7 @@
                             </ValidationProvider>
                             <button class="subscribe-btn" type="submit" :disabled="loading">
                                 <template v-if="!loading">
-                                    Subscribe Now <i class="flaticon-paper-plane"></i>
+                                    Subscribe Now
                                 </template>
                                 <div v-else class="spinner-border" role="status"></div>
                             </button>

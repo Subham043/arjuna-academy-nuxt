@@ -29,17 +29,17 @@
               </li>
               <li>
                 <a href="https://www.instagram.com/arjunaa_academy_for_achievers/" target="_blank">
-                  <i class="ri-instagram-line"></i>
+                  <i class="ri-instagram-fill"></i>
                 </a>
               </li>
               <li>
                 <a href="https://in.linkedin.com/company/arjunaa-academy-for-achievers" target="_blank">
-                  <i class="ri-linkedin-line"></i>
+                  <i class="ri-linkedin-fill"></i>
                 </a>
               </li>
               <li>
                 <a href="https://www.youtube.com/channel/UCcPOkcZ_YGpTMcVnLJQYLPA" target="_blank">
-                  <i class="ri-youtube-line"></i>
+                  <i class="ri-youtube-fill"></i>
                 </a>
               </li>
             </ul>
