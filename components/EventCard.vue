@@ -1,7 +1,7 @@
 <template>
     <div class="event-item">
         <div v-if="image!==''" class="event-img">
-            <NuxtLink :to="is_event ? `/events/${slug}` :  `/expert-tips/${slug}`">
+            <NuxtLink :to="is_event ? `/events/${slug}` :  `/expert-tips/${slug}`" :aria-label="title">
                 <img :data-src="image" :alt="image_alt" :title="image_title" v-lazy-load/>
             </NuxtLink>
         </div>
@@ -19,7 +19,7 @@
                 </li>
             </ul>
             <h3>
-                <NuxtLink :to="is_event ? `/events/${slug}` :  `/expert-tips/${slug}`" v-html="title" />
+                <NuxtLink :to="is_event ? `/events/${slug}` :  `/expert-tips/${slug}`" :aria-label="title" v-html="title" />
             </h3>
             <p v-html="description" />
         </div>

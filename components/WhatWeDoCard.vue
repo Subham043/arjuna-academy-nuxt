@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-3 text-end">
-                    <NuxtLink to="/mission-vision" class="default-btn border-radius-50">Mission & Vision</NuxtLink>
+                    <NuxtLink to="/mission-vision" class="default-btn border-radius-50" aria-label="Mission & Vision">Mission & Vision</NuxtLink>
                 </div>
             </div>
             <div class="row">

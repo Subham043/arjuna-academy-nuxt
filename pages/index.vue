@@ -13,7 +13,7 @@
                                         <h1 v-html="item.heading" />
                                         <p v-html="item.description" />
                                         <div class="banner-btn">
-                                            <a :href="item.button_link" target="_blank" class="default-btn border-radius-50" v-html="item.button_text" />
+                                            <a :href="item.button_link" target="_blank" class="default-btn border-radius-50" :aria-label="item.button_text" v-html="item.button_text" />
                                         </div>
                                     </div>
                                 </div>
@@ -128,17 +128,17 @@
                                 <span class="top-title">START LEARNING</span>
                                 <h1 style="color: white !important;">Admission Open For {{ new Date().getFullYear()-1 }} - {{ new Date().getFullYear() }}</h1>
                                 <div class="banner-btn justify-content-center">
-                                    <a href="/pdf/brochure.pdf" target="_blank" class="default-btn two border-radius-50 mr-2">Download Brochure</a>
+                                    <a href="/pdf/brochure.pdf" target="_blank" aria-label="Download Brochure" class="default-btn two border-radius-50 mr-2">Download Brochure</a>
                                     <el-dropdown>
-                                        <NuxtLink to="/" class="default-btn border-radius-50 m-0">Admission Form</NuxtLink>
+                                        <NuxtLink to="/" class="default-btn border-radius-50 m-0" aria-label="Admission Form">Admission Form</NuxtLink>
                                         <el-dropdown-menu slot="dropdown">
                                             <el-dropdown-item>
-                                                <NuxtLink to="/admission/class-8-9-10" class="text-dark">
+                                                <NuxtLink to="/admission/class-8-9-10" class="text-dark" aria-label="Class 8, 9 & 10">
                                                     Class 8, 9 & 10
                                                 </NuxtLink>
                                             </el-dropdown-item>
                                             <el-dropdown-item>
-                                                <NuxtLink to="/admission/puc" class="text-dark">
+                                                <NuxtLink to="/admission/puc" class="text-dark" aria-label="Class 11 or 1st PUC">
                                                     Class 11 or 1st PUC
                                                 </NuxtLink>
                                             </el-dropdown-item>
@@ -162,7 +162,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-3 text-end">
-                        <NuxtLink to="/testimonial" class="default-btn border-radius-50">View all Testimonial</NuxtLink>
+                        <NuxtLink to="/testimonial" class="default-btn border-radius-50" aria-label="View all Testimonial">View all Testimonial</NuxtLink>
                     </div>
                 </div>
                 <TestimonialCardLoading v-if="testimonialLoading" :count="3" />
@@ -191,7 +191,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 text-end">
-                        <NuxtLink to="/events" class="default-btn border-radius-50">View all Events</NuxtLink>
+                        <NuxtLink to="/events" class="default-btn border-radius-50" aria-label="View all Events">View all Events</NuxtLink>
                     </div>
                 </div>
                 <EventCardLoading v-if="eventLoading" :count="2" />
@@ -213,7 +213,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 text-end">
-                        <NuxtLink to="/knowledge-desk" class="default-btn border-radius-50">View all Blogs</NuxtLink>
+                        <NuxtLink to="/knowledge-desk" class="default-btn border-radius-50" aria-label="View all Blogs">View all Blogs</NuxtLink>
                     </div>
                 </div>
                 <BlogCardLoading v-if="blogLoading" :count="3" />

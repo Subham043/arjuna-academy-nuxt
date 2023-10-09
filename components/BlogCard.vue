@@ -1,6 +1,6 @@
 <template>
     <div class="blog-card">
-        <NuxtLink :to="`/knowledge-desk/${slug}`">
+        <NuxtLink :to="`/knowledge-desk/${slug}`" aria-hidden="true" :aria-label="title">
             <img :data-src="image"  :alt="image_alt" :title="image_title" v-lazy-load/>
         </NuxtLink>
         <div class="content">
@@ -17,10 +17,10 @@
                 </li>
             </ul>
             <h3>
-                <NuxtLink :to="`/knowledge-desk/${slug}`" v-html="title" />
+                <NuxtLink :to="`/knowledge-desk/${slug}`" aria-hidden="true" :aria-label="title" v-html="title" />
             </h3>
             <p v-html="description" />
-            <NuxtLink :to="`/knowledge-desk/${slug}`" class="read-btn">Read More</NuxtLink>
+            <!-- <NuxtLink :to="`/knowledge-desk/${slug}`" class="read-btn">Click Here To Read More</NuxtLink> -->
         </div>
     </div>
 </template>

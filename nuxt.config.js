@@ -12,7 +12,7 @@ export default {
     title: 'Arjunaa Academy',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
       { httpEquiv: 'X-UA-Compatible', content: 'IE=edge' },
@@ -180,6 +180,7 @@ export default {
     referrerPolicy: {policy: "no-referrer"},
     frameguard: {action: "sameorigin"},
     hidePoweredBy: true,
+    expectCt: true,
     hsts: {
       maxAge: 15552000,
       includeSubDomains: true,

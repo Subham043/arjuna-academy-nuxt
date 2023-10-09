@@ -7,7 +7,7 @@
           <div class="footer-widget text-center">
             <div class="footer-logo">
               <NuxtLink to="/">
-                <img data-src="/images/logos/new-logo.webp" alt="Images" v-lazy-load/>
+                <img data-src="/images/logos/new-logo.webp" alt="Images" aria-label="home page" v-lazy-load/>
               </NuxtLink>
             </div>
             <!-- <p>
@@ -18,35 +18,35 @@
             <ul class="social-link">
               <!-- <li class="social-title">Follow Us:</li> -->
               <li>
-                <a href="https://www.facebook.com/www.aaaedu.in/" target="_blank">
+                <a href="https://www.facebook.com/www.aaaedu.in/" target="_blank" aria-label="facebook page">
                   <span class="svg-icon">
                     <font-awesome-icon :icon="['fab', 'facebook-f']"  />
                   </span>
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com/academy_arjunaa" target="_blank">
+                <a href="https://twitter.com/academy_arjunaa" target="_blank" aria-label="twitter page">
                   <span class="svg-icon">
                     <font-awesome-icon :icon="['fab', 'twitter']"  />
                   </span>
                 </a>
               </li>
               <li>
-                <a href="https://www.instagram.com/arjunaa_academy_for_achievers/" target="_blank">
+                <a href="https://www.instagram.com/arjunaa_academy_for_achievers/" target="_blank" aria-label="instagram page">
                   <span class="svg-icon">
                     <font-awesome-icon :icon="['fab', 'instagram']"  />
                   </span>
                 </a>
               </li>
               <li>
-                <a href="https://in.linkedin.com/company/arjunaa-academy-for-achievers" target="_blank">
+                <a href="https://in.linkedin.com/company/arjunaa-academy-for-achievers" target="_blank" aria-label="linkedin page">
                   <span class="svg-icon">
                     <font-awesome-icon :icon="['fab', 'linkedin']"  />
                   </span>
                 </a>
               </li>
               <li>
-                <a href="https://www.youtube.com/channel/UCcPOkcZ_YGpTMcVnLJQYLPA" target="_blank">
+                <a href="https://www.youtube.com/channel/UCcPOkcZ_YGpTMcVnLJQYLPA" target="_blank" aria-label="youtube page">
                   <span class="svg-icon">
                     <font-awesome-icon :icon="['fab', 'youtube']"  />
                   </span>
@@ -60,19 +60,19 @@
             <h3>About us</h3>
             <ul class="footer-list">
               <li>
-                <NuxtLink to="/about-us"> About Us </NuxtLink>
+                <NuxtLink to="/about-us" aria-label="about us page"> About Us </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/mission-vision"> Mission & Vision </NuxtLink>
+                <NuxtLink to="/mission-vision" aria-label="mission & vision page"> Mission & Vision </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/leadership-team"> Leadership Team & Faculty </NuxtLink>
+                <NuxtLink to="/leadership-team" aria-label="leadership team & faculty page"> Leadership Team & Faculty </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/testimonial"> Testimonial </NuxtLink>
+                <NuxtLink to="/testimonial" aria-label="testimonial page"> Testimonial </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/contact-us"> Contact Us </NuxtLink>
+                <NuxtLink to="/contact-us" aria-label="contact us page"> Contact Us </NuxtLink>
               </li>
             </ul>
           </div>
@@ -82,22 +82,22 @@
             <h3>Resources</h3>
             <ul class="footer-list">
               <li>
-                <NuxtLink to="/knowledge-desk"> Knowledge Desk </NuxtLink>
+                <NuxtLink to="/knowledge-desk" aria-label="knowledge desk page"> Knowledge Desk </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/expert-tips"> Expert Tips </NuxtLink>
+                <NuxtLink to="/expert-tips" aria-label="expert tips page"> Expert Tips </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/faq"> FAQ </NuxtLink>
+                <NuxtLink to="/faq" aria-label="faq page"> FAQ </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/gallery"> Gallery </NuxtLink>
+                <NuxtLink to="/gallery" aria-label="gallery page"> Gallery </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/events"> Events </NuxtLink>
+                <NuxtLink to="/events" aria-label="events page"> Events </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/2-year-integrated-day-scholar-and-residential-program"> Day Scholar / Residential </NuxtLink>
+                <NuxtLink to="/2-year-integrated-day-scholar-and-residential-program" aria-label="Day Scholar / Residential"> Day Scholar / Residential </NuxtLink>
               </li>
             </ul>
           </div>
@@ -117,7 +117,7 @@
             </ul>
             <ul v-if="!legalLoading && legal.length > 0" class="footer-list">
               <li v-for="(item, i) in legal" :key="i">
-                <NuxtLink :to="`/legal/${item.slug}`"> {{ item.page_name }} </NuxtLink>
+                <NuxtLink :to="`/legal/${item.slug}`" :aria-label="item.page_name"> {{ item.page_name }} </NuxtLink>
               </li>
             </ul>
           </div>
@@ -132,7 +132,7 @@
                 </span>
                 <div class="content">
                   <h4>Location:</h4>
-                  <span><a href="https://goo.gl/maps/pDUVxh6ZVWEanYsi6" target="_blank" rel="noopener noreferrer">3rd Floor, No.02, CHBCS 1st Layout, 1st Floor, 5th Main, Vijaya Nagar</a></span>
+                  <span><a href="https://goo.gl/maps/pDUVxh6ZVWEanYsi6" target="_blank" rel="noopener noreferrer" aria-label="3rd Floor, No.02, CHBCS 1st Layout, 1st Floor, 5th Main, Vijaya Nagar">3rd Floor, No.02, CHBCS 1st Layout, 1st Floor, 5th Main, Vijaya Nagar</a></span>
                 </div>
               </li>
               <li>
@@ -142,7 +142,7 @@
                 <div class="content">
                   <h4>Email:</h4>
                   <span><a
-                      href="mailto:info@aaaedu.in">info@aaaedu.in</a></span>
+                      href="mailto:info@aaaedu.in" aria-label="info@aaaedu.in">info@aaaedu.in</a></span>
                 </div>
               </li>
               <li>
@@ -151,8 +151,8 @@
                 </span>
                 <div class="content">
                   <h4>Phone:</h4>
-                  <span><a href="tel:7676642258">76766 42258</a></span><br/>
-                  <span><a href="tel:8197554516">81975 54516</a></span>
+                  <span><a href="tel:7676642258" aria-label="76766 42258">76766 42258</a></span><br/>
+                  <span><a href="tel:8197554516" aria-label="81975 54516">81975 54516</a></span>
                 </div>
               </li>
             </ul>
@@ -164,7 +164,7 @@
       <div class="container">
         <div class="copy-right-text text-center">
           <p>
-            Copyright © {{ new Date().getFullYear() }} <NuxtLink to="/">Arjunaa Academy for Achievers</NuxtLink>. All Rights Reserved.
+            Copyright © {{ new Date().getFullYear() }} <NuxtLink to="/" aria-label="Arjunaa Academy for Achievers">Arjunaa Academy for Achievers</NuxtLink>. All Rights Reserved.
           </p>
         </div>
       </div>
