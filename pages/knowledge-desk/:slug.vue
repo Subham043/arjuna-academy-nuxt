@@ -29,7 +29,7 @@
                                     <li>
                                         <span class="svg-icon">
                                             <font-awesome-icon :icon="['fa', 'user']"  />&nbsp;
-                                            <NuxtLink to="/leadership-team" v-html="blog?.author_name" />
+                                            <NuxtLink to="/leadership-team" :aria-label="blog?.author_name" v-html="blog?.author_name" />
                                         </span>
                                     </li>
                                 </ul>
@@ -41,7 +41,7 @@
                                             <div class="pagination-area m-0">
                                                 <NuxtLink
                                                     :to="prev_blog !== null ? `/knowledge-desk/${prev_blog?.slug}` : '#'"
-                                                    title="previous blog" class="prev page-numbers">
+                                                    title="previous blog" class="prev page-numbers" aria-label="previos blog">
                                                     <i class="flaticon-left-arrow"></i>
                                                 </NuxtLink>
                                             </div>
@@ -81,7 +81,7 @@
                                             <div class="pagination-area m-0">
                                                 <NuxtLink
                                                     :to="next_blog !== null ? `/knowledge-desk/${next_blog?.slug}` : '#'"
-                                                    title="next blog" class="next page-numbers">
+                                                    title="next blog" class="next page-numbers" aria-label="next blog">
                                                     <i class="flaticon-chevron"></i>
                                                 </NuxtLink>
                                             </div>
@@ -199,7 +199,7 @@
                                         <div class="info">
                                             <p>{{ item.published }}</p>
                                             <h4 class="title-text">
-                                                <NuxtLink :to="`/knowledge-desk/${item.slug}`">
+                                                <NuxtLink :aria-label="item.name" :to="`/knowledge-desk/${item.slug}`">
                                                     {{ item.name }}
                                                 </NuxtLink>
                                             </h4>

@@ -29,7 +29,7 @@
                                     <li>
                                         <span class="svg-icon">
                                             <font-awesome-icon :icon="['fa', 'user']"  />&nbsp;
-                                            <NuxtLink to="/leadership-team" v-html="expertTip?.author_name" />
+                                            <NuxtLink to="/leadership-team" :aria-label="expertTip?.author_name" v-html="expertTip?.author_name" />
                                         </span>
                                     </li>
                                 </ul>
@@ -39,7 +39,7 @@
                                     <div class="row align-items-center justify-content-between">
                                         <div v-if="prev_expertTip!==null" class="col-lg-auto col-md-auto">
                                             <div class="pagination-area m-0">
-                                                <NuxtLink :to="prev_expertTip!==null ? `/expert-tips/${prev_expertTip?.slug}` : '#'" title="previous expert tip" class="prev page-numbers">
+                                                <NuxtLink :to="prev_expertTip!==null ? `/expert-tips/${prev_expertTip?.slug}` : '#'" title="previous expert tip" class="prev page-numbers" aria-label="previous expert tip">
                                                     <i class="flaticon-left-arrow"></i>
                                                 </NuxtLink>
                                             </div>
@@ -49,21 +49,21 @@
                                                 <ul class="social-icon">
                                                     <li class="title">Share :</li>
                                                     <li>
-                                                        <a :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/expert-tips/${expertTip?.slug}&title=${expertTip?.name}`" target="_blank">
+                                                        <a aria-label="facebook share" :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/expert-tips/${expertTip?.slug}&title=${expertTip?.name}`" target="_blank">
                                                             <span class="svg-icon">
                                                                 <font-awesome-icon :icon="['fab', 'facebook-f']"  />
                                                             </span>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a :href="`https://twitter.com/share?text=${expertTip?.name}&url=https://www.aaaedu.in/expert-tips/${expertTip?.slug}`" target="_blank">
+                                                        <a aria-label="twitter share" :href="`https://twitter.com/share?text=${expertTip?.name}&url=https://www.aaaedu.in/expert-tips/${expertTip?.slug}`" target="_blank">
                                                             <span class="svg-icon">
                                                                 <font-awesome-icon :icon="['fab', 'twitter']"  />
                                                             </span>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/expert-tips/${expertTip?.slug}&title=${expertTip?.name}&source=${expertTip?.name}`" target="_blank">
+                                                        <a aria-label="linkedin share" :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/expert-tips/${expertTip?.slug}&title=${expertTip?.name}&source=${expertTip?.name}`" target="_blank">
                                                             <span class="svg-icon">
                                                                 <font-awesome-icon :icon="['fab', 'linkedin']"  />
                                                             </span>
@@ -74,7 +74,7 @@
                                         </div>
                                         <div v-if="next_expertTip!==null" class="col-lg-auto col-md-auto">
                                             <div class="pagination-area m-0">
-                                                <NuxtLink :to="next_expertTip!==null ? `/expert-tips/${next_expertTip?.slug}` : '#'" title="next expert tip" class="next page-numbers">
+                                                <NuxtLink :to="next_expertTip!==null ? `/expert-tips/${next_expertTip?.slug}` : '#'" title="next expert tip" class="next page-numbers" aria-label="next expert tip">
                                                     <i class="flaticon-chevron"></i>
                                                 </NuxtLink>
                                             </div>

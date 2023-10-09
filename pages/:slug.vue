@@ -109,7 +109,7 @@
                                                     <ul class="social-icon">
                                                         <li class="title">Share :</li>
                                                         <li>
-                                                            <a :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/${campaign?.slug}&title=${campaign?.name}`"
+                                                            <a aria-label="facebook share" :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/${campaign?.slug}&title=${campaign?.name}`"
                                                                 target="_blank">
                                                                 <span class="svg-icon">
                                                                     <font-awesome-icon :icon="['fab', 'facebook-f']"  />
@@ -117,7 +117,7 @@
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a :href="`https://twitter.com/share?text=${campaign?.name}&url=https://www.aaaedu.in/${campaign?.slug}`"
+                                                            <a aria-label="twitter share" :href="`https://twitter.com/share?text=${campaign?.name}&url=https://www.aaaedu.in/${campaign?.slug}`"
                                                                 target="_blank">
                                                                 <span class="svg-icon">
                                                                     <font-awesome-icon :icon="['fab', 'twitter']"  />
@@ -125,7 +125,7 @@
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/${campaign?.slug}&title=${campaign?.name}&source=${campaign?.name}`"
+                                                            <a aria-label="linkedin share" :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/${campaign?.slug}&title=${campaign?.name}&source=${campaign?.name}`"
                                                                 target="_blank">
                                                                 <span class="svg-icon">
                                                                     <font-awesome-icon :icon="['fab', 'linkedin']"  />

@@ -62,7 +62,7 @@
                             <PopularPostLoading v-if="popularEventLoading" />
                             <article v-if="!popularEventLoading && popularEvent.length>0" v-for="(item, i) in popularEvent" :key="i" class="item">
                                 <div class="info">
-                                    <NuxtLink :to="`/events/${item.slug}`">
+                                    <NuxtLink :to="`/events/${item.slug}`" :aria-label="item.name">
                                         <h4 class="title-text" v-html="item.name" />
                                     </NuxtLink>
                                     <p v-html="item.short_description" />

@@ -109,8 +109,8 @@
                             <div class="side-bar-area">
                                 <div class="side-bar-widget py-2">
                                     <ul class="side-bar-widget-tag">
-                                        <li :class="selected==='Day Scholar' && 'active'" @click="selected='Day Scholar'"><a href="javascript:void(0)">2 year day scholar cet, jee, neet integrated pu/cbse program</a></li>
-                                        <li :class="selected==='Residential' && 'active'" @click="selected='Residential'"><a href="javascript:void(0)">2 year day residential cet, jee, neet integrated pu/cbse program</a></li>
+                                        <li :class="selected==='Day Scholar' && 'active'" @click="selected='Day Scholar'"><a href="javascript:void(0)" aria-label="2 year day scholar cet, jee, neet integrated pu/cbse program">2 year day scholar cet, jee, neet integrated pu/cbse program</a></li>
+                                        <li :class="selected==='Residential' && 'active'" @click="selected='Residential'"><a href="javascript:void(0)" aria-label="2 year day residential cet, jee, neet integrated pu/cbse program">2 year day residential cet, jee, neet integrated pu/cbse program</a></li>
                                     </ul>
                                 </div>
                             </div>

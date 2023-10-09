@@ -34,6 +34,7 @@
                                             <h3>Email us</h3>
                                             <p>
                                                 <a
+                                                    aria-label="info@aaaedu.in"
                                                     href="mailto:info@aaaedu.in"><span>info@aaaedu.in</span></a>
                                             </p>
                                         </div>
@@ -44,7 +45,7 @@
                                                 <font-awesome-icon :icon="['fa', 'phone']"  />
                                             </span>
                                             <h3>Phone</h3>
-                                            <p><a href="tel:+917676642258">+91 7676642258</a></p>
+                                            <p><a href="tel:+917676642258" aria-label="+91 7676642258">+91 7676642258</a></p>
                                         </div>
                                     </div>
                                 </div>

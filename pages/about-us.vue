@@ -32,7 +32,7 @@
                     </h2>
                 </div>
                 <div class="play-btn-area">
-                    <a href="javascript:void(0)" class="play-btn" @click="dialogVideoVisible = true">
+                    <a href="javascript:void(0)" class="play-btn" aria-label="Video Popup" @click="dialogVideoVisible = true">
                         <i class="flaticon-play-button-arrowhead"></i>
                     </a>
                 </div>
@@ -77,7 +77,7 @@
         </el-dialog>
         
         <el-dialog title="ARJUNAA ACADEMY FOR ACHIEVERS" :visible.sync="dialogBannerVisible" width="80%" top="10vh">
-            <img data-src="/images/jee-main.webp" class="w-100" v-lazy-load/>
+            <img data-src="/images/jee-main.webp" title="ARJUNAA ACADEMY FOR ACHIEVERS" alt="ARJUNAA ACADEMY FOR ACHIEVERS" class="w-100" v-lazy-load/>
         </el-dialog>
 
 

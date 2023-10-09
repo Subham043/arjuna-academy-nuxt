@@ -151,7 +151,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 text-end">
-                        <NuxtLink to="/vrddhi/syllabus" class="default-btn">Click Here</NuxtLink>
+                        <NuxtLink to="/vrddhi/syllabus" aria-label="Syllabus" class="default-btn">Click Here</NuxtLink>
                     </div>
                 </div>
             </div>

@@ -140,21 +140,21 @@
                                     <ul class="social-link">
                                         <li class="social-title">Share this course:</li>
                                         <li>
-                                            <a :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/${$route.params.branch_slug}/courses/${$route.params.course_slug}&title=${course?.name}`" target="_blank">
+                                            <a aria-label="facebook share" :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/${$route.params.branch_slug}/courses/${$route.params.course_slug}&title=${course?.name}`" target="_blank">
                                                 <span class="svg-icon">
                                                     <font-awesome-icon :icon="['fab', 'facebook-f']"  />
                                                 </span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a :href="`https://twitter.com/share?text=${course?.name}&url=https://www.aaaedu.in/${$route.params.branch_slug}/courses/${$route.params.course_slug}`" target="_blank">
+                                            <a aria-label="twitter share" :href="`https://twitter.com/share?text=${course?.name}&url=https://www.aaaedu.in/${$route.params.branch_slug}/courses/${$route.params.course_slug}`" target="_blank">
                                                 <span class="svg-icon">
                                                     <font-awesome-icon :icon="['fab', 'twitter']"  />
                                                 </span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/${$route.params.branch_slug}/courses/${$route.params.course_slug}&title=${course?.name}&source=${course?.name}`" target="_blank">
+                                            <a aria-label="linkedin share" :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/${$route.params.branch_slug}/courses/${$route.params.course_slug}&title=${course?.name}&source=${course?.name}`" target="_blank">
                                                 <span class="svg-icon">
                                                     <font-awesome-icon :icon="['fab', 'linkedin']"  />
                                                 </span>
