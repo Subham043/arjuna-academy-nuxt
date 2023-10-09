@@ -7,7 +7,7 @@
           <div class="footer-widget text-center">
             <div class="footer-logo">
               <NuxtLink to="/">
-                <img data-src="/images/logos/new-logo.png" alt="Images" width="491" height="230" v-lazy-load/>
+                <img data-src="/images/logos/new-logo.webp" alt="Images" v-lazy-load/>
               </NuxtLink>
             </div>
             <!-- <p>
@@ -19,27 +19,37 @@
               <!-- <li class="social-title">Follow Us:</li> -->
               <li>
                 <a href="https://www.facebook.com/www.aaaedu.in/" target="_blank">
-                  <i class="ri-facebook-fill"></i>
+                  <span class="svg-icon">
+                    <font-awesome-icon :icon="['fab', 'facebook-f']"  />
+                  </span>
                 </a>
               </li>
               <li>
                 <a href="https://twitter.com/academy_arjunaa" target="_blank">
-                  <i class="ri-twitter-fill"></i>
+                  <span class="svg-icon">
+                    <font-awesome-icon :icon="['fab', 'twitter']"  />
+                  </span>
                 </a>
               </li>
               <li>
                 <a href="https://www.instagram.com/arjunaa_academy_for_achievers/" target="_blank">
-                  <i class="ri-instagram-fill"></i>
+                  <span class="svg-icon">
+                    <font-awesome-icon :icon="['fab', 'instagram']"  />
+                  </span>
                 </a>
               </li>
               <li>
                 <a href="https://in.linkedin.com/company/arjunaa-academy-for-achievers" target="_blank">
-                  <i class="ri-linkedin-fill"></i>
+                  <span class="svg-icon">
+                    <font-awesome-icon :icon="['fab', 'linkedin']"  />
+                  </span>
                 </a>
               </li>
               <li>
                 <a href="https://www.youtube.com/channel/UCcPOkcZ_YGpTMcVnLJQYLPA" target="_blank">
-                  <i class="ri-youtube-fill"></i>
+                  <span class="svg-icon">
+                    <font-awesome-icon :icon="['fab', 'youtube']"  />
+                  </span>
                 </a>
               </li>
             </ul>
@@ -117,14 +127,18 @@
             <h3>Official Info</h3>
             <ul class="footer-contact">
               <li>
-                <i class="ri-map-pin-2-fill"></i>
+                <span class="svg-icon">
+                    <font-awesome-icon :icon="['fa', 'map-pin']"  />
+                </span>
                 <div class="content">
                   <h4>Location:</h4>
                   <span><a href="https://goo.gl/maps/pDUVxh6ZVWEanYsi6" target="_blank" rel="noopener noreferrer">3rd Floor, No.02, CHBCS 1st Layout, 1st Floor, 5th Main, Vijaya Nagar</a></span>
                 </div>
               </li>
               <li>
-                <i class="ri-mail-fill"></i>
+                <span class="svg-icon">
+                    <font-awesome-icon :icon="['fa', 'envelope']"  />
+                </span>
                 <div class="content">
                   <h4>Email:</h4>
                   <span><a
@@ -132,7 +146,9 @@
                 </div>
               </li>
               <li>
-                <i class="ri-phone-fill"></i>
+                <span class="svg-icon">
+                    <font-awesome-icon :icon="['fa', 'phone']"  />
+                </span>
                 <div class="content">
                   <h4>Phone:</h4>
                   <span><a href="tel:7676642258">76766 42258</a></span><br/>

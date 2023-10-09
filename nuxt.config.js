@@ -20,14 +20,10 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  analyze: false,
-  extractCSS: true,
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'element-ui/lib/theme-chalk/index.css',
     '~/static/css/bootstrap.min.css',
-    '~/static/fonts/remixicon.css',
     '~/static/fonts/flaticon.css',
     '~/static/css/style.css',
     '~/static/css/responsive.css',
@@ -49,8 +45,8 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // '@nuxtjs/date-fns',
     '@nuxtjs/google-fonts',
+    '@nuxtjs/fontawesome'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -226,6 +222,18 @@ export default {
     loadedClass: 'isLoaded',
     appendClass: 'lazyLoad',
     
+  },
+
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+  },
+
+  fontawesome: {
+    icons:{
+     solid:['faCalendarDays', 'faUser', 'faMapPin', 'faEnvelope', 'faPhone', 'faBars', 'faStar'],
+     brands:['faFacebookF', 'faTwitter', 'faInstagram', 'faLinkedin', 'faYoutube'],
+    }
   },
 
 }

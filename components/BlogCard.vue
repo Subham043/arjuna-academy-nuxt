@@ -1,12 +1,20 @@
 <template>
     <div class="blog-card">
         <NuxtLink :to="`/knowledge-desk/${slug}`">
-            <img :data-src="image"  :alt="image_alt" :title="image_title" width="412" height="215" v-lazy-load/>
+            <img :data-src="image"  :alt="image_alt" :title="image_title" v-lazy-load/>
         </NuxtLink>
         <div class="content">
             <ul>
-                <li class="one-line-text"><i class="ri-calendar-todo-fill"></i> {{ date }}</li>
-                <li class="one-line-text"><i class="ri-user-fill"></i> {{ author }}</li>
+                <li class="one-line-text">
+                    <span class="svg-icon">
+                        <font-awesome-icon :icon="['fa', 'calendar-days']"  />&nbsp; {{ date }}
+                    </span>
+                </li>
+                <li class="one-line-text">
+                    <span class="svg-icon">
+                        <font-awesome-icon :icon="['fa', 'user']"  />&nbsp; {{ author }}
+                    </span>
+                </li>
             </ul>
             <h3>
                 <NuxtLink :to="`/knowledge-desk/${slug}`" v-html="title" />

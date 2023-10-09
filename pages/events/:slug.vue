@@ -57,7 +57,7 @@
                                 </ul>
                             </div>
                         </template>
-                        <div class="event-sidebar">
+                        <div class="event-sidebar" id="popular-event-area">
                             <h3 class="title">Upcoming Events</h3>
                             <PopularPostLoading v-if="popularEventLoading" />
                             <article v-if="!popularEventLoading && popularEvent.length>0" v-for="(item, i) in popularEvent" :key="i" class="item">
@@ -90,11 +90,7 @@ export default {
     name: "EventDetailPage",
     layout: "MainPageLayout",
     mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
-        this.getPopluarEvent();
+        this.getPopluarEvent(this.$route.query.page ? Number(this.$route.query.page) : 1);
     },
     data() {
         return {
@@ -146,6 +142,9 @@ export default {
     watch: {
         $route(to, from) {
             this.handlePopularEventPageChnage();
+            if (process.client) {
+                this.$scrollTo("#popular-event-area", 0, { force: true });
+            }
         }
     },
     methods: {

@@ -5,7 +5,9 @@
                 <template slot="template">
                     <div class="testimonials-card-two">
                         <div class="rating">
-                            <i v-for="i in 5" :key="i" class="ri-star-fill"></i>
+                            <span v-for="i in 5" :key="i" class="svg-icon" >
+                                <font-awesome-icon :icon="['fa', 'star']"  />
+                            </span>
                         </div>
                         <el-skeleton-item variant="text" style="width: 100%;" />
                         <br/>

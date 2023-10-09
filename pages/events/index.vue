@@ -10,7 +10,7 @@
             ]"
         />
 
-        <div class="blog-area pt-70 pb-70">
+        <div class="blog-area pt-70 pb-70" id="event-area">
             <div class="container">
                 <div class="section-title mb-45 text-center">
                     <h2>Latest from our <b>events</b></h2>
@@ -40,12 +40,6 @@ import { API_ROUTES } from '~/helper/api_routes';
 export default {
     name: "EventTipPage",
     layout: "MainPageLayout",
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
-    },
     data() {
         return {
             eventLoading: false,
@@ -100,10 +94,10 @@ export default {
     },
     watch: {
         $route(to, from) {
-            if (process.client) {
-                this.$scrollTo("#__nuxt", 0, { force: true });
-            }
             this.handlePageChnage();
+            if (process.client) {
+                this.$scrollTo("#event-area", 0, { force: true });
+            }
         }
     },
     methods: {

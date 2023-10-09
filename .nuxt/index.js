@@ -21,6 +21,7 @@ import nuxt_plugin_workbox_cf4710d2 from 'nuxt_plugin_workbox_cf4710d2' // Sourc
 import nuxt_plugin_metaplugin_fca790ac from 'nuxt_plugin_metaplugin_fca790ac' // Source: ./pwa/meta.plugin.js (mode: 'all')
 import nuxt_plugin_iconplugin_f35845c4 from 'nuxt_plugin_iconplugin_f35845c4' // Source: ./pwa/icon.plugin.js (mode: 'all')
 import nuxt_plugin_axios_1910653b from 'nuxt_plugin_axios_1910653b' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_fontawesome_0093bf86 from 'nuxt_plugin_fontawesome_0093bf86' // Source: ./fontawesome.js (mode: 'all')
 import nuxt_plugin_elementui_d905880e from 'nuxt_plugin_elementui_d905880e' // Source: ../plugins/element-ui (mode: 'all')
 import nuxt_plugin_imageviewer_01887d2c from 'nuxt_plugin_imageviewer_01887d2c' // Source: ../plugins/image_viewer (mode: 'all')
 import nuxt_plugin_validationprovider_53910e08 from 'nuxt_plugin_validationprovider_53910e08' // Source: ../plugins/validation-provider.js (mode: 'all')
@@ -256,6 +257,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_axios_1910653b === 'function') {
     await nuxt_plugin_axios_1910653b(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_fontawesome_0093bf86 === 'function') {
+    await nuxt_plugin_fontawesome_0093bf86(app.context, inject)
   }
 
   if (typeof nuxt_plugin_elementui_d905880e === 'function') {

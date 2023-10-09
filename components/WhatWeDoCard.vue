@@ -17,7 +17,7 @@
                 <div v-if="!loading && feature.length>0" v-for="(item, i) in feature" :key="i" class="col-lg-4 col-6">
                     <div class="featured-item-two">
                         <div class="feature-icon-holder">
-                            <img :data-src="item.image" :alt="item.title" :title="item.title" width="83" height="83" v-lazy-load>
+                            <img :data-src="item.image" :alt="item.title" :title="item.title" v-lazy-load>
                             <h3 v-html="item.title" />
                         </div>
                         <p v-html="item.description" />

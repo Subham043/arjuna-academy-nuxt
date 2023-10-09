@@ -10,7 +10,7 @@
             ]"
         />
 
-        <div class="blog-area pt-70 pb-70">
+        <div class="blog-area pt-70 pb-70" id="blog-area">
             <div class="container">
                 <div class="section-title mb-45 text-center">
                     <h2>Latest from our <b>blogs</b></h2>
@@ -39,12 +39,6 @@ import { API_ROUTES } from '~/helper/api_routes';
 export default {
     name: "BlogPage",
     layout: "MainPageLayout",
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
-    },
     data() {
         return {
             blogLoading: false,
@@ -99,10 +93,10 @@ export default {
     },
     watch: {
         $route(to, from) {
-            if (process.client) {
-                this.$scrollTo("#__nuxt", 0, { force: true });
-            }
             this.handlePageChnage();
+            if (process.client) {
+                this.$scrollTo("#blog-area", 0, { force: true });
+            }
         }
     },
     methods: {

@@ -6,11 +6,11 @@ import NuxtError from '../layouts/error.vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
+import '../node_modules/@fortawesome/fontawesome-svg-core/styles.css'
+
 import '../node_modules/element-ui/lib/theme-chalk/index.css'
 
 import '../static/css/bootstrap.min.css'
-
-import '../static/fonts/remixicon.css'
 
 import '../static/fonts/flaticon.css'
 

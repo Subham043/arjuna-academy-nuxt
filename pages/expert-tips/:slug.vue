@@ -21,10 +21,16 @@
                         <div class="blog-details-content pr-20">
                             <template v-if="!expertTipLoading">
                                 <ul class="tag-list">
-                                    <li><i class="ri-calendar-todo-fill"></i> {{ expertTip?.published }}</li>
                                     <li>
-                                        <i class="ri-user-fill"></i>
-                                        <NuxtLink to="/leadership-team" v-html="expertTip?.author_name" />
+                                        <span class="svg-icon">
+                                            <font-awesome-icon :icon="['fa', 'user']"  />&nbsp; {{ expertTip?.published }}
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="svg-icon">
+                                            <font-awesome-icon :icon="['fa', 'user']"  />&nbsp;
+                                            <NuxtLink to="/leadership-team" v-html="expertTip?.author_name" />
+                                        </span>
                                     </li>
                                 </ul>
                                 <h1 v-html="expertTip?.heading" />
@@ -44,17 +50,23 @@
                                                     <li class="title">Share :</li>
                                                     <li>
                                                         <a :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/expert-tips/${expertTip?.slug}&title=${expertTip?.name}`" target="_blank">
-                                                            <i class="ri-facebook-fill"></i>
+                                                            <span class="svg-icon">
+                                                                <font-awesome-icon :icon="['fab', 'facebook-f']"  />
+                                                            </span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a :href="`https://twitter.com/share?text=${expertTip?.name}&url=https://www.aaaedu.in/expert-tips/${expertTip?.slug}`" target="_blank">
-                                                            <i class="ri-twitter-fill"></i>
+                                                            <span class="svg-icon">
+                                                                <font-awesome-icon :icon="['fab', 'twitter']"  />
+                                                            </span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/expert-tips/${expertTip?.slug}&title=${expertTip?.name}&source=${expertTip?.name}`" target="_blank">
-                                                            <i class="ri-linkedin-fill"></i>
+                                                            <span class="svg-icon">
+                                                                <font-awesome-icon :icon="['fab', 'linkedin']"  />
+                                                            </span>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -88,12 +100,6 @@ import { API_ROUTES } from '~/helper/api_routes';
 export default {
     name: "ExpertTipDetailPage",
     layout: "MainPageLayout",
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
-    },
     data() {
         return {
             expertTipLoading: false,

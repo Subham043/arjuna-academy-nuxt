@@ -2,13 +2,21 @@
     <div class="event-item">
         <div v-if="image!==''" class="event-img">
             <NuxtLink :to="is_event ? `/events/${slug}` :  `/expert-tips/${slug}`">
-                <img :data-src="image" :alt="image_alt" :title="image_title" width="180" height="117" v-lazy-load/>
+                <img :data-src="image" :alt="image_alt" :title="image_title" v-lazy-load/>
             </NuxtLink>
         </div>
         <div class="event-content">
             <ul class="event-list">
-                <li><i class="ri-calendar-todo-fill"></i> {{ date }}</li>
-                <li v-if="!is_event"><i class="ri-user-fill"></i> {{ author }}</li>
+                <li>
+                    <span class="svg-icon">
+                        <font-awesome-icon :icon="['fa', 'calendar-days']"  />&nbsp; {{ date }}
+                    </span>
+                </li>
+                <li v-if="!is_event">
+                    <span class="svg-icon">
+                        <font-awesome-icon :icon="['fa', 'user']"  />&nbsp; {{ author }}
+                    </span>
+                </li>
             </ul>
             <h3>
                 <NuxtLink :to="is_event ? `/events/${slug}` :  `/expert-tips/${slug}`" v-html="title" />

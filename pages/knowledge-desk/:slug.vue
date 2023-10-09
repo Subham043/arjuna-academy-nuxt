@@ -21,10 +21,16 @@
                                     <img v-lazy-load :data-src="blog?.image" :alt="blog?.image_alt" :title="blog?.image_title" />
                                 </div>
                                 <ul class="tag-list">
-                                    <li><i class="ri-calendar-todo-fill"></i> {{ blog?.published }}</li>
                                     <li>
-                                        <i class="ri-user-fill"></i>
-                                        <NuxtLink to="/leadership-team" v-html="blog?.author_name" />
+                                        <span class="svg-icon">
+                                            <font-awesome-icon :icon="['fa', 'user']"  />&nbsp; {{ blog?.published }}
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="svg-icon">
+                                            <font-awesome-icon :icon="['fa', 'user']"  />&nbsp;
+                                            <NuxtLink to="/leadership-team" v-html="blog?.author_name" />
+                                        </span>
                                     </li>
                                 </ul>
                                 <h1 v-html="blog?.heading" />
@@ -47,19 +53,25 @@
                                                     <li>
                                                         <a :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/knowledge-desk/${blog?.slug}&title=${blog?.name}`"
                                                             target="_blank">
-                                                            <i class="ri-facebook-fill"></i>
+                                                            <span class="svg-icon">
+                                                                <font-awesome-icon :icon="['fab', 'facebook-f']"  />
+                                                            </span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a :href="`https://twitter.com/share?text=${blog?.name}&url=https://www.aaaedu.in/knowledge-desk/${blog?.slug}`"
                                                             target="_blank">
-                                                            <i class="ri-twitter-fill"></i>
+                                                            <span class="svg-icon">
+                                                                <font-awesome-icon :icon="['fab', 'twitter']"  />
+                                                            </span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/knowledge-desk/${blog?.slug}&title=${blog?.name}&source=${blog?.name}`"
                                                             target="_blank">
-                                                            <i class="ri-linkedin-fill"></i>
+                                                            <span class="svg-icon">
+                                                                <font-awesome-icon :icon="['fab', 'linkedin']"  />
+                                                            </span>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -76,7 +88,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="courses-details-area pb-70">
+                                <div class="courses-details-area pb-70" id="blog-comment-area">
                                     <div class="courses-details-contact">
                                         <div class="tab courses-details-tab">
                                             <div class="tab_content current active">
@@ -176,7 +188,7 @@
                             </template>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4" id="popular-blog-area">
                         <div class="side-bar-area">
                             <div class="side-bar-widget">
                                 <h3 class="title">Popular post</h3>
@@ -220,10 +232,6 @@ export default {
     name: "BlogDetailPage",
     layout: "MainPageLayout",
     mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
         this.getPopluarBlog(this.$route.query.page ? Number(this.$route.query.page) : 1);
     },
     data() {
@@ -288,12 +296,18 @@ export default {
     watch: {
         $route(to, from) {
             this.handlePopularBlogPageChnage();
+            if (process.client) {
+                this.$scrollTo("#popular-blog-area", 0, { force: true });
+            }
         },
         blog(to, from) {
             this.getBlogComment();
         },
         blogCommentPage(to, from) {
             this.getBlogComment(to);
+            if (process.client) {
+                this.$scrollTo("#blog-comment-area", 0, { force: true });
+            }
         },
     },
     methods: {

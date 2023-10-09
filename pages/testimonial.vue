@@ -10,7 +10,7 @@
             ]"
         />
 
-        <div class="testimonials-area pt-70 pb-70">
+        <div class="testimonials-area pt-70 pb-70" id="testimonial-area">
             <div class="container">
                 <div class="section-title text-center">
                     <span>TESTIMONIAL</span>
@@ -93,22 +93,16 @@ export default {
             __dangerouslyDisableSanitizers: ['script'],
         }
     },
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
-    },
     async fetch() {
       await this.getTestimonial(this.$route.query.page ? Number(this.$route.query.page) : 1);
       await this.getSeo();
     },
     watch: {
         $route(to, from) {
-            if (process.client) {
-                this.$scrollTo("#__nuxt", 0, { force: true });
-            }
             this.handlePageChnage();
+            if (process.client) {
+                this.$scrollTo("#testimonial-area", 0, { force: true });
+            }
         }
     },
     methods: {

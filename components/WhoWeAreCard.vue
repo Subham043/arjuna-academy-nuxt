@@ -12,10 +12,10 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="enrolled-img-three mb-30 pr-20">
-                                <img v-if="first" :src="image" :alt="image_alt" :title="image_title" width="616" height="583" data-not-lazy/>
-                                <img v-else :data-src="image" :alt="image_alt" :title="image_title" width="616" height="583" v-lazy-load/>
+                                <img v-if="first" :src="image" :alt="image_alt" :title="image_title" data-not-lazy/>
+                                <img v-else :data-src="image" :alt="image_alt" :title="image_title" v-lazy-load/>
                                 <div class="enrolled-img-content">
-                                    <img :data-src="counter_image" :alt="counter_title" :title="counter_title" width="45" height="45" v-lazy-load/>
+                                    <img :data-src="counter_image" :alt="counter_title" :title="counter_title" v-lazy-load/>
                                     <div class="content">
                                         <h3 v-html="counter_title" />
                                         <p v-html="counter_description" />

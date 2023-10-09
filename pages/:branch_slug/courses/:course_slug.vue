@@ -79,7 +79,7 @@
                     <div class="col-lg-4">
                         <template v-if="!courseLoading">
                             <div class="courses-details-sidebar">
-                                <img :src="course?.image" :alt="course?.image_alt" :title="course?.image_title" class="w-100" width="416" height="270" do-not-lazy/>
+                                <img :src="course?.image" :alt="course?.image_alt" :title="course?.image_title" class="w-100" do-not-lazy/>
                                 <div class="content">
                                     <span class="d-flex justify-content-between align-items-center">
                                         <small v-if="this.course?.branch_details.length>0 && course?.branch_details[0].discount!=0" class="d-inline-flex m-0 px-2 py-1 fw-semibold text-success-emphasis bg-success-subtle border border-success-subtle rounded-2">{{course?.branch_details[0].discount}}% OFF</small>
@@ -141,17 +141,23 @@
                                         <li class="social-title">Share this course:</li>
                                         <li>
                                             <a :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/${$route.params.branch_slug}/courses/${$route.params.course_slug}&title=${course?.name}`" target="_blank">
-                                                <i class="ri-facebook-fill"></i>
+                                                <span class="svg-icon">
+                                                    <font-awesome-icon :icon="['fab', 'facebook-f']"  />
+                                                </span>
                                             </a>
                                         </li>
                                         <li>
                                             <a :href="`https://twitter.com/share?text=${course?.name}&url=https://www.aaaedu.in/${$route.params.branch_slug}/courses/${$route.params.course_slug}`" target="_blank">
-                                                <i class="ri-twitter-fill"></i>
+                                                <span class="svg-icon">
+                                                    <font-awesome-icon :icon="['fab', 'twitter']"  />
+                                                </span>
                                             </a>
                                         </li>
                                         <li>
                                             <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/${$route.params.branch_slug}/courses/${$route.params.course_slug}&title=${course?.name}&source=${course?.name}`" target="_blank">
-                                                <i class="ri-linkedin-fill"></i>
+                                                <span class="svg-icon">
+                                                    <font-awesome-icon :icon="['fab', 'linkedin']"  />
+                                                </span>
                                             </a>
                                         </li>
                                     </ul>
@@ -227,12 +233,6 @@ export default {
     },
     async fetch() {
         await this.getCourse();
-    },
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
     },
     methods: {
         async getCourse() {

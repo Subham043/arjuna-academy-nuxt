@@ -137,12 +137,6 @@ export default {
             loading: false,
         };
     },
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
-    },
     methods: {
         async formHandler(){
             this.loading=true;

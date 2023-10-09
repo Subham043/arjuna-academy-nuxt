@@ -141,7 +141,7 @@
         </template>
 
 
-        <div class="instructors-area instructors-area-rs pb-70">
+        <div class="instructors-area instructors-area-rs pb-70" id="instructor-area">
             <div class="container">
                 <div class="section-title text-center mb-45">
                     <h2>Our Faculties</h2>
@@ -238,16 +238,10 @@ export default {
     },
     watch: {
         $route(to, from) {
-            if (process.client) {
-                this.$scrollTo("#__nuxt", 0, { force: true });
-            }
             this.handlePageChnage();
-        }
-    },
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
+            if (process.client) {
+                this.$scrollTo("#instructor-area", 0, { force: true });
+            }
         }
     },
     methods: {

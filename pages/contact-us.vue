@@ -19,14 +19,18 @@
                                 <div class="row justify-content-center">
                                     <div class="col-lg-12 col-12 col-sm-8">
                                         <div class="contact-info-card">
-                                            <i class="ri-map-pin-fill"></i>
+                                            <span class="svg-icon">
+                                                <font-awesome-icon :icon="['fa', 'map-pin']"  />
+                                            </span>
                                             <h3>Our location</h3>
                                             <p>3rd Floor, No.02, CHBCS 1st Layout, 1st Floor, 5th Main, Vijaya Nagar</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-6">
                                         <div class="contact-info-card">
-                                            <i class="ri-mail-fill"></i>
+                                            <span class="svg-icon">
+                                                <font-awesome-icon :icon="['fa', 'envelope']"  />
+                                            </span>
                                             <h3>Email us</h3>
                                             <p>
                                                 <a
@@ -36,7 +40,9 @@
                                     </div>
                                     <div class="col-lg-6 col-6">
                                         <div class="contact-info-card">
-                                            <i class="ri-phone-fill"></i>
+                                            <span class="svg-icon">
+                                                <font-awesome-icon :icon="['fa', 'phone']"  />
+                                            </span>
                                             <h3>Phone</h3>
                                             <p><a href="tel:+917676642258">+91 7676642258</a></p>
                                         </div>
@@ -313,12 +319,6 @@ export default {
                 innerHTML: this.seo.meta_scripts // <- set jsonld object in data or wherever you want
             }],
             __dangerouslyDisableSanitizers: ['script'],
-        }
-    },
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
         }
     },
     async fetch() {

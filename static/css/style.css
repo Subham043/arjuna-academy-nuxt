@@ -322,8 +322,10 @@ img {
   transition: all 0.3s linear;
 }
 .header-right .header-language .dropdown-toggle:after {
-  content: "\ea4e";
-  font-family: remixicon !important;
+  /* content: "\ea4e"; */
+  content: "\e6df";
+  font-family: element-icons !important;
+  /* font-family: remixicon !important; */
   border: 0;
   margin-left: 8px;
   font-size: 20px;
@@ -433,12 +435,14 @@ img {
 }
 .desktop-nav .navbar .navbar-nav .nav-item .dropdown-toggle::before {
   position: absolute;
-  content: "\ea4e";
+  /* content: "\ea4e"; */
+  content: "\e6df";
   line-height: 1;
   right: -2px;
-  top: 6px;
-  font-family: remixicon !important;
-  font-size: 17px;
+  top: 10px;
+  font-family: element-icons !important;
+  /* font-family: remixicon !important; */
+  font-size: 12px;
 }
 .desktop-nav .navbar .navbar-nav .nav-item .dropdown-toggle::after {
   display: none;
@@ -534,15 +538,16 @@ img {
   li
   a.dropdown-toggle::before {
   position: absolute;
-  content: "\ea4e";
+  /* content: "\ea4e"; */
+  content: "\e6df";
   line-height: 1;
-  /* right: 15px; */
   right: 7px;
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-  font-family: remixicon !important;
-  font-size: 17px;
+  /* font-family: remixicon !important; */
+  font-family: element-icons !important;
+  font-size: 12px;
 }
 .desktop-nav
   .navbar
@@ -3238,7 +3243,7 @@ img {
 .courses-page-side-bar-widget .courses-page-content li input[type="checkbox"] {
   display: none;
 }
-.courses-page-side-bar-widget
+/* .courses-page-side-bar-widget
   .courses-page-content
   li
   input[type="checkbox"]:checked
@@ -3247,7 +3252,7 @@ img {
   background-color: var(--mainColor);
   border: 1px solid var(--mainColor);
   font-family: remixicon !important;
-}
+} */
 .courses-page-side-bar-widget .courses-page-content li:hover span {
   background-color: var(--mainColor);
   color: var(--whiteColor);
@@ -3833,7 +3838,7 @@ img {
 .courses-details-sidebar .social-link li a {
   display: inline-block;
 }
-.courses-details-sidebar .social-link li a i {
+.courses-details-sidebar .social-link li a i, .courses-details-sidebar .social-link li a .svg-icon {
   font-size: 15px;
   width: 32px;
   height: 32px;
@@ -3847,7 +3852,7 @@ img {
   display: inline-block;
   border: 1px solid var(--mainColor);
 }
-.courses-details-sidebar .social-link li a:hover i {
+.courses-details-sidebar .social-link li a:hover i, .courses-details-sidebar .social-link li a .svg-icon:hover {
   color: var(--whiteColor);
   background-color: var(--mainColor);
 }
@@ -4294,7 +4299,7 @@ img {
   opacity: 1;
 }
 .play-btn-area {
-  background-image: url(../images/ceo-banner.jpeg);
+  background-image: url(../images/ceo-banner.webp);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -5387,7 +5392,7 @@ img {
 .event-item .event-content .event-list li:last-child {
   margin-right: 0;
 }
-.event-item .event-content .event-list li i {
+.event-item .event-content .event-list li i, .event-item .event-content .event-list li .svg-icon {
   color: var(--mainColor);
   position: relative;
   top: 3px;
@@ -5589,7 +5594,7 @@ img {
   -webkit-transition-duration: 0.6s;
   transition-duration: 0.6s;
 }
-.contact-info-card i {
+.contact-info-card i, .contact-info-card .svg-icon {
   position: absolute;
   top: 30px;
   left: 30px;
@@ -5630,7 +5635,7 @@ img {
   opacity: 1;
   width: 100%;
 }
-.contact-info-card:hover i {
+.contact-info-card:hover i, .contact-info-card:hover .svg-icon {
   background-color: var(--whiteColor);
   color: var(--mainColor);
 }
@@ -5819,7 +5824,7 @@ img {
   -webkit-transition-duration: 0.6s;
   transition-duration: 0.6s;
 }
-.blog-card .content ul li i {
+.blog-card .content ul li i, .blog-card .content ul li .svg-icon {
   font-size: 18px;
   color: var(--mainColor);
   position: relative;
@@ -5832,7 +5837,7 @@ img {
 .blog-card .content ul li:hover {
   color: var(--mainColor);
 }
-.blog-card .content ul li:hover i {
+.blog-card .content ul li:hover i, .blog-card .content ul li .svg-icon:hover {
   color: var(--titleColor);
 }
 .blog-card .content ul li:hover a {
@@ -6104,7 +6109,7 @@ img {
   -webkit-transition-duration: 0.6s;
   transition-duration: 0.6s;
 }
-.blog-details-content .tag-list li i {
+.blog-details-content .tag-list li i, .blog-details-content .tag-list li .svg-icon {
   font-size: 18px;
   color: var(--mainColor);
   position: relative;
@@ -6117,7 +6122,7 @@ img {
 .blog-details-content .tag-list li:hover {
   color: var(--mainColor);
 }
-.blog-details-content .tag-list li:hover i {
+.blog-details-content .tag-list li:hover i, .blog-details-content .tag-list li .svg-icon:hover {
   color: var(--titleColor);
 }
 .blog-details-content .tag-list li:hover a {
@@ -6238,7 +6243,7 @@ img {
   li:last-child {
   margin-right: 0;
 }
-.blog-details-content .article-share .article-social-icon .social-icon li a i {
+.blog-details-content .article-share .article-social-icon .social-icon li a i, .blog-details-content .article-share .article-social-icon .social-icon li a .svg-icon {
   color: var(--bodyColor);
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -6250,7 +6255,7 @@ img {
   .article-social-icon
   .social-icon
   li
-  a:hover {
+  a:hover, .blog-details-content .article-share .article-social-icon .social-icon li a .svg-icon:hover {
   border: none;
 }
 .blog-details-content
@@ -6259,7 +6264,7 @@ img {
   .social-icon
   li
   a:hover
-  i {
+  i, .blog-details-content .article-share .article-social-icon .social-icon li a .svg-icon:hover {
   color: var(--mainColor);
 }
 .blog-details-content .comments-form {
@@ -6787,7 +6792,7 @@ img {
 .footer-widget .social-link li a {
   display: inline-block;
 }
-.footer-widget .social-link li a i {
+.footer-widget .social-link li a i, .footer-widget .social-link li a .svg-icon {
   font-size: 15px;
   width: 32px;
   height: 32px;
@@ -6800,7 +6805,7 @@ img {
   transition: var(--transition);
   display: inline-block;
 }
-.footer-widget .social-link li a:hover i {
+.footer-widget .social-link li a:hover i, .footer-widget .social-link li a .svg-icon:hover {
   color: var(--whiteColor);
   background-color: var(--mainColor);
 }
@@ -6857,7 +6862,7 @@ img {
 .footer-widget .footer-contact li:last-child {
   margin-bottom: 0;
 }
-.footer-widget .footer-contact li i {
+.footer-widget .footer-contact li i, .footer-widget .footer-contact li .svg-icon {
   font-size: 18px;
   color: var(--mainColor);
   position: absolute;
@@ -7629,3 +7634,4 @@ img {
 .el-menu a{
   display: block;
 }
+.page-enter-active,.page-leave-active{transition:opacity .3s}.page-enter,.page-leave-active{opacity:0}

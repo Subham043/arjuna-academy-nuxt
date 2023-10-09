@@ -15,13 +15,13 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="faq-img">
-                            <img data-src="/images/faq-img.jpg" alt="faq" title="faq" width="636" height="594" v-lazy-load/>
+                            <img data-src="/images/faq-img.jpg" alt="faq" title="faq" v-lazy-load/>
                             <div class="shape">
-                                <img data-src="/images/faq-shape.png" alt="Faq" title="Faq" width="80" height="85" v-lazy-load/>
+                                <img data-src="/images/faq-shape.png" alt="Faq" title="Faq" v-lazy-load/>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" id="faq-area">
                         <div class="faq-accordion pl-20">
                             <div class="section-title mb-45">
                                 <span>FAQ</span>
@@ -117,22 +117,16 @@ export default {
             __dangerouslyDisableSanitizers: ['script'],
         }
     },
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
-    },
     async fetch() {
       await this.getFaq(this.$route.query.page ? Number(this.$route.query.page) : 1);
       await this.getSeo();
     },
     watch: {
         $route(to, from) {
-            if (process.client) {
-                this.$scrollTo("#__nuxt", 0, { force: true });
-            }
             this.handlePageChnage();
+            if (process.client) {
+                this.$scrollTo("#faq-area", 0, { force: true });
+            }
         }
     },
     methods: {

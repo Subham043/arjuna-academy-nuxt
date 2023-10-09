@@ -30,12 +30,6 @@
   export default {
     name: 'ErrorDefault',
     props: ['error'],// eslint-disable-line
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
-    },
     methods: {
         goBack() {
             this.$router.push('/');

@@ -170,12 +170,6 @@ import { API_ROUTES } from '~/helper/api_routes';
 export default {
     name: "DayScholarDetailPage",
     layout: "MainPageLayout",
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
-    },
     data() {
         return {
             name: '',

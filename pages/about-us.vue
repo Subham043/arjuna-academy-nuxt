@@ -58,7 +58,7 @@
                     <div v-if="!counterLoading && counter.length>0" v-for="(item, i) in counter" :key="i" class="col-lg-3 col-6">
                         <div class="counter-card box-shadow">
                             <div class="row align-item-center">
-                                <img :data-src="item.image" v-lazy-load :alt="item.image_alt" :title="item.image_title" width="80" height="80" style="height: 80px; object-fit: contain; width: auto !important;">
+                                <img :data-src="item.image" v-lazy-load :alt="item.image_alt" :title="item.image_title" style="height: 80px; object-fit: contain; width: auto !important;">
                                 <div class="col-auto">
                                     <h3><span class="odometer" >{{ item.counter }}</span>+</h3>
                                     <p v-html="item.title" />
@@ -144,10 +144,6 @@ export default {
         }
     },
     mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
         this.getCounter();
     },
     async fetch() {

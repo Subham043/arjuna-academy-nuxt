@@ -15,9 +15,9 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="faq-img">
-                            <img v-lazy-load data-src="/images/faq-img.jpg" width="526" height="491" alt="faq" />
+                            <img v-lazy-load data-src="/images/faq-img.jpg" alt="faq" />
                             <div class="shape">
-                                <img v-lazy-load data-src="/images/faq-shape.png" width="80" height="85" alt="Faq" />
+                                <img v-lazy-load data-src="/images/faq-shape.png" alt="Faq" />
                             </div>
                         </div>
                     </div>
@@ -346,12 +346,6 @@ export default {
                 innerHTML: this.seo.meta_scripts // <- set jsonld object in data or wherever you want
             }],
             __dangerouslyDisableSanitizers: ['script'],
-        }
-    },
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
         }
     },
     async fetch() {

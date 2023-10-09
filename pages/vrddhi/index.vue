@@ -38,7 +38,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5">
                         <div class="enrolled-img-two mb-30" data-speed="0.05" data-revert="true">
-                            <img v-lazy-load data-src="/images/parent-say.png" width="526" height="376" alt="Enrolled">
+                            <img v-lazy-load data-src="/images/parent-say.webp" alt="Enrolled">
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -135,7 +135,7 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="enrolled-img-two mb-30" data-speed="0.05" data-revert="true">
-                            <img v-lazy-load data-src="/images/objective-of-vrddhi.jpg" width="526" height="330" alt="Enrolled">
+                            <img v-lazy-load data-src="/images/objective-of-vrddhi.webp" alt="Enrolled">
                         </div>
                     </div>
                 </div>
@@ -162,9 +162,9 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="faq-img">
-                            <img v-lazy-load data-src="/images/faq-img.jpg" width="636" height="594" alt="faq" />
+                            <img v-lazy-load data-src="/images/faq-img.jpg" alt="faq" />
                             <div class="shape">
-                                <img v-lazy-load data-src="/images/faq-shape.png" width="80" height="85" alt="Faq" />
+                                <img v-lazy-load data-src="/images/faq-shape.png" alt="Faq" />
                             </div>
                         </div>
                     </div>
@@ -209,7 +209,7 @@ export default {
             testimonials: [
                 {
                     name: 'SREEJA',
-                    image: '/images/logos/logo-sm.png',
+                    image: '/images/logos/logo-sm.webp',
                     star: 5,
                     designation: 'parent',
                     message: `My daughter was not planning to join any coaching class 9 as she had been pretty
@@ -228,7 +228,7 @@ export default {
                 },
                 {
                     name: 'PRASHANT PAI B',
-                    image: '/images/logos/logo-sm.png',
+                    image: '/images/logos/logo-sm.webp',
                     star: 5,
                     designation: 'parent',
                     message: `Arjuna Academy for Achievers is doing a great job in coaching your mind. The teachers are
@@ -241,7 +241,7 @@ export default {
                 },
                 {
                     name: 'B C KESHAV',
-                    image: '/images/logos/logo-sm.png',
+                    image: '/images/logos/logo-sm.webp',
                     star: 5,
                     designation: 'parent',
                     message: `The Interaction Between Teacher and children is very convincing. it has helped to Bring
@@ -294,12 +294,6 @@ export default {
     computed: {
         slickTestimonialOptions() {
             return slickTestimonialOptions;
-        }
-    },
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
         }
     },
     async fetch() {

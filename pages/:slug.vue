@@ -111,19 +111,25 @@
                                                         <li>
                                                             <a :href="`https://www.facebook.com/share.php?u=https://www.aaaedu.in/${campaign?.slug}&title=${campaign?.name}`"
                                                                 target="_blank">
-                                                                <i class="ri-facebook-fill"></i>
+                                                                <span class="svg-icon">
+                                                                    <font-awesome-icon :icon="['fab', 'facebook-f']"  />
+                                                                </span>
                                                             </a>
                                                         </li>
                                                         <li>
                                                             <a :href="`https://twitter.com/share?text=${campaign?.name}&url=https://www.aaaedu.in/${campaign?.slug}`"
                                                                 target="_blank">
-                                                                <i class="ri-twitter-fill"></i>
+                                                                <span class="svg-icon">
+                                                                    <font-awesome-icon :icon="['fab', 'twitter']"  />
+                                                                </span>
                                                             </a>
                                                         </li>
                                                         <li>
                                                             <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/${campaign?.slug}&title=${campaign?.name}&source=${campaign?.name}`"
                                                                 target="_blank">
-                                                                <i class="ri-linkedin-fill"></i>
+                                                                <span class="svg-icon">
+                                                                    <font-awesome-icon :icon="['fab', 'linkedin']"  />
+                                                                </span>
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -200,12 +206,6 @@ import { API_ROUTES } from '~/helper/api_routes';
 export default {
     name: "CampaignDetailPage",
     layout: "MainPageLayout",
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
-    },
     data() {
         return {
             campaignLoading: false,

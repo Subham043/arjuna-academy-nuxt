@@ -15,9 +15,9 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4">
                         <div class="faq-img">
-                            <img v-lazy-load data-src="/images/mission-vision.png" width="385" height="304" alt="faq" />
+                            <img v-lazy-load data-src="/images/mission-vision.webp" alt="faq" />
                             <div class="shape">
-                                <img v-lazy-load data-src="/images/faq-shape.png" width="80" height="85" alt="Faq" />
+                                <img v-lazy-load data-src="/images/faq-shape.png" alt="Faq" />
                             </div>
                         </div>
                     </div>
@@ -108,12 +108,6 @@ export default {
     async fetch() {
       await this.getMissionVision();
       await this.getSeo();
-    },
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
     },
     methods: {
         async getMissionVision() {

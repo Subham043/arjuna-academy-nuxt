@@ -10,7 +10,7 @@
             ]"
         />
 
-        <div class="blog-area pt-70 pb-70">
+        <div class="blog-area pt-70 pb-70" id="achiever-area">
             <div class="container">
                 <div v-if="!achieverCategoryLoading" class="section-title mb-45 text-center">
                     <h2 v-html="achieverCategory?.heading" />
@@ -95,12 +95,6 @@ export default {
             __dangerouslyDisableSanitizers: ['script'],
         }
     },
-    mounted() {
-        // eslint-disable-next-line nuxt/no-env-in-hooks
-        if (process.client) {
-            this.$scrollTo("#__nuxt", 0, { force: true });
-        }
-    },
     async fetch() {
         await this.getAchieverCategory();
         await this.getAchieverStudent(this.$route.query.page ? Number(this.$route.query.page) : 1);
@@ -108,6 +102,9 @@ export default {
     watch: {
         $route(to, from) {
             this.handleAchieverStudentPageChnage();
+            if (process.client) {
+                this.$scrollTo("#achiever-area", 0, { force: true });
+            }
         }
     },
     methods: {

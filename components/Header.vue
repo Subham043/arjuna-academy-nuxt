@@ -7,11 +7,15 @@
                         <div class="header-left">
                             <ul>
                                 <li>
-                                    <i class="ri-phone-fill"></i>
+                                    <span class="svg-icon">
+                                        <font-awesome-icon :icon="['fa', 'phone']"  />
+                                    </span>
                                     <a href="tel:+917676642258">76766 42258</a>
                                 </li>
                                 <li>
-                                    <i class="ri-mail-fill"></i>
+                                    <span class="svg-icon">
+                                        <font-awesome-icon :icon="['fa', 'envelope']"  />
+                                    </span>
                                     <a href="mailto:info@aaaedu.in"><span>info@aaaedu.in</span></a>
                                 </li>
                             </ul>
@@ -22,27 +26,37 @@
                             <ul class="social-list">
                                 <li>
                                     <a href="https://www.facebook.com/www.aaaedu.in/" target="_blank">
-                                        <i class="ri-facebook-fill"></i>
+                                        <span class="svg-icon">
+                                            <font-awesome-icon :icon="['fab', 'facebook-f']"  />
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://twitter.com/academy_arjunaa" target="_blank">
-                                        <i class="ri-twitter-fill"></i>
+                                        <span class="svg-icon">
+                                            <font-awesome-icon :icon="['fab', 'twitter']"  />
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.instagram.com/arjunaa_academy_for_achievers/" target="_blank">
-                                        <i class="ri-instagram-fill"></i>
+                                        <span class="svg-icon">
+                                            <font-awesome-icon :icon="['fab', 'instagram']"  />
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://in.linkedin.com/company/arjunaa-academy-for-achievers" target="_blank">
-                                        <i class="ri-linkedin-fill"></i>
+                                        <span class="svg-icon">
+                                            <font-awesome-icon :icon="['fab', 'linkedin']"  />
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.youtube.com/channel/UCcPOkcZ_YGpTMcVnLJQYLPA" target="_blank">
-                                        <i class="ri-youtube-fill"></i>
+                                        <span class="svg-icon">
+                                            <font-awesome-icon :icon="['fab', 'youtube']"  />
+                                        </span>
                                     </a>
                                 </li>
                             </ul>
@@ -58,16 +72,18 @@
                     <div class="mobile-responsive-menu">
                         <div class="logo">
                             <NuxtLink to="/">
-                                <img data-src="/images/logos/logo-sm.png" id="logo-one-mobile" class="logo-one mobile-logo" width="342" height="160" v-lazy-load
+                                <img data-src="/images/logos/logo-sm.webp" id="logo-one-mobile" class="logo-one mobile-logo" v-lazy-load
                                     alt="logo" />
-                                <img data-src="/images/logos/logo-sm.png" id="logo-two-mobile" class="logo-two mobile-logo" width="342" height="160" v-lazy-load
+                                <img data-src="/images/logos/logo-sm.webp" id="logo-two-mobile" class="logo-two mobile-logo" v-lazy-load
                                     alt="logo" />
                             </NuxtLink>
                         </div>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation" @click="drawer = true">
-                            <i class="ri-menu-2-fill"></i>
+                            <span class="svg-icon">
+                                <font-awesome-icon :icon="['fa', 'bars']"  />
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -77,8 +93,8 @@
                 <div class="container-fluid">
                     <nav class="navbar navbar-expand-md navbar-light">
                         <NuxtLink to="/" class="navbar-brand">
-                            <img data-src="/images/logos/new-logo.png" id="logo-one" class="logo-one" alt="Logo" width="342" height="160" v-lazy-load/>
-                            <img data-src="/images/logos/logo-sm.png" id="logo-two" class="logo-two" alt="Logo" width="342" height="160" v-lazy-load/>
+                            <img data-src="/images/logos/new-logo.webp" id="logo-one" class="logo-one" alt="Logo" v-lazy-load/>
+                            <img data-src="/images/logos/logo-sm.webp" id="logo-two" class="logo-two" alt="Logo" v-lazy-load/>
                         </NuxtLink>
 
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
