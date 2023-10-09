@@ -261,7 +261,7 @@ const slickEventOptions = {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/vrddhi/index.vue?vue&type=template&id=a6fe5474&
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/vrddhi/index.vue?vue&type=template&id=1097ce8e&
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -307,7 +307,8 @@ var render = function render() {
   }, [])])])], 2)])]), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"footer-contact-area ptb-70\">", "</div>", [_vm._ssrNode("<div class=\"container\">", "</div>", [_vm._ssrNode("<div class=\"row align-items-center\">", "</div>", [_vm._ssrNode("<div class=\"col-lg-9 col-md-9\"><div class=\"section-title\"><h2>To View the Syllabus &amp; the Model Paper</h2></div></div> "), _vm._ssrNode("<div class=\"col-lg-3 col-md-3 text-end\">", "</div>", [_c('NuxtLink', {
     staticClass: "default-btn",
     attrs: {
-      "to": "/vrddhi/syllabus"
+      "to": "/vrddhi/syllabus",
+      "aria-label": "Syllabus"
     }
   }, [_vm._v("Click Here")])], 1)], 2)])]), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"faq-area pt-70 pb-70\">", "</div>", [_vm._ssrNode("<div class=\"container\">", "</div>", [_vm._ssrNode("<div class=\"row align-items-center\">", "</div>", [_vm._ssrNode("<div class=\"col-lg-6\">", "</div>", [_vm._ssrNode("<div class=\"faq-img\">", "</div>", [_c('img', {
     directives: [{
@@ -331,7 +332,7 @@ var render = function render() {
 };
 var staticRenderFns = [];
 
-// CONCATENATED MODULE: ./pages/vrddhi/index.vue?vue&type=template&id=a6fe5474&
+// CONCATENATED MODULE: ./pages/vrddhi/index.vue?vue&type=template&id=1097ce8e&
 
 // EXTERNAL MODULE: ./helper/slick_options.js
 var slick_options = __webpack_require__(206);

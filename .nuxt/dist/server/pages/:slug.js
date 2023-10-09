@@ -49,7 +49,7 @@ const API_ROUTES = {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/:slug.vue?vue&type=template&id=345f4ced&
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/:slug.vue?vue&type=template&id=4464ed72&
 var render = function render() {
   var _vm$campaign, _vm$campaign2, _vm$campaign3, _vm$campaign4, _vm$campaign5, _vm$campaign6, _vm$campaign7, _vm$campaign8, _vm$campaign9, _vm$campaign10, _vm$campaign11, _vm$campaign12, _vm$campaign13, _vm$campaign14, _vm$campaign15, _vm$campaign16, _vm$campaign18, _vm$campaign19, _vm$campaign20, _vm$campaign21, _vm$campaign22, _vm$campaign23, _vm$campaign24;
   var _vm = this,
@@ -253,15 +253,15 @@ var render = function render() {
         "college": item.college
       }
     })], 1) : _vm._e();
-  }), 0) : _vm._e()] : _vm._e(), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"article-share\">", "</div>", [_vm._ssrNode("<div class=\"row align-items-center justify-content-center\">", "</div>", [_vm._ssrNode("<div class=\"col-lg-auto col-md-auto\">", "</div>", [_vm._ssrNode("<div class=\"article-social-icon\">", "</div>", [_vm._ssrNode("<ul class=\"social-icon\">", "</ul>", [_vm._ssrNode("<li class=\"title\">Share :</li> "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://www.facebook.com/share.php?u=https://www.aaaedu.in/${(_vm$campaign18 = _vm.campaign) === null || _vm$campaign18 === void 0 ? void 0 : _vm$campaign18.slug}&title=${(_vm$campaign19 = _vm.campaign) === null || _vm$campaign19 === void 0 ? void 0 : _vm$campaign19.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
+  }), 0) : _vm._e()] : _vm._e(), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"article-share\">", "</div>", [_vm._ssrNode("<div class=\"row align-items-center justify-content-center\">", "</div>", [_vm._ssrNode("<div class=\"col-lg-auto col-md-auto\">", "</div>", [_vm._ssrNode("<div class=\"article-social-icon\">", "</div>", [_vm._ssrNode("<ul class=\"social-icon\">", "</ul>", [_vm._ssrNode("<li class=\"title\">Share :</li> "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a aria-label=\"facebook share\"" + _vm._ssrAttr("href", `https://www.facebook.com/share.php?u=https://www.aaaedu.in/${(_vm$campaign18 = _vm.campaign) === null || _vm$campaign18 === void 0 ? void 0 : _vm$campaign18.slug}&title=${(_vm$campaign19 = _vm.campaign) === null || _vm$campaign19 === void 0 ? void 0 : _vm$campaign19.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
     attrs: {
       "icon": ['fab', 'facebook-f']
     }
-  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://twitter.com/share?text=${(_vm$campaign20 = _vm.campaign) === null || _vm$campaign20 === void 0 ? void 0 : _vm$campaign20.name}&url=https://www.aaaedu.in/${(_vm$campaign21 = _vm.campaign) === null || _vm$campaign21 === void 0 ? void 0 : _vm$campaign21.slug}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
+  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a aria-label=\"twitter share\"" + _vm._ssrAttr("href", `https://twitter.com/share?text=${(_vm$campaign20 = _vm.campaign) === null || _vm$campaign20 === void 0 ? void 0 : _vm$campaign20.name}&url=https://www.aaaedu.in/${(_vm$campaign21 = _vm.campaign) === null || _vm$campaign21 === void 0 ? void 0 : _vm$campaign21.slug}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
     attrs: {
       "icon": ['fab', 'twitter']
     }
-  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/${(_vm$campaign22 = _vm.campaign) === null || _vm$campaign22 === void 0 ? void 0 : _vm$campaign22.slug}&title=${(_vm$campaign23 = _vm.campaign) === null || _vm$campaign23 === void 0 ? void 0 : _vm$campaign23.name}&source=${(_vm$campaign24 = _vm.campaign) === null || _vm$campaign24 === void 0 ? void 0 : _vm$campaign24.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
+  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a aria-label=\"linkedin share\"" + _vm._ssrAttr("href", `https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/${(_vm$campaign22 = _vm.campaign) === null || _vm$campaign22 === void 0 ? void 0 : _vm$campaign22.slug}&title=${(_vm$campaign23 = _vm.campaign) === null || _vm$campaign23 === void 0 ? void 0 : _vm$campaign23.name}&source=${(_vm$campaign24 = _vm.campaign) === null || _vm$campaign24 === void 0 ? void 0 : _vm$campaign24.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
     attrs: {
       "icon": ['fab', 'linkedin']
     }
@@ -418,7 +418,7 @@ var render = function render() {
 };
 var staticRenderFns = [];
 
-// CONCATENATED MODULE: ./pages/:slug.vue?vue&type=template&id=345f4ced&
+// CONCATENATED MODULE: ./pages/:slug.vue?vue&type=template&id=4464ed72&
 
 // EXTERNAL MODULE: ./helper/api_routes.js
 var api_routes = __webpack_require__(204);

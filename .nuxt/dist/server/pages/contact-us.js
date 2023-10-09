@@ -49,7 +49,7 @@ const API_ROUTES = {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/contact-us.vue?vue&type=template&id=48dd103f&
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/contact-us.vue?vue&type=template&id=5fde1507&
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -69,11 +69,11 @@ var render = function render() {
     attrs: {
       "icon": ['fa', 'envelope']
     }
-  })], 1), _vm._ssrNode(" <h3>Email us</h3> <p><a href=\"mailto:info@aaaedu.in\"><span>info@aaaedu.in</span></a></p>")], 2)]), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"col-lg-6 col-6\">", "</div>", [_vm._ssrNode("<div class=\"contact-info-card\">", "</div>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
+  })], 1), _vm._ssrNode(" <h3>Email us</h3> <p><a aria-label=\"info@aaaedu.in\" href=\"mailto:info@aaaedu.in\"><span>info@aaaedu.in</span></a></p>")], 2)]), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"col-lg-6 col-6\">", "</div>", [_vm._ssrNode("<div class=\"contact-info-card\">", "</div>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
     attrs: {
       "icon": ['fa', 'phone']
     }
-  })], 1), _vm._ssrNode(" <h3>Phone</h3> <p><a href=\"tel:+917676642258\">+91 7676642258</a></p>")], 2)])], 2)])]), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"contact-map-area pb-100\">", "</div>", [_vm._ssrNode("<div class=\"container\">", "</div>", _vm._l(_vm.maps, function (item, i) {
+  })], 1), _vm._ssrNode(" <h3>Phone</h3> <p><a href=\"tel:+917676642258\" aria-label=\"+91 7676642258\">+91 7676642258</a></p>")], 2)])], 2)])]), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"contact-map-area pb-100\">", "</div>", [_vm._ssrNode("<div class=\"container\">", "</div>", _vm._l(_vm.maps, function (item, i) {
     return _vm._ssrNode("<div class=\"contact-map mb-20\">", "</div>", [_vm._ssrNode("<div class=\"contact-info-card p-4 rounded\">", "</div>", [_c('iframe', {
       directives: [{
         name: "lazy-load",
@@ -485,7 +485,7 @@ var render = function render() {
 };
 var staticRenderFns = [];
 
-// CONCATENATED MODULE: ./pages/contact-us.vue?vue&type=template&id=48dd103f&
+// CONCATENATED MODULE: ./pages/contact-us.vue?vue&type=template&id=5fde1507&
 
 // EXTERNAL MODULE: ./helper/api_routes.js
 var api_routes = __webpack_require__(204);

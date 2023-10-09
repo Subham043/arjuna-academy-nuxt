@@ -49,7 +49,7 @@ const API_ROUTES = {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/events/:slug.vue?vue&type=template&id=3028a4df&
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/events/:slug.vue?vue&type=template&id=9b5c74ec&
 var render = function render() {
   var _vm$event, _vm$event2, _vm$event3, _vm$event4, _vm$event5, _vm$event6, _vm$event7, _vm$event8, _vm$event9, _vm$event10, _vm$event11, _vm$event12;
   var _vm = this,
@@ -92,7 +92,8 @@ var render = function render() {
   }) + "</ul></div>" : "<!---->") + " "), _vm._ssrNode("<div id=\"popular-event-area\" class=\"event-sidebar\">", "</div>", [_vm._ssrNode("<h3 class=\"title\">Upcoming Events</h3> "), _vm.popularEventLoading ? _c('PopularPostLoading') : _vm._e(), _vm._ssrNode(" "), _vm._l(_vm.popularEvent, function (item, i) {
     return !_vm.popularEventLoading && _vm.popularEvent.length > 0 ? _vm._ssrNode("<article class=\"item\">", "</article>", [_vm._ssrNode("<div class=\"info\">", "</div>", [_c('NuxtLink', {
       attrs: {
-        "to": `/events/${item.slug}`
+        "to": `/events/${item.slug}`,
+        "aria-label": item.name
       }
     }, [_c('h4', {
       staticClass: "title-text",
@@ -122,7 +123,7 @@ var render = function render() {
 };
 var staticRenderFns = [];
 
-// CONCATENATED MODULE: ./pages/events/:slug.vue?vue&type=template&id=3028a4df&
+// CONCATENATED MODULE: ./pages/events/:slug.vue?vue&type=template&id=9b5c74ec&
 
 // EXTERNAL MODULE: ./helper/api_routes.js
 var api_routes = __webpack_require__(204);

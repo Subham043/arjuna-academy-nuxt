@@ -49,9 +49,9 @@ const API_ROUTES = {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/knowledge-desk/:slug.vue?vue&type=template&id=4575d78a&
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/knowledge-desk/:slug.vue?vue&type=template&id=e6194174&
 var render = function render() {
-  var _vm$blog, _vm$blog2, _vm$blog3, _vm$blog4, _vm$blog5, _vm$blog6, _vm$blog7, _vm$blog8, _vm$blog9, _vm$prev_blog, _vm$blog10, _vm$blog11, _vm$blog12, _vm$blog13, _vm$blog14, _vm$blog15, _vm$blog16, _vm$next_blog;
+  var _vm$blog, _vm$blog2, _vm$blog3, _vm$blog4, _vm$blog5, _vm$blog6, _vm$blog7, _vm$blog8, _vm$blog9, _vm$blog10, _vm$prev_blog, _vm$blog11, _vm$blog12, _vm$blog13, _vm$blog14, _vm$blog15, _vm$blog16, _vm$blog17, _vm$next_blog;
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', [_c('Breadcrumb', {
@@ -85,28 +85,30 @@ var render = function render() {
     }
   }), _vm._ssrNode(" \n                                        "), _c('NuxtLink', {
     attrs: {
-      "to": "/leadership-team"
+      "to": "/leadership-team",
+      "aria-label": (_vm$blog7 = _vm.blog) === null || _vm$blog7 === void 0 ? void 0 : _vm$blog7.author_name
     },
     domProps: {
-      "innerHTML": _vm._s((_vm$blog7 = _vm.blog) === null || _vm$blog7 === void 0 ? void 0 : _vm$blog7.author_name)
+      "innerHTML": _vm._s((_vm$blog8 = _vm.blog) === null || _vm$blog8 === void 0 ? void 0 : _vm$blog8.author_name)
     }
-  })], 2)])], 2), _vm._ssrNode(" <h1>" + _vm._s((_vm$blog8 = _vm.blog) === null || _vm$blog8 === void 0 ? void 0 : _vm$blog8.heading) + "</h1> <div>" + _vm._s((_vm$blog9 = _vm.blog) === null || _vm$blog9 === void 0 ? void 0 : _vm$blog9.description) + "</div> "), _vm._ssrNode("<div class=\"article-share\">", "</div>", [_vm._ssrNode("<div class=\"row align-items-center justify-content-between\">", "</div>", [_vm.prev_blog !== null ? _vm._ssrNode("<div class=\"col-lg-auto col-md-auto\">", "</div>", [_vm._ssrNode("<div class=\"pagination-area m-0\">", "</div>", [_c('NuxtLink', {
+  })], 2)])], 2), _vm._ssrNode(" <h1>" + _vm._s((_vm$blog9 = _vm.blog) === null || _vm$blog9 === void 0 ? void 0 : _vm$blog9.heading) + "</h1> <div>" + _vm._s((_vm$blog10 = _vm.blog) === null || _vm$blog10 === void 0 ? void 0 : _vm$blog10.description) + "</div> "), _vm._ssrNode("<div class=\"article-share\">", "</div>", [_vm._ssrNode("<div class=\"row align-items-center justify-content-between\">", "</div>", [_vm.prev_blog !== null ? _vm._ssrNode("<div class=\"col-lg-auto col-md-auto\">", "</div>", [_vm._ssrNode("<div class=\"pagination-area m-0\">", "</div>", [_c('NuxtLink', {
     staticClass: "prev page-numbers",
     attrs: {
       "to": _vm.prev_blog !== null ? `/knowledge-desk/${(_vm$prev_blog = _vm.prev_blog) === null || _vm$prev_blog === void 0 ? void 0 : _vm$prev_blog.slug}` : '#',
-      "title": "previous blog"
+      "title": "previous blog",
+      "aria-label": "previos blog"
     }
   }, [_c('i', {
     staticClass: "flaticon-left-arrow"
-  })])], 1)]) : _vm._e(), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"col-lg-auto col-md-auto\">", "</div>", [_vm._ssrNode("<div class=\"article-social-icon\">", "</div>", [_vm._ssrNode("<ul class=\"social-icon\">", "</ul>", [_vm._ssrNode("<li class=\"title\">Share :</li> "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://www.facebook.com/share.php?u=https://www.aaaedu.in/knowledge-desk/${(_vm$blog10 = _vm.blog) === null || _vm$blog10 === void 0 ? void 0 : _vm$blog10.slug}&title=${(_vm$blog11 = _vm.blog) === null || _vm$blog11 === void 0 ? void 0 : _vm$blog11.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
+  })])], 1)]) : _vm._e(), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"col-lg-auto col-md-auto\">", "</div>", [_vm._ssrNode("<div class=\"article-social-icon\">", "</div>", [_vm._ssrNode("<ul class=\"social-icon\">", "</ul>", [_vm._ssrNode("<li class=\"title\">Share :</li> "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://www.facebook.com/share.php?u=https://www.aaaedu.in/knowledge-desk/${(_vm$blog11 = _vm.blog) === null || _vm$blog11 === void 0 ? void 0 : _vm$blog11.slug}&title=${(_vm$blog12 = _vm.blog) === null || _vm$blog12 === void 0 ? void 0 : _vm$blog12.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
     attrs: {
       "icon": ['fab', 'facebook-f']
     }
-  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://twitter.com/share?text=${(_vm$blog12 = _vm.blog) === null || _vm$blog12 === void 0 ? void 0 : _vm$blog12.name}&url=https://www.aaaedu.in/knowledge-desk/${(_vm$blog13 = _vm.blog) === null || _vm$blog13 === void 0 ? void 0 : _vm$blog13.slug}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
+  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://twitter.com/share?text=${(_vm$blog13 = _vm.blog) === null || _vm$blog13 === void 0 ? void 0 : _vm$blog13.name}&url=https://www.aaaedu.in/knowledge-desk/${(_vm$blog14 = _vm.blog) === null || _vm$blog14 === void 0 ? void 0 : _vm$blog14.slug}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
     attrs: {
       "icon": ['fab', 'twitter']
     }
-  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/knowledge-desk/${(_vm$blog14 = _vm.blog) === null || _vm$blog14 === void 0 ? void 0 : _vm$blog14.slug}&title=${(_vm$blog15 = _vm.blog) === null || _vm$blog15 === void 0 ? void 0 : _vm$blog15.name}&source=${(_vm$blog16 = _vm.blog) === null || _vm$blog16 === void 0 ? void 0 : _vm$blog16.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
+  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/knowledge-desk/${(_vm$blog15 = _vm.blog) === null || _vm$blog15 === void 0 ? void 0 : _vm$blog15.slug}&title=${(_vm$blog16 = _vm.blog) === null || _vm$blog16 === void 0 ? void 0 : _vm$blog16.name}&source=${(_vm$blog17 = _vm.blog) === null || _vm$blog17 === void 0 ? void 0 : _vm$blog17.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
     attrs: {
       "icon": ['fab', 'linkedin']
     }
@@ -114,7 +116,8 @@ var render = function render() {
     staticClass: "next page-numbers",
     attrs: {
       "to": _vm.next_blog !== null ? `/knowledge-desk/${(_vm$next_blog = _vm.next_blog) === null || _vm$next_blog === void 0 ? void 0 : _vm$next_blog.slug}` : '#',
-      "title": "next blog"
+      "title": "next blog",
+      "aria-label": "next blog"
     }
   }, [_c('i', {
     staticClass: "flaticon-chevron"
@@ -300,6 +303,7 @@ var render = function render() {
   })], 2)])] : [_c('PageDetailLoading')]], 2)]), _vm._ssrNode(" "), _vm._ssrNode("<div id=\"popular-blog-area\" class=\"col-lg-4\">", "</div>", [_vm._ssrNode("<div class=\"side-bar-area\">", "</div>", [_vm._ssrNode("<div class=\"side-bar-widget\">", "</div>", [_vm._ssrNode("<h3 class=\"title\">Popular post</h3> "), _vm._ssrNode("<div class=\"widget-popular-post\">", "</div>", [_vm.popularBlogLoading ? _c('PopularPostLoading') : _vm._e(), _vm._ssrNode(" "), _vm._l(_vm.popularBlog, function (item, i) {
     return !_vm.popularBlogLoading && _vm.popularBlog.length > 0 ? _vm._ssrNode("<article class=\"item\">", "</article>", [_vm._ssrNode("<div class=\"info\">", "</div>", [_vm._ssrNode("<p>" + _vm._ssrEscape(_vm._s(item.published)) + "</p> "), _vm._ssrNode("<h4 class=\"title-text\">", "</h4>", [_c('NuxtLink', {
       attrs: {
+        "aria-label": item.name,
         "to": `/knowledge-desk/${item.slug}`
       }
     }, [_vm._v("\n                                                " + _vm._s(item.name) + "\n                                            ")])], 1), _vm._ssrNode(" <p>" + _vm._ssrEscape("\n                                            " + _vm._s(item.short_description) + "\n                                        ") + "</p> <hr>")], 2)]) : _vm._e();
@@ -325,7 +329,7 @@ var render = function render() {
 };
 var staticRenderFns = [];
 
-// CONCATENATED MODULE: ./pages/knowledge-desk/:slug.vue?vue&type=template&id=4575d78a&
+// CONCATENATED MODULE: ./pages/knowledge-desk/:slug.vue?vue&type=template&id=e6194174&
 
 // EXTERNAL MODULE: ./helper/api_routes.js
 var api_routes = __webpack_require__(204);

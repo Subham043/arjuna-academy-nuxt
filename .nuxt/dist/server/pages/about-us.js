@@ -49,7 +49,7 @@ const API_ROUTES = {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/about-us.vue?vue&type=template&id=58374958&
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/about-us.vue?vue&type=template&id=49bd8db6&
 var render = function render() {
   var _vm$about, _vm$about2, _vm$about3, _vm$about4, _vm$about5, _vm$about6, _vm$about7, _vm$about8, _vm$about9;
   var _vm = this,
@@ -76,7 +76,7 @@ var render = function render() {
       "counter_title": (_vm$about8 = _vm.about) === null || _vm$about8 === void 0 ? void 0 : _vm$about8.counter_title,
       "title": (_vm$about9 = _vm.about) === null || _vm$about9 === void 0 ? void 0 : _vm$about9.title
     }
-  }), _vm._ssrNode(" <div class=\"play-area ptb-100\"><div class=\"container\"><div class=\"title text-center mb-45\"><h2>\n                    &quot;A <span>leader</span> is one who knows the way, goes the way &amp; shows the way&quot;\n                </h2></div> <div class=\"play-btn-area\"><a href=\"javascript:void(0)\" class=\"play-btn\"><i class=\"flaticon-play-button-arrowhead\"></i></a></div></div></div> "), _vm._ssrNode("<div class=\"counter-area-three pb-70\">", "</div>", [_vm._ssrNode("<div class=\"container\">", "</div>", [_vm.counterLoading ? _vm._ssrNode("<div class=\"row justify-content-center\">", "</div>", _vm._l(4, function (i) {
+  }), _vm._ssrNode(" <div class=\"play-area ptb-100\"><div class=\"container\"><div class=\"title text-center mb-45\"><h2>\n                    &quot;A <span>leader</span> is one who knows the way, goes the way &amp; shows the way&quot;\n                </h2></div> <div class=\"play-btn-area\"><a href=\"javascript:void(0)\" aria-label=\"Video Popup\" class=\"play-btn\"><i class=\"flaticon-play-button-arrowhead\"></i></a></div></div></div> "), _vm._ssrNode("<div class=\"counter-area-three pb-70\">", "</div>", [_vm._ssrNode("<div class=\"container\">", "</div>", [_vm.counterLoading ? _vm._ssrNode("<div class=\"row justify-content-center\">", "</div>", _vm._l(4, function (i) {
     return _vm._ssrNode("<div class=\"col-lg-3 col-md-6 col-sm-12\">", "</div>", [_c('el-skeleton', {
       staticStyle: {
         "width": "100%"
@@ -170,13 +170,15 @@ var render = function render() {
     }],
     staticClass: "w-100",
     attrs: {
-      "data-src": "/images/jee-main.webp"
+      "data-src": "/images/jee-main.webp",
+      "title": "ARJUNAA ACADEMY FOR ACHIEVERS",
+      "alt": "ARJUNAA ACADEMY FOR ACHIEVERS"
     }
   })])], 2);
 };
 var staticRenderFns = [];
 
-// CONCATENATED MODULE: ./pages/about-us.vue?vue&type=template&id=58374958&
+// CONCATENATED MODULE: ./pages/about-us.vue?vue&type=template&id=49bd8db6&
 
 // EXTERNAL MODULE: ./helper/api_routes.js
 var api_routes = __webpack_require__(204);

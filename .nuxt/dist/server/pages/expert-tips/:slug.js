@@ -49,9 +49,9 @@ const API_ROUTES = {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/expert-tips/:slug.vue?vue&type=template&id=986b9ff8&
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/expert-tips/:slug.vue?vue&type=template&id=6aa9e90b&
 var render = function render() {
-  var _vm$expertTip, _vm$expertTip2, _vm$expertTip3, _vm$expertTip4, _vm$expertTip5, _vm$expertTip6, _vm$prev_expertTip, _vm$expertTip7, _vm$expertTip8, _vm$expertTip9, _vm$expertTip10, _vm$expertTip11, _vm$expertTip12, _vm$expertTip13, _vm$next_expertTip;
+  var _vm$expertTip, _vm$expertTip2, _vm$expertTip3, _vm$expertTip4, _vm$expertTip5, _vm$expertTip6, _vm$expertTip7, _vm$prev_expertTip, _vm$expertTip8, _vm$expertTip9, _vm$expertTip10, _vm$expertTip11, _vm$expertTip12, _vm$expertTip13, _vm$expertTip14, _vm$next_expertTip;
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', [_c('Breadcrumb', {
@@ -75,28 +75,30 @@ var render = function render() {
     }
   }), _vm._ssrNode(" \n                                        "), _c('NuxtLink', {
     attrs: {
-      "to": "/leadership-team"
+      "to": "/leadership-team",
+      "aria-label": (_vm$expertTip4 = _vm.expertTip) === null || _vm$expertTip4 === void 0 ? void 0 : _vm$expertTip4.author_name
     },
     domProps: {
-      "innerHTML": _vm._s((_vm$expertTip4 = _vm.expertTip) === null || _vm$expertTip4 === void 0 ? void 0 : _vm$expertTip4.author_name)
+      "innerHTML": _vm._s((_vm$expertTip5 = _vm.expertTip) === null || _vm$expertTip5 === void 0 ? void 0 : _vm$expertTip5.author_name)
     }
-  })], 2)])], 2), _vm._ssrNode(" <h1>" + _vm._s((_vm$expertTip5 = _vm.expertTip) === null || _vm$expertTip5 === void 0 ? void 0 : _vm$expertTip5.heading) + "</h1> <div>" + _vm._s((_vm$expertTip6 = _vm.expertTip) === null || _vm$expertTip6 === void 0 ? void 0 : _vm$expertTip6.description) + "</div> "), _vm._ssrNode("<div class=\"article-share\">", "</div>", [_vm._ssrNode("<div class=\"row align-items-center justify-content-between\">", "</div>", [_vm.prev_expertTip !== null ? _vm._ssrNode("<div class=\"col-lg-auto col-md-auto\">", "</div>", [_vm._ssrNode("<div class=\"pagination-area m-0\">", "</div>", [_c('NuxtLink', {
+  })], 2)])], 2), _vm._ssrNode(" <h1>" + _vm._s((_vm$expertTip6 = _vm.expertTip) === null || _vm$expertTip6 === void 0 ? void 0 : _vm$expertTip6.heading) + "</h1> <div>" + _vm._s((_vm$expertTip7 = _vm.expertTip) === null || _vm$expertTip7 === void 0 ? void 0 : _vm$expertTip7.description) + "</div> "), _vm._ssrNode("<div class=\"article-share\">", "</div>", [_vm._ssrNode("<div class=\"row align-items-center justify-content-between\">", "</div>", [_vm.prev_expertTip !== null ? _vm._ssrNode("<div class=\"col-lg-auto col-md-auto\">", "</div>", [_vm._ssrNode("<div class=\"pagination-area m-0\">", "</div>", [_c('NuxtLink', {
     staticClass: "prev page-numbers",
     attrs: {
       "to": _vm.prev_expertTip !== null ? `/expert-tips/${(_vm$prev_expertTip = _vm.prev_expertTip) === null || _vm$prev_expertTip === void 0 ? void 0 : _vm$prev_expertTip.slug}` : '#',
-      "title": "previous expert tip"
+      "title": "previous expert tip",
+      "aria-label": "previous expert tip"
     }
   }, [_c('i', {
     staticClass: "flaticon-left-arrow"
-  })])], 1)]) : _vm._e(), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"col-lg-auto col-md-auto\">", "</div>", [_vm._ssrNode("<div class=\"article-social-icon\">", "</div>", [_vm._ssrNode("<ul class=\"social-icon\">", "</ul>", [_vm._ssrNode("<li class=\"title\">Share :</li> "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://www.facebook.com/share.php?u=https://www.aaaedu.in/expert-tips/${(_vm$expertTip7 = _vm.expertTip) === null || _vm$expertTip7 === void 0 ? void 0 : _vm$expertTip7.slug}&title=${(_vm$expertTip8 = _vm.expertTip) === null || _vm$expertTip8 === void 0 ? void 0 : _vm$expertTip8.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
+  })])], 1)]) : _vm._e(), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"col-lg-auto col-md-auto\">", "</div>", [_vm._ssrNode("<div class=\"article-social-icon\">", "</div>", [_vm._ssrNode("<ul class=\"social-icon\">", "</ul>", [_vm._ssrNode("<li class=\"title\">Share :</li> "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a aria-label=\"facebook share\"" + _vm._ssrAttr("href", `https://www.facebook.com/share.php?u=https://www.aaaedu.in/expert-tips/${(_vm$expertTip8 = _vm.expertTip) === null || _vm$expertTip8 === void 0 ? void 0 : _vm$expertTip8.slug}&title=${(_vm$expertTip9 = _vm.expertTip) === null || _vm$expertTip9 === void 0 ? void 0 : _vm$expertTip9.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
     attrs: {
       "icon": ['fab', 'facebook-f']
     }
-  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://twitter.com/share?text=${(_vm$expertTip9 = _vm.expertTip) === null || _vm$expertTip9 === void 0 ? void 0 : _vm$expertTip9.name}&url=https://www.aaaedu.in/expert-tips/${(_vm$expertTip10 = _vm.expertTip) === null || _vm$expertTip10 === void 0 ? void 0 : _vm$expertTip10.slug}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
+  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a aria-label=\"twitter share\"" + _vm._ssrAttr("href", `https://twitter.com/share?text=${(_vm$expertTip10 = _vm.expertTip) === null || _vm$expertTip10 === void 0 ? void 0 : _vm$expertTip10.name}&url=https://www.aaaedu.in/expert-tips/${(_vm$expertTip11 = _vm.expertTip) === null || _vm$expertTip11 === void 0 ? void 0 : _vm$expertTip11.slug}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
     attrs: {
       "icon": ['fab', 'twitter']
     }
-  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/expert-tips/${(_vm$expertTip11 = _vm.expertTip) === null || _vm$expertTip11 === void 0 ? void 0 : _vm$expertTip11.slug}&title=${(_vm$expertTip12 = _vm.expertTip) === null || _vm$expertTip12 === void 0 ? void 0 : _vm$expertTip12.name}&source=${(_vm$expertTip13 = _vm.expertTip) === null || _vm$expertTip13 === void 0 ? void 0 : _vm$expertTip13.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
+  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a aria-label=\"linkedin share\"" + _vm._ssrAttr("href", `https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/expert-tips/${(_vm$expertTip12 = _vm.expertTip) === null || _vm$expertTip12 === void 0 ? void 0 : _vm$expertTip12.slug}&title=${(_vm$expertTip13 = _vm.expertTip) === null || _vm$expertTip13 === void 0 ? void 0 : _vm$expertTip13.name}&source=${(_vm$expertTip14 = _vm.expertTip) === null || _vm$expertTip14 === void 0 ? void 0 : _vm$expertTip14.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
     attrs: {
       "icon": ['fab', 'linkedin']
     }
@@ -104,7 +106,8 @@ var render = function render() {
     staticClass: "next page-numbers",
     attrs: {
       "to": _vm.next_expertTip !== null ? `/expert-tips/${(_vm$next_expertTip = _vm.next_expertTip) === null || _vm$next_expertTip === void 0 ? void 0 : _vm$next_expertTip.slug}` : '#',
-      "title": "next expert tip"
+      "title": "next expert tip",
+      "aria-label": "next expert tip"
     }
   }, [_c('i', {
     staticClass: "flaticon-chevron"
@@ -116,7 +119,7 @@ var render = function render() {
 };
 var staticRenderFns = [];
 
-// CONCATENATED MODULE: ./pages/expert-tips/:slug.vue?vue&type=template&id=986b9ff8&
+// CONCATENATED MODULE: ./pages/expert-tips/:slug.vue?vue&type=template&id=6aa9e90b&
 
 // EXTERNAL MODULE: ./helper/api_routes.js
 var api_routes = __webpack_require__(204);

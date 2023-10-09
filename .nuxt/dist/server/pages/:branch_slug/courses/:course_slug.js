@@ -49,7 +49,7 @@ const API_ROUTES = {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/:branch_slug/courses/:course_slug.vue?vue&type=template&id=37bd6608&
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/string-replace-loader??ref--12!./pages/:branch_slug/courses/:course_slug.vue?vue&type=template&id=fd9f645e&
 var render = function render() {
   var _vm$course, _vm$course2, _vm$course3, _vm$course4, _vm$course5, _vm$course6, _vm$course7, _vm$course8, _vm$course9, _vm$course10, _vm$course12, _vm$course13, _vm$course14, _vm$course15, _vm$course16, _vm$course18, _vm$course19, _vm$course20, _vm$course21, _vm$course22, _vm$course23, _vm$course24, _vm$course25, _this$course, _vm$course26, _vm$course27, _this$course2, _vm$course28, _vm$course29, _vm$course30, _vm$course31, _vm$course32, _vm$course33, _vm$course34;
   var _vm = this,
@@ -254,15 +254,15 @@ var render = function render() {
     attrs: {
       "role": "status"
     }
-  })], 2)])])])])])], 1), _vm._ssrNode(" "), _vm._ssrNode("<ul class=\"social-link\">", "</ul>", [_vm._ssrNode("<li class=\"social-title\">Share this course:</li> "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://www.facebook.com/share.php?u=https://www.aaaedu.in/${_vm.$route.params.branch_slug}/courses/${_vm.$route.params.course_slug}&title=${(_vm$course31 = _vm.course) === null || _vm$course31 === void 0 ? void 0 : _vm$course31.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
+  })], 2)])])])])])], 1), _vm._ssrNode(" "), _vm._ssrNode("<ul class=\"social-link\">", "</ul>", [_vm._ssrNode("<li class=\"social-title\">Share this course:</li> "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a aria-label=\"facebook share\"" + _vm._ssrAttr("href", `https://www.facebook.com/share.php?u=https://www.aaaedu.in/${_vm.$route.params.branch_slug}/courses/${_vm.$route.params.course_slug}&title=${(_vm$course31 = _vm.course) === null || _vm$course31 === void 0 ? void 0 : _vm$course31.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
     attrs: {
       "icon": ['fab', 'facebook-f']
     }
-  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://twitter.com/share?text=${(_vm$course32 = _vm.course) === null || _vm$course32 === void 0 ? void 0 : _vm$course32.name}&url=https://www.aaaedu.in/${_vm.$route.params.branch_slug}/courses/${_vm.$route.params.course_slug}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
+  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a aria-label=\"twitter share\"" + _vm._ssrAttr("href", `https://twitter.com/share?text=${(_vm$course32 = _vm.course) === null || _vm$course32 === void 0 ? void 0 : _vm$course32.name}&url=https://www.aaaedu.in/${_vm.$route.params.branch_slug}/courses/${_vm.$route.params.course_slug}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
     attrs: {
       "icon": ['fab', 'twitter']
     }
-  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a" + _vm._ssrAttr("href", `https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/${_vm.$route.params.branch_slug}/courses/${_vm.$route.params.course_slug}&title=${(_vm$course33 = _vm.course) === null || _vm$course33 === void 0 ? void 0 : _vm$course33.name}&source=${(_vm$course34 = _vm.course) === null || _vm$course34 === void 0 ? void 0 : _vm$course34.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
+  })], 1)])]), _vm._ssrNode(" "), _vm._ssrNode("<li>", "</li>", [_vm._ssrNode("<a aria-label=\"linkedin share\"" + _vm._ssrAttr("href", `https://www.linkedin.com/shareArticle?mini=true&url=https://www.aaaedu.in/${_vm.$route.params.branch_slug}/courses/${_vm.$route.params.course_slug}&title=${(_vm$course33 = _vm.course) === null || _vm$course33 === void 0 ? void 0 : _vm$course33.name}&source=${(_vm$course34 = _vm.course) === null || _vm$course34 === void 0 ? void 0 : _vm$course34.name}`) + " target=\"_blank\">", "</a>", [_vm._ssrNode("<span class=\"svg-icon\">", "</span>", [_c('font-awesome-icon', {
     attrs: {
       "icon": ['fab', 'linkedin']
     }
@@ -289,7 +289,7 @@ var render = function render() {
 };
 var staticRenderFns = [];
 
-// CONCATENATED MODULE: ./pages/:branch_slug/courses/:course_slug.vue?vue&type=template&id=37bd6608&
+// CONCATENATED MODULE: ./pages/:branch_slug/courses/:course_slug.vue?vue&type=template&id=fd9f645e&
 
 // EXTERNAL MODULE: ./helper/api_routes.js
 var api_routes = __webpack_require__(204);
