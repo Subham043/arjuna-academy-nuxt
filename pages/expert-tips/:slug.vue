@@ -23,7 +23,7 @@
                                 <ul class="tag-list">
                                     <li>
                                         <span class="svg-icon">
-                                            <font-awesome-icon :icon="['fa', 'user']"  />&nbsp; {{ expertTip?.published }}
+                                            <font-awesome-icon :icon="['fa', 'calendar-days']"  />&nbsp; {{ expertTip?.published }}
                                         </span>
                                     </li>
                                     <li>
