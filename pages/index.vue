@@ -486,7 +486,7 @@ export default {
         async getBlog(page=0) {
             this.blogLoading=true;
             try {
-                const response = await this.$publicApi.get(API_ROUTES.blog+`?total=6&page=${page}&filter[is_popular]=true`); // eslint-disable-line
+                const response = await this.$publicApi.get(API_ROUTES.blog+`?total=6&page=${page}&filter[is_popular]=true&sort=-published_on`); // eslint-disable-line
                 this.blog = response.data.data
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
@@ -502,7 +502,7 @@ export default {
         async getEvent(page=0) {
             this.eventLoading=true;
             try {
-                const response = await this.$publicApi.get(API_ROUTES.event+`?total=6&page=${page}`); // eslint-disable-line
+                const response = await this.$publicApi.get(API_ROUTES.event+`?total=6&page=${page}&sort=-id`); // eslint-disable-line
                 this.event = response.data.data
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line

@@ -104,7 +104,7 @@ export default {
         async getEvent(page=0) {
             this.eventLoading=true;
             try {
-                const response = await this.$publicApi.get(API_ROUTES.event+`?total=8&page=${page}`); // eslint-disable-line
+                const response = await this.$publicApi.get(API_ROUTES.event+`?total=8&page=${page}&sort=-id`); // eslint-disable-line
                 this.event = response.data.data
                 this.eventCount = response?.data?.meta?.total
                 this.eventPerPage = response?.data?.meta?.per_page

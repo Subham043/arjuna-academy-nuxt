@@ -114,7 +114,7 @@ export default {
         async getExpertTip(page=0) {
             this.expertTipLoading=true;
             try {
-                const response = await this.$publicApi.get(API_ROUTES.expertTip+`?total=8&page=${page}`); // eslint-disable-line
+                const response = await this.$publicApi.get(API_ROUTES.expertTip+`?total=8&page=${page}&sort=-published_on`); // eslint-disable-line
                 this.expertTip = response.data.data
                 this.expertTipCount = response?.data?.meta?.total
                 this.expertTipPerPage = response?.data?.meta?.per_page

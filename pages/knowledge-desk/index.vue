@@ -103,7 +103,7 @@ export default {
         async getBlog(page=0) {
             this.blogLoading=true;
             try {
-                const response = await this.$publicApi.get(API_ROUTES.blog+`?total=9&page=${page}`); // eslint-disable-line
+                const response = await this.$publicApi.get(API_ROUTES.blog+`?total=9&page=${page}&sort=-published_on`); // eslint-disable-line
                 this.blog = response.data.data
                 this.blogCount = response?.data?.meta?.total
                 this.blogPerPage = response?.data?.meta?.per_page

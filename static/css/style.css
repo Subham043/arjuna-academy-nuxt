@@ -2062,6 +2062,8 @@ img {
 }
 .hero-img img {
   max-width: 550px;
+  height: 500px;
+  object-fit: cover;
 }
 .hero-img .hero-bg-shape {
   position: absolute;
@@ -2102,7 +2104,6 @@ img {
   font-size: 20px;
   margin-right: 12px;
   text-align: center;
-  border-radius: 50px;
 }
 .hero-img .hero-img-content .content h3 {
   font-size: 16px;
@@ -2636,7 +2637,7 @@ img {
   /* border: 1px dashed var(--mainColor); */
   display: inline-block;
   text-align: center;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
@@ -2716,6 +2717,8 @@ img {
   transition: var(--transition);
   background-color: transparent;
   margin-right: 18px;
+  height: 75px;
+  object-fit: contain;
 }
 .featured-item-two a i::after {
   content: "";

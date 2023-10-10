@@ -332,7 +332,7 @@ export default {
         async getPopluarBlog(page = 0) {
             this.popularBlogLoading = true;
             try {
-                const response = await this.$publicApi.get(API_ROUTES.blog + `?total=8&page=${page}&filter[is_popular]=true`); // eslint-disable-line
+                const response = await this.$publicApi.get(API_ROUTES.blog + `?total=8&page=${page}&filter[is_popular]=true&sort=-published_on`); // eslint-disable-line
                 this.popularBlog = response.data.data
                 this.popularBlogCount = response?.data?.meta?.total
                 this.popularBlogPerPage = response?.data?.meta?.per_page

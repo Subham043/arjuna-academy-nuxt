@@ -137,6 +137,34 @@ export default {
             loading: false,
         };
     },
+    head() {
+        return {
+            title: 'Arjunaa Academy - Profile',
+            meta: [
+            // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+                {
+                    hid: 'og:title',
+                    name: 'og:title',
+                    content: 'Arjunaa Academy - Profile'
+                },
+                {
+                    hid: 'og:type',
+                    name: 'og:type',
+                    content: 'website'
+                },
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: 'Arjunaa Academy - Profile'
+                },
+                {
+                    hid: 'keywords',
+                    name: 'keywords',
+                    content: 'Arjunaa Academy - Profile'
+                },
+            ],
+        }
+    },
     methods: {
         async formHandler(){
             this.loading=true;

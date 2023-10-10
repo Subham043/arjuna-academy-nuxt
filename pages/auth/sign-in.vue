@@ -93,6 +93,34 @@ export default {
             loading: false,
         };
     },
+    head() {
+        return {
+            title: 'Arjunaa Academy - Sign In',
+            meta: [
+            // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+                {
+                    hid: 'og:title',
+                    name: 'og:title',
+                    content: 'Arjunaa Academy - Sign In'
+                },
+                {
+                    hid: 'og:type',
+                    name: 'og:type',
+                    content: 'website'
+                },
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: 'Arjunaa Academy - Sign In'
+                },
+                {
+                    hid: 'keywords',
+                    name: 'keywords',
+                    content: 'Arjunaa Academy - Sign In'
+                },
+            ],
+        }
+    },
     methods: {
         async formHandler(){
             this.loading=true;

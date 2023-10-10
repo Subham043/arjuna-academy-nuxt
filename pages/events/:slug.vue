@@ -167,7 +167,7 @@ export default {
         async getPopluarEvent(page=0) {
             this.popularEventLoading=true;
             try {
-                const response = await this.$publicApi.get(API_ROUTES.event+`?total=8&page=${page}`); // eslint-disable-line
+                const response = await this.$publicApi.get(API_ROUTES.event+`?total=8&page=${page}&sort=-id`); // eslint-disable-line
                 this.popularEvent = response.data.data
                 this.popularEventCount = response?.data?.meta?.total
                 this.popularEventPerPage = response?.data?.meta?.per_page
