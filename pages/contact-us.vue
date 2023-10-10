@@ -13,7 +13,7 @@
         <div class="faq-area pt-70 pb-70">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 order-2-sm">
                         <div class="contact-info-area pb-70">
                             <div class="container">
                                 <div class="row justify-content-center">
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 order-1-sm">
                         <div class="contact-widget-area faq-contact">
                             <div class="container">
                                 <div class="register-form">

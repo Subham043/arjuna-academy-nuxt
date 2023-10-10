@@ -7,7 +7,7 @@
                     <div v-for="(item, i) in banner" :key="i" class="hero-item">
                         <div class="container-fluid">
                             <div class="row align-items-center">
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 order-2-sm">
                                     <div class="hero-content">
                                         <span class="top-title" v-html="item.title" />
                                         <h1 v-html="item.heading" />
@@ -17,7 +17,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 order-1-sm">
                                     <div class="hero-img">
                                         <img :src="item.banner_image" class="hero" :alt="item.banner_image_alt" :title="item.banner_image_title" data-not-lazy/>
                                         <div class="hero-bg-shape">

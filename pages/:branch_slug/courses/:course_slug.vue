@@ -32,8 +32,8 @@
                                                         <span>STAFFS</span>
                                                         <h2 v-html="course?.branch_details[0].staff_heading" />
                                                     </div>
-                                                    <div v-if="course?.branch_details[0].staffs.length>0" class="row justify-content-center mt-4">
-                                                        <div v-if="course?.branch_details[0].staffs.length>0" v-for="(item, i) in course?.branch_details[0].staffs" :key="i" class="col-lg-6 col-md-6">
+                                                    <div v-if="course?.branch_details[0].staffs.length>0" class="instructor-row row justify-content-center mt-4">
+                                                        <div v-if="course?.branch_details[0].staffs.length>0" v-for="(item, i) in course?.branch_details[0].staffs" :key="i" class="col-lg-6 col-md-6 col-sm-6">
                                                             <InstructorCard :image="item.image" :image_alt="item.image_alt" :image_title="item.image_title" :name="item.name" :designation="item.designation" :description="item.description" />
                                                         </div>
                                                     </div>
@@ -43,8 +43,8 @@
                                                         <span>ACHIEVERS</span>
                                                         <h2 v-html="course?.branch_details[0].topper_heading" />
                                                     </div>
-                                                    <div v-if="course?.branch_details[0].achievers.length>0" class="row justify-content-center mt-4">
-                                                        <div v-if="course?.branch_details[0].achievers.length>0" v-for="(item, i) in course?.branch_details[0].achievers" :key="i" class="col-lg-4 col-md-4">
+                                                    <div v-if="course?.branch_details[0].achievers.length>0" class="achiever-row row justify-content-center mt-4">
+                                                        <div v-if="course?.branch_details[0].achievers.length>0" v-for="(item, i) in course?.branch_details[0].achievers" :key="i" class="col-lg-4 col-md-6 col-sm-6">
                                                             <AchieverStudentCard :image="item.image" :image_alt="item.image_alt" :image_title="item.image_title" :name="item.name" :rank="item.rank" :college="item.college" />
                                                         </div>
                                                     </div>

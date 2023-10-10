@@ -55,11 +55,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div v-if="!counterLoading && counter.length>0" v-for="(item, i) in counter" :key="i" class="col-lg-3 col-6">
+                    <div v-if="!counterLoading && counter.length>0" v-for="(item, i) in counter" :key="i" class="col-lg-3 col-md-6 col-sm-6">
                         <div class="counter-card box-shadow">
                             <div class="row align-item-center">
                                 <img :data-src="item.image" v-lazy-load :alt="item.image_alt" :title="item.image_title" style="height: 80px; object-fit: contain; width: auto !important;">
-                                <div class="col-auto">
+                                <div class="col-lg-auto col-md-auto col-sm-12 counter-card-content">
                                     <h3><span class="odometer" >{{ item.counter }}</span>+</h3>
                                     <p v-html="item.title" />
                                 </div>

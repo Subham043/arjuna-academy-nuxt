@@ -30,7 +30,9 @@
                                     <h2 v-if="!heading_center" v-html="heading" />
                                     <div v-html="detail" />
                                 </div>
-                                <NuxtLink to="/leadership-team" class="default-btn border-radius-50" aria-label="View Leaders">View Leaders</NuxtLink>
+                                <div class="text-center-sm">
+                                    <NuxtLink to="/leadership-team" class="default-btn border-radius-50" aria-label="View Leaders">View Leaders</NuxtLink>
+                                </div>
                             </div>
                         </div>
                     </div>

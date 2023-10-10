@@ -59,7 +59,7 @@ export default {
     padding: 15px 30px;
 }
 .achiever-detail img {
-    width: 55%;
+    width: 60%;
     border: 2px solid #D7C167;
 }
 .achiever-detail h5 {
@@ -88,8 +88,8 @@ export default {
 
 @media only screen and (max-width:767px) {
     .achiever-detail {
-        min-height: 445px;
-        height: 445px;
+        min-height: 325px;
+        height: 325px;
     }
 }
 </style>

@@ -27,8 +27,8 @@
                         <div class="blog-card">
                             <img :src="item.image" data-not-lazy :alt="item.image_alt" :title="item.image_title" style="cursor: pointer;" />
                             <div class="content">
-                                <h3 v-html-safe="item.title" />
-                                <p v-html-safe="item.description" />
+                                <h3 v-html="item.title" />
+                                <p v-html="item.description" />
                             </div>
                         </div>
                     </div>

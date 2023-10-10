@@ -96,8 +96,8 @@
                                             <span>ACHIEVERS</span>
                                             <h2 v-html="campaign?.topper_heading" />
                                         </div>
-                                        <div v-if="campaign?.achievers.length>0" class="row justify-content-center mt-4">
-                                            <div v-if="campaign?.achievers.length>0" v-for="(item, i) in campaign?.achievers" :key="i" class="col-lg-4 col-md-4">
+                                        <div v-if="campaign?.achievers.length>0" class="achiever-row row justify-content-center mt-4">
+                                            <div v-if="campaign?.achievers.length>0" v-for="(item, i) in campaign?.achievers" :key="i" class="col-lg-4 col-md-6 col-sm-6">
                                                 <AchieverStudentCard :image="item.image" :image_alt="item.image_alt" :image_title="item.image_title" :name="item.name" :rank="item.rank" :college="item.college" />
                                             </div>
                                         </div>
