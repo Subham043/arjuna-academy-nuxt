@@ -29,7 +29,7 @@
                 </div>
                 <AchieverStudentLoading v-if="achieverStudentLoading" :count="8" />
                 <div v-if="!achieverStudentLoading && achieverStudent.length>0" class="achiever-row row justify-content-center">
-                    <div v-for="(item, i) in achieverStudent" :key="i" class="col-lg-3 col-md-6 col-sm-6">
+                    <div v-for="(item, i) in achieverStudent" :key="i" class="col-lg-2 col-md-4 col-sm-6">
                         <AchieverStudentCard :image="item.image" :image_alt="item.image_alt" :image_title="item.image_title" :name="item.name" :rank="item.rank" :college="item.college" />
                     </div>
                     <div v-if="!achieverStudentLoading && achieverStudent.length>0" class="col-12 text-center">

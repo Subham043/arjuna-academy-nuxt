@@ -52,14 +52,14 @@ export default {
     margin-bottom: 30px;
     clip-path: polygon(50% 0,100% 0,100% 99%,50% 85%,0 100%,0 0);
     min-height: 375px;
-    height: 375px;
+    /* height: 375px; */
 }
 
 .achiever-detail-container{
     padding: 15px 30px;
 }
 .achiever-detail img {
-    width: 60%;
+    width: 100%;
     border: 2px solid #D7C167;
 }
 .achiever-detail h5 {
@@ -88,8 +88,12 @@ export default {
 
 @media only screen and (max-width:767px) {
     .achiever-detail {
-        min-height: 325px;
-        height: 325px;
+        min-height: 355px;
+        /* height: 355px; */
+    }
+
+    .achiever-detail img {
+        width: 100%;
     }
 }
 </style>
