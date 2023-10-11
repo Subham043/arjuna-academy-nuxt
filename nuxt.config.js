@@ -7,6 +7,41 @@ export default {
     port: 3300, // default: 3000
     host: '0.0.0.0', // default: localhost,
   },
+
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {
+    cssSourceMap: true,
+    extractCSS: true,
+    optimizeCSS: true,
+    sourceMap: true,
+    followSymlinks: true,
+    transpile: [/^element-ui/,"vee-validate/dist/rules"],
+    optimization: {
+      runtimeChunk: 'single',
+      splitChunks: {
+        chunks: 'all',
+        maxInitialRequests: Infinity,
+        minSize: 0,
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name(module) {
+              // get the name. E.g. node_modules/packageName/not/this/part.js
+              // or node_modules/packageName
+              const packageName = module.context.match(
+
+                /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+
+              )[1]
+              // npm package names are URL-safe, but some servers don't like @ symbols
+              return `npm.${packageName.replace('@', '')}`
+            }
+          }
+        }
+      }
+    }
+  },
+  
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Arjunaa Academy',
@@ -89,11 +124,6 @@ export default {
     manifest: {
       lang: 'en',
     },
-  },
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    transpile: [/^element-ui/,"vee-validate/dist/rules"],
   },
 
   auth: {
