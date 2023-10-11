@@ -1183,7 +1183,16 @@
     }
 
     .side-bar-widget {
-        padding: 25px 15px
+        padding: 5px
+    }
+
+    .side-bar-widget .side-bar-widget-tag{
+        display: flex;
+    }
+
+    .side-bar-widget .side-bar-widget-tag li a{
+        padding: 5px;
+        text-align: center;
     }
 
     .cart-wraps-area .cart-table {

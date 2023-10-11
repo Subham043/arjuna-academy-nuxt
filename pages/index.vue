@@ -310,6 +310,13 @@ export default {
                     content: this.seo.meta_keywords
                 },
             ],
+            link: this.banner.map((item)=> {
+                return {
+                    rel: 'preload',
+                    as: 'image',
+                    href: item.banner_image,
+                }
+            }),
             script: [
                 {
                     type: 'application/ld+json',

@@ -227,7 +227,7 @@ export default {
                     type: 'application/ld+json',
                     innerHTML: this.course?.branch_details.length > 0 ? this.course?.branch_details[0].meta_scripts : '' // <- set jsonld object in data or wherever you want
                 },
-                { src: 'https://checkout.razorpay.com/v1/checkout.js' }],
+                { src: 'https://checkout.razorpay.com/v1/checkout.js', async: true }],
             __dangerouslyDisableSanitizers: ['script'],
         };
     },

@@ -52,7 +52,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
       { httpEquiv: 'X-UA-Compatible', content: 'IE=edge' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    // link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -81,7 +81,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/google-fonts',
-    '@nuxtjs/fontawesome'
+    '@nuxtjs/fontawesome',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -95,6 +95,7 @@ export default {
     '@nuxtjs/gtm',
     'nuxt-robots-module',
     'nuxt-lazy-load',
+    'nuxt-rfg-icon',
     ["vue-toastification/nuxt", {
       timeout: 8000,
       position: "bottom-center"
@@ -210,7 +211,7 @@ export default {
     referrerPolicy: {policy: "no-referrer"},
     frameguard: {action: "sameorigin"},
     hidePoweredBy: true,
-    expectCt: true,
+    expectCt: false,
     hsts: {
       maxAge: 15552000,
       includeSubDomains: true,

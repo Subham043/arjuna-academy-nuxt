@@ -335,4 +335,11 @@ export default {
     transform: rotate(50grad);
     z-index: -1;
 }
+
+@media only screen and (max-width:767px) {
+    .side-bar-widget .side-bar-widget-tag li.active a:after {
+        left: 40%;
+        bottom: -12px;
+    }
+}
 </style>
