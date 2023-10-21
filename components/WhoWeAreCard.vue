@@ -6,7 +6,7 @@
                     <div class="row align-items-center">
                         <div v-if="heading_center" class="col-lg-12">
                             <div class="section-title text-center mb-3">
-                                <span v-html="title" />
+                                <!-- <span v-html="title" /> -->
                                 <h2 v-html="heading" />
                             </div>
                         </div>
@@ -26,7 +26,7 @@
                         <div class="col-lg-6">
                             <div class="enrolled-content mb-30">
                                 <div class="section-title">
-                                    <span v-if="!heading_center" v-html="title" />
+                                    <!-- <span v-if="!heading_center" v-html="title" /> -->
                                     <h2 v-if="!heading_center" v-html="heading" />
                                     <div v-html="detail" />
                                 </div>

@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="faq-img">
-                            <img v-lazy-load data-src="/images/faq-img.jpg" alt="faq" />
+                            <img v-lazy-load data-src="/images/lesson.webp" alt="faq" class="lesson-img" />
                             <div class="shape">
                                 <img v-lazy-load data-src="/images/faq-shape.png" alt="Faq" />
                             </div>

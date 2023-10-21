@@ -15,7 +15,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4">
                         <div class="faq-img">
-                            <img v-lazy-load data-src="/images/mission-vision.webp" alt="faq" />
+                            <img v-lazy-load data-src="/images/mission.webp" alt="faq" />
                             <div class="shape">
                                 <img v-lazy-load data-src="/images/faq-shape.png" alt="Faq" />
                             </div>

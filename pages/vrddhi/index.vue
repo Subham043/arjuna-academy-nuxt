@@ -162,7 +162,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="faq-img">
-                            <img v-lazy-load data-src="/images/faq-img.jpg" alt="faq" />
+                            <img v-lazy-load data-src="/images/reward.webp" alt="faq" />
                             <div class="shape">
                                 <img v-lazy-load data-src="/images/faq-shape.png" alt="Faq" />
                             </div>

@@ -278,14 +278,9 @@ export default {
             },
             maps: [
                 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15552.00140800217!2d77.538494!3d12.971829!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x515d5069e0a4fce1!2sArjunaa%20Academy%20for%20Achievers(AAA)%20JEE%2C%20NEET%20-%20Vijayanagar!5e0!3m2!1sen!2sin!4v1586440325192!5m2!1sen!2sin',
-                'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.776319452084!2d77.48676211403486!3d12.922093090888328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3ede984f1f27%3A0x7f696ad5a4030d9a!2sNational%20Public%20School%20Kengeri%2C%20Volagalahalli%2C%20Stage%20II%2C%20Kengeri%20Satellite%20Town%2C%20Bengaluru%2C%20Karnataka%20560060!5e0!3m2!1sen!2sin!4v1635591023182!5m2!1sen!2sin',
                 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.454024789481!2d77.49268751403518!3d12.942773490874773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3e950bc53455%3A0x35253b19d0cb96fa!2sVSS%20INTERNATIONAL%20PUBLIC%20SCHOOL!5e0!3m2!1sen!2sin!4v1635595187330!5m2!1sen!2sin',
                 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.2062541862324!2d77.55329661403454!3d12.894455090906535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3fe6d9b96d51%3A0x650acbdfbeb1f043!2sVedantha%20College!5e0!3m2!1sen!2sin!4v1635595849883!5m2!1sen!2sin',
-                'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.1679844355695!2d77.49364961403452!3d12.896917590904888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3f16953a6b8b%3A0xfb95d40f56b02c16!2sBGS%20Public%20School!5e0!3m2!1sen!2sin!4v1635595752947!5m2!1sen!2sin',
-                'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.8786673860386!2d77.54884191403657!3d13.043394290808772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d5aa542f7bf%3A0xec9cb3775d5f49e2!2sMother%20Teresa%20Public%20School!5e0!3m2!1sen!2sin!4v1635595631174!5m2!1sen!2sin',
                 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3896.4942777478095!2d76.67923811402815!3d12.41675259122155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf771b52ccebd7%3A0x4ce0c7b1507fd22f!2sParivarthana%20School%20%26%20College!5e0!3m2!1sen!2sin!4v1635595569553!5m2!1sen!2sin',
-                'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.2380873874727!2d76.62523931402662!3d12.299746891299138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf7ab9ffafcf89%3A0xbe58a7b82c389e52!2sVijaya%20Vittala%20Composite%20Pre%20University%20College!5e0!3m2!1sen!2sin!4v1635595501547!5m2!1sen!2sin',
-                'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.917965171257!2d77.45936461403389!3d12.848574890936664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae474832a8c011%3A0x5ff56b36d7a4247b!2sBGS%20International%20Residential%20School!5e0!3m2!1sen!2sin!4v1635595447580!5m2!1sen!2sin'
             ]
         };
     },

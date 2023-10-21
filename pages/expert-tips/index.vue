@@ -15,8 +15,7 @@
                 <div class="section-title mb-45 text-center">
                     <h2>Latest from our <b>expert tips</b></h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore.
+                        “Mantras to crack JEE & NEET”
                     </p>
                 </div>
                 <div class="row justify-content-center">
