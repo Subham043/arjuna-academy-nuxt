@@ -88,12 +88,14 @@ export default {
 
 @media only screen and (max-width:767px) {
     .achiever-detail {
-        min-height: 355px;
+        min-height: 360px;
         /* height: 355px; */
     }
 
     .achiever-detail img {
         width: 100%;
+        height: 150px;
+        object-fit: cover;
     }
 }
 </style>

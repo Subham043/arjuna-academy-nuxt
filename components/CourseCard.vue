@@ -10,7 +10,7 @@
             <hr>
             <div class="bottom-content align-items-center">
                 <el-dropdown>
-                    <NuxtLink to="/" target="_blank" class="default-btn two border-radius-50 m-0" aria-hidden="true" aria-label="Enroll Now">Enroll Now</NuxtLink>
+                    <NuxtLink to="/" class="default-btn two border-radius-50 m-0" aria-hidden="true" aria-label="Enroll Now">Enroll Now</NuxtLink>
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item v-for="(item, i) in branches" 
                             :key="i">

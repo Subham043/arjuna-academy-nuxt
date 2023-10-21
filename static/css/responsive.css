@@ -1095,7 +1095,8 @@
     }
 
     .faq-img, .register-form.form-sticky{
-        position: static;
+        position: relative;
+        top: 0;
     }
 
     .faq-img .shape {

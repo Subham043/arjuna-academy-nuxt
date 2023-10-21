@@ -247,7 +247,7 @@ export default {
     directiveOnly: false,
     
     // Default image must be in the public folder
-    defaultImage: '/images/default-image.jpg',
+    defaultImage: '/images/loading.gif',
   
     // To remove class set value to false
     loadingClass: 'isLoading',
