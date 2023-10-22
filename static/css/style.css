@@ -2227,7 +2227,7 @@ img {
   /* background: var(--titleColor); */
   /* background: #8B907F; */
   background: #999d90;
-  opacity: 0.9;
+  opacity: 0.7;
 }
 .inner-banner .inner-title {
   /* padding-top: 120px;
@@ -2354,7 +2354,7 @@ img {
   color: var(--mainColor);
 }
 .inner-banner-bg, .inner-banner-bg9 {
-  background-image: url(../images/inner-banner/inner-banner1.jpg);
+  background-image: url(../images/inner-banner/inner-banner1.webp);
 }
 /* .inner-banner-bg2 {
   background-image: url(../images/inner-banner/inner-banner2.jpg);
