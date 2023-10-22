@@ -22,6 +22,7 @@
         </div>
         <Newsletter />
         <Footer />
+        <SocialMedia/>
     </div>
   </template>
   
@@ -39,7 +40,8 @@
         Header: () => import('~/components/Header.vue'), 
         Newsletter: () => import('~/components/Newsletter.vue'), 
         Footer: () => import('~/components/Footer.vue'), 
-        Preloader: () => import('~/components/Preloader.vue')
+        Preloader: () => import('~/components/Preloader.vue'),
+        SocialMedia: () => import('~/components/SocialMedia.vue'),
     }
 }
 

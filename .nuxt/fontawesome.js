@@ -13,7 +13,8 @@ import {
   faEnvelope as freeFasFaEnvelope,
   faPhone as freeFasFaPhone,
   faBars as freeFasFaBars,
-  faStar as freeFasFaStar
+  faStar as freeFasFaStar,
+  faComment as freeFasFaComment
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -21,7 +22,8 @@ import {
   faTwitter as freeFabFaTwitter,
   faInstagram as freeFabFaInstagram,
   faLinkedin as freeFabFaLinkedin,
-  faYoutube as freeFabFaYoutube
+  faYoutube as freeFabFaYoutube,
+  faWhatsapp as freeFabFaWhatsapp
 } from '@fortawesome/free-brands-svg-icons'
 
 library.add(
@@ -32,11 +34,13 @@ library.add(
   freeFasFaPhone,
   freeFasFaBars,
   freeFasFaStar,
+  freeFasFaComment,
   freeFabFaFacebookF,
   freeFabFaTwitter,
   freeFabFaInstagram,
   freeFabFaLinkedin,
-  freeFabFaYoutube
+  freeFabFaYoutube,
+  freeFabFaWhatsapp
 )
 
 config.autoAddCss = false

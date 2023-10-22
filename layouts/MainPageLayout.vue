@@ -6,6 +6,7 @@
       <Nuxt />
       <Newsletter />
       <Footer />
+      <SocialMedia/>
   </div>
 </template>
 
@@ -19,7 +20,8 @@ export default {
       Footer: () => import('~/components/Footer.vue'), 
       Newsletter: () => import('~/components/Newsletter.vue'), 
       VerifyNotification: () => import('~/components/VerifyNotification.vue'), 
-      Preloader: () => import('~/components/Preloader.vue') 
+      Preloader: () => import('~/components/Preloader.vue') ,
+      SocialMedia: () => import('~/components/SocialMedia.vue') ,
     }
 }
 
