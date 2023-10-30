@@ -106,6 +106,12 @@ export default {
     head() {
         return {
             title: this.event?.meta_title,
+            link: [
+                {
+                    rel: 'canonical',
+                    href: this.$config.mainURL + this.$route.path,
+                },
+            ],
             meta: [
             // hid is used as unique identifier. Do not use `vmid` for it as it will not work
                 {

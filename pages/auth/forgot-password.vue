@@ -80,6 +80,12 @@ export default {
     head() {
         return {
             title: 'Arjunaa Academy - Forgot Password',
+            link: [
+                {
+                    rel: 'canonical',
+                    href: this.$config.mainURL + this.$route.path,
+                },
+            ],
             meta: [
             // hid is used as unique identifier. Do not use `vmid` for it as it will not work
                 {
