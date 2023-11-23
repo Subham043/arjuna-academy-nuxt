@@ -31,7 +31,8 @@ const _ea8cda64 = () => interopDefault(import('../pages/events/:slug.vue' /* web
 const _6d8b6002 = () => interopDefault(import('../pages/expert-tips/:slug.vue' /* webpackChunkName: "pages/expert-tips/:slug" */))
 const _3751127d = () => interopDefault(import('../pages/knowledge-desk/:slug.vue' /* webpackChunkName: "pages/knowledge-desk/:slug" */))
 const _942bba00 = () => interopDefault(import('../pages/legal/:slug.vue' /* webpackChunkName: "pages/legal/:slug" */))
-const _3f1bf51c = () => interopDefault(import('../pages/online-tests/:slug.vue' /* webpackChunkName: "pages/online-tests/:slug" */))
+const _728b369f = () => interopDefault(import('../pages/online-tests/:slug/index.vue' /* webpackChunkName: "pages/online-tests/:slug/index" */))
+const _cf5ac0f0 = () => interopDefault(import('../pages/online-tests/:slug/ongoing.vue' /* webpackChunkName: "pages/online-tests/:slug/ongoing" */))
 const _d8ffb4d4 = () => interopDefault(import('../pages/:slug.vue' /* webpackChunkName: "pages/:slug" */))
 const _62645c84 = () => interopDefault(import('../pages/:branch_slug/courses/:course_slug.vue' /* webpackChunkName: "pages/:branch_slug/courses/:course_slug" */))
 
@@ -156,8 +157,12 @@ export const routerOptions = {
     name: "legal-:slug"
   }, {
     path: "/online-tests/:slug",
-    component: _3f1bf51c,
+    component: _728b369f,
     name: "online-tests-:slug"
+  }, {
+    path: "/online-tests/:slug/ongoing",
+    component: _cf5ac0f0,
+    name: "online-tests-:slug-ongoing"
   }, {
     path: "/:slug",
     component: _d8ffb4d4,

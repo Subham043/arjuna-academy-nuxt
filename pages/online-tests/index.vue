@@ -21,7 +21,7 @@
                 <div class="row justify-content-center">
                     <OnlineTestCardLoading v-if="testLoading" :count="9" />
                     <div v-if="!testLoading && test.length>0" v-for="(item, i) in test" :key="i" class="col-lg-4 col-md-6">
-                        <OnlineTestCard :image="item.image" :title="item.name" :description="item.short_description" :date="item.published" :slug="item.slug" :author="item.author_name"  :image_alt="item.image_alt" :image_title="item.image_title" />
+                        <OnlineTestCard :image="item.image" :title="item.name" :description="item.short_description" :is_paid="item.is_paid" :slug="item.slug" :amount="item.amount"  :image_alt="item.image_alt" :image_title="item.image_title" :enrollment="item.is_test_enrolled" />
                     </div>
                     <div v-if="!testLoading && test.length>0" class="col-12 text-center">
                         <pagination v-model="testCurrentPage" :records="testCount" :per-page="testPerPage"  :options="{edgeNavigation:false}" @paginate="handlePaginationChnage"/>

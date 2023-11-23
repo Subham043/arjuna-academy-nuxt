@@ -73,6 +73,8 @@ export default {
     '~/plugins/privateApi.js',
     '~/plugins/vue-slick-carousel.js',
     '~/plugins/pagination.js',
+    { src: '~/plugins/countdown.js', mode: "client" },
+    { src: '~/plugins/fullscreen.js', mode: "client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

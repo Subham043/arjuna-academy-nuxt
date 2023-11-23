@@ -185,8 +185,14 @@
   {
     "name": "online-tests-:slug",
     "path": "/online-tests/:slug",
-    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/online-tests/:slug.vue",
-    "chunkName": "pages/online-tests/:slug"
+    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/online-tests/:slug/index.vue",
+    "chunkName": "pages/online-tests/:slug/index"
+  },
+  {
+    "name": "online-tests-:slug-ongoing",
+    "path": "/online-tests/:slug/ongoing",
+    "component": "/Users/subham/Documents/arjuna_academy/frontend/pages/online-tests/:slug/ongoing.vue",
+    "chunkName": "pages/online-tests/:slug/ongoing"
   },
   {
     "name": ":slug",
