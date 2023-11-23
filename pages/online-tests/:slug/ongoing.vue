@@ -37,19 +37,19 @@
                                             <div class="d-flex align-items-center justify-content-between ">
                                                 <div class="col-auto text-center">
                                                     <p class="head-text text-light">Subject</p>
-                                                    <h6 class="head-counter text-light">Maths</h6>
+                                                    <h6 class="head-counter text-light">{{questionSet?.current_quiz.subject.name}}</h6>
                                                 </div>
                                                 <div class="col-auto text-center">
                                                     <p class="head-text text-light">Difficulty</p>
-                                                    <h6 class="head-counter text-light">Hard</h6>
+                                                    <h6 class="head-counter text-light">{{questionSet?.current_quiz.difficulty}}</h6>
                                                 </div>
                                                 <div class="col-auto text-center">
                                                     <p class="head-text text-light">Marks</p>
-                                                    <h6 class="head-counter text-light">5</h6>
+                                                    <h6 class="head-counter text-light">{{questionSet?.current_quiz.mark}}</h6>
                                                 </div>
                                                 <div class="col-auto text-center">
                                                     <p class="head-text text-light">Duration</p>
-                                                    <h6 class="head-counter text-light">10 mins</h6>
+                                                    <h6 class="head-counter text-light">{{questionSet?.current_quiz.duration}} mins</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -57,23 +57,21 @@
                                             <h4>
                                                 Question <code>({{ current_question }}/{{ total_questions }})</code>
                                             </h4>
-                                            <div>
-                                                <p>These GK questions and answers from various topics are for all kids from age groups between 4 to 12 and other students can also gain knowledge. An elaborative explanation is also provided with questions so that it will help children to understand the topic and help them in revision and memorizing the answers to all questions. Which animal is known as the king of the jungle?</p>
-                                            </div>
+                                            <div v-html="questionSet?.current_quiz.question" />
                                         </div>
                                         <div class="answer-section">
                                             <div class="d-flex align-items-center flex-wrap">
                                                 <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                    <el-radio v-model="selected_answer" label="Answer1">Option A</el-radio>
+                                                    <el-radio v-model="selected_answer" label="Answer1"><div class="px-3" v-html="questionSet?.current_quiz.answer_1" /></el-radio>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                    <el-radio v-model="selected_answer" label="Answer2">Option B</el-radio>
+                                                    <el-radio v-model="selected_answer" label="Answer2"><div class="px-3" v-html="questionSet?.current_quiz.answer_2" /></el-radio>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                    <el-radio v-model="selected_answer" label="Answer3">Option C</el-radio>
+                                                    <el-radio v-model="selected_answer" label="Answer3"><div class="px-3" v-html="questionSet?.current_quiz.answer_3" /></el-radio>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                    <el-radio v-model="selected_answer" label="Answer4">Option D</el-radio>
+                                                    <el-radio v-model="selected_answer" label="Answer4"><div class="px-3" v-html="questionSet?.current_quiz.answer_4" /></el-radio>
                                                 </div>
                                             </div>
                                         </div>
@@ -132,7 +130,7 @@ export default {
         if (process.client) {
             this.$scrollTo("#__nuxt", 0, { force: true });
             window.addEventListener("blur", this.logTabChanged);
-            this.makeFullScreen()
+            // this.makeFullScreen()
         }
     },
     destroyed() {
@@ -140,35 +138,18 @@ export default {
     },
     data() {
         return {
-            timerTrigger: true,
+            timerTrigger: false,
             startOn: new Date().getTime(),
             scheduledOn: new Date(new Date().getTime() + 10 * 60000).getTime(),
             duration: 10,
             fullscreen: false,
             warnStatus: false,
             warnCounter: 0,
-            total_questions: 30,
-            current_question: 5,
+            total_questions: 0,
+            current_question: 2,
             selected_answer: null,
-            // blogLoading: false,
-            // blog: null,
-            // prev_blog: null,
-            // next_blog: null,
-            // popularBlogLoading: false,
-            // popularBlog: [],
-            // popularBlogCount: 1,
-            // popularBlogCurrentPage: 1,
-            // popularBlogPerPage: 1,
-            // blogCommentLoading: false,
-            // blogComment: [],
-            // blogCommentPage: 1,
-            // blogCommentCount: 1,
-            // blogCommentPerPage: 1,
-            // blogCommentLastPage: 1,
-            // commentPostLoading: false,
-            // name: this.$auth.loggedIn ? this.$auth.user.name : '',
-            // email: this.$auth.loggedIn ? this.$auth.user.email : '',
-            // comment: '',
+            questionSetLoading: false,
+            questionSet: null,
         };
     },
     head() {
@@ -206,7 +187,7 @@ export default {
         }
     },
     async fetch() {
-        // await this.getBlog();
+        await this.getQuestionSet();
     },
     watch: {
         // $route(to, from) {
@@ -265,94 +246,27 @@ export default {
                 console.log('exam cancelled');
             }
         },
-        // async getBlog() {
-        //     this.blogLoading = true;
-        //     try {
-        //         const response = await this.$publicApi.get(API_ROUTES.blog + `/${this.$route.params.slug}`); // eslint-disable-line
-        //         this.blog = response.data.blog;
-        //         this.next_blog = response.data.next_blog;
-        //         this.prev_blog = response.data.prev_blog;
-        //     } catch (err) {
-        //         // console.log(err.response);// eslint-disable-line
-        //         this.$nuxt.context.error({
-        //             status: err.response.status,
-        //             message: err.response.data.message,
-        //         })
+        async getQuestionSet() {
+            this.questionSetLoading = true;
+            try {
+                const response = await this.$privateApi.get(API_ROUTES.tests + `/${this.$route.params.slug}/question-set`); // eslint-disable-line
+                this.questionSet = response.data.question_set;
+                this.total_questions = response.data.total_question_count;
+                this.current_question = response.data.current_question_count;
+                this.scheduledOn = new Date(new Date().getTime() + response.data.question_set.current_quiz.duration * 60000).getTime();
+                this.duration = response.data.question_set.current_quiz.duration;
+                this.timerTrigger = true;
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                this.$nuxt.context.error({
+                    status: err.response.status,
+                    message: err.response.data.message,
+                })
 
-        //     } finally {
-        //         this.blogLoading = false;
-        //     }
-        // },
-        // async getPopluarBlog(page = 0) {
-        //     this.popularBlogLoading = true;
-        //     try {
-        //         const response = await this.$publicApi.get(API_ROUTES.blog + `?total=8&page=${page}&filter[is_popular]=true&sort=-published_on`); // eslint-disable-line
-        //         this.popularBlog = response.data.data
-        //         this.popularBlogCount = response?.data?.meta?.total
-        //         this.popularBlogPerPage = response?.data?.meta?.per_page
-        //         this.popularBlogCurrentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
-        //     } catch (err) {
-        //         // console.log(err.response);// eslint-disable-line
-        //         this.$nuxt.context.error({
-        //             status: err.response.status,
-        //             message: err.response.data.message,
-        //         })
-
-        //     } finally {
-        //         this.popularBlogLoading = false;
-        //     }
-        // },
-        // handlePopularBlogPaginationChnage(page) {
-        //     this.$router.push({ query: { page } });
-        // },
-        // handlePopularBlogPageChnage() {
-        //     this.popularBlogCurrentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
-        //     this.getPopluarBlog(this.$route.query.page ? Number(this.$route.query.page) : 1);
-        // },
-        // async formHandler() {
-        //     this.commentPostLoading = true;
-        //     try {
-        //         const response = await this.$publicApi.post(API_ROUTES.blog + `/comment/${this.blog?.id}/create`, {
-        //             name: this.name,
-        //             email: this.email,
-        //             comment: this.comment,
-        //         });
-        //         this.comment = ''
-        //         this.$refs.form.reset()
-        //         this.$toast.success('Commented Successfully.')
-        //     } catch (err) {
-        //         this.$refs.form.setErrors({
-        //             email: err?.response?.data?.errors?.email?.length > 0 && err?.response?.data?.errors?.email[0],
-        //             name: err?.response?.data?.errors?.name?.length > 0 && err?.response?.data?.errors?.name[0],
-        //             comment: err?.response?.data?.errors?.comment?.length > 0 && err?.response?.data?.errors?.comment[0],
-        //         });
-        //         if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
-        //         if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-
-        //     } finally {
-        //         this.commentPostLoading = false;
-        //     }
-        // },
-        // async getBlogComment(page = 1) {
-        //     if(this.blog){
-        //         this.blogCommentLoading = true;
-        //         try {
-        //             const response = await this.$publicApi.get(API_ROUTES.blog + `/comment/${this.blog?.id}/paginate?total=8&page=${page}`); // eslint-disable-line
-        //             this.blogComment = [...this.blogComment, ...response.data.data]
-        //             this.blogCommentCount = response?.data?.meta?.total
-        //             this.blogCommentPerPage = response?.data?.meta?.per_page
-        //             this.blogCommentLastPage = response?.data?.meta?.last_page
-        //         } catch (err) {
-        //             // console.log(err.response);// eslint-disable-line
-        //             this.$nuxt.context.error({
-        //                 status: err.response.status,
-        //                 message: err.response.data.message,
-        //             })
-        //         } finally {
-        //             this.blogCommentLoading = false;
-        //         }
-        //     }
-        // },
+            } finally {
+                this.questionSetLoading = false;
+            }
+        },
     },
 }
 </script>
