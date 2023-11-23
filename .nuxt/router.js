@@ -14,6 +14,7 @@ const _16735e43 = () => interopDefault(import('../pages/gallery.vue' /* webpackC
 const _b228822c = () => interopDefault(import('../pages/knowledge-desk/index.vue' /* webpackChunkName: "pages/knowledge-desk/index" */))
 const _7481a0d6 = () => interopDefault(import('../pages/leadership-team.vue' /* webpackChunkName: "pages/leadership-team" */))
 const _16673c30 = () => interopDefault(import('../pages/mission-vision.vue' /* webpackChunkName: "pages/mission-vision" */))
+const _a292bcee = () => interopDefault(import('../pages/online-tests/index.vue' /* webpackChunkName: "pages/online-tests/index" */))
 const _bdb325cc = () => interopDefault(import('../pages/profile.vue' /* webpackChunkName: "pages/profile" */))
 const _cb276ee0 = () => interopDefault(import('../pages/testimonial.vue' /* webpackChunkName: "pages/testimonial" */))
 const _2d578b5f = () => interopDefault(import('../pages/vrddhi/index.vue' /* webpackChunkName: "pages/vrddhi/index" */))
@@ -30,6 +31,7 @@ const _ea8cda64 = () => interopDefault(import('../pages/events/:slug.vue' /* web
 const _6d8b6002 = () => interopDefault(import('../pages/expert-tips/:slug.vue' /* webpackChunkName: "pages/expert-tips/:slug" */))
 const _3751127d = () => interopDefault(import('../pages/knowledge-desk/:slug.vue' /* webpackChunkName: "pages/knowledge-desk/:slug" */))
 const _942bba00 = () => interopDefault(import('../pages/legal/:slug.vue' /* webpackChunkName: "pages/legal/:slug" */))
+const _3f1bf51c = () => interopDefault(import('../pages/online-tests/:slug.vue' /* webpackChunkName: "pages/online-tests/:slug" */))
 const _d8ffb4d4 = () => interopDefault(import('../pages/:slug.vue' /* webpackChunkName: "pages/:slug" */))
 const _62645c84 = () => interopDefault(import('../pages/:branch_slug/courses/:course_slug.vue' /* webpackChunkName: "pages/:branch_slug/courses/:course_slug" */))
 
@@ -84,6 +86,10 @@ export const routerOptions = {
     path: "/mission-vision",
     component: _16673c30,
     name: "mission-vision"
+  }, {
+    path: "/online-tests",
+    component: _a292bcee,
+    name: "online-tests"
   }, {
     path: "/profile",
     component: _bdb325cc,
@@ -148,6 +154,10 @@ export const routerOptions = {
     path: "/legal/:slug",
     component: _942bba00,
     name: "legal-:slug"
+  }, {
+    path: "/online-tests/:slug",
+    component: _3f1bf51c,
+    name: "online-tests-:slug"
   }, {
     path: "/:slug",
     component: _d8ffb4d4,

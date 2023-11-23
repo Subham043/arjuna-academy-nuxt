@@ -257,6 +257,11 @@
                                                 Profile ({{ $auth.user.name }}) </NuxtLink>
                                         </li>
                                         <li class="nav-item">
+                                            <NuxtLink to="/online-tests" aria-label="profile page"
+                                                :class="`nav-link ${($nuxt.$route.path.includes('online-tests')) && 'nuxt-link-active'}`">
+                                                Online Tests </NuxtLink>
+                                        </li>
+                                        <li class="nav-item">
                                             <a href="javascript:void(0)" aria-label="logout page" class="nav-link" @click="logout"> Logout </a>
                                         </li>
                                     </ul>

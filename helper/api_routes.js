@@ -11,6 +11,7 @@ export const API_ROUTES = {
     testimonial: "/api/v1/testimonial",
     counter: "/api/v1/counter",
     feature: "/api/v1/feature",
+    tests: "/api/v1/tests",
     achieverCategory: "/api/v1/achiever/category",
     achieverStudent: "/api/v1/achiever/student",
     aboutSection: "/api/v1/about-section",
