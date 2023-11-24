@@ -32,6 +32,12 @@
                         <div class="container">
                             <div class="row align-items-center">
                                 <div class="col-lg-9">
+                                    <div v-if="errorMessage" class="mb-1">
+                                        <el-alert
+                                        :title="errorMessage"
+                                        type="error"
+                                        show-icon></el-alert>
+                                    </div>
                                     <div class="question-block">
                                         <div class="question-block-counter p-2">
                                             <div class="d-flex align-items-center justify-content-between ">
@@ -62,21 +68,21 @@
                                         <div class="answer-section">
                                             <div class="d-flex align-items-center flex-wrap">
                                                 <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                    <el-radio v-model="selected_answer" label="Answer1"><div class="px-3" v-html="questionSet?.current_quiz.answer_1" /></el-radio>
+                                                    <el-radio v-model="attempted_answer" label="Answer1"><div class="px-3" v-html="questionSet?.current_quiz.answer_1" /></el-radio>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                    <el-radio v-model="selected_answer" label="Answer2"><div class="px-3" v-html="questionSet?.current_quiz.answer_2" /></el-radio>
+                                                    <el-radio v-model="attempted_answer" label="Answer2"><div class="px-3" v-html="questionSet?.current_quiz.answer_2" /></el-radio>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                    <el-radio v-model="selected_answer" label="Answer3"><div class="px-3" v-html="questionSet?.current_quiz.answer_3" /></el-radio>
+                                                    <el-radio v-model="attempted_answer" label="Answer3"><div class="px-3" v-html="questionSet?.current_quiz.answer_3" /></el-radio>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                    <el-radio v-model="selected_answer" label="Answer4"><div class="px-3" v-html="questionSet?.current_quiz.answer_4" /></el-radio>
+                                                    <el-radio v-model="attempted_answer" label="Answer4"><div class="px-3" v-html="questionSet?.current_quiz.answer_4" /></el-radio>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="py-1 px-2 text-center">
-                                            <el-button type="success" plain>Submit</el-button>
+                                            <el-button type="success" plain @click="fillAnswerHandler">Submit</el-button>
                                         </div>
                                     </div>
                                 </div>
@@ -85,8 +91,9 @@
                                         <client-only>
                                             <vac v-if="timerTrigger" :start-time="startOn" :end-time="scheduledOn" @finish="timeElapsedHandler">
                                                 <span
-                                                slot="process"
-                                                slot-scope="{ timeObj }">
+                                                    slot="process"
+                                                    slot-scope="{ timeObj }"
+                                                >
                                                     <div style="position: relative;">
                                                         <div class="timer" :style="`--duration: ${duration * 60};--size: 250;`">
                                                         <div class="mask">
@@ -112,6 +119,14 @@
                         </div>
                     </div>
                 </div>
+                <el-dialog title="WARNING" :visible.sync="dialogVisible" width="30%" :center="true" :close-on-click-modal="false" :close-on-press-escape="false" :show-close="false">
+                    <div class="p-1 px-4">
+                        <p>{{dialogMessage}}</p>
+                    </div>
+                    <span slot="footer" class="dialog-footer">
+                        <el-button type="primary" @click="closeWarningModal">Resume Test</el-button>
+                    </span>
+                </el-dialog>
             </fullscreen>
         </client-only>
 
@@ -121,7 +136,6 @@
 <script>
 import { API_ROUTES } from '~/helper/api_routes';
 
-
 export default {
     name: "TestOngoingPage",
     layout: "MainPageLayout",
@@ -129,12 +143,12 @@ export default {
     mounted() {
         if (process.client) {
             this.$scrollTo("#__nuxt", 0, { force: true });
-            window.addEventListener("blur", this.logTabChanged);
-            // this.makeFullScreen()
+            window.addEventListener("blur", this.tabChangedHandler);
+            this.makeFullScreen()
         }
     },
     destroyed() {
-        window.removeEventListener("blur", this.logTabChanged);
+        window.removeEventListener("blur", this.tabChangedHandler);
     },
     data() {
         return {
@@ -143,13 +157,17 @@ export default {
             scheduledOn: new Date(new Date().getTime() + 10 * 60000).getTime(),
             duration: 10,
             fullscreen: false,
-            warnStatus: false,
-            warnCounter: 0,
+            dialogVisible: false,
+            dialogMessage: '',
+            tabChangedWarnCounter: 0,
+            fullScreenWarnCounter: 0,
             total_questions: 0,
             current_question: 2,
-            selected_answer: null,
+            attempted_answer: null,
             questionSetLoading: false,
             questionSet: null,
+            answerSubmitLoading: false,
+            errorMessage: null,
         };
     },
     head() {
@@ -190,60 +208,64 @@ export default {
         await this.getQuestionSet();
     },
     watch: {
-        // $route(to, from) {
-        //     this.handlePopularBlogPageChnage();
-        //     if (process.client) {
-        //         this.$scrollTo("#popular-blog-area", 0, { force: true });
-        //     }
-        // },
-        // blog(to, from) {
-        //     this.getBlogComment();
-        // },
-        // blogCommentPage(to, from) {
-        //     this.getBlogComment(to);
-        //     if (process.client) {
-        //         this.$scrollTo("#blog-comment-area", 0, { force: true });
-        //     }
-        // },
+        fullscreen(to, from) {
+            if(to===false){
+                this.makeFullScreen();
+            }
+        },
     },
     methods: {
-        makeFullScreen(){
-            this.$alert("This exam needs to be conducted on fullscreen mode. Please dnt try to exit the fullscreen mode until your exam is over. It wil exit the fullscreen mode once your exam is over. If you exit the fullscreen mode by yourself then you will be barred from giving this exam.", "WARNING!!", {
-                confirmButtonText: "MAKE FULLSCREEN",
-                callback: action => {
-                    this.fullscreen = true
-                    this.$message({
-                        type: "success",
-                        message: `You can continue with the exam`
-                    });
+        async closeWarningModal(){
+            this.dialogVisible = false;
+            this.fullscreen = true;
+            this.dialogMessage = ''
+        },
+        async makeFullScreen(){
+            if(!this.dialogVisible){
+                if (this.fullScreenWarnCounter <= 2) {
+                    this.dialogVisible = true;
+                    this.dialogMessage = "This exam needs to be conducted on fullscreen mode. Please dnt try to exit the fullscreen mode until your exam is over. It wil exit the fullscreen mode once your exam is over. If you exit the fullscreen mode by yourself then you will be barred from giving this exam.";
                 }
-            });
+                else if(this.fullScreenWarnCounter == 3) {
+                    await this.eliminatedHandler('Tried to escape full screen mode while attending the exam!');
+                }
+                this.fullScreenWarnCounter++;
+            }
         },
         async timeElapsedHandler() {
             this.timerTrigger = false;
+            this.answerSubmitLoading = true;
+            this.errorMessage = 'Time for answering the question exceeded!'
+            try {
+                const response = await this.$privateApi.post(API_ROUTES.tests + `/${this.$route.params.slug}/fill-answer`, {
+                    attempt_status: 'Failed To Answer',
+                    reason: 'Time for answering the question exceeded!'
+                }); // eslint-disable-line
+                this.attempted_answer=null;
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                // this.errorMessage = err?.response?.data?.message
+                
+            } finally {
+                this.answerSubmitLoading = false;
+                this.errorMessage = null;
+            }
         },
-        logTabChanged() {
+        tabChangedHandler() {
             if (process.client) {
-                this.warningOpen();
+                this.tabChangedWarning();
             }
         },
-        warningOpen() {
-            if (this.warnStatus === false && this.warnCounter <= 1) {
-                this.warnStatus = true;
-                ++this.warnCounter;
-                this.$alert("This is a warning because you tried escape the exam screen. If you do it again, then you will be barred from giving this exam!", "WARNING!!", {
-                    confirmButtonText: "OK",
-                    callback: action => {
-                        this.$message({
-                            type: "success",
-                            message: `You can continue with the exam`
-                        });
-                    }
-                });
-            }
-            else {
-                // this.abortExam();
-                console.log('exam cancelled');
+        async tabChangedWarning() {
+            if(!this.dialogVisible){
+                if (this.tabChangedWarnCounter <= 1) {
+                    this.dialogVisible = true;
+                    this.dialogMessage = "This is a warning because you tried escape the exam screen. If you do it again, then you will be barred from giving this exam!";
+                }
+                else if(this.tabChangedWarnCounter == 2) {
+                    await this.eliminatedHandler('Tried to escape focus on the exam screen by viewing another screen else than exam screen tab while attending the exam!');
+                }
+                this.tabChangedWarnCounter++;
             }
         },
         async getQuestionSet() {
@@ -265,6 +287,43 @@ export default {
 
             } finally {
                 this.questionSetLoading = false;
+            }
+        },
+        async fillAnswerHandler() {
+            if(!this.attempted_answer){
+                this.errorMessage = 'Please select an answer'
+                return;
+            }
+            this.errorMessage = null;
+            this.answerSubmitLoading = true;
+            try {
+                const response = await this.$privateApi.post(API_ROUTES.tests + `/${this.$route.params.slug}/fill-answer`, {
+                    attempted_answer:this.attempted_answer
+                }); // eslint-disable-line
+                this.attempted_answer=null;
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                this.errorMessage = err?.response?.data?.message
+
+            } finally {
+                this.answerSubmitLoading = false;
+            }
+        },
+        async eliminatedHandler(reason) {
+            this.answerSubmitLoading = true;
+            this.errorMessage = reason
+            try {
+                const response = await this.$privateApi.post(API_ROUTES.tests + `/${this.$route.params.slug}/eliminated`, {
+                    reason
+                }); // eslint-disable-line
+                this.attempted_answer=null;
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                // this.errorMessage = err?.response?.data?.message
+
+            } finally {
+                this.answerSubmitLoading = false;
+                this.errorMessage = null;
             }
         },
     },
