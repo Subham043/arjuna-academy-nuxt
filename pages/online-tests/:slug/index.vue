@@ -51,50 +51,24 @@
                                     <div class="">
                                         <div class="col-lg-12 col-md-12">
                                             <div class="d-flex align-items-center">
-                                                <button type="button" :disabled="enrollmentLoading" class="default-btn" @click="buttonHandler">
+                                                <button v-if="!is_test_enrolled" type="button" :disabled="enrollmentLoading" class="default-btn" @click="testApplyHandler">
                                                     <template v-if="!enrollmentLoading">
-                                                        <template v-if="!is_test_enrolled">
-                                                            Take Now
-                                                        </template>
-                                                        <template v-else>
-                                                            <template v-if="is_test_enrolled.enrollment_type=='Purchased'">
-                                                                <template v-if="is_test_enrolled.is_enrolled && is_test_enrolled.test_status=='Pending'">
-                                                                    Start Now
-                                                                </template>
-                                                                <template v-else-if="is_test_enrolled.is_enrolled && is_test_enrolled.test_status=='Ongoing'">
-                                                                    Resument Test
-                                                                </template>
-                                                                <template v-else-if="is_test_enrolled.is_enrolled && is_test_enrolled.test_status=='Completed'">
-                                                                    View Test Report
-                                                                </template>
-                                                                <template v-else-if="is_test_enrolled.is_enrolled && is_test_enrolled.test_status=='Eliminated'">
-                                                                    View Elimination Report
-                                                                </template>
-                                                                <template v-else>
-                                                                    Take Now
-                                                                </template>
-                                                            </template>
-                                                            <template v-else>
-                                                                <template v-if="is_test_enrolled.is_enrolled && is_test_enrolled.test_status=='Pending'">
-                                                                    Start Now
-                                                                </template>
-                                                                <template v-else-if="is_test_enrolled.is_enrolled && is_test_enrolled.test_status=='Ongoing'">
-                                                                    Resument Test
-                                                                </template>
-                                                                <template v-else-if="is_test_enrolled.is_enrolled && is_test_enrolled.test_status=='Completed'">
-                                                                    View Test Report
-                                                                </template>
-                                                                <template v-else-if="is_test_enrolled.is_enrolled && is_test_enrolled.test_status=='Eliminated'">
-                                                                    View Elimination Report
-                                                                </template>
-                                                                <template v-else>
-                                                                    Take Now
-                                                                </template>
-                                                            </template>
-                                                        </template>
+                                                        Take Now
                                                     </template>
                                                     <div v-else class="spinner-border" role="status"></div>
                                                 </button>
+                                                <button v-else-if="is_test_enrolled && is_test_enrolled.is_enrolled && is_test_enrolled.test_status=='Pending'" type="button" :disabled="enrollmentLoading" class="default-btn" @click="dialogVisible = true">
+                                                    Start Now
+                                                </button>
+                                                <button v-else-if="is_test_enrolled && is_test_enrolled.is_enrolled && is_test_enrolled.test_status=='Ongoing'" type="button" :disabled="enrollmentLoading" class="default-btn" @click="dialogVisible = true">
+                                                    Resument Test
+                                                </button>
+                                                <button v-else-if="is_test_enrolled && is_test_enrolled.is_enrolled && is_test_enrolled.test_status=='Eliminated'" type="button" :disabled="enrollmentLoading" class="default-btn" @click="dialogEliminatedVisible = true">
+                                                    Elimination Report
+                                                </button>
+                                                <NuxtLink v-else :to="`/online-tests/${test?.slug}/report`" class="default-btn">
+                                                    View Test Report
+                                                </NuxtLink>
                                             </div>
                                         </div>
                                     </div>
@@ -115,22 +89,29 @@
             </div>
         </div>
 
-        <el-dialog v-if="is_test_enrolled && is_test_enrolled.is_enrolled" :title="test.name" :visible.sync="dialogVisible" width="60%" top="20px">
-            <div class="p-4">
+        <el-dialog v-if="is_test_enrolled && is_test_enrolled.is_enrolled" :title="test.name" :visible.sync="dialogVisible" width="50%" top="20px">
+            <div class="p-4 py-1">
                 <div class="test-instruction">
                     <h5 class="text-center mb-0"><code>Instructions:</code></h5>
                     <ol>
-                        <li>test</li>
+                        <li>There are <b>set of questions</b></li>
+                        <li>Each questions hold <b>4 options</b>.</li>
+                        <li>You need to <b>select any one of the option</b> out of the four.</li>
+                        <li>Once you have selected your favourable option, <b>click on the submit button</b> to submit your answer.</li>
+                        <li>Once you submit your answer, <b>the next question will appear for you to answer</b>.</li>
+                        <li>You need to repeat the above steps, till you have reached the last question of your questionarie timeline.</li>
+                        <li>Each question holds a duration. You need to answer the question within the given time period. <b>If you fail to answer within the given time period, you will automatically move to the next question</b>.</li>
+                        <li>Once you proceed to the next question, <b>you cannot move backward to change your answer</b>. So select your answer carefully.</li>
+                        <li><b>The test will be conducted in full screen mode</b>. Trying to escape the full screen mode will lead to disqualification/elimination.</li>
+                        <li><b>Do not try to change your browser tab, or use your system for other purposes while attending the test</b>. Trying to do that will also lead you to disqualification/elimination.</li>
+                        <li>Once you are disqualified/eliminated, you can never re-attend the test.</li>
+                        <li>In case of bad network or system shut down while attending the test, No need to worry. <b>You can refresh the browser and resume the test from where it was last attended</b>.</li>
+                        <li>Once you complete answering all the question, you will recieve your report card.</li>
                     </ol>
+                    <p>Once you are done reading the above instructions, Please click the button given below to proceed with your test.</p>
                 </div>
-                <div class="my-2 text-center">
-                    <NuxtLink v-if="is_test_enrolled.test_status=='Completed'" class="default-btn" :to="`/online-tests/${test.slug}/report`">
-                        View Test Report
-                    </NuxtLink>
-                    <NuxtLink v-else-if="is_test_enrolled.test_status=='Eliminated'" class="default-btn" :to="`/online-tests/${test.slug}/eliminated`">
-                        View Elimination Report
-                    </NuxtLink>
-                    <NuxtLink v-else class="default-btn" :to="`/online-tests/${test.slug}/ongoing`">
+                <div v-if="is_test_enrolled.test_status=='Pending' || is_test_enrolled.test_status=='Ongoing'" class="my-2 text-center">
+                    <NuxtLink class="default-btn" :to="`/online-tests/${test.slug}/ongoing`">
                         <template v-if="is_test_enrolled.test_status=='Pending'">
                             Start Now
                         </template>
@@ -141,6 +122,15 @@
                             Take Now
                         </template>
                     </NuxtLink>
+                </div>
+            </div>
+        </el-dialog>
+
+        <el-dialog v-if="is_test_enrolled && is_test_enrolled.is_enrolled && is_test_enrolled.test_status=='Eliminated'" :title="test.name" :visible.sync="dialogEliminatedVisible" width="30vw" top="20px">
+            <div class="p-4 pt-1">
+                <div class="test-instruction">
+                    <h5 class="text-center mb-0"><code>ELIMINATED:</code></h5>
+                    <p class="text-center">{{is_test_enrolled.reason}}</p>
                 </div>
             </div>
         </el-dialog>
@@ -157,8 +147,9 @@ export default {
     middleware: ['auth'],
     data() {
         return {
-            dialogVisible: false,
             testLoading: false,
+            dialogVisible: false,
+            dialogEliminatedVisible: false,
             test: null,
             is_test_enrolled: null,
             enrollmentLoading: false,
@@ -208,9 +199,6 @@ export default {
         await this.getOnlineTest();
     },
     methods: {
-        buttonHandler(){
-            this.is_test_enrolled==null ? this.testApplyHandler() : (!this.is_test_enrolled.is_enrolled ? this.testApplyHandler() : this.dialogVisible = true)
-        },
         async getOnlineTest() {
             this.testLoading = true;
             try {
@@ -300,10 +288,7 @@ export default {
             }
         }
     },
-    components: { 
-        TestimonialCard: () => import('~/components/TestimonialCard.vue'), 
-        AchieverStudentCard: () => import('~/components/AchieverStudentCard.vue'), 
-        InstructorCard: () => import('~/components/InstructorCard.vue') ,
+    components: {
         PageDetailLoading: () => import('~/components/PageDetailLoading.vue'), 
     }
 }

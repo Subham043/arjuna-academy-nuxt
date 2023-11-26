@@ -28,7 +28,7 @@
                             View Test Report
                         </template>
                         <template v-else-if="enrollment.is_enrolled && enrollment.test_status=='Eliminated'">
-                            View Elimination Report
+                            Elimination Report
                         </template>
                         <template v-else>
                             Take Now

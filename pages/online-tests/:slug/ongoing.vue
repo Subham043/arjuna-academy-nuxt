@@ -2,131 +2,157 @@
     <div>
         <client-only>
             <fullscreen v-model="fullscreen">
-                <div :class="`bg-light ${fullscreen ? 'h-100' : ''}`">
-                    <div class="inner-banner inner-banner-bg">
-                        <div class="container">
-                            <div class="inner-title text-center test-inner-title">
-                                <h3>Test</h3>
+                <template v-if="!questionSetLoading">
+                    <div :class="`bg-light ${fullscreen ? 'h-100' : ''}`">
+                        <div class="inner-banner inner-banner-bg">
+                            <div class="container">
+                                <div class="inner-title text-center test-inner-title">
+                                    <h3>{{testData.name}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="blog-details-area py-3">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <h5>
+                                                <code>Timeline</code>
+                                            </h5>
+                                        </div>
+                                        <div class="question_set_div">
+                                            <div class="question_set_marker d-flex flex-wrap align-items-center" style="justify-content:center">
+                                                <div v-for="i in total_questions" :key="i" :class="`${(i)==parseInt(current_question) ? 'question_set_box_current' : ((i)<parseInt(current_question) ? 'question_set_box_completed' : 'question_set_box_pending')} question_set_box`" >{{i}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="container">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-9">
+                                        <div v-if="errorMessage" class="mb-1">
+                                            <el-alert
+                                            :title="errorMessage"
+                                            type="error"
+                                            show-icon></el-alert>
+                                        </div>
+                                        <div class="question-block">
+                                            <div class="question-block-counter p-2">
+                                                <div class="d-flex align-items-center justify-content-between ">
+                                                    <div class="col-auto text-center">
+                                                        <p class="head-text text-light">Subject</p>
+                                                        <h6 class="head-counter text-light">{{questionSet?.current_quiz.subject.name}}</h6>
+                                                    </div>
+                                                    <div class="col-auto text-center">
+                                                        <p class="head-text text-light">Difficulty</p>
+                                                        <h6 class="head-counter text-light">{{questionSet?.current_quiz.difficulty}}</h6>
+                                                    </div>
+                                                    <div class="col-auto text-center">
+                                                        <p class="head-text text-light">Marks</p>
+                                                        <h6 class="head-counter text-light">{{questionSet?.current_quiz.mark}}</h6>
+                                                    </div>
+                                                    <div class="col-auto text-center">
+                                                        <p class="head-text text-light">Duration</p>
+                                                        <h6 class="head-counter text-light">{{questionSet?.current_quiz.duration}} mins</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="question-section p-2">
+                                                <h4>
+                                                    Question <code>({{ current_question }}/{{ total_questions }})</code>
+                                                </h4>
+                                                <div v-html="questionSet?.current_quiz.question" />
+                                            </div>
+                                            <div class="answer-section">
+                                                <div class="d-flex align-items-center flex-wrap">
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
+                                                        <el-radio v-model="attempted_answer" label="Answer1"><div class="px-3" v-html="questionSet?.current_quiz.answer_1" /></el-radio>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
+                                                        <el-radio v-model="attempted_answer" label="Answer2"><div class="px-3" v-html="questionSet?.current_quiz.answer_2" /></el-radio>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
+                                                        <el-radio v-model="attempted_answer" label="Answer3"><div class="px-3" v-html="questionSet?.current_quiz.answer_3" /></el-radio>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
+                                                        <el-radio v-model="attempted_answer" label="Answer4"><div class="px-3" v-html="questionSet?.current_quiz.answer_4" /></el-radio>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="py-1 px-2 text-center">
+                                                <el-button type="success" plain @click="fillAnswerHandler" :loading="answerSubmitLoading" :disabled="answerSubmitLoading">Submit</el-button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="timer-div">
+                                            <client-only>
+                                                <vac v-if="timerTrigger" :start-time="startOn" :end-time="scheduledOn" @finish="timeElapsedHandler">
+                                                    <span
+                                                        slot="process"
+                                                        slot-scope="{ timeObj }"
+                                                    >
+                                                        <div style="position: relative;">
+                                                            <div class="timer" :style="`--duration: ${duration * 60};--size: 250;`">
+                                                            <div class="mask">
+                                                            </div>
+                                                            </div>
+                                                            <h5 class="countdown">{{ `${timeObj.m} mins ${timeObj.s} secs` }}</h5>
+                                                        </div>
+                                                    </span>
+                                                    <div slot="finish">
+                                                        <div style="position: relative;">
+                                                        <div class="timer-full" :style="`--duration: 0;--size: 250;`">
+                                                            <div class="mask">
+                                                            </div>
+                                                        </div>
+                                                        <h4 class="countdown"><span class="badge badge-danger-light">Times Up!!</span></h4>
+                                                        </div>
+                                                    </div>
+                                                </vac>
+                                            </client-only>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-            
-                    <div class="blog-details-area py-3">
-                        <div class="container">
+                    <el-dialog v-if="this.questionSet && (this.questionSet.test_status!='Completed' || this.questionSet.test_status!='Eliminated')" title="WARNING" :visible.sync="dialogVisible" width="30%" :center="true" :close-on-click-modal="false" :close-on-press-escape="false" :show-close="false">
+                        <div class="p-1 px-1">
+                            <p>{{dialogMessage}}</p>
+                            <div class="text-center mt-1">
+                                <el-button type="primary" @click="closeWarningModal">Resume Test</el-button>
+                            </div>
+                        </div>
+                    </el-dialog>
+                </template>
+                <template v-else>
+                    <div :class="`bg-light h-100`">
+                        <div class="inner-banner inner-banner-bg">
+                            <div class="container">
+                                <div class="inner-title text-center test-inner-title">
+                                    <h3>Online Test - Loading</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container py-3">
                             <div class="row">
-                                <div class="col-12">
-                                    <div class="text-center">
-                                        <h5>
-                                            <code>Timeline</code>
-                                        </h5>
-                                    </div>
-                                    <div class="question_set_div">
-                                        <div class="question_set_marker d-flex flex-wrap align-items-center" style="justify-content:center">
-                                            <div v-for="i in total_questions" :key="i" :class="`${(i)==parseInt(current_question) ? 'question_set_box_current' : ((i)<parseInt(current_question) ? 'question_set_box_completed' : 'question_set_box_pending')} question_set_box`" >{{i}}</div>
-                                        </div>
-                                    </div>
+                                <div class="col-12 mb-1">
+                                    <el-skeleton-item variant="rect" style="width: 100%; height: 40px;" />
                                 </div>
-                            </div>
-                        </div>
-                        <hr/>
-                        <div class="container">
-                            <div class="row align-items-center">
                                 <div class="col-lg-9">
-                                    <div v-if="errorMessage" class="mb-1">
-                                        <el-alert
-                                        :title="errorMessage"
-                                        type="error"
-                                        show-icon></el-alert>
-                                    </div>
-                                    <div class="question-block">
-                                        <div class="question-block-counter p-2">
-                                            <div class="d-flex align-items-center justify-content-between ">
-                                                <div class="col-auto text-center">
-                                                    <p class="head-text text-light">Subject</p>
-                                                    <h6 class="head-counter text-light">{{questionSet?.current_quiz.subject.name}}</h6>
-                                                </div>
-                                                <div class="col-auto text-center">
-                                                    <p class="head-text text-light">Difficulty</p>
-                                                    <h6 class="head-counter text-light">{{questionSet?.current_quiz.difficulty}}</h6>
-                                                </div>
-                                                <div class="col-auto text-center">
-                                                    <p class="head-text text-light">Marks</p>
-                                                    <h6 class="head-counter text-light">{{questionSet?.current_quiz.mark}}</h6>
-                                                </div>
-                                                <div class="col-auto text-center">
-                                                    <p class="head-text text-light">Duration</p>
-                                                    <h6 class="head-counter text-light">{{questionSet?.current_quiz.duration}} mins</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="question-section p-2">
-                                            <h4>
-                                                Question <code>({{ current_question }}/{{ total_questions }})</code>
-                                            </h4>
-                                            <div v-html="questionSet?.current_quiz.question" />
-                                        </div>
-                                        <div class="answer-section">
-                                            <div class="d-flex align-items-center flex-wrap">
-                                                <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                    <el-radio v-model="attempted_answer" label="Answer1"><div class="px-3" v-html="questionSet?.current_quiz.answer_1" /></el-radio>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                    <el-radio v-model="attempted_answer" label="Answer2"><div class="px-3" v-html="questionSet?.current_quiz.answer_2" /></el-radio>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                    <el-radio v-model="attempted_answer" label="Answer3"><div class="px-3" v-html="questionSet?.current_quiz.answer_3" /></el-radio>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                    <el-radio v-model="attempted_answer" label="Answer4"><div class="px-3" v-html="questionSet?.current_quiz.answer_4" /></el-radio>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="py-1 px-2 text-center">
-                                            <el-button type="success" plain @click="fillAnswerHandler">Submit</el-button>
-                                        </div>
-                                    </div>
+                                    <el-skeleton-item variant="rect" style="width: 100%; height: 340px;" />
                                 </div>
-                                <div class="col-lg-3">
-                                    <div class="timer-div">
-                                        <client-only>
-                                            <vac v-if="timerTrigger" :start-time="startOn" :end-time="scheduledOn" @finish="timeElapsedHandler">
-                                                <span
-                                                    slot="process"
-                                                    slot-scope="{ timeObj }"
-                                                >
-                                                    <div style="position: relative;">
-                                                        <div class="timer" :style="`--duration: ${duration * 60};--size: 250;`">
-                                                        <div class="mask">
-                                                        </div>
-                                                        </div>
-                                                        <h5 class="countdown">{{ `${timeObj.m} mins ${timeObj.s} secs` }}</h5>
-                                                    </div>
-                                                </span>
-                                                <div slot="finish">
-                                                    <div style="position: relative;">
-                                                    <div class="timer-full" :style="`--duration: 0;--size: 250;`">
-                                                        <div class="mask">
-                                                        </div>
-                                                    </div>
-                                                    <h4 class="countdown"><span class="badge badge-danger-light">Times Up!!</span></h4>
-                                                    </div>
-                                                </div>
-                                            </vac>
-                                        </client-only>
-                                    </div>
+                                <div class="col-lg-3 text-center">
+                                    <el-skeleton-item variant="circle" style="width: 70%; height: 70%;" />
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <el-dialog title="WARNING" :visible.sync="dialogVisible" width="30%" :center="true" :close-on-click-modal="false" :close-on-press-escape="false" :show-close="false">
-                    <div class="p-1 px-4">
-                        <p>{{dialogMessage}}</p>
-                    </div>
-                    <span slot="footer" class="dialog-footer">
-                        <el-button type="primary" @click="closeWarningModal">Resume Test</el-button>
-                    </span>
-                </el-dialog>
+                </template>
             </fullscreen>
         </client-only>
 
@@ -165,6 +191,7 @@ export default {
             current_question: 2,
             attempted_answer: null,
             questionSetLoading: false,
+            testData: null,
             questionSet: null,
             answerSubmitLoading: false,
             errorMessage: null,
@@ -242,6 +269,7 @@ export default {
                     reason: 'Time for answering the question exceeded!'
                 }); // eslint-disable-line
                 this.attempted_answer=null;
+                await this.getQuestionSet();
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
                 // this.errorMessage = err?.response?.data?.message
@@ -272,12 +300,25 @@ export default {
             this.questionSetLoading = true;
             try {
                 const response = await this.$privateApi.get(API_ROUTES.tests + `/${this.$route.params.slug}/question-set`); // eslint-disable-line
-                this.questionSet = response.data.question_set;
-                this.total_questions = response.data.total_question_count;
-                this.current_question = response.data.current_question_count;
-                this.scheduledOn = new Date(new Date().getTime() + response.data.question_set.current_quiz.duration * 60000).getTime();
-                this.duration = response.data.question_set.current_quiz.duration;
-                this.timerTrigger = true;
+                if(response.data.question_set.test_status=="Pending" || response.data.question_set.test_status=="Ongoing"){
+                    this.testData = response.data.test;
+                    this.questionSet = response.data.question_set;
+                    this.total_questions = response.data.total_question_count;
+                    this.current_question = response.data.current_question_count;
+                    this.scheduledOn = new Date(new Date().getTime() + response.data.question_set.current_quiz.duration * 60000).getTime();
+                    this.duration = response.data.question_set.current_quiz.duration;
+                    this.timerTrigger = true;
+                }
+                if(response.data.question_set.test_status=="Completed"){
+                    this.fullscreen = false;
+                    this.$router.push(`/online-tests/${this.$route.params.slug}/report`);
+                    this.$toast.success('Test completed succesfully.')
+                }
+                if(response.data.question_set.test_status=="Eliminated"){
+                    this.fullscreen = false;
+                    this.$toast.error(response.data.question_set.reason)
+                    this.$router.push(`/online-tests/${this.$route.params.slug}`);
+                }
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
                 this.$nuxt.context.error({
@@ -301,6 +342,7 @@ export default {
                     attempted_answer:this.attempted_answer
                 }); // eslint-disable-line
                 this.attempted_answer=null;
+                await this.getQuestionSet();
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
                 this.errorMessage = err?.response?.data?.message
@@ -317,6 +359,9 @@ export default {
                     reason
                 }); // eslint-disable-line
                 this.attempted_answer=null;
+                this.fullscreen = false;
+                this.$toast.error(reason)
+                this.$router.push(`/online-tests/${this.$route.params.slug}`);
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
                 // this.errorMessage = err?.response?.data?.message
@@ -345,7 +390,7 @@ export default {
 }
 
 .timer {
-    background: -webkit-linear-gradient(left, #eee 50%, #019ff8 50%);
+    background: -webkit-linear-gradient(left, #eee 50%, #354620 50%);
     border-radius: 100%;
     margin:auto;
     height: calc(var(--size) * 1px);
@@ -360,7 +405,7 @@ export default {
     display: inline-block;
     vertical-align: top;
     font-weight: 600;
-    background: -webkit-linear-gradient(left, #eee 100%, #019ff8 50%);
+    background: -webkit-linear-gradient(left, #eee 100%, #354620 50%);
     border-radius: 100%;
     height: calc(var(--size) * 1px);
     width: calc(var(--size) * 1px);
@@ -386,11 +431,11 @@ export default {
 }
 @keyframes mask {
     0% {
-        background: #019ff8;
+        background: #354620;
         -webkit-transform: rotate(0deg);
     }
     50% {
-        background: #019ff8;
+        background: #354620;
         -webkit-transform: rotate(-180deg);
     }
     50.01% {
@@ -440,7 +485,7 @@ export default {
     /* border-bottom: 1px solid #ebebeb; */
 }
 .question-block-counter{
-    background-color: #999d90;
+    background-color: #EACF6C;
 }
 .answer-holder{
     border: 1px dashed #ebebeb;
