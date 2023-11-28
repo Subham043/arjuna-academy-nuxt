@@ -388,7 +388,10 @@
                         <NuxtLink to="/profile" aria-label="profile page">
                             <el-menu-item index="9-1">Profile </el-menu-item>
                         </NuxtLink>
-                        <el-menu-item index="9-2" aria-label="logout page" @click="logout">Logout </el-menu-item>
+                        <NuxtLink to="//online-tests" aria-label="online test page">
+                            <el-menu-item index="9-2">Online Tests</el-menu-item>
+                        </NuxtLink>
+                        <el-menu-item index="9-3" aria-label="logout page" @click="logout">Logout </el-menu-item>
                     </el-submenu>
                 </el-menu>
             </el-drawer>

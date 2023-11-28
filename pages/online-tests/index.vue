@@ -17,6 +17,16 @@
                     <p>
                         Explore The Latest Updates About NEET, JEE, IIT Exams And Foundation Courses
                     </p>
+                    <div style="text-align:right;">
+                        <el-select v-model="status" placeholder="Select">
+                            <el-option
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value">
+                            </el-option>
+                        </el-select>
+                    </div>
                 </div>
                 <div class="row justify-content-center">
                     <OnlineTestCardLoading v-if="testLoading" :count="9" />
@@ -43,6 +53,23 @@ export default {
     data() {
         return {
             testLoading: false,
+            status: 'All',
+            options: [{
+                value: 'All',
+                label: 'All'
+            }, {
+                value: 'Pending',
+                label: 'Pending'
+            }, {
+                value: 'Ongoing',
+                label: 'Ongoing'
+            }, {
+                value: 'Completed',
+                label: 'Completed'
+            }, {
+                value: 'Eliminated',
+                label: 'Eliminated'
+            }],
             test: [],
             testCount:1,
             testCurrentPage: 1,
@@ -97,13 +124,17 @@ export default {
             if (process.client) {
                 this.$scrollTo("#test-area", 0, { force: true });
             }
+        },
+        status(to, from) {
+            this.getTest();
         }
     },
     methods: {
         async getTest(page=0) {
             this.testLoading=true;
             try {
-                const response = await this.$privateApi.get(API_ROUTES.tests+`?total=9&page=${page}`); // eslint-disable-line
+                const filter = this.status=='All' ? "" : `&filter[has_status]=${this.status}`;
+                const response = await this.$privateApi.get(API_ROUTES.tests+`?total=9&page=${page}${filter}`); // eslint-disable-line
                 this.test = response.data.data
                 this.testCount = response?.data?.meta?.total
                 this.testPerPage = response?.data?.meta?.per_page

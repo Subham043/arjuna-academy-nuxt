@@ -136,17 +136,16 @@
                     <vue-html2pdf
                         :show-layout="false"
                         :float-layout="true"
-                        :enable-download="true"
+                        :enable-download="false"
                         :preview-modal="false"
                         filename="report"
-                        :paginate-elements-by-height="1100"
                         :pdf-quality="2"
                         pdf-format="a4"
                         pdf-orientation="landscape"
                         pdf-content-width="1120px"
+                        :paginate-elements-by-height="1400"
                         :manual-pagination="false"
                         @beforeDownload="beforeDownload($event)"
-                        @hasDownloaded="hasDownloaded($event)"
                         ref="html2Pdf"
                     >
                         <div class="main-report-wrapper" slot="pdf-content">
@@ -195,7 +194,8 @@
                                                 <column-chart :data="subjectReportSorted" suffix="%"></column-chart>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="html2pdf__page-break"/>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 mt-5">
                                             <table class="table table-bordered">
                                                 <thead>
                                                     <tr class="table-primary tb-heading">
@@ -395,10 +395,17 @@ export default {
         generateReport () {
             this.$refs.html2Pdf.generatePdf()
         },
-        beforeDownload(event){
+        async beforeDownload({ html2pdf, options, pdfContent }){
             this.downloadLoading=true
-        },
-        hasDownloaded(event){
+            await html2pdf().set(options).from(pdfContent).toPdf().get('pdf').then((pdf) => {
+                const totalPages = pdf.internal.getNumberOfPages()
+                for (let i = 1; i <= totalPages; i++) {
+                    pdf.setPage(i)
+                    pdf.setFontSize(10)
+                    pdf.setTextColor(150)
+                    pdf.text('Page ' + i + ' of ' + totalPages, (pdf.internal.pageSize.getWidth() * 0.88), (pdf.internal.pageSize.getHeight() - 0.3))
+                } 
+            }).save()
             this.downloadLoading=false
         },
     }
@@ -490,7 +497,7 @@ export default {
   height: var(--badge-size);
   font-size: calc(var(--badge-size) / 3);
   font-weight: bold;
-  color: black;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -500,6 +507,7 @@ export default {
 }
 .feature-badge-color-1 span {
   background: #f0c808;
+  background-color: #f0c808;
   z-index:2;
 }
 /* text area */
@@ -516,5 +524,6 @@ export default {
 }
 .feature-badge-color-1 span::before {
   background: #c4a408;
+  background-color: #c4a408;
 }
 </style>

@@ -25,6 +25,22 @@
                                     <div class="tab_content current active">
                                         <div class="tabs_item">
                                             <div class="courses-details-tab-content">
+                                                <div v-if="is_test_enrolled && is_test_enrolled.is_enrolled && is_test_enrolled.test_status=='Completed'" class="mb-2">
+                                                    <el-alert
+                                                        title="You have completed your test. Please click on the View Test Report button to view your test report card."
+                                                        type="success"
+                                                        show-icon
+                                                        :closable="false">
+                                                    </el-alert>
+                                                </div>
+                                                <div v-if="is_test_enrolled && is_test_enrolled.is_enrolled && is_test_enrolled.test_status=='Eliminated'" class="mb-2">
+                                                    <el-alert
+                                                        :title="`You have been barred from giving this exam because You ${is_test_enrolled.reason}`"
+                                                        type="error"
+                                                        show-icon
+                                                        :closable="false">
+                                                    </el-alert>
+                                                </div>
                                                 <div class="courses-details-into" v-html="test?.description" />
                                             </div>
                                         </div>

@@ -1472,6 +1472,10 @@
     .el-menu-item a{
         color: #545556;
     }
+
+    .el-dialog{
+        width: 95% !important;
+    }
 }
 
 @media only screen and (max-width:520px) {

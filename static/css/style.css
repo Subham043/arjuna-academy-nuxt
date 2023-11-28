@@ -7668,3 +7668,16 @@ img {
 .el-menu-item.is-active{
   color: var(--mainColor);
 }
+@page {
+  size: A4 portrait;
+  margin: 16mm;
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+}
+@page landscape {
+  size: A4 landscape;
+}
+
+@page portrait {
+  size: A4 portrait;
+}

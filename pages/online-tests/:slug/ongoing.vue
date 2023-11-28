@@ -32,7 +32,7 @@
                             <hr/>
                             <div class="container">
                                 <div class="row align-items-center">
-                                    <div class="col-lg-9">
+                                    <div class="col-lg-9 order-2-sm">
                                         <div v-if="errorMessage" class="mb-1">
                                             <el-alert
                                             :title="errorMessage"
@@ -87,7 +87,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 order-1-sm">
                                         <div class="timer-div">
                                             <client-only>
                                                 <vac v-if="timerTrigger" :start-time="startOn" :end-time="scheduledOn" @finish="timeElapsedHandler">
@@ -515,5 +515,18 @@ export default {
     color: #606266;
     font-size: 14px;
     margin-bottom: 4px;
+}
+
+@media only screen and (max-width:767px){
+    .order-1-sm{
+        order:1;
+        margin-bottom: 10px;
+    }
+    .order-2-sm{
+        order:2;
+    }
+    .answer-holder{
+        width: 100%;
+    }
 }
 </style>
