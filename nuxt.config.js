@@ -75,7 +75,8 @@ export default {
     '~/plugins/pagination.js',
     { src: '~/plugins/countdown.js', mode: "client" },
     { src: '~/plugins/fullscreen.js', mode: "client" },
-    { src: '~/plugins/chart.js', mode: "client" }
+    { src: '~/plugins/chart.js', mode: "client" },
+    { src: '~/plugins/vue-html2pdf', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

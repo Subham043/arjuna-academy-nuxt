@@ -32,6 +32,7 @@ import nuxt_plugin_pagination_0c55d867 from 'nuxt_plugin_pagination_0c55d867' //
 import nuxt_plugin_countdown_733cf6c8 from 'nuxt_plugin_countdown_733cf6c8' // Source: ../plugins/countdown.js (mode: 'client')
 import nuxt_plugin_fullscreen_5e5814a6 from 'nuxt_plugin_fullscreen_5e5814a6' // Source: ../plugins/fullscreen.js (mode: 'client')
 import nuxt_plugin_chart_48b5b2cf from 'nuxt_plugin_chart_48b5b2cf' // Source: ../plugins/chart.js (mode: 'client')
+import nuxt_plugin_vuehtml2pdf_57ac5088 from 'nuxt_plugin_vuehtml2pdf_57ac5088' // Source: ../plugins/vue-html2pdf (mode: 'client')
 import nuxt_plugin_auth_6fe43095 from 'nuxt_plugin_auth_6fe43095' // Source: ./auth.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -304,6 +305,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (process.client && typeof nuxt_plugin_chart_48b5b2cf === 'function') {
     await nuxt_plugin_chart_48b5b2cf(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_vuehtml2pdf_57ac5088 === 'function') {
+    await nuxt_plugin_vuehtml2pdf_57ac5088(app.context, inject)
   }
 
   if (typeof nuxt_plugin_auth_6fe43095 === 'function') {

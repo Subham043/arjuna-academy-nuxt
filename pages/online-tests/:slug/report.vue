@@ -12,122 +12,262 @@
             <div v-if="testLoading" class="text-center py-4">
                 <div class="spinner-border m-0 p-0" role="status"></div>
             </div>
-            <div v-else class="main-report-wrapper">
-                <div class="inner-report-wrapper">
-                    <div class="report-logo-container">
-                        <img data-src="/images/logos/new-logo.webp" v-lazy-load alt="logo" />
-                    </div>
-                    <div class="report-heading-container">
-                        <h2>{{test?.name}} Report Card</h2>
-                        <div :class="`featured-badge feature-badge-color-1`">
-                            <span>{{grade}}</span>
+            <template v-else>
+                <div class="py-2" style="text-align:right;">
+                    <el-button type="success" plain @click="generateReport" :loading="downloadLoading" :disabled="downloadLoading">Download Report</el-button>
+                </div>
+                <div class="main-report-wrapper">
+                    <div class="inner-report-wrapper">
+                        <div class="report-logo-container">
+                            <img data-src="/images/logos/new-logo.webp" v-lazy-load alt="logo" />
                         </div>
-                    </div>
-                    <div class="report-sheet">
-                        <div class="row align-items-center">
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr class="table-primary tb-heading">
-                                            <th scope="col" colspan="5">SUBJECT WISE EVALUATION</th>
-                                        </tr>
-                                        <tr class="table-primary text-center">
-                                            <th scope="col">SUBJECT</th>
-                                            <th scope="col">TOTAL QUESTIONS</th>
-                                            <th scope="col">QUESTIONS ATTEMPTED</th>
-                                            <th scope="col">TOTAL MARKS</th>
-                                            <th scope="col">MARKS ALLOTED</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-center">
-                                        <tr v-for="(item, i) in subject_wise_score" :key="i">
-                                            <th scope="row">{{item.name}}</th>
-                                            <td>{{item.number_of_question}}</td>
-                                            <td>{{item.attempt_count}}</td>
-                                            <td>{{item.total_mark_sum}}</td>
-                                            <td>{{item.total_mark_alloted_sum}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="report-heading-container">
+                            <h2>{{test?.name}} Report Card</h2>
+                            <div :class="`featured-badge feature-badge-color-1`">
+                                <span>{{grade}}</span>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <div class="column-chart my-4">
-                                    <div class="text-center">
-                                        <h5>SUBJECT WISE EVALUATION ANALYSIS</h5>
-                                    </div>
-                                    <column-chart :data="subjectReportSorted" suffix="%"></column-chart>
+                        </div>
+                        <div class="report-sheet">
+                            <div class="row align-items-center">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr class="table-primary tb-heading">
+                                                <th scope="col" colspan="5">SUBJECT WISE EVALUATION</th>
+                                            </tr>
+                                            <tr class="table-primary text-center">
+                                                <th scope="col">SUBJECT</th>
+                                                <th scope="col">TOTAL QUESTIONS</th>
+                                                <th scope="col">QUESTIONS ATTEMPTED</th>
+                                                <th scope="col">TOTAL MARKS</th>
+                                                <th scope="col">MARKS ALLOTED</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-center">
+                                            <tr v-for="(item, i) in subject_wise_score" :key="i">
+                                                <th scope="row">{{item.name}}</th>
+                                                <td>{{item.number_of_question}}</td>
+                                                <td>{{item.attempt_count}}</td>
+                                                <td>{{item.total_mark_sum}}</td>
+                                                <td>{{item.total_mark_alloted_sum}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr class="table-primary tb-heading">
-                                            <th scope="col" colspan="5">TOTAL EVALUATION</th>
-                                        </tr>
-                                        <tr class="table-primary text-center">
-                                            <th scope="col">TOTAL QUESTIONS</th>
-                                            <th scope="col">QUESTIONS ATTEMPTED</th>
-                                            <th scope="col">TOTAL MARKS</th>
-                                            <th scope="col">MARKS ALLOTED</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-center">
-                                        <tr>
-                                            <td>{{total_question_count}}</td>
-                                            <td>{{total_answer_count}}</td>
-                                            <td>{{total_score}}</td>
-                                            <td>{{alloted_score}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-lg-8 col-md-7 col-sm-12">
-                                <div class="column-chart my-4">
-                                    <div class="text-center">
-                                        <h5>TOTAL EVALUATION ANALYSIS</h5>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="column-chart my-4">
+                                        <div class="text-center">
+                                            <h5>SUBJECT WISE EVALUATION ANALYSIS</h5>
+                                        </div>
+                                        <column-chart :data="subjectReportSorted" suffix="%"></column-chart>
                                     </div>
-                                    <pie-chart loading="Loading Chart..." :data="totalReport" suffix="%" :donut="false"></pie-chart>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-5 col-sm-12">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr class="table-primary tb-heading">
-                                            <th scope="col" colspan="2">GRADING SCALE</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-center">
-                                        <tr :class="grade==='A' ? 'table-success' : ''">
-                                            <th scope="row">A</th>
-                                            <td>100% - 90%</td>
-                                        </tr>
-                                        <tr :class="grade==='B' ? 'table-success' : ''">
-                                            <th scope="row">B</th>
-                                            <td>89% - 75%</td>
-                                        </tr>
-                                        <tr :class="grade==='C' ? 'table-success' : ''">
-                                            <th scope="row">C</th>
-                                            <td>74% - 60%</td>
-                                        </tr>
-                                        <tr :class="grade==='D' ? 'table-success' : ''">
-                                            <th scope="row">D</th>
-                                            <td>59% - 45%</td>
-                                        </tr>
-                                        <tr :class="grade==='E' ? 'table-success' : ''">
-                                            <th scope="row">E</th>
-                                            <td>44% - 35%</td>
-                                        </tr>
-                                        <tr :class="grade==='F' ? 'table-success' : ''">
-                                            <th scope="row">F</th>
-                                            <td>34% - 0%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr class="table-primary tb-heading">
+                                                <th scope="col" colspan="5">TOTAL EVALUATION</th>
+                                            </tr>
+                                            <tr class="table-primary text-center">
+                                                <th scope="col">TOTAL QUESTIONS</th>
+                                                <th scope="col">QUESTIONS ATTEMPTED</th>
+                                                <th scope="col">TOTAL MARKS</th>
+                                                <th scope="col">MARKS ALLOTED</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-center">
+                                            <tr>
+                                                <td>{{total_question_count}}</td>
+                                                <td>{{total_answer_count}}</td>
+                                                <td>{{total_score}}</td>
+                                                <td>{{alloted_score}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-lg-8 col-md-7 col-sm-12">
+                                    <div class="column-chart my-4">
+                                        <div class="text-center">
+                                            <h5>TOTAL EVALUATION ANALYSIS</h5>
+                                        </div>
+                                        <pie-chart loading="Loading Chart..." :data="totalReport" suffix="%" :donut="false"></pie-chart>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-5 col-sm-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr class="table-primary tb-heading">
+                                                <th scope="col" colspan="2">GRADING SCALE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-center">
+                                            <tr :class="grade==='A' ? 'table-success' : ''">
+                                                <th scope="row">A</th>
+                                                <td>100% - 90%</td>
+                                            </tr>
+                                            <tr :class="grade==='B' ? 'table-success' : ''">
+                                                <th scope="row">B</th>
+                                                <td>89% - 75%</td>
+                                            </tr>
+                                            <tr :class="grade==='C' ? 'table-success' : ''">
+                                                <th scope="row">C</th>
+                                                <td>74% - 60%</td>
+                                            </tr>
+                                            <tr :class="grade==='D' ? 'table-success' : ''">
+                                                <th scope="row">D</th>
+                                                <td>59% - 45%</td>
+                                            </tr>
+                                            <tr :class="grade==='E' ? 'table-success' : ''">
+                                                <th scope="row">E</th>
+                                                <td>44% - 35%</td>
+                                            </tr>
+                                            <tr :class="grade==='F' ? 'table-success' : ''">
+                                                <th scope="row">F</th>
+                                                <td>34% - 0%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <client-only>
+                    <vue-html2pdf
+                        :show-layout="false"
+                        :float-layout="true"
+                        :enable-download="true"
+                        :preview-modal="false"
+                        filename="report"
+                        :paginate-elements-by-height="1100"
+                        :pdf-quality="2"
+                        pdf-format="a4"
+                        pdf-orientation="landscape"
+                        pdf-content-width="1120px"
+                        :manual-pagination="false"
+                        @beforeDownload="beforeDownload($event)"
+                        @hasDownloaded="hasDownloaded($event)"
+                        ref="html2Pdf"
+                    >
+                        <div class="main-report-wrapper" slot="pdf-content">
+                            <div class="inner-report-wrapper">
+                                <div class="report-logo-container">
+                                    <h2>ARJUNAA ACADEMY FOR ACHIEVERS</h2>
+                                </div>
+                                <div class="report-heading-container">
+                                    <h2>{{test?.name}} Report Card</h2>
+                                    <div :class="`featured-badge feature-badge-color-1`">
+                                        <span>{{grade}}</span>
+                                    </div>
+                                </div>
+                                <div class="report-sheet">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr class="table-primary tb-heading">
+                                                        <th scope="col" colspan="5">SUBJECT WISE EVALUATION</th>
+                                                    </tr>
+                                                    <tr class="table-primary text-center">
+                                                        <th scope="col">SUBJECT</th>
+                                                        <th scope="col">TOTAL QUESTIONS</th>
+                                                        <th scope="col">QUESTIONS ATTEMPTED</th>
+                                                        <th scope="col">TOTAL MARKS</th>
+                                                        <th scope="col">MARKS ALLOTED</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-center">
+                                                    <tr v-for="(item, i) in subject_wise_score" :key="i">
+                                                        <th scope="row">{{item.name}}</th>
+                                                        <td>{{item.number_of_question}}</td>
+                                                        <td>{{item.attempt_count}}</td>
+                                                        <td>{{item.total_mark_sum}}</td>
+                                                        <td>{{item.total_mark_alloted_sum}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="column-chart my-4">
+                                                <div class="text-center">
+                                                    <h5>SUBJECT WISE EVALUATION ANALYSIS</h5>
+                                                </div>
+                                                <column-chart :data="subjectReportSorted" suffix="%"></column-chart>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr class="table-primary tb-heading">
+                                                        <th scope="col" colspan="5">TOTAL EVALUATION</th>
+                                                    </tr>
+                                                    <tr class="table-primary text-center">
+                                                        <th scope="col">TOTAL QUESTIONS</th>
+                                                        <th scope="col">QUESTIONS ATTEMPTED</th>
+                                                        <th scope="col">TOTAL MARKS</th>
+                                                        <th scope="col">MARKS ALLOTED</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-center">
+                                                    <tr>
+                                                        <td>{{total_question_count}}</td>
+                                                        <td>{{total_answer_count}}</td>
+                                                        <td>{{total_score}}</td>
+                                                        <td>{{alloted_score}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-lg-8 col-md-7 col-sm-12">
+                                            <div class="column-chart my-4">
+                                                <div class="text-center">
+                                                    <h5>TOTAL EVALUATION ANALYSIS</h5>
+                                                </div>
+                                                <pie-chart loading="Loading Chart..." :data="totalReport" suffix="%" :donut="false"></pie-chart>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-5 col-sm-12">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr class="table-primary tb-heading">
+                                                        <th scope="col" colspan="2">GRADING SCALE</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-center">
+                                                    <tr :class="grade==='A' ? 'table-success' : ''">
+                                                        <th scope="row">A</th>
+                                                        <td>100% - 90%</td>
+                                                    </tr>
+                                                    <tr :class="grade==='B' ? 'table-success' : ''">
+                                                        <th scope="row">B</th>
+                                                        <td>89% - 75%</td>
+                                                    </tr>
+                                                    <tr :class="grade==='C' ? 'table-success' : ''">
+                                                        <th scope="row">C</th>
+                                                        <td>74% - 60%</td>
+                                                    </tr>
+                                                    <tr :class="grade==='D' ? 'table-success' : ''">
+                                                        <th scope="row">D</th>
+                                                        <td>59% - 45%</td>
+                                                    </tr>
+                                                    <tr :class="grade==='E' ? 'table-success' : ''">
+                                                        <th scope="row">E</th>
+                                                        <td>44% - 35%</td>
+                                                    </tr>
+                                                    <tr :class="grade==='F' ? 'table-success' : ''">
+                                                        <th scope="row">F</th>
+                                                        <td>34% - 0%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </vue-html2pdf>
+                </client-only>
+            </template>
         </div>
 
 
@@ -144,6 +284,7 @@ export default {
     data() {
         return {
             testLoading: false,
+            downloadLoading: false,
             test: null,
             alloted_score: 0,
             total_score: 0,
@@ -250,6 +391,15 @@ export default {
             finally {
                 this.testLoading = false;
             }
+        },
+        generateReport () {
+            this.$refs.html2Pdf.generatePdf()
+        },
+        beforeDownload(event){
+            this.downloadLoading=true
+        },
+        hasDownloaded(event){
+            this.downloadLoading=false
         },
     }
 }
