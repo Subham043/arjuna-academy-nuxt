@@ -160,7 +160,6 @@ import { API_ROUTES } from '~/helper/api_routes';
 export default {
     name: "OnlineTestDetailPage",
     layout: "MainPageLayout",
-    middleware: ['auth'],
     data() {
         return {
             testLoading: false,
@@ -218,7 +217,7 @@ export default {
         async getOnlineTest() {
             this.testLoading = true;
             try {
-                const response = await this.$privateApi.get(API_ROUTES.tests + `/${this.$route.params.slug}`); // eslint-disable-line
+                const response = await this.$privateApi.get(API_ROUTES.tests + `/${this.$route.params.slug}${this.$auth.loggedIn ? '/main-detail' : ''}`); // eslint-disable-line
                 this.test = response.data.test;
                 this.is_test_enrolled = response.data.test.is_test_enrolled;
             }
@@ -234,6 +233,11 @@ export default {
             }
         },
         async testApplyHandler() {
+            if(!this.$auth.loggedIn){
+                this.$toast.error('Please login to take the test.');
+                this.$router.push('/auth/sign-in')
+                return;
+            }
             this.enrollmentLoading = true;
             try {
                 const response = await this.$privateApi.get(API_ROUTES.tests + `/${this.$route.params.slug}/apply`);

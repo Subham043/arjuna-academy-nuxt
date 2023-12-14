@@ -206,7 +206,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <NuxtLink to="#"
-                                        :class="`nav-link dropdown-toggle ${($nuxt.$route.path.includes('knowledge-desk') || $nuxt.$route.path.includes('expert-tips') || $nuxt.$route.path.includes('faq') || $nuxt.$route.path.includes('vrddhi')) && 'nuxt-link-active'}`">
+                                        :class="`nav-link dropdown-toggle ${($nuxt.$route.path.includes('knowledge-desk') || $nuxt.$route.path.includes('expert-tips') || $nuxt.$route.path.includes('faq') || $nuxt.$route.path.includes('vrddhi') || $nuxt.$route.path.includes('online-tests')) && 'nuxt-link-active'}`">
                                         Knowledge Desk </NuxtLink>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
@@ -218,6 +218,11 @@
                                             <NuxtLink to="/expert-tips" aria-label="expert tips page"
                                                 :class="`nav-link ${($nuxt.$route.path.includes('expert-tips')) && 'nuxt-link-active'}`">
                                                 Expert Tips </NuxtLink>
+                                        </li>
+                                        <li class="nav-item">
+                                            <NuxtLink to="/online-tests" aria-label="test page"
+                                                :class="`nav-link ${($nuxt.$route.path.includes('online-tests')) && 'nuxt-link-active'}`">
+                                                Online Tests </NuxtLink>
                                         </li>
                                         <li class="nav-item">
                                             <NuxtLink to="/faq" aria-label="faq page"
@@ -255,11 +260,6 @@
                                             <NuxtLink to="/profile" aria-label="profile page"
                                                 :class="`nav-link ${($nuxt.$route.path.includes('profile')) && 'nuxt-link-active'}`">
                                                 Profile ({{ $auth.user.name }}) </NuxtLink>
-                                        </li>
-                                        <li class="nav-item">
-                                            <NuxtLink to="/online-tests" aria-label="profile page"
-                                                :class="`nav-link ${($nuxt.$route.path.includes('online-tests')) && 'nuxt-link-active'}`">
-                                                Online Tests </NuxtLink>
                                         </li>
                                         <li class="nav-item">
                                             <a href="javascript:void(0)" aria-label="logout page" class="nav-link" @click="logout"> Logout </a>
@@ -355,6 +355,9 @@
                         <NuxtLink to="/expert-tips" aria-label="expert tips page">
                             <el-menu-item index="5-2">Expert Tips </el-menu-item>
                         </NuxtLink>
+                        <NuxtLink to="/online-tests" aria-label="online test page">
+                            <el-menu-item index="5-5">Online Tests</el-menu-item>
+                        </NuxtLink>
                         <NuxtLink to="/faq" aria-label="tips page">
                             <el-menu-item index="5-3">Faq </el-menu-item>
                         </NuxtLink>
@@ -388,10 +391,7 @@
                         <NuxtLink to="/profile" aria-label="profile page">
                             <el-menu-item index="9-1">Profile </el-menu-item>
                         </NuxtLink>
-                        <NuxtLink to="//online-tests" aria-label="online test page">
-                            <el-menu-item index="9-2">Online Tests</el-menu-item>
-                        </NuxtLink>
-                        <el-menu-item index="9-3" aria-label="logout page" @click="logout">Logout </el-menu-item>
+                        <el-menu-item index="9-2" aria-label="logout page" @click="logout">Logout </el-menu-item>
                     </el-submenu>
                 </el-menu>
             </el-drawer>

@@ -17,7 +17,7 @@
                     <p>
                         Explore The Latest Updates About NEET, JEE, IIT Exams And Foundation Courses
                     </p>
-                    <div style="text-align:right;">
+                    <div v-if="$auth.loggedIn" style="text-align:right;">
                         <el-select v-model="status" placeholder="Select">
                             <el-option
                             v-for="item in options"
@@ -49,7 +49,6 @@ import { API_ROUTES } from '~/helper/api_routes';
 export default {
     name: "OnlineTestPage",
     layout: "MainPageLayout",
-    middleware: ['auth'],
     data() {
         return {
             testLoading: false,
@@ -134,7 +133,7 @@ export default {
             this.testLoading=true;
             try {
                 const filter = this.status=='All' ? "" : `&filter[has_status]=${this.status}`;
-                const response = await this.$privateApi.get(API_ROUTES.tests+`?total=9&page=${page}${filter}`); // eslint-disable-line
+                const response = await this.$privateApi.get((this.$auth.loggedIn ? API_ROUTES.authTests : API_ROUTES.tests)+`?total=9&page=${page}${filter}`); // eslint-disable-line
                 this.test = response.data.data
                 this.testCount = response?.data?.meta?.total
                 this.testPerPage = response?.data?.meta?.per_page
