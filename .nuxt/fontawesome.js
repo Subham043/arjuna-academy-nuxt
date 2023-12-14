@@ -14,7 +14,8 @@ import {
   faPhone as freeFasFaPhone,
   faBars as freeFasFaBars,
   faStar as freeFasFaStar,
-  faComment as freeFasFaComment
+  faComment as freeFasFaComment,
+  faHeadset as freeFasFaHeadset
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -35,6 +36,7 @@ library.add(
   freeFasFaBars,
   freeFasFaStar,
   freeFasFaComment,
+  freeFasFaHeadset,
   freeFabFaFacebookF,
   freeFabFaTwitter,
   freeFabFaInstagram,

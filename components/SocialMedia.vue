@@ -17,7 +17,7 @@
         
         <a href="https://www.youtube.com/channel/UCcPOkcZ_YGpTMcVnLJQYLPA" target="_blank" class="sbutton youtube" tooltip="Youtube"><font-awesome-icon :icon="['fab', 'youtube']"  /></a>
     
-        <a target="_blank" class="sbutton mainsbutton" tooltip="Connect With Us"><font-awesome-icon :icon="['fa', 'comment']"  /></a>
+        <a target="_blank" class="sbutton mainsbutton" tooltip="Connect With Us"><font-awesome-icon :icon="['fa', 'headset']"  /></a>
         
   </div>
 </template>

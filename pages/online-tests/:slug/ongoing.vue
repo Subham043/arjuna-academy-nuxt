@@ -249,11 +249,11 @@ export default {
         },
         async makeFullScreen(){
             if(!this.dialogVisible){
-                if (this.fullScreenWarnCounter <= 2) {
+                if (this.fullScreenWarnCounter <= 1) {
                     this.dialogVisible = true;
                     this.dialogMessage = "This exam needs to be conducted on fullscreen mode. Please dnt try to exit the fullscreen mode until your exam is over. It wil exit the fullscreen mode once your exam is over. If you exit the fullscreen mode by yourself then you will be barred from giving this exam.";
                 }
-                else if(this.fullScreenWarnCounter == 3) {
+                else if(this.fullScreenWarnCounter == 2) {
                     await this.eliminatedHandler('Tried to escape full screen mode while attending the exam!');
                 }
                 this.fullScreenWarnCounter++;

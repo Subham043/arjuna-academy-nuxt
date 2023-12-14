@@ -267,7 +267,7 @@ export default {
 
   fontawesome: {
     icons:{
-     solid:['faCalendarDays', 'faUser', 'faMapPin', 'faEnvelope', 'faPhone', 'faBars', 'faStar', 'faComment'],
+     solid:['faCalendarDays', 'faUser', 'faMapPin', 'faEnvelope', 'faPhone', 'faBars', 'faStar', 'faComment', 'faHeadset'],
      brands:['faFacebookF', 'faTwitter', 'faInstagram', 'faLinkedin', 'faYoutube', 'faWhatsapp'],
     }
   },
