@@ -102,7 +102,7 @@
                                 <li class="nav-item">
                                     <NuxtLink to="/about-us"
                                         aria-label="about us page"
-                                        :class="`nav-link dropdown-toggle ${($nuxt.$route.path.includes('about-us') || $nuxt.$route.path.includes('mission-vision') || $nuxt.$route.path.includes('leadership-team') || $nuxt.$route.path.includes('testimonial')) && 'nuxt-link-active'}`">
+                                        :class="`nav-link dropdown-toggle ${($nuxt.$route.path.includes('about-us') || $nuxt.$route.path.includes('mission-vision') || $nuxt.$route.path.includes('leadership-team') || $nuxt.$route.path.includes('testimonial') || $nuxt.$route.path.includes('careers')) && 'nuxt-link-active'}`">
                                         About Us </NuxtLink>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
@@ -122,6 +122,12 @@
                                                 aria-label="testimonial page"
                                                 :class="`nav-link ${($nuxt.$route.path.includes('testimonial')) && 'nuxt-link-active'}`">
                                                 Testimonial </NuxtLink>
+                                        </li>
+                                        <li class="nav-item">
+                                            <NuxtLink to="/careers"
+                                                aria-label="careers page"
+                                                :class="`nav-link ${($nuxt.$route.path.includes('careers')) && 'nuxt-link-active'}`">
+                                                Careers </NuxtLink>
                                         </li>
                                     </ul>
                                 </li>
@@ -330,6 +336,9 @@
                         </NuxtLink>
                         <NuxtLink to="/testimonial" aria-label="testimonial page">
                             <el-menu-item index="3-3">Testimonial </el-menu-item>
+                        </NuxtLink>
+                        <NuxtLink to="/careers" aria-label="careers page">
+                            <el-menu-item index="3-4">Careers </el-menu-item>
                         </NuxtLink>
                     </el-submenu>
                     <el-submenu index="4">

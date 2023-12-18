@@ -72,6 +72,9 @@
                 <NuxtLink to="/testimonial" aria-label="testimonial page"> Testimonial </NuxtLink>
               </li>
               <li>
+                <NuxtLink to="/careers" aria-label="contact us page"> Careers </NuxtLink>
+              </li>
+              <li>
                 <NuxtLink to="/contact-us" aria-label="contact us page"> Contact Us </NuxtLink>
               </li>
             </ul>

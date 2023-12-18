@@ -18,6 +18,7 @@ export const API_ROUTES = {
     aboutSection: "/api/v1/about-section",
     bannerSection: "/api/v1/home-page-banner",
     blog: "/api/v1/blog",
+    job_opening: "/api/v1/job-openings",
     expertTip: "/api/v1/expert-tip",
     management: "/api/v1/team-member/management",
     staff: "/api/v1/team-member/staff",

@@ -30,7 +30,7 @@ export default {
 
 <style scoped>
 .sbuttons {
-  bottom: 2%;
+  bottom: 1%;
   position: fixed;
   margin: 1em;
   left: 0;
@@ -137,7 +137,7 @@ export default {
   opacity: 1;
 }
 .sbutton.mainsbutton {
-  background: #2ab1ce;
+  background: #eacf6c;
 }
 .sbutton.youtube {
   background: #F44336;

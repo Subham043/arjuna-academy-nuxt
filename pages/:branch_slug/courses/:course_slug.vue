@@ -3,7 +3,7 @@
         <div class="inner-banner inner-banner-bg9">
             <div class="container">
                 <div class="inner-title">
-                    <h3 v-html="course?.name" />
+                    <h1 v-html="course?.name" />
                     <ul>
                         <li>
                             <NuxtLink to="/">Home</NuxtLink>

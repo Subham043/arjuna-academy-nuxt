@@ -29,8 +29,8 @@
                         </div>
                         <div class="report-sheet">
                             <div class="row align-items-center">
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <table class="table table-bordered">
+                                <div class="col-lg-12 col-md-12 col-sm-12 mobile-overflow-scroll">
+                                    <table class="table table-bordered table-responsive">
                                         <thead>
                                             <tr class="table-primary tb-heading">
                                                 <th scope="col" colspan="5">SUBJECT WISE EVALUATION</th>
@@ -62,8 +62,8 @@
                                         <column-chart :data="subjectReportSorted" suffix="%"></column-chart>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <table class="table table-bordered">
+                                <div class="col-lg-12 col-md-12 col-sm-12 mobile-overflow-scroll">
+                                    <table class="table table-bordered table-responsive">
                                         <thead>
                                             <tr class="table-primary tb-heading">
                                                 <th scope="col" colspan="5">TOTAL EVALUATION</th>
@@ -162,7 +162,7 @@
                                 <div class="report-sheet">
                                     <div class="row align-items-center">
                                         <div class="col-lg-12 col-md-12 col-sm-12">
-                                            <table class="table table-bordered">
+                                            <table class="table table-bordered table-responsive">
                                                 <thead>
                                                     <tr class="table-primary tb-heading">
                                                         <th scope="col" colspan="5">SUBJECT WISE EVALUATION</th>
@@ -191,12 +191,14 @@
                                                 <div class="text-center">
                                                     <h5>SUBJECT WISE EVALUATION ANALYSIS</h5>
                                                 </div>
-                                                <column-chart :data="subjectReportSorted" suffix="%"></column-chart>
+                                                <div class="text-center">
+                                                    <column-chart :data="subjectReportSorted" suffix="%"></column-chart>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="html2pdf__page-break"/>
                                         <div class="col-lg-12 col-md-12 col-sm-12 mt-5">
-                                            <table class="table table-bordered">
+                                            <table class="table table-bordered table-responsive">
                                                 <thead>
                                                     <tr class="table-primary tb-heading">
                                                         <th scope="col" colspan="5">TOTAL EVALUATION</th>
@@ -223,7 +225,9 @@
                                                 <div class="text-center">
                                                     <h5>TOTAL EVALUATION ANALYSIS</h5>
                                                 </div>
-                                                <pie-chart loading="Loading Chart..." :data="totalReport" suffix="%" :donut="false"></pie-chart>
+                                                <div class="text-center">
+                                                    <pie-chart loading="Loading Chart..." :data="totalReport" suffix="%" :donut="false"></pie-chart>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-5 col-sm-12">
@@ -413,6 +417,10 @@ export default {
 </script>
 
 <style scoped>
+.mobile-overflow-scroll{
+    overflow:hidden;
+    overflow-x:scroll;
+}
 .test-inner-title{
     padding-top: 50px;
     padding-bottom: 10px;

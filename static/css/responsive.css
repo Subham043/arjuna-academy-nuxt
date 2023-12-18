@@ -3,6 +3,14 @@
         --fontSize: 15px
     }
 
+    .d-none-sm{
+        display: none !important;
+    }
+
+    .el-collapse-item .el-collapse-item__arrow{
+        display: block;
+    }
+
     body {
         font-size: var(--fontSize)
     }
@@ -464,7 +472,7 @@
         padding-bottom: 20px
     }
 
-    .inner-banner .inner-title h3 {
+    .inner-banner .inner-title h3, .inner-banner .inner-title h1 {
         font-size: 25px;
         margin-bottom: 10px
     }
@@ -1831,7 +1839,7 @@
         padding-bottom: 70px
     }
 
-    .inner-banner .inner-title h3 {
+    .inner-banner .inner-title h3, .inner-banner .inner-title h1 {
         font-size: 30px;
         margin-bottom: 10px
     }

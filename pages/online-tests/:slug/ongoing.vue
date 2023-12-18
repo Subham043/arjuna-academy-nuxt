@@ -64,21 +64,21 @@
                                                 <h4>
                                                     Question <code>({{ current_question }}/{{ total_questions }})</code>
                                                 </h4>
-                                                <div v-html="questionSet?.current_quiz.question" />
+                                                <div v-html="questionSet?.current_question.question" />
                                             </div>
                                             <div class="answer-section">
                                                 <div class="d-flex align-items-center flex-wrap">
                                                     <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                        <el-radio v-model="attempted_answer" label="Answer1"><div class="px-3" v-html="questionSet?.current_quiz.answer_1" /></el-radio>
+                                                        <el-radio v-model="attempted_answer" label="Answer1"><div class="px-3" v-html="questionSet?.current_question.answer_1" /></el-radio>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                        <el-radio v-model="attempted_answer" label="Answer2"><div class="px-3" v-html="questionSet?.current_quiz.answer_2" /></el-radio>
+                                                        <el-radio v-model="attempted_answer" label="Answer2"><div class="px-3" v-html="questionSet?.current_question.answer_2" /></el-radio>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                        <el-radio v-model="attempted_answer" label="Answer3"><div class="px-3" v-html="questionSet?.current_quiz.answer_3" /></el-radio>
+                                                        <el-radio v-model="attempted_answer" label="Answer3"><div class="px-3" v-html="questionSet?.current_question.answer_3" /></el-radio>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12 answer-holder p-2">
-                                                        <el-radio v-model="attempted_answer" label="Answer4"><div class="px-3" v-html="questionSet?.current_quiz.answer_4" /></el-radio>
+                                                        <el-radio v-model="attempted_answer" label="Answer4"><div class="px-3" v-html="questionSet?.current_question.answer_4" /></el-radio>
                                                     </div>
                                                 </div>
                                             </div>
